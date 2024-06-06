@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfEmployee xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Employee>
+    <Id>1</Id>
+    <Lastname>Vasquez</Lastname>
+    <Name>Carlos</Name>
+    <Salary>400</Salary>
+    <Tasks>0</Tasks>
+    <WorkHours>50</WorkHours>
+    <Sales>0</Sales>
+    <Active>false</Active>
+    <Quota>0</Quota>
+  </Employee>
+  <Employee>
+    <Id>3</Id>
+    <Lastname>Espanha</Lastname>
+    <Name>Pablo</Name>
+    <Salary>700</Salary>
+    <Tasks>0</Tasks>
+    <WorkHours>30</WorkHours>
+    <Sales>0</Sales>
+    <Active>false</Active>
+    <Quota>0</Quota>
+  </Employee>
+  <Employee>
+    <Id>4</Id>
+    <Lastname>Guau</Lastname>
+    <Name>Perro</Name>
+    <Salary>500</Salary>
+    <Tasks>0</Tasks>
+    <WorkHours>2</WorkHours>
+    <Sales>0</Sales>
+    <Active>false</Active>
+    <Quota>0</Quota>
+  </Employee>
+</ArrayOfEmployee>

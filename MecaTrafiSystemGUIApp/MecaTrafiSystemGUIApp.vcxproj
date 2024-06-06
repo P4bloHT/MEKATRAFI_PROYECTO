@@ -81,6 +81,8 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies />
+      <SubSystem>Windows</SubSystem>
+      <EntryPointSymbol>Main</EntryPointSymbol>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -111,6 +113,289 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MecaTrafiSystemModel\MecaTrafiSystemModel.vcxproj">
+      <Project>{d02371d4-0327-4ac8-bda1-be624231fd49}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\MecaTrafiSystemService\MecaTrafiSystemService.vcxproj">
+      <Project>{cf673c40-8c54-4d62-ac40-a2c207e9be54}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AdminForm.cpp" />
+    <ClCompile Include="AgregarEmpleado.cpp" />
+    <ClCompile Include="BuscarComponente.cpp" />
+    <ClCompile Include="Chat.cpp" />
+    <ClCompile Include="CompraStockForm.cpp" />
+    <ClCompile Include="ConfirmarsSalida.cpp" />
+    <ClCompile Include="DC.cpp" />
+    <ClCompile Include="EmployeeForm.cpp" />
+    <ClCompile Include="Faja mediana.cpp" />
+    <ClCompile Include="Fajadelgada.cpp" />
+    <ClCompile Include="fajagrande.cpp" />
+    <ClCompile Include="fajamediana.cpp" />
+    <ClCompile Include="GenerateOrder.cpp" />
+    <ClCompile Include="InterfazCliente.cpp" />
+    <ClCompile Include="Login.cpp" />
+    <ClCompile Include="MecaTrafiSystemMainForm.cpp" />
+    <ClCompile Include="Monofásico.cpp" />
+    <ClCompile Include="Poleaconpiñon.cpp" />
+    <ClCompile Include="Poleasinpiñon.cpp" />
+    <ClCompile Include="Reclamar.cpp" />
+    <ClCompile Include="Reportes.cpp" />
+    <ClCompile Include="rodaguja.cpp" />
+    <ClCompile Include="rodbolas.cpp" />
+    <ClCompile Include="rodrodillos.cpp" />
+    <ClCompile Include="Salario.cpp" />
+    <ClCompile Include="StockForm.cpp" />
+    <ClCompile Include="TornilloAllen.cpp" />
+    <ClCompile Include="Tornillohexagonal.cpp" />
+    <ClCompile Include="Tornillophillips.cpp" />
+    <ClCompile Include="TornilloProduct.cpp" />
+    <ClCompile Include="Trifásico.cpp" />
+    <ClCompile Include="usuario.cpp" />
+    <ClCompile Include="UsuarioInvalido.cpp" />
+    <ClCompile Include="ventafajas.cpp" />
+    <ClCompile Include="VentaMotores.cpp" />
+    <ClCompile Include="ventapolea.cpp" />
+    <ClCompile Include="ventaroda.cpp" />
+    <ClCompile Include="ventatornillos.cpp" />
+    <ClCompile Include="VerMotores.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AdminForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="AgregarEmpleado.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="BuscarComponente.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Chat.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="CompraStockForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="ConfirmarsSalida.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="DC.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Faja mediana.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Fajadelgada.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="fajagrande.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="fajamediana.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="GenerateOrder.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="InterfazCliente.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Login.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Monofásico.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Poleaconpiñon.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Poleasinpiñon.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Reclamar.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Reportes.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="rodaguja.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="rodbolas.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="rodrodillos.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Salario.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="EmployeeForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="StockForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="TornilloAllen.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Tornillohexagonal.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Tornillophillips.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="TornilloProduct.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Trifásico.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="usuario.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="UsuarioInvalido.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="ventafajas.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="VentaMotores.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="ventapolea.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="ventaroda.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="ventatornillos.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="VerMotores.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AdminForm.resx">
+      <DependentUpon>AdminForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AgregarEmpleado.resx">
+      <DependentUpon>AgregarEmpleado.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BuscarComponente.resx">
+      <DependentUpon>BuscarComponente.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chat.resx">
+      <DependentUpon>Chat.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CompraStockForm.resx">
+      <DependentUpon>CompraStockForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfirmarsSalida.resx">
+      <DependentUpon>ConfirmarsSalida.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DC.resx">
+      <DependentUpon>DC.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fajadelgada.resx">
+      <DependentUpon>Fajadelgada.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fajagrande.resx">
+      <DependentUpon>fajagrande.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fajamediana.resx">
+      <DependentUpon>fajamediana.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GenerateOrder.resx">
+      <DependentUpon>GenerateOrder.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InterfazCliente.resx">
+      <DependentUpon>InterfazCliente.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Monofásico.resx">
+      <DependentUpon>Monofásico.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Poleaconpiñon.resx">
+      <DependentUpon>Poleaconpiñon.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Poleasinpiñon.resx">
+      <DependentUpon>Poleasinpiñon.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reclamar.resx">
+      <DependentUpon>Reclamar.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes.resx">
+      <DependentUpon>Reportes.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rodaguja.resx">
+      <DependentUpon>rodaguja.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rodbolas.resx">
+      <DependentUpon>rodbolas.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rodrodillos.resx">
+      <DependentUpon>rodrodillos.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Salario.resx">
+      <DependentUpon>Salario.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeForm.resx">
+      <DependentUpon>EmployeeForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StockForm.resx">
+      <DependentUpon>StockForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TornilloAllen.resx">
+      <DependentUpon>TornilloAllen.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tornillohexagonal.resx">
+      <DependentUpon>Tornillohexagonal.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tornillophillips.resx">
+      <DependentUpon>Tornillophillips.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TornilloProduct.resx">
+      <DependentUpon>TornilloProduct.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Trifásico.resx">
+      <DependentUpon>Trifásico.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usuario.resx">
+      <DependentUpon>usuario.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UsuarioInvalido.resx">
+      <DependentUpon>UsuarioInvalido.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ventafajas.resx">
+      <DependentUpon>ventafajas.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VentaMotores.resx">
+      <DependentUpon>VentaMotores.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ventapolea.resx">
+      <DependentUpon>ventapolea.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ventaroda.resx">
+      <DependentUpon>ventaroda.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ventatornillos.resx">
+      <DependentUpon>ventatornillos.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VerMotores.resx">
+      <DependentUpon>VerMotores.h</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -144,6 +144,14 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MecaTrafiSystemModel\MecaTrafiSystemModel.vcxproj">
+      <Project>{d02371d4-0327-4ac8-bda1-be624231fd49}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\MecaTrafiSystemPersistance\MecaTrafiSystemPersistance.vcxproj">
+      <Project>{847d8621-806d-4d14-8d67-f9efc4c79650}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

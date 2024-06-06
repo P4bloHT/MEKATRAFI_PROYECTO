@@ -1,0 +1,2 @@
+#include "BuscarComponente.h"
+
