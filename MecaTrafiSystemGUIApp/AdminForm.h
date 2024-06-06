@@ -225,7 +225,7 @@ namespace MecaTrafiSystemGUIApp {
 				static_cast<System::Byte>(0)));
 			this->label1->Location = System::Drawing::Point(70, 42);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(49, 21);
+			this->label1->Size = System::Drawing::Size(61, 28);
 			this->label1->TabIndex = 18;
 			this->label1->Text = L"Menu";
 			// 
@@ -326,7 +326,7 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// AdminForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(7, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(9, 17);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1261, 675);
 			this->Controls->Add(BtnAgregarTask);
