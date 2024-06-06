@@ -805,5 +805,4 @@ int MecaTrafiSystemPersistance::Persistance::DeleteMotorDCPurchase(int motorDCPu
 MechanicComponent^ MecaTrafiSystemPersistance::Persistance::QueryallMotorDCPurchaseById(int motorDCPurchaseId)
 {
     throw gcnew System::NotImplementedException();
-    // TODO: Insertar una instrucción "return" aquí
 }
