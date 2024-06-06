@@ -227,6 +227,19 @@ List<MechanicComponent^>^ MecaTrafiSystemService::Service::QueryTornillosByName(
     return listToReturn;
 }
 
+List<MechanicComponent^>^ MecaTrafiSystemService::Service::QueryfajasByName(String^ name)
+{
+    List<MechanicComponent^>^ fajasList = Persistance::Queryallfaja();
+    List<MechanicComponent^>^ listToReturn = gcnew List<MechanicComponent^>();
+    for (int i = 0; i < fajasList->Count; i++) {
+        if (fajasList[i]->Name->Contains(name))
+            listToReturn->Add(fajasList[i]);
+    }
+
+    return listToReturn;
+
+}
+
 Client^ MecaTrafiSystemService::Service::GetAnnonymusClient()
 {
     return AnnonymusClient;
