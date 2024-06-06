@@ -413,7 +413,17 @@ private: System::Void btnAgregarClientes_Click(System::Object^ sender, System::E
 		bandera = false;
 	}
 }
+	   bool bandera2 = true;
+	   CompraStockForm^ agregarCompra = nullptr;
 private: System::Void btnComprarProductos_Click(System::Object^ sender, System::EventArgs^ e) {
+	//usuario^ agregarCliente = gcnew usuario();
+	if (bandera2) {
+		if (agregarCompra == nullptr || !agregarCompra->Visible) {
+			agregarCompra = gcnew CompraStockForm();
+			agregarCompra->Show();
+		}
+		bandera2 = false;
+	}
 }
 };
 }

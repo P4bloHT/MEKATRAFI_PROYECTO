@@ -494,6 +494,11 @@ namespace MecaTrafiSystemGUIApp {
 			this->pbEmpPhoto = (gcnew System::Windows::Forms::PictureBox());
 			this->txtcompraTornilloDiametroRosca = (gcnew System::Windows::Forms::TextBox());
 			this->dgvcompratornillos = (gcnew System::Windows::Forms::DataGridView());
+			this->Nombres = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Carrera = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Cantidad = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Proveedor = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Telefono = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->label12 = (gcnew System::Windows::Forms::Label());
 			this->label11 = (gcnew System::Windows::Forms::Label());
 			this->label10 = (gcnew System::Windows::Forms::Label());
@@ -509,6 +514,14 @@ namespace MecaTrafiSystemGUIApp {
 			this->txtcompraTornilloTipo = (gcnew System::Windows::Forms::TextBox());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->FajasPage = (gcnew System::Windows::Forms::TabPage());
+			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->label15 = (gcnew System::Windows::Forms::Label());
+			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
+			this->dataGridViewTextBoxColumn1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridViewTextBoxColumn2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridViewTextBoxColumn3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridViewTextBoxColumn4 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridViewTextBoxColumn5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->textBox12 = (gcnew System::Windows::Forms::TextBox());
 			this->label17 = (gcnew System::Windows::Forms::Label());
 			this->textBox13 = (gcnew System::Windows::Forms::TextBox());
@@ -536,6 +549,14 @@ namespace MecaTrafiSystemGUIApp {
 			this->textBox24 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox25 = (gcnew System::Windows::Forms::TextBox());
 			this->PoleasPage = (gcnew System::Windows::Forms::TabPage());
+			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
+			this->label16 = (gcnew System::Windows::Forms::Label());
+			this->dataGridView2 = (gcnew System::Windows::Forms::DataGridView());
+			this->dataGridViewTextBoxColumn6 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridViewTextBoxColumn7 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridViewTextBoxColumn8 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridViewTextBoxColumn9 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridViewTextBoxColumn10 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->label43 = (gcnew System::Windows::Forms::Label());
 			this->textBox35 = (gcnew System::Windows::Forms::TextBox());
 			this->label42 = (gcnew System::Windows::Forms::Label());
@@ -565,6 +586,14 @@ namespace MecaTrafiSystemGUIApp {
 			this->textBox39 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox40 = (gcnew System::Windows::Forms::TextBox());
 			this->RodamientosPage = (gcnew System::Windows::Forms::TabPage());
+			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
+			this->label20 = (gcnew System::Windows::Forms::Label());
+			this->dataGridView3 = (gcnew System::Windows::Forms::DataGridView());
+			this->dataGridViewTextBoxColumn11 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridViewTextBoxColumn12 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridViewTextBoxColumn13 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridViewTextBoxColumn14 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridViewTextBoxColumn15 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->textBox42 = (gcnew System::Windows::Forms::TextBox());
 			this->label52 = (gcnew System::Windows::Forms::Label());
 			this->textBox43 = (gcnew System::Windows::Forms::TextBox());
@@ -591,6 +620,14 @@ namespace MecaTrafiSystemGUIApp {
 			this->textBox54 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox55 = (gcnew System::Windows::Forms::TextBox());
 			this->MotoresACPage = (gcnew System::Windows::Forms::TabPage());
+			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
+			this->label21 = (gcnew System::Windows::Forms::Label());
+			this->dataGridView4 = (gcnew System::Windows::Forms::DataGridView());
+			this->dataGridViewTextBoxColumn16 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridViewTextBoxColumn17 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridViewTextBoxColumn18 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridViewTextBoxColumn19 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridViewTextBoxColumn20 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->label44 = (gcnew System::Windows::Forms::Label());
 			this->textBox36 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox57 = (gcnew System::Windows::Forms::TextBox());
@@ -624,6 +661,14 @@ namespace MecaTrafiSystemGUIApp {
 			this->textBox69 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox70 = (gcnew System::Windows::Forms::TextBox());
 			this->MotoresDCPage = (gcnew System::Windows::Forms::TabPage());
+			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
+			this->label35 = (gcnew System::Windows::Forms::Label());
+			this->dataGridView5 = (gcnew System::Windows::Forms::DataGridView());
+			this->dataGridViewTextBoxColumn21 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridViewTextBoxColumn22 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridViewTextBoxColumn23 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridViewTextBoxColumn24 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridViewTextBoxColumn25 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->textBox72 = (gcnew System::Windows::Forms::TextBox());
 			this->label86 = (gcnew System::Windows::Forms::Label());
 			this->textBox73 = (gcnew System::Windows::Forms::TextBox());
@@ -654,71 +699,26 @@ namespace MecaTrafiSystemGUIApp {
 			this->btnagregar = (gcnew System::Windows::Forms::Button());
 			this->btncancelar = (gcnew System::Windows::Forms::Button());
 			this->btnEditar = (gcnew System::Windows::Forms::Button());
-			this->Nombres = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Carrera = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Cantidad = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Proveedor = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Telefono = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
-			this->dataGridViewTextBoxColumn1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dataGridViewTextBoxColumn2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dataGridViewTextBoxColumn3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dataGridViewTextBoxColumn4 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dataGridViewTextBoxColumn5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dataGridView2 = (gcnew System::Windows::Forms::DataGridView());
-			this->dataGridViewTextBoxColumn6 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dataGridViewTextBoxColumn7 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dataGridViewTextBoxColumn8 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dataGridViewTextBoxColumn9 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dataGridViewTextBoxColumn10 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dataGridView3 = (gcnew System::Windows::Forms::DataGridView());
-			this->dataGridViewTextBoxColumn11 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dataGridViewTextBoxColumn12 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dataGridViewTextBoxColumn13 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dataGridViewTextBoxColumn14 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dataGridViewTextBoxColumn15 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dataGridView4 = (gcnew System::Windows::Forms::DataGridView());
-			this->dataGridViewTextBoxColumn16 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dataGridViewTextBoxColumn17 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dataGridViewTextBoxColumn18 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dataGridViewTextBoxColumn19 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dataGridViewTextBoxColumn20 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dataGridView5 = (gcnew System::Windows::Forms::DataGridView());
-			this->dataGridViewTextBoxColumn21 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dataGridViewTextBoxColumn22 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dataGridViewTextBoxColumn23 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dataGridViewTextBoxColumn24 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dataGridViewTextBoxColumn25 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
-			this->label15 = (gcnew System::Windows::Forms::Label());
-			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
-			this->label16 = (gcnew System::Windows::Forms::Label());
-			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
-			this->label20 = (gcnew System::Windows::Forms::Label());
-			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
-			this->label21 = (gcnew System::Windows::Forms::Label());
-			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
-			this->label35 = (gcnew System::Windows::Forms::Label());
 			this->tabAdminCompraProductos->SuspendLayout();
 			this->TornillosPage->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbEmpPhoto))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvcompratornillos))->BeginInit();
 			this->FajasPage->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->PoleasPage->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			this->RodamientosPage->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView3))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
 			this->MotoresACPage->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView4))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->BeginInit();
 			this->MotoresDCPage->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView5))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->BeginInit();
 			this->panel1->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView2))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView3))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView4))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView5))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// txtTornilloDescriptioncompra
@@ -961,6 +961,31 @@ namespace MecaTrafiSystemGUIApp {
 			this->dgvcompratornillos->TabIndex = 61;
 			this->dgvcompratornillos->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &CompraStockForm::dgvEmpleados_CellContentClick);
 			// 
+			// Nombres
+			// 
+			this->Nombres->HeaderText = L"ID";
+			this->Nombres->Name = L"Nombres";
+			// 
+			// Carrera
+			// 
+			this->Carrera->HeaderText = L"Nombre";
+			this->Carrera->Name = L"Carrera";
+			// 
+			// Cantidad
+			// 
+			this->Cantidad->HeaderText = L"Cantidad";
+			this->Cantidad->Name = L"Cantidad";
+			// 
+			// Proveedor
+			// 
+			this->Proveedor->HeaderText = L"Proveedor";
+			this->Proveedor->Name = L"Proveedor";
+			// 
+			// Telefono
+			// 
+			this->Telefono->HeaderText = L"Precio Unitario";
+			this->Telefono->Name = L"Telefono";
+			// 
 			// label12
 			// 
 			this->label12->AutoSize = true;
@@ -1128,6 +1153,64 @@ namespace MecaTrafiSystemGUIApp {
 			this->FajasPage->TabIndex = 1;
 			this->FajasPage->Text = L"Fajas";
 			this->FajasPage->UseVisualStyleBackColor = true;
+			// 
+			// textBox1
+			// 
+			this->textBox1->Location = System::Drawing::Point(366, 263);
+			this->textBox1->Margin = System::Windows::Forms::Padding(2);
+			this->textBox1->Name = L"textBox1";
+			this->textBox1->Size = System::Drawing::Size(51, 20);
+			this->textBox1->TabIndex = 111;
+			// 
+			// label15
+			// 
+			this->label15->AutoSize = true;
+			this->label15->Location = System::Drawing::Point(302, 268);
+			this->label15->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label15->Name = L"label15";
+			this->label15->Size = System::Drawing::Size(49, 13);
+			this->label15->TabIndex = 110;
+			this->label15->Text = L"Cantidad";
+			// 
+			// dataGridView1
+			// 
+			this->dataGridView1->AllowUserToAddRows = false;
+			this->dataGridView1->AllowUserToOrderColumns = true;
+			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(5) {
+				this->dataGridViewTextBoxColumn1,
+					this->dataGridViewTextBoxColumn2, this->dataGridViewTextBoxColumn3, this->dataGridViewTextBoxColumn4, this->dataGridViewTextBoxColumn5
+			});
+			this->dataGridView1->Location = System::Drawing::Point(62, 319);
+			this->dataGridView1->Name = L"dataGridView1";
+			this->dataGridView1->RowHeadersVisible = false;
+			this->dataGridView1->Size = System::Drawing::Size(504, 119);
+			this->dataGridView1->TabIndex = 109;
+			// 
+			// dataGridViewTextBoxColumn1
+			// 
+			this->dataGridViewTextBoxColumn1->HeaderText = L"ID";
+			this->dataGridViewTextBoxColumn1->Name = L"dataGridViewTextBoxColumn1";
+			// 
+			// dataGridViewTextBoxColumn2
+			// 
+			this->dataGridViewTextBoxColumn2->HeaderText = L"Nombre";
+			this->dataGridViewTextBoxColumn2->Name = L"dataGridViewTextBoxColumn2";
+			// 
+			// dataGridViewTextBoxColumn3
+			// 
+			this->dataGridViewTextBoxColumn3->HeaderText = L"Cantidad";
+			this->dataGridViewTextBoxColumn3->Name = L"dataGridViewTextBoxColumn3";
+			// 
+			// dataGridViewTextBoxColumn4
+			// 
+			this->dataGridViewTextBoxColumn4->HeaderText = L"Proveedor";
+			this->dataGridViewTextBoxColumn4->Name = L"dataGridViewTextBoxColumn4";
+			// 
+			// dataGridViewTextBoxColumn5
+			// 
+			this->dataGridViewTextBoxColumn5->HeaderText = L"Precio Unitario";
+			this->dataGridViewTextBoxColumn5->Name = L"dataGridViewTextBoxColumn5";
 			// 
 			// textBox12
 			// 
@@ -1408,6 +1491,64 @@ namespace MecaTrafiSystemGUIApp {
 			this->PoleasPage->TabIndex = 2;
 			this->PoleasPage->Text = L"Poleas";
 			this->PoleasPage->UseVisualStyleBackColor = true;
+			// 
+			// textBox2
+			// 
+			this->textBox2->Location = System::Drawing::Point(362, 298);
+			this->textBox2->Margin = System::Windows::Forms::Padding(2);
+			this->textBox2->Name = L"textBox2";
+			this->textBox2->Size = System::Drawing::Size(51, 20);
+			this->textBox2->TabIndex = 135;
+			// 
+			// label16
+			// 
+			this->label16->AutoSize = true;
+			this->label16->Location = System::Drawing::Point(298, 303);
+			this->label16->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label16->Name = L"label16";
+			this->label16->Size = System::Drawing::Size(49, 13);
+			this->label16->TabIndex = 134;
+			this->label16->Text = L"Cantidad";
+			// 
+			// dataGridView2
+			// 
+			this->dataGridView2->AllowUserToAddRows = false;
+			this->dataGridView2->AllowUserToOrderColumns = true;
+			this->dataGridView2->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dataGridView2->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(5) {
+				this->dataGridViewTextBoxColumn6,
+					this->dataGridViewTextBoxColumn7, this->dataGridViewTextBoxColumn8, this->dataGridViewTextBoxColumn9, this->dataGridViewTextBoxColumn10
+			});
+			this->dataGridView2->Location = System::Drawing::Point(72, 327);
+			this->dataGridView2->Name = L"dataGridView2";
+			this->dataGridView2->RowHeadersVisible = false;
+			this->dataGridView2->Size = System::Drawing::Size(504, 119);
+			this->dataGridView2->TabIndex = 133;
+			// 
+			// dataGridViewTextBoxColumn6
+			// 
+			this->dataGridViewTextBoxColumn6->HeaderText = L"ID";
+			this->dataGridViewTextBoxColumn6->Name = L"dataGridViewTextBoxColumn6";
+			// 
+			// dataGridViewTextBoxColumn7
+			// 
+			this->dataGridViewTextBoxColumn7->HeaderText = L"Nombre";
+			this->dataGridViewTextBoxColumn7->Name = L"dataGridViewTextBoxColumn7";
+			// 
+			// dataGridViewTextBoxColumn8
+			// 
+			this->dataGridViewTextBoxColumn8->HeaderText = L"Cantidad";
+			this->dataGridViewTextBoxColumn8->Name = L"dataGridViewTextBoxColumn8";
+			// 
+			// dataGridViewTextBoxColumn9
+			// 
+			this->dataGridViewTextBoxColumn9->HeaderText = L"Proveedor";
+			this->dataGridViewTextBoxColumn9->Name = L"dataGridViewTextBoxColumn9";
+			// 
+			// dataGridViewTextBoxColumn10
+			// 
+			this->dataGridViewTextBoxColumn10->HeaderText = L"Precio Unitario";
+			this->dataGridViewTextBoxColumn10->Name = L"dataGridViewTextBoxColumn10";
 			// 
 			// label43
 			// 
@@ -1704,6 +1845,64 @@ namespace MecaTrafiSystemGUIApp {
 			this->RodamientosPage->Text = L"Rodamientos";
 			this->RodamientosPage->UseVisualStyleBackColor = true;
 			// 
+			// textBox3
+			// 
+			this->textBox3->Location = System::Drawing::Point(366, 268);
+			this->textBox3->Margin = System::Windows::Forms::Padding(2);
+			this->textBox3->Name = L"textBox3";
+			this->textBox3->Size = System::Drawing::Size(51, 20);
+			this->textBox3->TabIndex = 111;
+			// 
+			// label20
+			// 
+			this->label20->AutoSize = true;
+			this->label20->Location = System::Drawing::Point(302, 273);
+			this->label20->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label20->Name = L"label20";
+			this->label20->Size = System::Drawing::Size(49, 13);
+			this->label20->TabIndex = 110;
+			this->label20->Text = L"Cantidad";
+			// 
+			// dataGridView3
+			// 
+			this->dataGridView3->AllowUserToAddRows = false;
+			this->dataGridView3->AllowUserToOrderColumns = true;
+			this->dataGridView3->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dataGridView3->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(5) {
+				this->dataGridViewTextBoxColumn11,
+					this->dataGridViewTextBoxColumn12, this->dataGridViewTextBoxColumn13, this->dataGridViewTextBoxColumn14, this->dataGridViewTextBoxColumn15
+			});
+			this->dataGridView3->Location = System::Drawing::Point(80, 305);
+			this->dataGridView3->Name = L"dataGridView3";
+			this->dataGridView3->RowHeadersVisible = false;
+			this->dataGridView3->Size = System::Drawing::Size(504, 119);
+			this->dataGridView3->TabIndex = 109;
+			// 
+			// dataGridViewTextBoxColumn11
+			// 
+			this->dataGridViewTextBoxColumn11->HeaderText = L"ID";
+			this->dataGridViewTextBoxColumn11->Name = L"dataGridViewTextBoxColumn11";
+			// 
+			// dataGridViewTextBoxColumn12
+			// 
+			this->dataGridViewTextBoxColumn12->HeaderText = L"Nombre";
+			this->dataGridViewTextBoxColumn12->Name = L"dataGridViewTextBoxColumn12";
+			// 
+			// dataGridViewTextBoxColumn13
+			// 
+			this->dataGridViewTextBoxColumn13->HeaderText = L"Cantidad";
+			this->dataGridViewTextBoxColumn13->Name = L"dataGridViewTextBoxColumn13";
+			// 
+			// dataGridViewTextBoxColumn14
+			// 
+			this->dataGridViewTextBoxColumn14->HeaderText = L"Proveedor";
+			this->dataGridViewTextBoxColumn14->Name = L"dataGridViewTextBoxColumn14";
+			// 
+			// dataGridViewTextBoxColumn15
+			// 
+			this->dataGridViewTextBoxColumn15->HeaderText = L"Precio Unitario";
+			this->dataGridViewTextBoxColumn15->Name = L"dataGridViewTextBoxColumn15";
+			// 
 			// textBox42
 			// 
 			this->textBox42->Location = System::Drawing::Point(366, 161);
@@ -1978,6 +2177,64 @@ namespace MecaTrafiSystemGUIApp {
 			this->MotoresACPage->TabIndex = 4;
 			this->MotoresACPage->Text = L"MotoresAC";
 			this->MotoresACPage->UseVisualStyleBackColor = true;
+			// 
+			// textBox4
+			// 
+			this->textBox4->Location = System::Drawing::Point(352, 305);
+			this->textBox4->Margin = System::Windows::Forms::Padding(2);
+			this->textBox4->Name = L"textBox4";
+			this->textBox4->Size = System::Drawing::Size(51, 20);
+			this->textBox4->TabIndex = 113;
+			// 
+			// label21
+			// 
+			this->label21->AutoSize = true;
+			this->label21->Location = System::Drawing::Point(288, 310);
+			this->label21->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label21->Name = L"label21";
+			this->label21->Size = System::Drawing::Size(49, 13);
+			this->label21->TabIndex = 112;
+			this->label21->Text = L"Cantidad";
+			// 
+			// dataGridView4
+			// 
+			this->dataGridView4->AllowUserToAddRows = false;
+			this->dataGridView4->AllowUserToOrderColumns = true;
+			this->dataGridView4->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dataGridView4->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(5) {
+				this->dataGridViewTextBoxColumn16,
+					this->dataGridViewTextBoxColumn17, this->dataGridViewTextBoxColumn18, this->dataGridViewTextBoxColumn19, this->dataGridViewTextBoxColumn20
+			});
+			this->dataGridView4->Location = System::Drawing::Point(74, 334);
+			this->dataGridView4->Name = L"dataGridView4";
+			this->dataGridView4->RowHeadersVisible = false;
+			this->dataGridView4->Size = System::Drawing::Size(504, 119);
+			this->dataGridView4->TabIndex = 111;
+			// 
+			// dataGridViewTextBoxColumn16
+			// 
+			this->dataGridViewTextBoxColumn16->HeaderText = L"ID";
+			this->dataGridViewTextBoxColumn16->Name = L"dataGridViewTextBoxColumn16";
+			// 
+			// dataGridViewTextBoxColumn17
+			// 
+			this->dataGridViewTextBoxColumn17->HeaderText = L"Nombre";
+			this->dataGridViewTextBoxColumn17->Name = L"dataGridViewTextBoxColumn17";
+			// 
+			// dataGridViewTextBoxColumn18
+			// 
+			this->dataGridViewTextBoxColumn18->HeaderText = L"Cantidad";
+			this->dataGridViewTextBoxColumn18->Name = L"dataGridViewTextBoxColumn18";
+			// 
+			// dataGridViewTextBoxColumn19
+			// 
+			this->dataGridViewTextBoxColumn19->HeaderText = L"Proveedor";
+			this->dataGridViewTextBoxColumn19->Name = L"dataGridViewTextBoxColumn19";
+			// 
+			// dataGridViewTextBoxColumn20
+			// 
+			this->dataGridViewTextBoxColumn20->HeaderText = L"Precio Unitario";
+			this->dataGridViewTextBoxColumn20->Name = L"dataGridViewTextBoxColumn20";
 			// 
 			// label44
 			// 
@@ -2310,6 +2567,64 @@ namespace MecaTrafiSystemGUIApp {
 			this->MotoresDCPage->Text = L"MotoresDC";
 			this->MotoresDCPage->UseVisualStyleBackColor = true;
 			// 
+			// textBox5
+			// 
+			this->textBox5->Location = System::Drawing::Point(366, 270);
+			this->textBox5->Margin = System::Windows::Forms::Padding(2);
+			this->textBox5->Name = L"textBox5";
+			this->textBox5->Size = System::Drawing::Size(51, 20);
+			this->textBox5->TabIndex = 111;
+			// 
+			// label35
+			// 
+			this->label35->AutoSize = true;
+			this->label35->Location = System::Drawing::Point(302, 275);
+			this->label35->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label35->Name = L"label35";
+			this->label35->Size = System::Drawing::Size(49, 13);
+			this->label35->TabIndex = 110;
+			this->label35->Text = L"Cantidad";
+			// 
+			// dataGridView5
+			// 
+			this->dataGridView5->AllowUserToAddRows = false;
+			this->dataGridView5->AllowUserToOrderColumns = true;
+			this->dataGridView5->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dataGridView5->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(5) {
+				this->dataGridViewTextBoxColumn21,
+					this->dataGridViewTextBoxColumn22, this->dataGridViewTextBoxColumn23, this->dataGridViewTextBoxColumn24, this->dataGridViewTextBoxColumn25
+			});
+			this->dataGridView5->Location = System::Drawing::Point(73, 312);
+			this->dataGridView5->Name = L"dataGridView5";
+			this->dataGridView5->RowHeadersVisible = false;
+			this->dataGridView5->Size = System::Drawing::Size(504, 119);
+			this->dataGridView5->TabIndex = 109;
+			// 
+			// dataGridViewTextBoxColumn21
+			// 
+			this->dataGridViewTextBoxColumn21->HeaderText = L"ID";
+			this->dataGridViewTextBoxColumn21->Name = L"dataGridViewTextBoxColumn21";
+			// 
+			// dataGridViewTextBoxColumn22
+			// 
+			this->dataGridViewTextBoxColumn22->HeaderText = L"Nombre";
+			this->dataGridViewTextBoxColumn22->Name = L"dataGridViewTextBoxColumn22";
+			// 
+			// dataGridViewTextBoxColumn23
+			// 
+			this->dataGridViewTextBoxColumn23->HeaderText = L"Cantidad";
+			this->dataGridViewTextBoxColumn23->Name = L"dataGridViewTextBoxColumn23";
+			// 
+			// dataGridViewTextBoxColumn24
+			// 
+			this->dataGridViewTextBoxColumn24->HeaderText = L"Proveedor";
+			this->dataGridViewTextBoxColumn24->Name = L"dataGridViewTextBoxColumn24";
+			// 
+			// dataGridViewTextBoxColumn25
+			// 
+			this->dataGridViewTextBoxColumn25->HeaderText = L"Precio Unitario";
+			this->dataGridViewTextBoxColumn25->Name = L"dataGridViewTextBoxColumn25";
+			// 
 			// textBox72
 			// 
 			this->textBox72->Location = System::Drawing::Point(366, 161);
@@ -2580,6 +2895,7 @@ namespace MecaTrafiSystemGUIApp {
 			this->btnagregar->TabIndex = 14;
 			this->btnagregar->Text = L"Agregar";
 			this->btnagregar->UseVisualStyleBackColor = false;
+			this->btnagregar->Click += gcnew System::EventHandler(this, &CompraStockForm::btnagregar_Click);
 			// 
 			// btncancelar
 			// 
@@ -2609,321 +2925,6 @@ namespace MecaTrafiSystemGUIApp {
 			this->btnEditar->Text = L"Editar";
 			this->btnEditar->UseVisualStyleBackColor = false;
 			// 
-			// Nombres
-			// 
-			this->Nombres->HeaderText = L"ID";
-			this->Nombres->Name = L"Nombres";
-			// 
-			// Carrera
-			// 
-			this->Carrera->HeaderText = L"Nombre";
-			this->Carrera->Name = L"Carrera";
-			// 
-			// Cantidad
-			// 
-			this->Cantidad->HeaderText = L"Cantidad";
-			this->Cantidad->Name = L"Cantidad";
-			// 
-			// Proveedor
-			// 
-			this->Proveedor->HeaderText = L"Proveedor";
-			this->Proveedor->Name = L"Proveedor";
-			// 
-			// Telefono
-			// 
-			this->Telefono->HeaderText = L"Precio Unitario";
-			this->Telefono->Name = L"Telefono";
-			// 
-			// dataGridView1
-			// 
-			this->dataGridView1->AllowUserToAddRows = false;
-			this->dataGridView1->AllowUserToOrderColumns = true;
-			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(5) {
-				this->dataGridViewTextBoxColumn1,
-					this->dataGridViewTextBoxColumn2, this->dataGridViewTextBoxColumn3, this->dataGridViewTextBoxColumn4, this->dataGridViewTextBoxColumn5
-			});
-			this->dataGridView1->Location = System::Drawing::Point(62, 319);
-			this->dataGridView1->Name = L"dataGridView1";
-			this->dataGridView1->RowHeadersVisible = false;
-			this->dataGridView1->Size = System::Drawing::Size(504, 119);
-			this->dataGridView1->TabIndex = 109;
-			// 
-			// dataGridViewTextBoxColumn1
-			// 
-			this->dataGridViewTextBoxColumn1->HeaderText = L"ID";
-			this->dataGridViewTextBoxColumn1->Name = L"dataGridViewTextBoxColumn1";
-			// 
-			// dataGridViewTextBoxColumn2
-			// 
-			this->dataGridViewTextBoxColumn2->HeaderText = L"Nombre";
-			this->dataGridViewTextBoxColumn2->Name = L"dataGridViewTextBoxColumn2";
-			// 
-			// dataGridViewTextBoxColumn3
-			// 
-			this->dataGridViewTextBoxColumn3->HeaderText = L"Cantidad";
-			this->dataGridViewTextBoxColumn3->Name = L"dataGridViewTextBoxColumn3";
-			// 
-			// dataGridViewTextBoxColumn4
-			// 
-			this->dataGridViewTextBoxColumn4->HeaderText = L"Proveedor";
-			this->dataGridViewTextBoxColumn4->Name = L"dataGridViewTextBoxColumn4";
-			// 
-			// dataGridViewTextBoxColumn5
-			// 
-			this->dataGridViewTextBoxColumn5->HeaderText = L"Precio Unitario";
-			this->dataGridViewTextBoxColumn5->Name = L"dataGridViewTextBoxColumn5";
-			// 
-			// dataGridView2
-			// 
-			this->dataGridView2->AllowUserToAddRows = false;
-			this->dataGridView2->AllowUserToOrderColumns = true;
-			this->dataGridView2->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView2->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(5) {
-				this->dataGridViewTextBoxColumn6,
-					this->dataGridViewTextBoxColumn7, this->dataGridViewTextBoxColumn8, this->dataGridViewTextBoxColumn9, this->dataGridViewTextBoxColumn10
-			});
-			this->dataGridView2->Location = System::Drawing::Point(72, 327);
-			this->dataGridView2->Name = L"dataGridView2";
-			this->dataGridView2->RowHeadersVisible = false;
-			this->dataGridView2->Size = System::Drawing::Size(504, 119);
-			this->dataGridView2->TabIndex = 133;
-			// 
-			// dataGridViewTextBoxColumn6
-			// 
-			this->dataGridViewTextBoxColumn6->HeaderText = L"ID";
-			this->dataGridViewTextBoxColumn6->Name = L"dataGridViewTextBoxColumn6";
-			// 
-			// dataGridViewTextBoxColumn7
-			// 
-			this->dataGridViewTextBoxColumn7->HeaderText = L"Nombre";
-			this->dataGridViewTextBoxColumn7->Name = L"dataGridViewTextBoxColumn7";
-			// 
-			// dataGridViewTextBoxColumn8
-			// 
-			this->dataGridViewTextBoxColumn8->HeaderText = L"Cantidad";
-			this->dataGridViewTextBoxColumn8->Name = L"dataGridViewTextBoxColumn8";
-			// 
-			// dataGridViewTextBoxColumn9
-			// 
-			this->dataGridViewTextBoxColumn9->HeaderText = L"Proveedor";
-			this->dataGridViewTextBoxColumn9->Name = L"dataGridViewTextBoxColumn9";
-			// 
-			// dataGridViewTextBoxColumn10
-			// 
-			this->dataGridViewTextBoxColumn10->HeaderText = L"Precio Unitario";
-			this->dataGridViewTextBoxColumn10->Name = L"dataGridViewTextBoxColumn10";
-			// 
-			// dataGridView3
-			// 
-			this->dataGridView3->AllowUserToAddRows = false;
-			this->dataGridView3->AllowUserToOrderColumns = true;
-			this->dataGridView3->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView3->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(5) {
-				this->dataGridViewTextBoxColumn11,
-					this->dataGridViewTextBoxColumn12, this->dataGridViewTextBoxColumn13, this->dataGridViewTextBoxColumn14, this->dataGridViewTextBoxColumn15
-			});
-			this->dataGridView3->Location = System::Drawing::Point(80, 305);
-			this->dataGridView3->Name = L"dataGridView3";
-			this->dataGridView3->RowHeadersVisible = false;
-			this->dataGridView3->Size = System::Drawing::Size(504, 119);
-			this->dataGridView3->TabIndex = 109;
-			// 
-			// dataGridViewTextBoxColumn11
-			// 
-			this->dataGridViewTextBoxColumn11->HeaderText = L"ID";
-			this->dataGridViewTextBoxColumn11->Name = L"dataGridViewTextBoxColumn11";
-			// 
-			// dataGridViewTextBoxColumn12
-			// 
-			this->dataGridViewTextBoxColumn12->HeaderText = L"Nombre";
-			this->dataGridViewTextBoxColumn12->Name = L"dataGridViewTextBoxColumn12";
-			// 
-			// dataGridViewTextBoxColumn13
-			// 
-			this->dataGridViewTextBoxColumn13->HeaderText = L"Cantidad";
-			this->dataGridViewTextBoxColumn13->Name = L"dataGridViewTextBoxColumn13";
-			// 
-			// dataGridViewTextBoxColumn14
-			// 
-			this->dataGridViewTextBoxColumn14->HeaderText = L"Proveedor";
-			this->dataGridViewTextBoxColumn14->Name = L"dataGridViewTextBoxColumn14";
-			// 
-			// dataGridViewTextBoxColumn15
-			// 
-			this->dataGridViewTextBoxColumn15->HeaderText = L"Precio Unitario";
-			this->dataGridViewTextBoxColumn15->Name = L"dataGridViewTextBoxColumn15";
-			// 
-			// dataGridView4
-			// 
-			this->dataGridView4->AllowUserToAddRows = false;
-			this->dataGridView4->AllowUserToOrderColumns = true;
-			this->dataGridView4->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView4->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(5) {
-				this->dataGridViewTextBoxColumn16,
-					this->dataGridViewTextBoxColumn17, this->dataGridViewTextBoxColumn18, this->dataGridViewTextBoxColumn19, this->dataGridViewTextBoxColumn20
-			});
-			this->dataGridView4->Location = System::Drawing::Point(74, 334);
-			this->dataGridView4->Name = L"dataGridView4";
-			this->dataGridView4->RowHeadersVisible = false;
-			this->dataGridView4->Size = System::Drawing::Size(504, 119);
-			this->dataGridView4->TabIndex = 111;
-			// 
-			// dataGridViewTextBoxColumn16
-			// 
-			this->dataGridViewTextBoxColumn16->HeaderText = L"ID";
-			this->dataGridViewTextBoxColumn16->Name = L"dataGridViewTextBoxColumn16";
-			// 
-			// dataGridViewTextBoxColumn17
-			// 
-			this->dataGridViewTextBoxColumn17->HeaderText = L"Nombre";
-			this->dataGridViewTextBoxColumn17->Name = L"dataGridViewTextBoxColumn17";
-			// 
-			// dataGridViewTextBoxColumn18
-			// 
-			this->dataGridViewTextBoxColumn18->HeaderText = L"Cantidad";
-			this->dataGridViewTextBoxColumn18->Name = L"dataGridViewTextBoxColumn18";
-			// 
-			// dataGridViewTextBoxColumn19
-			// 
-			this->dataGridViewTextBoxColumn19->HeaderText = L"Proveedor";
-			this->dataGridViewTextBoxColumn19->Name = L"dataGridViewTextBoxColumn19";
-			// 
-			// dataGridViewTextBoxColumn20
-			// 
-			this->dataGridViewTextBoxColumn20->HeaderText = L"Precio Unitario";
-			this->dataGridViewTextBoxColumn20->Name = L"dataGridViewTextBoxColumn20";
-			// 
-			// dataGridView5
-			// 
-			this->dataGridView5->AllowUserToAddRows = false;
-			this->dataGridView5->AllowUserToOrderColumns = true;
-			this->dataGridView5->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView5->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(5) {
-				this->dataGridViewTextBoxColumn21,
-					this->dataGridViewTextBoxColumn22, this->dataGridViewTextBoxColumn23, this->dataGridViewTextBoxColumn24, this->dataGridViewTextBoxColumn25
-			});
-			this->dataGridView5->Location = System::Drawing::Point(73, 312);
-			this->dataGridView5->Name = L"dataGridView5";
-			this->dataGridView5->RowHeadersVisible = false;
-			this->dataGridView5->Size = System::Drawing::Size(504, 119);
-			this->dataGridView5->TabIndex = 109;
-			// 
-			// dataGridViewTextBoxColumn21
-			// 
-			this->dataGridViewTextBoxColumn21->HeaderText = L"ID";
-			this->dataGridViewTextBoxColumn21->Name = L"dataGridViewTextBoxColumn21";
-			// 
-			// dataGridViewTextBoxColumn22
-			// 
-			this->dataGridViewTextBoxColumn22->HeaderText = L"Nombre";
-			this->dataGridViewTextBoxColumn22->Name = L"dataGridViewTextBoxColumn22";
-			// 
-			// dataGridViewTextBoxColumn23
-			// 
-			this->dataGridViewTextBoxColumn23->HeaderText = L"Cantidad";
-			this->dataGridViewTextBoxColumn23->Name = L"dataGridViewTextBoxColumn23";
-			// 
-			// dataGridViewTextBoxColumn24
-			// 
-			this->dataGridViewTextBoxColumn24->HeaderText = L"Proveedor";
-			this->dataGridViewTextBoxColumn24->Name = L"dataGridViewTextBoxColumn24";
-			// 
-			// dataGridViewTextBoxColumn25
-			// 
-			this->dataGridViewTextBoxColumn25->HeaderText = L"Precio Unitario";
-			this->dataGridViewTextBoxColumn25->Name = L"dataGridViewTextBoxColumn25";
-			// 
-			// textBox1
-			// 
-			this->textBox1->Location = System::Drawing::Point(366, 263);
-			this->textBox1->Margin = System::Windows::Forms::Padding(2);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(51, 20);
-			this->textBox1->TabIndex = 111;
-			// 
-			// label15
-			// 
-			this->label15->AutoSize = true;
-			this->label15->Location = System::Drawing::Point(302, 268);
-			this->label15->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-			this->label15->Name = L"label15";
-			this->label15->Size = System::Drawing::Size(49, 13);
-			this->label15->TabIndex = 110;
-			this->label15->Text = L"Cantidad";
-			// 
-			// textBox2
-			// 
-			this->textBox2->Location = System::Drawing::Point(362, 298);
-			this->textBox2->Margin = System::Windows::Forms::Padding(2);
-			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(51, 20);
-			this->textBox2->TabIndex = 135;
-			// 
-			// label16
-			// 
-			this->label16->AutoSize = true;
-			this->label16->Location = System::Drawing::Point(298, 303);
-			this->label16->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-			this->label16->Name = L"label16";
-			this->label16->Size = System::Drawing::Size(49, 13);
-			this->label16->TabIndex = 134;
-			this->label16->Text = L"Cantidad";
-			// 
-			// textBox3
-			// 
-			this->textBox3->Location = System::Drawing::Point(366, 268);
-			this->textBox3->Margin = System::Windows::Forms::Padding(2);
-			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(51, 20);
-			this->textBox3->TabIndex = 111;
-			// 
-			// label20
-			// 
-			this->label20->AutoSize = true;
-			this->label20->Location = System::Drawing::Point(302, 273);
-			this->label20->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-			this->label20->Name = L"label20";
-			this->label20->Size = System::Drawing::Size(49, 13);
-			this->label20->TabIndex = 110;
-			this->label20->Text = L"Cantidad";
-			// 
-			// textBox4
-			// 
-			this->textBox4->Location = System::Drawing::Point(352, 305);
-			this->textBox4->Margin = System::Windows::Forms::Padding(2);
-			this->textBox4->Name = L"textBox4";
-			this->textBox4->Size = System::Drawing::Size(51, 20);
-			this->textBox4->TabIndex = 113;
-			// 
-			// label21
-			// 
-			this->label21->AutoSize = true;
-			this->label21->Location = System::Drawing::Point(288, 310);
-			this->label21->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-			this->label21->Name = L"label21";
-			this->label21->Size = System::Drawing::Size(49, 13);
-			this->label21->TabIndex = 112;
-			this->label21->Text = L"Cantidad";
-			// 
-			// textBox5
-			// 
-			this->textBox5->Location = System::Drawing::Point(366, 270);
-			this->textBox5->Margin = System::Windows::Forms::Padding(2);
-			this->textBox5->Name = L"textBox5";
-			this->textBox5->Size = System::Drawing::Size(51, 20);
-			this->textBox5->TabIndex = 111;
-			// 
-			// label35
-			// 
-			this->label35->AutoSize = true;
-			this->label35->Location = System::Drawing::Point(302, 275);
-			this->label35->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-			this->label35->Name = L"label35";
-			this->label35->Size = System::Drawing::Size(49, 13);
-			this->label35->TabIndex = 110;
-			this->label35->Text = L"Cantidad";
-			// 
 			// CompraStockForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -2941,25 +2942,25 @@ namespace MecaTrafiSystemGUIApp {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvcompratornillos))->EndInit();
 			this->FajasPage->ResumeLayout(false);
 			this->FajasPage->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->PoleasPage->ResumeLayout(false);
 			this->PoleasPage->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView2))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
 			this->RodamientosPage->ResumeLayout(false);
 			this->RodamientosPage->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView3))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
 			this->MotoresACPage->ResumeLayout(false);
 			this->MotoresACPage->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView4))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->EndInit();
 			this->MotoresDCPage->ResumeLayout(false);
 			this->MotoresDCPage->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView5))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->EndInit();
 			this->panel1->ResumeLayout(false);
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView2))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView3))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView4))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView5))->EndInit();
 			this->ResumeLayout(false);
 
 		}
@@ -2968,5 +2969,7 @@ namespace MecaTrafiSystemGUIApp {
 	}
 	private: System::Void dgvEmpleados_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 	}
-	};
+	private: System::Void btnagregar_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+};
 }

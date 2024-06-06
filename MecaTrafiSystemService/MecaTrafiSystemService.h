@@ -50,9 +50,6 @@ namespace MecaTrafiSystemService {
 		static MechanicComponent^ Queryalltornillosid(int tornillosid);
 
 		//CRUD MOTORAC - STOCK
-		static String^ TXT_MOTORAC_FILE_NAME = "motorACStock.txt";
-		static String^ XML_MOTORAC_FILE_NAME = "motorACStock.xml";
-		static String^ BIN_MOTORAC_FILE_NAME = "motorACStock.bin";
 		static int AddMotorACStock(MechanicComponent^ motorAC);
 		static List<MechanicComponent^>^ QueryallMotorACStock();
 		static int UpdateMotorACStock(MechanicComponent^ motorAC);
@@ -66,13 +63,13 @@ namespace MecaTrafiSystemService {
 		static int DeleteMotorDCStock(int motorDCId);
 		static MechanicComponent^ QueryallMotorDCStockById(int motorDCId);
 
-		//CRUD DE FAJAS
+		//CRUD DE FAJAS - STOCK
 		static int Addfajas(MechanicComponent^);
 		static int Updatefajas(MechanicComponent^);
 		static int Deletefajas(int fajasid);
 		static List<MechanicComponent^>^ Queryallfajas();
 		static MechanicComponent^ Queryallfajasid(int fajasid);
-		//CRUD POLEAS
+		//CRUD POLEAS - Stock
 		static int Addpoleas(MechanicComponent^);
 		static int Updatepoleas(MechanicComponent^);
 		static int Deletepoleas(int poleasid);
@@ -80,10 +77,11 @@ namespace MecaTrafiSystemService {
 		static MechanicComponent^ Queryallpoleasid(int poleasid);
 
 
+
 		//MANTENIMIENTO
 		static List<MechanicComponent^>^ QueryTornillosByName(String^ name);
 
-		//Cliente An�nimo
+		//Cliente Anonimo
 		static Client^ GetAnnonymusClient();
 
 		//Metodos para las transacciones
@@ -99,6 +97,61 @@ namespace MecaTrafiSystemService {
 		static int Deleterodamientos(int rodamientosid);
 		static List<MechanicComponent^>^ Queryallrodamientos();
 		static MechanicComponent^ Queryallrodamientosid(int rodamientosid);
+
+		//CRUD COMPRA PRODUCTOS
+		
+		//METODOS DE CRUD TORNILLO - PURCHASE
+
+		static int AddTornilloPurchase(MechanicComponent^ tornilloPurchase);
+		static List<MechanicComponent^>^ QueryAllTornilloPurchase();
+		static int UpdateTornilloPurchase(MechanicComponent^ tornilloPurchase);
+		static int DeleteTornilloPurchase(int tornilloPurchaseId);
+		static MechanicComponent^ QueryAllTornilloPurchaseById(int tornilloPurchaseId);
+
+		//METODOS DE CRUD FAJAS - PURCHASE
+
+		static int AddFajaPurchase(MechanicComponent^ fajaPurchase);
+		static List<MechanicComponent^>^ QueryAllFajaPurchase();
+		static int UpdateFajaPurchase(MechanicComponent^ fajaPurchase);
+		static int DeleteFajaPurchase(int fajaPurchaseId);
+		static MechanicComponent^ QueryAllFajaPurchaseById(int fajaPurchaseId);
+
+		//METODOS DE CRUD POLEAS - PURCHASE
+
+		static int AddPoleaPurchase(MechanicComponent^ poleaPurchase);
+		static List<MechanicComponent^>^ QueryAllPoleaPurchase();
+		static int UpdatePoleaPurchase(MechanicComponent^ poleaPurchase);
+		static int DeletePoleaPurchase(int poleaPurchaseId);
+		static MechanicComponent^ QueryAllPoleaByIdPurchase(int poleaPurchaseId);
+
+
+		//METODOS DE CRUD RODAMIENTO - PURCHASE
+
+		static int AddRodamientoPurchase(MechanicComponent^ rodamientoPurchase);
+		static List<MechanicComponent^>^ QueryAllRodamientoPurchase();
+		static int UpdateRodamientoPurchase(MechanicComponent^ rodamientoPurchase);
+		static int DeleteRodamientoPurchase(int rodamientoPurchaseId);
+		static MechanicComponent^ QueryAllRodamientoPurchaseById(int rodamientoPurchaseId);
+
+		//METODOS DE CRUD MOTORAC - PURCHASE
+
+		static int AddMotorACPurchase(MechanicComponent^ motorACPurchase);
+		static List<MechanicComponent^>^ QueryAllMotorACPurchase();
+		static int UpdateMotorACPurchase(MechanicComponent^ motorACPurchase);
+		static int DeleteMotorACPurchase(int motorACPurchaseId);
+		static MechanicComponent^ QueryAllMotorACPurchaseById(int motorACPurchaseId);
+
+		//METODOS DE CRUD MOTORDC - PURCHASE
+
+		static int AddMotorDCPurchase(MechanicComponent^ motorDCPurchase);
+		static List<MechanicComponent^>^ QueryAllMotorDCPurchase();
+		static int UpdateMotorDCPurchase(MechanicComponent^ motorDCPurchase);
+		static int DeleteMotorDCPurchase(int motorDCPurchaseId);
+		static MechanicComponent^ QueryallMotorDCPurchaseById(int motorDCPurchaseId);
+
+
+
+
 
 	};
 }

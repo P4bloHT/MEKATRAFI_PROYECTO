@@ -22,8 +22,17 @@ namespace MecaTrafiSystemPersistance {
 		static List <MechanicComponent^>^ fajasDB = gcnew List <MechanicComponent^>();
 		static List <MechanicComponent^>^ poleaDB = gcnew List <MechanicComponent^>();
 		static List <MechanicComponent^>^ rodamientoDB = gcnew List <MechanicComponent^>();
+		//BASE DATOS DE EMPLEADOS Y CLIENTES
 		static List<Employee^>^ employeeListDB = gcnew List<Employee^>();
 		static List <Client^>^ clientlistdatos = gcnew List <Client^>();
+		//BASE DATOS COMPONENTES - COMPRAS
+		static List <MechanicComponent^>^ motorACPurchaseDB = gcnew List <MechanicComponent^>();
+		static List <MechanicComponent^>^ motorDCPurchaseDB = gcnew List <MechanicComponent^>();
+		static List <MechanicComponent^>^ tornillosPurchaseDB = gcnew List <MechanicComponent^>();
+		static List <MechanicComponent^>^ fajasPurchaseDB = gcnew List <MechanicComponent^>();
+		static List <MechanicComponent^>^ poleaPurchaseDB = gcnew List <MechanicComponent^>();
+		static List <MechanicComponent^>^ rodamientoPurchaseDB = gcnew List <MechanicComponent^>();
+
 
 		//BASE DATOS LISTA DE VENTAS 
 		static List<SaleOrder^>^ orderListDB = gcnew List<SaleOrder^>();
@@ -34,6 +43,7 @@ namespace MecaTrafiSystemPersistance {
 		static String^ BIN_ORDERS_FILE_NAME = "orders.bin";
 		static int RegisterOrder(SaleOrder^ order);
 		static List<SaleOrder^>^ QueryAllOrders();
+
 		// CRUD empleados
 		static String^ TXT_EMPLOYEE_FILE_NAME = "EmployeesDB.txt";
 		static String^ XML_EMPLOYEE_FILE_NAME = "EmployeeDB.xml";
@@ -137,7 +147,7 @@ namespace MecaTrafiSystemPersistance {
 		static List<MechanicComponent^>^ QueryAllPoleaPurchase();
 		static int UpdatePoleaPurchase(MechanicComponent^ poleaPurchase);
 		static int DeletePoleaPurchase(int poleaPurchaseId);
-		static MechanicComponent^ QueryAllPoleaIdPurchase(int poleaPurchaseId);
+		static MechanicComponent^ QueryAllPoleaByIdPurchase(int poleaPurchaseId);
 
 
 		//METODOS DE CRUD RODAMIENTO - PURCHASE
@@ -156,7 +166,7 @@ namespace MecaTrafiSystemPersistance {
 		static List<MechanicComponent^>^ QueryAllMotorACPurchase();
 		static int UpdateMotorACPurchase(MechanicComponent^ motorACPurchase);
 		static int DeleteMotorACPurchase(int motorACPurchaseId);
-		static MechanicComponent^ QueryallMotorACPurchaseById(int motorACPurchaseId);
+		static MechanicComponent^ QueryAllMotorACPurchaseById(int motorACPurchaseId);
 
 		//METODOS DE CRUD MOTORDC - PURCHASE
 		static String^ TXT_PURCHASEMOTORDC_FILE_NAME = "motorDCPurchase.txt";
@@ -166,6 +176,6 @@ namespace MecaTrafiSystemPersistance {
 		static List<MechanicComponent^>^ QueryAllMotorDCPurchase();
 		static int UpdateMotorDCPurchase(MechanicComponent^ motorDCPurchase);
 		static int DeleteMotorDCPurchase(int motorDCPurchaseId);
-		static MechanicComponent^ QueryallMotorDCPurchaseById(int motorDCPurchaseId);
+		static MechanicComponent^ QueryAllMotorDCPurchaseById(int motorDCPurchaseId);
 	};
 }
