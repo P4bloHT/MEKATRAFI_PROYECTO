@@ -3,9 +3,8 @@
  */
 
 #pragma once
-#include "SaleOrder.h"
+#include "MechanicComponent.h"
 
-//#include "SaleOrder.h"
 
 #ifndef _ORDERPRODUCT_H
 #define _ORDERPRODUCT_H
@@ -20,7 +19,7 @@ namespace MecaTrafiSystemModel {
         property double Quantity;
         property double Subtotal;
 
-        //property SaleOrder^ SaleOrder;
+        property MechanicComponent^ componente;
     };
 }
 

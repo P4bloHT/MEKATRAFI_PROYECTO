@@ -26,7 +26,7 @@ namespace MecaTrafiSystemModel {
         property double Warranty;
 
         property Client^ Client;
-        //property List <OrderProduct^>^ OrderMeca;
+        property List <OrderProduct^>^ OrderMeca;
     };
 }
 

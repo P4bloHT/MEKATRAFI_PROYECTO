@@ -319,6 +319,7 @@ private: System::Void dataGridView1_CellValueChanged(System::Object^ sender, Sys
 			Convert::ToDouble(dataGridView1->Rows[e->RowIndex]->Cells[2]->Value) *
 			Convert::ToInt32(dataGridView1->Rows[e->RowIndex]->Cells[3]->Value);
 	}
+	CalculateTotal();
 }
 private: System::Void btnGenerarPedido_Click(System::Object^ sender, System::EventArgs^ e) {
 	SaleOrder^ order = gcnew SaleOrder();
@@ -332,8 +333,15 @@ private: System::Void btnGenerarPedido_Click(System::Object^ sender, System::Eve
 	for (int i = 0; i < dataGridView1->RowCount; i++) {
 		OrderProduct^ orderProduct = gcnew OrderProduct();
 		orderProduct->id = i + 1;
-		orderProduct->Order = 
+		orderProduct->componente = Service::Queryallfajasid(Convert::ToInt32(dataGridView1->Rows[i]->Cells[0]->Value->ToString()));
+		orderProduct->Quantity = Convert::ToInt32(dataGridView1->Rows[i]->Cells[3]->Value->ToString());
+		orderProduct->Subtotal = Convert::ToInt32(dataGridView1->Rows[i]->Cells[4]->Value->ToString());
+		order->OrderMeca->Add(orderProduct);
+	}
+	int res = Service::RegisterOrder(order);
 
+	if (res == 1) {
+		MessageBox::Show("Se ha registrado de manera exitosa.");
 	}
 }
 };
