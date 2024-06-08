@@ -189,7 +189,7 @@ namespace MecaTrafiSystemGUIApp {
 			this->Controls->Add(this->Nombre);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->dgvComponentes);
-			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::SizableToolWindow;
 			this->Name = L"BuscarComponente";
 			this->Text = L"BuscarComponente";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvComponentes))->EndInit();

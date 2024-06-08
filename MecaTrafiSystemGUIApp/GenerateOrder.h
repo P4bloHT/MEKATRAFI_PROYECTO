@@ -98,16 +98,16 @@ namespace MecaTrafiSystemGUIApp {
 			this->txtNCliente = (gcnew System::Windows::Forms::TextBox());
 			this->txtCliente = (gcnew System::Windows::Forms::TextBox());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
-			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
-			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->label4 = (gcnew System::Windows::Forms::Label());
-			this->dateTimePicker1 = (gcnew System::Windows::Forms::DateTimePicker());
 			this->ComponentID = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->NombreComponente = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->PrecioComponente = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Cantidad = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Subtotal = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->label4 = (gcnew System::Windows::Forms::Label());
+			this->dateTimePicker1 = (gcnew System::Windows::Forms::DateTimePicker());
 			this->btnGenerarPedido = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
@@ -115,7 +115,7 @@ namespace MecaTrafiSystemGUIApp {
 			// Id
 			// 
 			this->Id->AutoSize = true;
-			this->Id->Location = System::Drawing::Point(120, 79);
+			this->Id->Location = System::Drawing::Point(120, 32);
 			this->Id->Name = L"Id";
 			this->Id->Size = System::Drawing::Size(23, 20);
 			this->Id->TabIndex = 0;
@@ -124,7 +124,7 @@ namespace MecaTrafiSystemGUIApp {
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(116, 160);
+			this->label2->Location = System::Drawing::Point(116, 105);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(78, 20);
 			this->label2->TabIndex = 1;
@@ -134,7 +134,7 @@ namespace MecaTrafiSystemGUIApp {
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(120, 243);
+			this->label3->Location = System::Drawing::Point(120, 171);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(58, 20);
 			this->label3->TabIndex = 2;
@@ -142,21 +142,21 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// txtID
 			// 
-			this->txtID->Location = System::Drawing::Point(283, 79);
+			this->txtID->Location = System::Drawing::Point(283, 32);
 			this->txtID->Name = L"txtID";
 			this->txtID->Size = System::Drawing::Size(200, 26);
 			this->txtID->TabIndex = 3;
 			// 
 			// txtNCliente
 			// 
-			this->txtNCliente->Location = System::Drawing::Point(283, 153);
+			this->txtNCliente->Location = System::Drawing::Point(283, 98);
 			this->txtNCliente->Name = L"txtNCliente";
 			this->txtNCliente->Size = System::Drawing::Size(200, 26);
 			this->txtNCliente->TabIndex = 4;
 			// 
 			// txtCliente
 			// 
-			this->txtCliente->Location = System::Drawing::Point(283, 240);
+			this->txtCliente->Location = System::Drawing::Point(283, 168);
 			this->txtCliente->Name = L"txtCliente";
 			this->txtCliente->Size = System::Drawing::Size(200, 26);
 			this->txtCliente->TabIndex = 5;
@@ -169,55 +169,13 @@ namespace MecaTrafiSystemGUIApp {
 				this->ComponentID,
 					this->NombreComponente, this->PrecioComponente, this->Cantidad, this->Subtotal
 			});
-			this->dataGridView1->Location = System::Drawing::Point(81, 385);
+			this->dataGridView1->Location = System::Drawing::Point(63, 307);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersWidth = 62;
 			this->dataGridView1->RowTemplate->Height = 28;
-			this->dataGridView1->Size = System::Drawing::Size(1115, 150);
+			this->dataGridView1->Size = System::Drawing::Size(1115, 314);
 			this->dataGridView1->TabIndex = 6;
 			this->dataGridView1->CellValueChanged += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &GenerateOrder::dataGridView1_CellValueChanged);
-			// 
-			// label1
-			// 
-			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(853, 672);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(77, 20);
-			this->label1->TabIndex = 7;
-			this->label1->Text = L"Total (S/.)";
-			// 
-			// textBox1
-			// 
-			this->textBox1->Location = System::Drawing::Point(957, 669);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(198, 26);
-			this->textBox1->TabIndex = 8;
-			// 
-			// button1
-			// 
-			this->button1->Location = System::Drawing::Point(988, 217);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(145, 72);
-			this->button1->TabIndex = 9;
-			this->button1->Text = L"Agregar Componente";
-			this->button1->UseVisualStyleBackColor = true;
-			this->button1->Click += gcnew System::EventHandler(this, &GenerateOrder::button1_Click);
-			// 
-			// label4
-			// 
-			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(120, 330);
-			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(128, 20);
-			this->label4->TabIndex = 10;
-			this->label4->Text = L"Fecha de pedido";
-			// 
-			// dateTimePicker1
-			// 
-			this->dateTimePicker1->Location = System::Drawing::Point(283, 325);
-			this->dateTimePicker1->Name = L"dateTimePicker1";
-			this->dateTimePicker1->Size = System::Drawing::Size(200, 26);
-			this->dateTimePicker1->TabIndex = 12;
 			// 
 			// ComponentID
 			// 
@@ -225,6 +183,7 @@ namespace MecaTrafiSystemGUIApp {
 			this->ComponentID->MinimumWidth = 8;
 			this->ComponentID->Name = L"ComponentID";
 			this->ComponentID->ReadOnly = true;
+			this->ComponentID->Width = 150;
 			// 
 			// NombreComponente
 			// 
@@ -257,9 +216,51 @@ namespace MecaTrafiSystemGUIApp {
 			this->Subtotal->ReadOnly = true;
 			this->Subtotal->Width = 150;
 			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Location = System::Drawing::Point(853, 672);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(77, 20);
+			this->label1->TabIndex = 7;
+			this->label1->Text = L"Total (S/.)";
+			// 
+			// textBox1
+			// 
+			this->textBox1->Location = System::Drawing::Point(957, 669);
+			this->textBox1->Name = L"textBox1";
+			this->textBox1->Size = System::Drawing::Size(198, 26);
+			this->textBox1->TabIndex = 8;
+			// 
+			// button1
+			// 
+			this->button1->Location = System::Drawing::Point(991, 145);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(145, 72);
+			this->button1->TabIndex = 9;
+			this->button1->Text = L"Agregar Componente";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &GenerateOrder::button1_Click);
+			// 
+			// label4
+			// 
+			this->label4->AutoSize = true;
+			this->label4->Location = System::Drawing::Point(120, 243);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(128, 20);
+			this->label4->TabIndex = 10;
+			this->label4->Text = L"Fecha de pedido";
+			// 
+			// dateTimePicker1
+			// 
+			this->dateTimePicker1->Location = System::Drawing::Point(283, 238);
+			this->dateTimePicker1->Name = L"dateTimePicker1";
+			this->dateTimePicker1->Size = System::Drawing::Size(200, 26);
+			this->dateTimePicker1->TabIndex = 12;
+			// 
 			// btnGenerarPedido
 			// 
-			this->btnGenerarPedido->Location = System::Drawing::Point(166, 627);
+			this->btnGenerarPedido->Location = System::Drawing::Point(189, 641);
 			this->btnGenerarPedido->Name = L"btnGenerarPedido";
 			this->btnGenerarPedido->Size = System::Drawing::Size(267, 82);
 			this->btnGenerarPedido->TabIndex = 13;
@@ -300,20 +301,54 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 	BuscarComponente^ buscar = gcnew BuscarComponente(this);
 	buscar->ShowDialog();
 }
+	   
+	public:
+	   void Verifica_repetido() {
+		   int celdaID = 0;
+		   int celdaIDSig = 0;
+
+		   for (int i = 0; i <= dataGridView1->RowCount; i++) {
+			   for (int j = 1; j <= dataGridView1->RowCount; j++) {
+				   celdaID = Convert::ToInt32(dataGridView1->Rows[i]->Cells[0]->Value);
+				   celdaIDSig = Convert::ToInt32(dataGridView1->Rows[j]->Cells[0]->Value);
+
+				   if (celdaID==celdaIDSig) {
+					   MessageBox::Show("Ya se encuentra el producto en tu lista");
+
+					   return;
+				   }
+
+			   }
+		   }
+	   }
 	   void CalculateTotal() {
 		   double total = 0;
 		   for (int i = 0; i < dataGridView1->RowCount; i++) {
 			   total += Double::Parse(dataGridView1->Rows[i]->Cells[4]->Value->ToString());
 		   }
 		   textBox1->Text = "" + total;
-	   
+		   //Verifica_repetido();
 	   }
+
 	   public:
 		   void AddComponentToGrid(MechanicComponent^ componente) {
+
+
 			   dataGridView1->Rows->Add(gcnew array <String^>{"" + componente->Id, componente->Name, "" + componente->UnitaryPrice, "1", "" + componente->UnitaryPrice});
+			   
+
+			   //Comparar con el GRID de Generar mensaje si se repite el producto por su ID
+
+			  
+			   
 			   CalculateTotal();
+
+
 		   }
 private: System::Void dataGridView1_CellValueChanged(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+	
+	Verifica_repetido();
+	
 	if (dataGridView1->Columns[e->ColumnIndex]->Name == "Cantidad") {
 		dataGridView1->Rows[e->RowIndex]->Cells[4]->Value =
 			Convert::ToDouble(dataGridView1->Rows[e->RowIndex]->Cells[2]->Value) *
