@@ -54,7 +54,8 @@ namespace MecaTrafiSystemGUIApp {
 	private: System::Windows::Forms::TextBox^ textBox1;
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Label^ label4;
-	private: System::Windows::Forms::DateTimePicker^ dateTimePicker1;
+	private: System::Windows::Forms::DateTimePicker^ FechaPedido;
+
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ ComponentID;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ NombreComponente;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ PrecioComponente;
@@ -107,7 +108,7 @@ namespace MecaTrafiSystemGUIApp {
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->label4 = (gcnew System::Windows::Forms::Label());
-			this->dateTimePicker1 = (gcnew System::Windows::Forms::DateTimePicker());
+			this->FechaPedido = (gcnew System::Windows::Forms::DateTimePicker());
 			this->btnGenerarPedido = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
@@ -117,18 +118,18 @@ namespace MecaTrafiSystemGUIApp {
 			this->Id->AutoSize = true;
 			this->Id->Location = System::Drawing::Point(120, 32);
 			this->Id->Name = L"Id";
-			this->Id->Size = System::Drawing::Size(23, 20);
+			this->Id->Size = System::Drawing::Size(37, 20);
 			this->Id->TabIndex = 0;
-			this->Id->Text = L"Id";
+			this->Id->Text = L"DNI";
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
 			this->label2->Location = System::Drawing::Point(116, 105);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(78, 20);
+			this->label2->Size = System::Drawing::Size(132, 20);
 			this->label2->TabIndex = 1;
-			this->label2->Text = L"N° Cliente";
+			this->label2->Text = L"Código de ventas";
 			this->label2->Click += gcnew System::EventHandler(this, &GenerateOrder::label2_Click);
 			// 
 			// label3
@@ -251,12 +252,16 @@ namespace MecaTrafiSystemGUIApp {
 			this->label4->TabIndex = 10;
 			this->label4->Text = L"Fecha de pedido";
 			// 
-			// dateTimePicker1
+			// FechaPedido
 			// 
-			this->dateTimePicker1->Location = System::Drawing::Point(283, 238);
-			this->dateTimePicker1->Name = L"dateTimePicker1";
-			this->dateTimePicker1->Size = System::Drawing::Size(200, 26);
-			this->dateTimePicker1->TabIndex = 12;
+			this->FechaPedido->CalendarFont = (gcnew System::Drawing::Font(L"Microsoft YaHei", 8, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->FechaPedido->Enabled = false;
+			this->FechaPedido->Location = System::Drawing::Point(283, 238);
+			this->FechaPedido->Name = L"FechaPedido";
+			this->FechaPedido->Size = System::Drawing::Size(200, 26);
+			this->FechaPedido->TabIndex = 12;
+			this->FechaPedido->ValueChanged += gcnew System::EventHandler(this, &GenerateOrder::FechaPedido_ValueChanged);
 			// 
 			// btnGenerarPedido
 			// 
@@ -274,7 +279,7 @@ namespace MecaTrafiSystemGUIApp {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1292, 759);
 			this->Controls->Add(this->btnGenerarPedido);
-			this->Controls->Add(this->dateTimePicker1);
+			this->Controls->Add(this->FechaPedido);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->textBox1);
@@ -347,7 +352,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 		   }
 private: System::Void dataGridView1_CellValueChanged(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 	
-	Verifica_repetido();
+	
 	
 	if (dataGridView1->Columns[e->ColumnIndex]->Name == "Cantidad") {
 		dataGridView1->Rows[e->RowIndex]->Cells[4]->Value =
@@ -368,7 +373,53 @@ private: System::Void btnGenerarPedido_Click(System::Object^ sender, System::Eve
 	for (int i = 0; i < dataGridView1->RowCount; i++) {
 		OrderProduct^ orderProduct = gcnew OrderProduct();
 		orderProduct->id = i + 1;
-		orderProduct->componente = Service::Queryallfajasid(Convert::ToInt32(dataGridView1->Rows[i]->Cells[0]->Value->ToString()));
+		int componentId = Convert::ToInt32(dataGridView1->Rows[i]->Cells[0]->Value->ToString());
+
+		// Consultar el componente basado en su tipo (ejemplo)
+		
+		String^ componentType = Convert::ToString(dataGridView1->Rows[i]->Cells[1]->Value->ToString()); // Extraer prefijo "FAJA"
+
+		MechanicComponent^ componente = nullptr;
+		
+		if (componentType == "Fajita") {
+			componente = Service::Queryallfajasid(componentId);
+		}
+
+		if (componentType == "Tornillo") {
+			componente = Service::Queryalltornillosid(componentId);
+		}
+
+		if (componentType == "Polea") {
+			componente = Service::Queryallpoleasid(componentId);
+		}
+
+		if (componentType == "Rodamientito") {
+			componente = Service::Queryallrodamientosid(componentId);
+		}
+
+
+
+		if (componente != nullptr)
+		{
+			orderProduct->componente = componente;
+			orderProduct->Quantity = Convert::ToInt32(dataGridView1->Rows[i]->Cells[3]->Value->ToString());
+			orderProduct->Subtotal = Convert::ToInt32(dataGridView1->Rows[i]->Cells[4]->Value->ToString());
+			order->OrderMeca->Add(orderProduct);
+		}
+		else
+		{
+			// Mensaje de error si no se encuentra el componente
+			MessageBox::Show("Producto no disponible");
+		}
+	}
+
+	int res = Service::RegisterOrder(order);
+
+	if (res == 1)
+	{
+		MessageBox::Show("Se ha registrado de manera exitosa.");
+	}
+	/*	orderProduct->componente = Service::Queryallfajasid(Convert::ToInt32(dataGridView1->Rows[i]->Cells[0]->Value->ToString()));
 		orderProduct->Quantity = Convert::ToInt32(dataGridView1->Rows[i]->Cells[3]->Value->ToString());
 		orderProduct->Subtotal = Convert::ToInt32(dataGridView1->Rows[i]->Cells[4]->Value->ToString());
 		order->OrderMeca->Add(orderProduct);
@@ -377,7 +428,10 @@ private: System::Void btnGenerarPedido_Click(System::Object^ sender, System::Eve
 
 	if (res == 1) {
 		MessageBox::Show("Se ha registrado de manera exitosa.");
-	}
+	}*/
+}
+private: System::Void FechaPedido_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
+	//FechaPedido->Enabled = false;
 }
 };
 }

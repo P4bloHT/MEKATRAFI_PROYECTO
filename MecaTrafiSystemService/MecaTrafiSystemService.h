@@ -85,6 +85,14 @@ namespace MecaTrafiSystemService {
 
 		static List<MechanicComponent^>^ QueryfajasByName(String^ name);
 
+		static List<MechanicComponent^>^ QueryRodamientosByName(String^ name);
+
+		static List<MechanicComponent^>^ QueryPoleasByName(String^ name);
+
+		static List<MechanicComponent^>^ QueryMotorACByName(String^ name);
+
+		static List<MechanicComponent^>^ QueryMotorDCByName(String^ name);
+
 
 		//Cliente An�nimo
 		static Client^ GetAnnonymusClient();

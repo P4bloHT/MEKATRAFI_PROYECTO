@@ -210,15 +210,44 @@ namespace MecaTrafiSystemGUIApp {
 private: System::Void btnBuscar_Click(System::Object^ sender, System::EventArgs^ e) {
 	dgvComponentes->Rows->Clear();
 
-	if (txtID->Text->Trim()->Equals("")) {//Si en la caja de texto es un espacio en blanco
+	if (txtID->Text->Trim()->Equals("")) {
 		List<MechanicComponent^>^ fajalist = Service::QueryfajasByName(txtNombre->Text->Trim());
 		for (int i = 0; i < fajalist->Count; i++)
 			AddComponentToGrid(fajalist[i]);
+
+		List<MechanicComponent^>^ tornillolist = Service::QueryTornillosByName(txtNombre->Text->Trim());
+		for (int i = 0; i < tornillolist->Count; i++)
+			AddComponentToGrid(tornillolist[i]);
+
+		List<MechanicComponent^>^ rodamientolist = Service::QueryRodamientosByName(txtNombre->Text->Trim());
+		for (int i = 0; i < rodamientolist->Count; i++)
+			AddComponentToGrid(rodamientolist[i]);
+
+		List<MechanicComponent^>^ polealist = Service::QueryPoleasByName(txtNombre->Text->Trim());
+		for (int i = 0; i < polealist->Count; i++)
+			AddComponentToGrid(polealist[i]);
 	}
 	else {
 		MechanicComponent^ faja = Service::Queryallfajasid(Convert::ToInt32(txtID->Text));
-		//AddFajaToGrid()
+		AddComponentToGrid(faja);
+
+		MechanicComponent^ tornilllo = Service::Queryalltornillosid(Convert::ToInt32(txtID->Text));
+		AddComponentToGrid(tornilllo);
+
+		MechanicComponent^ rodamiento = Service::Queryallrodamientosid(Convert::ToInt32(txtID->Text));
+		AddComponentToGrid(rodamiento);
+
+		MechanicComponent^ polea = Service::Queryallpoleasid(Convert::ToInt32(txtID->Text));
+		AddComponentToGrid(polea);
+
+		MechanicComponent^ motorAC = Service::QueryallMotorACStockById(Convert::ToInt32(txtID->Text));
+		AddComponentToGrid(motorAC);
+
+		MechanicComponent^ motorDC = Service::QueryallMotorDCStockById(Convert::ToInt32(txtID->Text));
+		AddComponentToGrid(motorDC);
+	
 	}
+	
 }
 private: System::Void dgvComponentes_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e);
 };
