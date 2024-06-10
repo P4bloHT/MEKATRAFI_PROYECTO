@@ -27,6 +27,7 @@
 #include "InterfazCliente.h"
 #include "StockForm.h"
 #include "GenerateOrder.h"
+#include "ReportePedidos.h"
 
 namespace MecaTrafiSystemGUIApp {
 
@@ -143,6 +144,7 @@ namespace MecaTrafiSystemGUIApp {
 	private: System::Windows::Forms::Button^ btnCliente;
 	private: System::Windows::Forms::Button^ button2;
 private: System::Windows::Forms::Button^ btnGeneraPedido;
+private: System::Windows::Forms::Button^ button5;
 
 
 
@@ -201,6 +203,7 @@ private: System::Windows::Forms::Button^ btnGeneraPedido;
 			this->btnCliente = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->btnGeneraPedido = (gcnew System::Windows::Forms::Button());
+			this->button5 = (gcnew System::Windows::Forms::Button());
 			this->menuStrip1->SuspendLayout();
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->btnham))->BeginInit();
@@ -541,6 +544,19 @@ private: System::Windows::Forms::Button^ btnGeneraPedido;
 			this->btnGeneraPedido->UseVisualStyleBackColor = true;
 			this->btnGeneraPedido->Click += gcnew System::EventHandler(this, &EmployeeForm::btnGeneraPedido_Click);
 			// 
+			// button5
+			// 
+			this->button5->Font = (gcnew System::Drawing::Font(L"MV Boli", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button5->Location = System::Drawing::Point(246, 345);
+			this->button5->Margin = System::Windows::Forms::Padding(2);
+			this->button5->Name = L"button5";
+			this->button5->Size = System::Drawing::Size(219, 71);
+			this->button5->TabIndex = 17;
+			this->button5->Text = L"Reporte";
+			this->button5->UseVisualStyleBackColor = true;
+			this->button5->Click += gcnew System::EventHandler(this, &EmployeeForm::button5_Click);
+			// 
 			// EmployeeForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -548,6 +564,7 @@ private: System::Windows::Forms::Button^ btnGeneraPedido;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
 				static_cast<System::Int32>(static_cast<System::Byte>(224)));
 			this->ClientSize = System::Drawing::Size(804, 427);
+			this->Controls->Add(this->button5);
 			this->Controls->Add(this->sidebar);
 			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->menuStrip1);
@@ -819,6 +836,10 @@ private: System::Void btnGeneraPedido_Click(System::Object^ sender, System::Even
 	GenerateOrder^ generateOrder = gcnew GenerateOrder();
 	generateOrder->Show();
 
+}
+private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
+	ReportePedidos^ reporte = gcnew ReportePedidos();
+	reporte->Show();
 }
 };
 }

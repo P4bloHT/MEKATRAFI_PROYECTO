@@ -227,6 +227,68 @@ List<MechanicComponent^>^ MecaTrafiSystemService::Service::QueryTornillosByName(
     return listToReturn;
 }
 
+List<MechanicComponent^>^ MecaTrafiSystemService::Service::QueryfajasByName(String^ name)
+{
+    List<MechanicComponent^>^ fajasList = Persistance::Queryallfaja();
+    List<MechanicComponent^>^ listToReturn = gcnew List<MechanicComponent^>();
+    for (int i = 0; i < fajasList->Count; i++) {
+        if (fajasList[i]->Name->Contains(name))
+            listToReturn->Add(fajasList[i]);
+    }
+
+    return listToReturn;
+
+}
+
+List<MechanicComponent^>^ MecaTrafiSystemService::Service::QueryRodamientosByName(String^ name)
+{
+    List<MechanicComponent^>^ rodamientosList = Persistance::Queryallrodamiento();
+    List<MechanicComponent^>^ listToReturn = gcnew List<MechanicComponent^>();
+    for (int i = 0; i < rodamientosList->Count; i++) {
+        if (rodamientosList[i]->Name->Contains(name))
+            listToReturn->Add(rodamientosList[i]);
+    }
+
+    return listToReturn;
+
+}
+
+List<MechanicComponent^>^ MecaTrafiSystemService::Service::QueryPoleasByName(String^ name)
+{
+    List<MechanicComponent^>^ poleaList = Persistance::Queryallpolea();
+    List<MechanicComponent^>^ listToReturn = gcnew List<MechanicComponent^>();
+    for (int i = 0; i < poleaList->Count; i++) {
+        if (poleaList[i]->Name->Contains(name))
+            listToReturn->Add(poleaList[i]);
+    }
+
+    return listToReturn;
+}
+
+List<MechanicComponent^>^ MecaTrafiSystemService::Service::QueryMotorACByName(String^ name)
+{
+    List<MechanicComponent^>^ motorACList = Persistance::QueryallMotorACStock();
+    List<MechanicComponent^>^ listToReturn = gcnew List<MechanicComponent^>();
+    for (int i = 0; i < motorACList->Count; i++) {
+        if (motorACList[i]->Name->Contains(name))
+            listToReturn->Add(motorACList[i]);
+    }
+
+    return listToReturn;
+}
+
+List<MechanicComponent^>^ MecaTrafiSystemService::Service::QueryMotorDCByName(String^ name)
+{
+    List<MechanicComponent^>^ motorDCList = Persistance::QueryallMotorDCStock();
+    List<MechanicComponent^>^ listToReturn = gcnew List<MechanicComponent^>();
+    for (int i = 0; i < motorDCList->Count; i++) {
+        if (motorDCList[i]->Name->Contains(name))
+            listToReturn->Add(motorDCList[i]);
+    }
+
+    return listToReturn;
+}
+
 Client^ MecaTrafiSystemService::Service::GetAnnonymusClient()
 {
     return AnnonymusClient;
