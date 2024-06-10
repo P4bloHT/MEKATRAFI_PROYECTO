@@ -112,7 +112,12 @@ namespace MecaTrafiSystemGUIApp {
 #pragma endregion
 	private: System::Void ReportePedidos_Load(System::Object^ sender, System::EventArgs^ e) {
 		List<SaleOrder^>^ pedidoList = Service::QueryAllOrders();
+
 		for (int i = 0; i < pedidoList->Count; i++) {
+			;
+			//pedidoList[i]->OrderMeca[i] = ;
+
+
 			//Ganancia del monto total
 			chart1->Series["Monto Total"]->Points->Add(pedidoList[i]->TotalPrice);
 			chart1->Series["Monto Total"]->Points[i]->AxisLabel = "" + pedidoList[i]->id;
