@@ -388,10 +388,11 @@ private: System::Void nuevoToolStripMenuItem_Click(System::Object^ sender, Syste
 
 }
 private: System::Void btnagregar_Click(System::Object^ sender, System::EventArgs^ e) {
+
 	int id = Convert::ToInt32(txtid->Text);
 	String^ name = txtname->Text;
 	String^ carrera = txtcarrera->Text;
-	int contacto = Convert::ToInt32(txtcontact->Text);
+	int contacto = Convert::ToInt64(txtcontact->Text);
 	Client^ cliente = gcnew Client();
 	cliente->Id = id;
 	cliente->Name = name;
@@ -411,6 +412,7 @@ private: System::Void btnagregar_Click(System::Object^ sender, System::EventArgs
 			   }
 		   }
 	   }
+
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->Close();
 }
@@ -437,6 +439,16 @@ private: System::Void dataGridView1_CellClick(System::Object^ sender, System::Wi
 
 }
 private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+	int clienteId = Int32::Parse(dataGridView1->Rows[dataGridView1->SelectedCells[0]->RowIndex]->Cells[0]->Value->ToString());
+	Client^ cliente = Service::Queryallclienteid(clienteId);
+	if (cliente != nullptr) {
+		txtid->Text = Convert::ToString(cliente->Id); // "" + robot->Id;
+		txtname->Text = cliente->Name;
+		txtcarrera->Text = cliente->Carrera;
+		txtcontact->Text = Convert::ToString(cliente->Contact);
+
+
+	}
 }
 };
 

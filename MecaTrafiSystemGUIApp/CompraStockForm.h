@@ -78,14 +78,14 @@ namespace MecaTrafiSystemGUIApp {
 	private: System::Windows::Forms::Button^ btnagregar;
 	private: System::Windows::Forms::Button^ btncancelar;
 	private: System::Windows::Forms::Button^ btnEditar;
-	private: System::Windows::Forms::Label^ txtLongitud;
-	private: System::Windows::Forms::TextBox^ txtcompraTornilloTipo;
+
+
 
 
 
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label9;
-	private: System::Windows::Forms::TextBox^ txtcompraTornilloModel;
+
 
 
 
@@ -100,8 +100,8 @@ namespace MecaTrafiSystemGUIApp {
 
 
 
-	private: System::Windows::Forms::Label^ label3;
-	private: System::Windows::Forms::TextBox^ txtcompraTornilloLongitud;
+
+
 
 
 
@@ -132,14 +132,14 @@ namespace MecaTrafiSystemGUIApp {
 
 
 	private: System::Windows::Forms::Label^ label6;
-	private: System::Windows::Forms::TextBox^ txtcompraTornilloMarca;
 
 
 
 
 
 
-	private: System::Windows::Forms::Label^ label14;
+
+
 
 
 	private: System::Windows::Forms::TextBox^ textBox12;
@@ -411,6 +411,10 @@ namespace MecaTrafiSystemGUIApp {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn23;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn24;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn25;
+
+private: System::Windows::Forms::TextBox^ txtcompraTornilloLongitud;
+private: System::Windows::Forms::Label^ txtLongitud;
+
 private: System::Windows::Forms::Button^ btnedittornillo;
 private: System::Windows::Forms::Button^ btndeletetornillo;
 private: System::Windows::Forms::Button^ btnaddtornillo;
@@ -478,6 +482,7 @@ private: System::Windows::Forms::Button^ button20;
 
 
 
+
 	private:
 		/// <summary>
 		/// Variable del diseñador necesaria.
@@ -491,6 +496,7 @@ private: System::Windows::Forms::Button^ button20;
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(CompraStockForm::typeid));
 			this->txtTornilloDescriptioncompra = (gcnew System::Windows::Forms::TextBox());
 			this->label18 = (gcnew System::Windows::Forms::Label());
 			this->txttornillonamecompra = (gcnew System::Windows::Forms::TextBox());
@@ -502,8 +508,6 @@ private: System::Windows::Forms::Button^ button20;
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->tabAdminCompraProductos = (gcnew System::Windows::Forms::TabControl());
 			this->TornillosPage = (gcnew System::Windows::Forms::TabPage());
-			this->txtcompraTornilloMarca = (gcnew System::Windows::Forms::TextBox());
-			this->label14 = (gcnew System::Windows::Forms::Label());
 			this->txtTornilloproveecompra = (gcnew System::Windows::Forms::TextBox());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->txtcompraTornilloRequerido = (gcnew System::Windows::Forms::TextBox());
@@ -521,15 +525,10 @@ private: System::Windows::Forms::Button^ button20;
 			this->label11 = (gcnew System::Windows::Forms::Label());
 			this->label10 = (gcnew System::Windows::Forms::Label());
 			this->label9 = (gcnew System::Windows::Forms::Label());
-			this->txtcompraTornilloModel = (gcnew System::Windows::Forms::TextBox());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->txtcompraTornilloMaterial = (gcnew System::Windows::Forms::TextBox());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->txtcompraTornilloPunta = (gcnew System::Windows::Forms::TextBox());
-			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->txtcompraTornilloLongitud = (gcnew System::Windows::Forms::TextBox());
-			this->txtLongitud = (gcnew System::Windows::Forms::Label());
-			this->txtcompraTornilloTipo = (gcnew System::Windows::Forms::TextBox());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->FajasPage = (gcnew System::Windows::Forms::TabPage());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
@@ -717,6 +716,10 @@ private: System::Windows::Forms::Button^ button20;
 			this->btnagregar = (gcnew System::Windows::Forms::Button());
 			this->btncancelar = (gcnew System::Windows::Forms::Button());
 			this->btnEditar = (gcnew System::Windows::Forms::Button());
+
+			this->txtLongitud = (gcnew System::Windows::Forms::Label());
+			this->txtcompraTornilloLongitud = (gcnew System::Windows::Forms::TextBox());
+
 			this->btnedittornillo = (gcnew System::Windows::Forms::Button());
 			this->btndeletetornillo = (gcnew System::Windows::Forms::Button());
 			this->btnaddtornillo = (gcnew System::Windows::Forms::Button());
@@ -735,6 +738,7 @@ private: System::Windows::Forms::Button^ button20;
 			this->button18 = (gcnew System::Windows::Forms::Button());
 			this->button19 = (gcnew System::Windows::Forms::Button());
 			this->button20 = (gcnew System::Windows::Forms::Button());
+
 			this->tabAdminCompraProductos->SuspendLayout();
 			this->TornillosPage->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbEmpPhoto))->BeginInit();
@@ -763,8 +767,11 @@ private: System::Windows::Forms::Button^ button20;
 			this->txtTornilloDescriptioncompra->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->txtTornilloDescriptioncompra->Multiline = true;
 			this->txtTornilloDescriptioncompra->Name = L"txtTornilloDescriptioncompra";
-			this->txtTornilloDescriptioncompra->Size = System::Drawing::Size(504, 46);
+			this->txtTornilloDescriptioncompra->Size = System::Drawing::Size(386, 57);
 			this->txtTornilloDescriptioncompra->TabIndex = 41;
+			this->txtTornilloDescriptioncompra->Text = L"Elementos de fijación de acero inoxidable, con longitudes de 5 mm a 150 mm, diáme"
+				L"tros desde M2 a M24, \r\ncon roscas métricas y estándar  (UNC, UNF), y puntas plan"
+				L"a, cónica o redonda.";
 			// 
 			// label18
 			// 
@@ -780,7 +787,9 @@ private: System::Windows::Forms::Button^ button20;
 			this->txttornillonamecompra->Location = System::Drawing::Point(349, 32);
 			this->txttornillonamecompra->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->txttornillonamecompra->Name = L"txttornillonamecompra";
-			this->txttornillonamecompra->Size = System::Drawing::Size(296, 22);
+
+			this->txttornillonamecompra->Size = System::Drawing::Size(230, 20);
+
 			this->txttornillonamecompra->TabIndex = 39;
 			// 
 			// txtidtornillocompra
@@ -811,16 +820,20 @@ private: System::Windows::Forms::Button^ button20;
 			// 
 			// txtcompraTornilloTipoRosca
 			// 
-			this->txtcompraTornilloTipoRosca->Location = System::Drawing::Point(157, 275);
-			this->txtcompraTornilloTipoRosca->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+
+			this->txtcompraTornilloTipoRosca->Location = System::Drawing::Point(106, 197);
+			this->txtcompraTornilloTipoRosca->Margin = System::Windows::Forms::Padding(2);
+
 			this->txtcompraTornilloTipoRosca->Name = L"txtcompraTornilloTipoRosca";
 			this->txtcompraTornilloTipoRosca->Size = System::Drawing::Size(145, 22);
 			this->txtcompraTornilloTipoRosca->TabIndex = 43;
 			// 
 			// txtcompraTornilloPrecioUnitario
 			// 
-			this->txtcompraTornilloPrecioUnitario->Location = System::Drawing::Point(157, 323);
-			this->txtcompraTornilloPrecioUnitario->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+
+			this->txtcompraTornilloPrecioUnitario->Location = System::Drawing::Point(136, 230);
+			this->txtcompraTornilloPrecioUnitario->Margin = System::Windows::Forms::Padding(2);
+
 			this->txtcompraTornilloPrecioUnitario->Name = L"txtcompraTornilloPrecioUnitario";
 			this->txtcompraTornilloPrecioUnitario->Size = System::Drawing::Size(67, 22);
 			this->txtcompraTornilloPrecioUnitario->TabIndex = 45;
@@ -828,7 +841,10 @@ private: System::Windows::Forms::Button^ button20;
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(18, 329);
+
+			this->label1->Location = System::Drawing::Point(32, 235);
+			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(122, 16);
 			this->label1->TabIndex = 44;
@@ -851,6 +867,7 @@ private: System::Windows::Forms::Button^ button20;
 			// 
 			// TornillosPage
 			// 
+
 			this->TornillosPage->Controls->Add(this->btnedittornillo);
 			this->TornillosPage->Controls->Add(this->btndeletetornillo);
 			this->TornillosPage->Controls->Add(this->btnaddtornillo);
@@ -868,15 +885,12 @@ private: System::Windows::Forms::Button^ button20;
 			this->TornillosPage->Controls->Add(this->label11);
 			this->TornillosPage->Controls->Add(this->label10);
 			this->TornillosPage->Controls->Add(this->label9);
-			this->TornillosPage->Controls->Add(this->txtcompraTornilloModel);
 			this->TornillosPage->Controls->Add(this->label5);
 			this->TornillosPage->Controls->Add(this->txtcompraTornilloMaterial);
 			this->TornillosPage->Controls->Add(this->label4);
 			this->TornillosPage->Controls->Add(this->txtcompraTornilloPunta);
-			this->TornillosPage->Controls->Add(this->label3);
 			this->TornillosPage->Controls->Add(this->txtcompraTornilloLongitud);
 			this->TornillosPage->Controls->Add(this->txtLongitud);
-			this->TornillosPage->Controls->Add(this->txtcompraTornilloTipo);
 			this->TornillosPage->Controls->Add(this->label2);
 			this->TornillosPage->Controls->Add(this->label18);
 			this->TornillosPage->Controls->Add(this->label8);
@@ -897,6 +911,12 @@ private: System::Windows::Forms::Button^ button20;
 			this->TornillosPage->UseVisualStyleBackColor = true;
 			this->TornillosPage->Click += gcnew System::EventHandler(this, &CompraStockForm::TornillosPage_Click);
 			// 
+
+			// txtTornilloproveecompra
+			// 
+			this->txtTornilloproveecompra->Location = System::Drawing::Point(106, 125);
+			this->txtTornilloproveecompra->Margin = System::Windows::Forms::Padding(2);
+
 			// txtcompraTornilloMarca
 			// 
 			this->txtcompraTornilloMarca->Location = System::Drawing::Point(491, 193);
@@ -916,8 +936,8 @@ private: System::Windows::Forms::Button^ button20;
 			// 
 			// txtTornilloproveecompra
 			// 
-			this->txtTornilloproveecompra->Location = System::Drawing::Point(491, 154);
-			this->txtTornilloproveecompra->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+
+
 			this->txtTornilloproveecompra->Name = L"txtTornilloproveecompra";
 			this->txtTornilloproveecompra->Size = System::Drawing::Size(155, 22);
 			this->txtTornilloproveecompra->TabIndex = 69;
@@ -925,7 +945,10 @@ private: System::Windows::Forms::Button^ button20;
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(359, 158);
+
+			this->label6->Location = System::Drawing::Point(9, 128);
+			this->label6->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(122, 16);
 			this->label6->TabIndex = 68;
@@ -933,8 +956,10 @@ private: System::Windows::Forms::Button^ button20;
 			// 
 			// txtcompraTornilloRequerido
 			// 
-			this->txtcompraTornilloRequerido->Location = System::Drawing::Point(321, 326);
-			this->txtcompraTornilloRequerido->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+
+			this->txtcompraTornilloRequerido->Location = System::Drawing::Point(339, 232);
+			this->txtcompraTornilloRequerido->Margin = System::Windows::Forms::Padding(2);
+
 			this->txtcompraTornilloRequerido->Name = L"txtcompraTornilloRequerido";
 			this->txtcompraTornilloRequerido->Size = System::Drawing::Size(67, 22);
 			this->txtcompraTornilloRequerido->TabIndex = 67;
@@ -942,7 +967,10 @@ private: System::Windows::Forms::Button^ button20;
 			// label13
 			// 
 			this->label13->AutoSize = true;
-			this->label13->Location = System::Drawing::Point(242, 330);
+
+			this->label13->Location = System::Drawing::Point(275, 237);
+			this->label13->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+
 			this->label13->Name = L"label13";
 			this->label13->Size = System::Drawing::Size(61, 16);
 			this->label13->TabIndex = 66;
@@ -973,8 +1001,10 @@ private: System::Windows::Forms::Button^ button20;
 			// 
 			// txtcompraTornilloDiametroRosca
 			// 
-			this->txtcompraTornilloDiametroRosca->Location = System::Drawing::Point(528, 327);
-			this->txtcompraTornilloDiametroRosca->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+
+			this->txtcompraTornilloDiametroRosca->Location = System::Drawing::Point(339, 190);
+			this->txtcompraTornilloDiametroRosca->Margin = System::Windows::Forms::Padding(2);
+
 			this->txtcompraTornilloDiametroRosca->Name = L"txtcompraTornilloDiametroRosca";
 			this->txtcompraTornilloDiametroRosca->Size = System::Drawing::Size(117, 22);
 			this->txtcompraTornilloDiametroRosca->TabIndex = 62;
@@ -988,15 +1018,39 @@ private: System::Windows::Forms::Button^ button20;
 				this->Nombres,
 					this->Carrera, this->Cantidad, this->Proveedor, this->Telefono
 			});
-			this->dgvcompratornillos->Location = System::Drawing::Point(31, 427);
-			this->dgvcompratornillos->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+
+			this->dgvcompratornillos->Location = System::Drawing::Point(23, 257);
 			this->dgvcompratornillos->Name = L"dgvcompratornillos";
 			this->dgvcompratornillos->RowHeadersVisible = false;
-			this->dgvcompratornillos->RowHeadersWidth = 51;
-			this->dgvcompratornillos->Size = System::Drawing::Size(672, 146);
+			this->dgvcompratornillos->Size = System::Drawing::Size(504, 136);
 			this->dgvcompratornillos->TabIndex = 61;
-			this->dgvcompratornillos->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &CompraStockForm::dgvcompratornillos_CellClick);
-			this->dgvcompratornillos->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &CompraStockForm::dgvEmpleados_CellContentClick);
+			this->dgvcompratornillos->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &CompraStockForm::dgvcompratornillos_CellContentClick);
+			// 
+			// Nombres
+			// 
+			this->Nombres->HeaderText = L"ID";
+			this->Nombres->Name = L"Nombres";
+			// 
+			// Carrera
+			// 
+			this->Carrera->HeaderText = L"Nombre";
+			this->Carrera->Name = L"Carrera";
+			// 
+			// Cantidad
+			// 
+			this->Cantidad->HeaderText = L"Cantidad";
+			this->Cantidad->Name = L"Cantidad";
+			// 
+			// Proveedor
+			// 
+			this->Proveedor->HeaderText = L"Proveedor";
+			this->Proveedor->Name = L"Proveedor";
+			// 
+			// Telefono
+			// 
+			this->Telefono->HeaderText = L"Precio Unitario";
+			this->Telefono->Name = L"Telefono";
+
 			// 
 			// Nombres
 			// 
@@ -1036,7 +1090,10 @@ private: System::Windows::Forms::Button^ button20;
 			// label12
 			// 
 			this->label12->AutoSize = true;
-			this->label12->Location = System::Drawing::Point(417, 329);
+
+			this->label12->Location = System::Drawing::Point(240, 200);
+			this->label12->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+
 			this->label12->Name = L"label12";
 			this->label12->Size = System::Drawing::Size(105, 16);
 			this->label12->TabIndex = 60;
@@ -1045,7 +1102,10 @@ private: System::Windows::Forms::Button^ button20;
 			// label11
 			// 
 			this->label11->AutoSize = true;
-			this->label11->Location = System::Drawing::Point(399, 287);
+
+			this->label11->Location = System::Drawing::Point(270, 166);
+			this->label11->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+
 			this->label11->Name = L"label11";
 			this->label11->Size = System::Drawing::Size(55, 16);
 			this->label11->TabIndex = 59;
@@ -1064,8 +1124,10 @@ private: System::Windows::Forms::Button^ button20;
 			this->label9->AutoSize = true;
 			this->label9->Location = System::Drawing::Point(40, 160);
 			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(108, 16);
+
+			this->label9->Size = System::Drawing::Size(0, 13);
 			this->label9->TabIndex = 57;
+
 			this->label9->Text = L"Codigo (Modelo)";
 			// 
 			// txtcompraTornilloModel
@@ -1075,11 +1137,15 @@ private: System::Windows::Forms::Button^ button20;
 			this->txtcompraTornilloModel->Name = L"txtcompraTornilloModel";
 			this->txtcompraTornilloModel->Size = System::Drawing::Size(180, 22);
 			this->txtcompraTornilloModel->TabIndex = 56;
+
 			// 
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(96, 237);
+
+			this->label5->Location = System::Drawing::Point(60, 166);
+			this->label5->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(41, 16);
 			this->label5->TabIndex = 55;
@@ -1087,8 +1153,10 @@ private: System::Windows::Forms::Button^ button20;
 			// 
 			// txtcompraTornilloMaterial
 			// 
-			this->txtcompraTornilloMaterial->Location = System::Drawing::Point(491, 274);
-			this->txtcompraTornilloMaterial->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+
+			this->txtcompraTornilloMaterial->Location = System::Drawing::Point(339, 156);
+			this->txtcompraTornilloMaterial->Margin = System::Windows::Forms::Padding(2);
+
 			this->txtcompraTornilloMaterial->Name = L"txtcompraTornilloMaterial";
 			this->txtcompraTornilloMaterial->Size = System::Drawing::Size(155, 22);
 			this->txtcompraTornilloMaterial->TabIndex = 54;
@@ -1096,7 +1164,10 @@ private: System::Windows::Forms::Button^ button20;
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(40, 284);
+
+			this->label4->Location = System::Drawing::Point(18, 204);
+			this->label4->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(97, 16);
 			this->label4->TabIndex = 53;
@@ -1104,12 +1175,15 @@ private: System::Windows::Forms::Button^ button20;
 			// 
 			// txtcompraTornilloPunta
 			// 
-			this->txtcompraTornilloPunta->Location = System::Drawing::Point(157, 233);
-			this->txtcompraTornilloPunta->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+
+			this->txtcompraTornilloPunta->Location = System::Drawing::Point(106, 163);
+			this->txtcompraTornilloPunta->Margin = System::Windows::Forms::Padding(2);
+
 			this->txtcompraTornilloPunta->Name = L"txtcompraTornilloPunta";
 			this->txtcompraTornilloPunta->Size = System::Drawing::Size(143, 22);
 			this->txtcompraTornilloPunta->TabIndex = 52;
 			// 
+
 			// label3
 			// 
 			this->label3->AutoSize = true;
@@ -1144,6 +1218,7 @@ private: System::Windows::Forms::Button^ button20;
 			this->txtcompraTornilloTipo->Size = System::Drawing::Size(180, 22);
 			this->txtcompraTornilloTipo->TabIndex = 48;
 			// 
+
 			// label2
 			// 
 			this->label2->AutoSize = true;
@@ -1197,18 +1272,23 @@ private: System::Windows::Forms::Button^ button20;
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(287, 304);
-			this->textBox1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+
+			this->textBox1->Location = System::Drawing::Point(366, 263);
+			this->textBox1->Margin = System::Windows::Forms::Padding(2);
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(67, 22);
+			this->textBox1->Size = System::Drawing::Size(51, 20);
+
 			this->textBox1->TabIndex = 111;
 			// 
 			// label15
 			// 
 			this->label15->AutoSize = true;
-			this->label15->Location = System::Drawing::Point(227, 307);
+
+			this->label15->Location = System::Drawing::Point(302, 268);
+			this->label15->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label15->Name = L"label15";
-			this->label15->Size = System::Drawing::Size(61, 16);
+			this->label15->Size = System::Drawing::Size(49, 13);
+
 			this->label15->TabIndex = 110;
 			this->label15->Text = L"Cantidad";
 			// 
@@ -1221,55 +1301,70 @@ private: System::Windows::Forms::Button^ button20;
 				this->dataGridViewTextBoxColumn1,
 					this->dataGridViewTextBoxColumn2, this->dataGridViewTextBoxColumn3, this->dataGridViewTextBoxColumn4, this->dataGridViewTextBoxColumn5
 			});
-			this->dataGridView1->Location = System::Drawing::Point(84, 410);
-			this->dataGridView1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+
+			this->dataGridView1->Location = System::Drawing::Point(62, 319);
+      this->dataGridView1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersVisible = false;
-			this->dataGridView1->RowHeadersWidth = 51;
-			this->dataGridView1->Size = System::Drawing::Size(672, 146);
+      this->dataGridView1->RowHeadersWidth = 51;
+			this->dataGridView1->Size = System::Drawing::Size(504, 164);
+
 			this->dataGridView1->TabIndex = 109;
 			// 
 			// dataGridViewTextBoxColumn1
 			// 
 			this->dataGridViewTextBoxColumn1->HeaderText = L"ID";
+
+
 			this->dataGridViewTextBoxColumn1->MinimumWidth = 6;
 			this->dataGridViewTextBoxColumn1->Name = L"dataGridViewTextBoxColumn1";
 			this->dataGridViewTextBoxColumn1->Width = 125;
+
 			// 
 			// dataGridViewTextBoxColumn2
 			// 
 			this->dataGridViewTextBoxColumn2->HeaderText = L"Nombre";
+
 			this->dataGridViewTextBoxColumn2->MinimumWidth = 6;
 			this->dataGridViewTextBoxColumn2->Name = L"dataGridViewTextBoxColumn2";
 			this->dataGridViewTextBoxColumn2->Width = 125;
+
 			// 
 			// dataGridViewTextBoxColumn3
 			// 
 			this->dataGridViewTextBoxColumn3->HeaderText = L"Cantidad";
+
 			this->dataGridViewTextBoxColumn3->MinimumWidth = 6;
 			this->dataGridViewTextBoxColumn3->Name = L"dataGridViewTextBoxColumn3";
 			this->dataGridViewTextBoxColumn3->Width = 125;
+
 			// 
 			// dataGridViewTextBoxColumn4
 			// 
 			this->dataGridViewTextBoxColumn4->HeaderText = L"Proveedor";
+
 			this->dataGridViewTextBoxColumn4->MinimumWidth = 6;
 			this->dataGridViewTextBoxColumn4->Name = L"dataGridViewTextBoxColumn4";
 			this->dataGridViewTextBoxColumn4->Width = 125;
+
 			// 
 			// dataGridViewTextBoxColumn5
 			// 
 			this->dataGridViewTextBoxColumn5->HeaderText = L"Precio Unitario";
+
 			this->dataGridViewTextBoxColumn5->MinimumWidth = 6;
 			this->dataGridViewTextBoxColumn5->Name = L"dataGridViewTextBoxColumn5";
 			this->dataGridViewTextBoxColumn5->Width = 125;
+
 			// 
 			// textBox12
 			// 
 			this->textBox12->Location = System::Drawing::Point(488, 198);
 			this->textBox12->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->textBox12->Name = L"textBox12";
-			this->textBox12->Size = System::Drawing::Size(155, 22);
+
+			this->textBox12->Size = System::Drawing::Size(127, 20);
+
 			this->textBox12->TabIndex = 106;
 			// 
 			// label17
@@ -1286,7 +1381,9 @@ private: System::Windows::Forms::Button^ button20;
 			this->textBox13->Location = System::Drawing::Point(488, 159);
 			this->textBox13->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->textBox13->Name = L"textBox13";
-			this->textBox13->Size = System::Drawing::Size(155, 22);
+
+			this->textBox13->Size = System::Drawing::Size(127, 20);
+
 			this->textBox13->TabIndex = 104;
 			// 
 			// label19
@@ -1369,7 +1466,9 @@ private: System::Windows::Forms::Button^ button20;
 			this->textBox17->Location = System::Drawing::Point(493, 304);
 			this->textBox17->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->textBox17->Name = L"textBox17";
-			this->textBox17->Size = System::Drawing::Size(155, 22);
+
+			this->textBox17->Size = System::Drawing::Size(127, 20);
+
 			this->textBox17->TabIndex = 90;
 			// 
 			// textBox18
@@ -1394,7 +1493,9 @@ private: System::Windows::Forms::Button^ button20;
 			this->textBox19->Location = System::Drawing::Point(493, 254);
 			this->textBox19->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->textBox19->Name = L"textBox19";
-			this->textBox19->Size = System::Drawing::Size(155, 22);
+
+			this->textBox19->Size = System::Drawing::Size(127, 20);
+
 			this->textBox19->TabIndex = 86;
 			// 
 			// label28
@@ -1488,8 +1589,13 @@ private: System::Windows::Forms::Button^ button20;
 			this->textBox25->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->textBox25->Multiline = true;
 			this->textBox25->Name = L"textBox25";
-			this->textBox25->Size = System::Drawing::Size(504, 46);
+
+			this->textBox25->Size = System::Drawing::Size(389, 60);
+
 			this->textBox25->TabIndex = 79;
+			this->textBox25->Text = L"Cintas utilizadas para transmitir potencia en sistemas mecánicos, disponibles en "
+				L"materiales\r\n poliuretano , con longitudes de 500 mm a 5000 mm, anchos de 10 mm a"
+				L" 500 mm\r\n";
 			// 
 			// PoleasPage
 			// 
@@ -1537,8 +1643,9 @@ private: System::Windows::Forms::Button^ button20;
 			this->PoleasPage->UseVisualStyleBackColor = true;
 			// 
 			// textBox2
+
 			// 
-			this->textBox2->Location = System::Drawing::Point(309, 329);
+			this->textBox2->Location = System::Drawing::Point(362, 298);
 			this->textBox2->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->Size = System::Drawing::Size(67, 22);
@@ -1613,21 +1720,88 @@ private: System::Windows::Forms::Button^ button20;
 			this->label43->Size = System::Drawing::Size(85, 16);
 			this->label43->TabIndex = 132;
 			this->label43->Text = L"Diametro Eje";
+
+			// 
+			// label16
+			// 
+
+			this->label16->AutoSize = true;
+			this->label16->Location = System::Drawing::Point(298, 303);
+			this->label16->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label16->Name = L"label16";
+			this->label16->Size = System::Drawing::Size(49, 13);
+			this->label16->TabIndex = 134;
+			this->label16->Text = L"Cantidad";
+
+			
+			// 
+			// dataGridView2
+			// 
+
+			this->dataGridView2->AllowUserToAddRows = false;
+			this->dataGridView2->AllowUserToOrderColumns = true;
+			this->dataGridView2->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dataGridView2->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(5) {
+				this->dataGridViewTextBoxColumn6,
+					this->dataGridViewTextBoxColumn7, this->dataGridViewTextBoxColumn8, this->dataGridViewTextBoxColumn9, this->dataGridViewTextBoxColumn10
+			});
+			this->dataGridView2->Location = System::Drawing::Point(72, 327);
+			this->dataGridView2->Name = L"dataGridView2";
+			this->dataGridView2->RowHeadersVisible = false;
+			this->dataGridView2->Size = System::Drawing::Size(504, 156);
+			this->dataGridView2->TabIndex = 133;
+			// 
+			// dataGridViewTextBoxColumn6
+			// 
+			this->dataGridViewTextBoxColumn6->HeaderText = L"ID";
+			this->dataGridViewTextBoxColumn6->Name = L"dataGridViewTextBoxColumn6";
+			// 
+			// dataGridViewTextBoxColumn7
+			// 
+			this->dataGridViewTextBoxColumn7->HeaderText = L"Nombre";
+			this->dataGridViewTextBoxColumn7->Name = L"dataGridViewTextBoxColumn7";
+			// 
+			// dataGridViewTextBoxColumn8
+			// 
+			this->dataGridViewTextBoxColumn8->HeaderText = L"Cantidad";
+			this->dataGridViewTextBoxColumn8->Name = L"dataGridViewTextBoxColumn8";
+			// 
+			// dataGridViewTextBoxColumn9
+			// 
+			this->dataGridViewTextBoxColumn9->HeaderText = L"Proveedor";
+			this->dataGridViewTextBoxColumn9->Name = L"dataGridViewTextBoxColumn9";
+			// 
+			// dataGridViewTextBoxColumn10
+			// 
+			this->dataGridViewTextBoxColumn10->HeaderText = L"Precio Unitario";
+			this->dataGridViewTextBoxColumn10->Name = L"dataGridViewTextBoxColumn10";
+			// 
+			// label43
+			// 
+			this->label43->AutoSize = true;
+			this->label43->Location = System::Drawing::Point(274, 272);
+			this->label43->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label43->Name = L"label43";
+			this->label43->Size = System::Drawing::Size(67, 13);
+			this->label43->TabIndex = 132;
+			this->label43->Text = L"Diametro Eje";
 			// 
 			// textBox35
 			// 
-			this->textBox35->Location = System::Drawing::Point(500, 332);
-			this->textBox35->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->textBox35->Location = System::Drawing::Point(362, 265);
+			this->textBox35->Margin = System::Windows::Forms::Padding(2);
 			this->textBox35->Name = L"textBox35";
-			this->textBox35->Size = System::Drawing::Size(143, 22);
+			this->textBox35->Size = System::Drawing::Size(108, 20);
 			this->textBox35->TabIndex = 131;
 			// 
 			// label42
 			// 
 			this->label42->AutoSize = true;
-			this->label42->Location = System::Drawing::Point(29, 294);
+			this->label42->Location = System::Drawing::Point(18, 272);
+			this->label42->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label42->Name = L"label42";
-			this->label42->Size = System::Drawing::Size(55, 16);
+			this->label42->Size = System::Drawing::Size(44, 13);
+
 			this->label42->TabIndex = 130;
 			this->label42->Text = L"Material";
 			// 
@@ -1847,8 +2021,12 @@ private: System::Windows::Forms::Button^ button20;
 			this->textBox40->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->textBox40->Multiline = true;
 			this->textBox40->Name = L"textBox40";
-			this->textBox40->Size = System::Drawing::Size(504, 46);
+
+			this->textBox40->Size = System::Drawing::Size(379, 48);
+
 			this->textBox40->TabIndex = 79;
+			this->textBox40->Text = L"Ruedas con ranuras utilizadas para cambiar la dirección de la fuerza aplicada por"
+				L" \r\nuna faja, fabricadas en acero, con diámetros de 50 mm a 1000 mm.";
 			// 
 			// RodamientosPage
 			// 
@@ -1893,6 +2071,66 @@ private: System::Windows::Forms::Button^ button20;
 			this->RodamientosPage->UseVisualStyleBackColor = true;
 			// 
 			// textBox3
+
+			// 
+			this->textBox3->Location = System::Drawing::Point(366, 268);
+			this->textBox3->Margin = System::Windows::Forms::Padding(2);
+			this->textBox3->Name = L"textBox3";
+			this->textBox3->Size = System::Drawing::Size(51, 20);
+			this->textBox3->TabIndex = 111;
+			// 
+			// label20
+			// 
+			this->label20->AutoSize = true;
+			this->label20->Location = System::Drawing::Point(302, 273);
+			this->label20->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label20->Name = L"label20";
+			this->label20->Size = System::Drawing::Size(49, 13);
+			this->label20->TabIndex = 110;
+			this->label20->Text = L"Cantidad";
+			// 
+			// dataGridView3
+			// 
+			this->dataGridView3->AllowUserToAddRows = false;
+			this->dataGridView3->AllowUserToOrderColumns = true;
+			this->dataGridView3->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dataGridView3->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(5) {
+				this->dataGridViewTextBoxColumn11,
+					this->dataGridViewTextBoxColumn12, this->dataGridViewTextBoxColumn13, this->dataGridViewTextBoxColumn14, this->dataGridViewTextBoxColumn15
+			});
+			this->dataGridView3->Location = System::Drawing::Point(80, 305);
+			this->dataGridView3->Name = L"dataGridView3";
+			this->dataGridView3->RowHeadersVisible = false;
+			this->dataGridView3->Size = System::Drawing::Size(504, 178);
+			this->dataGridView3->TabIndex = 109;
+			// 
+			// dataGridViewTextBoxColumn11
+			// 
+			this->dataGridViewTextBoxColumn11->HeaderText = L"ID";
+			this->dataGridViewTextBoxColumn11->Name = L"dataGridViewTextBoxColumn11";
+			// 
+			// dataGridViewTextBoxColumn12
+			// 
+			this->dataGridViewTextBoxColumn12->HeaderText = L"Nombre";
+			this->dataGridViewTextBoxColumn12->Name = L"dataGridViewTextBoxColumn12";
+			// 
+			// dataGridViewTextBoxColumn13
+			// 
+			this->dataGridViewTextBoxColumn13->HeaderText = L"Cantidad";
+			this->dataGridViewTextBoxColumn13->Name = L"dataGridViewTextBoxColumn13";
+			// 
+			// dataGridViewTextBoxColumn14
+			// 
+			this->dataGridViewTextBoxColumn14->HeaderText = L"Proveedor";
+			this->dataGridViewTextBoxColumn14->Name = L"dataGridViewTextBoxColumn14";
+			// 
+			// dataGridViewTextBoxColumn15
+			// 
+			this->dataGridViewTextBoxColumn15->HeaderText = L"Precio Unitario";
+			this->dataGridViewTextBoxColumn15->Name = L"dataGridViewTextBoxColumn15";
+			// 
+			// textBox42
+
 			// 
 			this->textBox3->Location = System::Drawing::Point(290, 291);
 			this->textBox3->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
@@ -2177,8 +2415,11 @@ private: System::Windows::Forms::Button^ button20;
 			this->textBox55->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->textBox55->Multiline = true;
 			this->textBox55->Name = L"textBox55";
-			this->textBox55->Size = System::Drawing::Size(504, 46);
+
+			this->textBox55->Size = System::Drawing::Size(379, 60);
+
 			this->textBox55->TabIndex = 79;
+			this->textBox55->Text = resources->GetString(L"textBox55.Text");
 			// 
 			// MotoresACPage
 			// 
@@ -2231,18 +2472,23 @@ private: System::Windows::Forms::Button^ button20;
 			// 
 			// textBox4
 			// 
-			this->textBox4->Location = System::Drawing::Point(469, 375);
-			this->textBox4->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+
+			this->textBox4->Location = System::Drawing::Point(352, 305);
+			this->textBox4->Margin = System::Windows::Forms::Padding(2);
 			this->textBox4->Name = L"textBox4";
-			this->textBox4->Size = System::Drawing::Size(67, 22);
+			this->textBox4->Size = System::Drawing::Size(51, 20);
+
 			this->textBox4->TabIndex = 113;
 			// 
 			// label21
 			// 
 			this->label21->AutoSize = true;
-			this->label21->Location = System::Drawing::Point(384, 382);
+
+			this->label21->Location = System::Drawing::Point(288, 310);
+			this->label21->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label21->Name = L"label21";
-			this->label21->Size = System::Drawing::Size(61, 16);
+			this->label21->Size = System::Drawing::Size(49, 13);
+
 			this->label21->TabIndex = 112;
 			this->label21->Text = L"Cantidad";
 			// 
@@ -2255,48 +2501,64 @@ private: System::Windows::Forms::Button^ button20;
 				this->dataGridViewTextBoxColumn16,
 					this->dataGridViewTextBoxColumn17, this->dataGridViewTextBoxColumn18, this->dataGridViewTextBoxColumn19, this->dataGridViewTextBoxColumn20
 			});
-			this->dataGridView4->Location = System::Drawing::Point(70, 452);
-			this->dataGridView4->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+
+			this->dataGridView4->Location = System::Drawing::Point(74, 334);
 			this->dataGridView4->Name = L"dataGridView4";
 			this->dataGridView4->RowHeadersVisible = false;
+			this->dataGridView4->Size = System::Drawing::Size(504, 149);
+
+		
+			this->dataGridView4->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+
+			this->dataGridView4->RowHeadersVisible = false;
 			this->dataGridView4->RowHeadersWidth = 51;
-			this->dataGridView4->Size = System::Drawing::Size(672, 146);
+
 			this->dataGridView4->TabIndex = 111;
 			// 
 			// dataGridViewTextBoxColumn16
 			// 
 			this->dataGridViewTextBoxColumn16->HeaderText = L"ID";
+
 			this->dataGridViewTextBoxColumn16->MinimumWidth = 6;
 			this->dataGridViewTextBoxColumn16->Name = L"dataGridViewTextBoxColumn16";
 			this->dataGridViewTextBoxColumn16->Width = 125;
+
 			// 
 			// dataGridViewTextBoxColumn17
 			// 
 			this->dataGridViewTextBoxColumn17->HeaderText = L"Nombre";
+
 			this->dataGridViewTextBoxColumn17->MinimumWidth = 6;
 			this->dataGridViewTextBoxColumn17->Name = L"dataGridViewTextBoxColumn17";
 			this->dataGridViewTextBoxColumn17->Width = 125;
+
 			// 
 			// dataGridViewTextBoxColumn18
 			// 
 			this->dataGridViewTextBoxColumn18->HeaderText = L"Cantidad";
+
 			this->dataGridViewTextBoxColumn18->MinimumWidth = 6;
 			this->dataGridViewTextBoxColumn18->Name = L"dataGridViewTextBoxColumn18";
 			this->dataGridViewTextBoxColumn18->Width = 125;
+
 			// 
 			// dataGridViewTextBoxColumn19
 			// 
 			this->dataGridViewTextBoxColumn19->HeaderText = L"Proveedor";
+
 			this->dataGridViewTextBoxColumn19->MinimumWidth = 6;
 			this->dataGridViewTextBoxColumn19->Name = L"dataGridViewTextBoxColumn19";
 			this->dataGridViewTextBoxColumn19->Width = 125;
+
 			// 
 			// dataGridViewTextBoxColumn20
 			// 
 			this->dataGridViewTextBoxColumn20->HeaderText = L"Precio Unitario";
+
 			this->dataGridViewTextBoxColumn20->MinimumWidth = 6;
 			this->dataGridViewTextBoxColumn20->Name = L"dataGridViewTextBoxColumn20";
 			this->dataGridViewTextBoxColumn20->Width = 125;
+
 			// 
 			// label44
 			// 
@@ -2575,6 +2837,8 @@ private: System::Windows::Forms::Button^ button20;
 			this->textBox70->Name = L"textBox70";
 			this->textBox70->Size = System::Drawing::Size(504, 46);
 			this->textBox70->TabIndex = 79;
+			this->textBox70->Text = L"Motores que funcionan con corriente alterna, voltajes de 110V, 220V y 380V, \r\nfre"
+				L"cuencias de 50 Hz y 60 Hz, y carcasas de acero con bobinados de cobre, ";
 			// 
 			// MotoresDCPage
 			// 
@@ -2620,18 +2884,23 @@ private: System::Windows::Forms::Button^ button20;
 			// 
 			// textBox5
 			// 
-			this->textBox5->Location = System::Drawing::Point(303, 289);
-			this->textBox5->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+
+			this->textBox5->Location = System::Drawing::Point(366, 270);
+			this->textBox5->Margin = System::Windows::Forms::Padding(2);
 			this->textBox5->Name = L"textBox5";
-			this->textBox5->Size = System::Drawing::Size(67, 22);
+			this->textBox5->Size = System::Drawing::Size(51, 20);
+
 			this->textBox5->TabIndex = 111;
 			// 
 			// label35
 			// 
 			this->label35->AutoSize = true;
-			this->label35->Location = System::Drawing::Point(236, 292);
+
+			this->label35->Location = System::Drawing::Point(302, 275);
+			this->label35->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label35->Name = L"label35";
-			this->label35->Size = System::Drawing::Size(61, 16);
+			this->label35->Size = System::Drawing::Size(49, 13);
+
 			this->label35->TabIndex = 110;
 			this->label35->Text = L"Cantidad";
 			// 
@@ -2644,48 +2913,64 @@ private: System::Windows::Forms::Button^ button20;
 				this->dataGridViewTextBoxColumn21,
 					this->dataGridViewTextBoxColumn22, this->dataGridViewTextBoxColumn23, this->dataGridViewTextBoxColumn24, this->dataGridViewTextBoxColumn25
 			});
-			this->dataGridView5->Location = System::Drawing::Point(97, 384);
+
+			this->dataGridView5->Location = System::Drawing::Point(73, 312);
+			this->dataGridView5->Name = L"dataGridView5";
+			this->dataGridView5->RowHeadersVisible = false;
+			this->dataGridView5->Size = System::Drawing::Size(504, 171);
+
 			this->dataGridView5->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->dataGridView5->Name = L"dataGridView5";
 			this->dataGridView5->RowHeadersVisible = false;
 			this->dataGridView5->RowHeadersWidth = 51;
-			this->dataGridView5->Size = System::Drawing::Size(672, 146);
+
+
 			this->dataGridView5->TabIndex = 109;
 			// 
 			// dataGridViewTextBoxColumn21
 			// 
 			this->dataGridViewTextBoxColumn21->HeaderText = L"ID";
+
 			this->dataGridViewTextBoxColumn21->MinimumWidth = 6;
 			this->dataGridViewTextBoxColumn21->Name = L"dataGridViewTextBoxColumn21";
 			this->dataGridViewTextBoxColumn21->Width = 125;
+
 			// 
 			// dataGridViewTextBoxColumn22
 			// 
 			this->dataGridViewTextBoxColumn22->HeaderText = L"Nombre";
+
 			this->dataGridViewTextBoxColumn22->MinimumWidth = 6;
 			this->dataGridViewTextBoxColumn22->Name = L"dataGridViewTextBoxColumn22";
 			this->dataGridViewTextBoxColumn22->Width = 125;
+
 			// 
 			// dataGridViewTextBoxColumn23
 			// 
 			this->dataGridViewTextBoxColumn23->HeaderText = L"Cantidad";
+
 			this->dataGridViewTextBoxColumn23->MinimumWidth = 6;
 			this->dataGridViewTextBoxColumn23->Name = L"dataGridViewTextBoxColumn23";
 			this->dataGridViewTextBoxColumn23->Width = 125;
+
 			// 
 			// dataGridViewTextBoxColumn24
 			// 
 			this->dataGridViewTextBoxColumn24->HeaderText = L"Proveedor";
+
 			this->dataGridViewTextBoxColumn24->MinimumWidth = 6;
 			this->dataGridViewTextBoxColumn24->Name = L"dataGridViewTextBoxColumn24";
 			this->dataGridViewTextBoxColumn24->Width = 125;
+
 			// 
 			// dataGridViewTextBoxColumn25
 			// 
 			this->dataGridViewTextBoxColumn25->HeaderText = L"Precio Unitario";
+
 			this->dataGridViewTextBoxColumn25->MinimumWidth = 6;
 			this->dataGridViewTextBoxColumn25->Name = L"dataGridViewTextBoxColumn25";
 			this->dataGridViewTextBoxColumn25->Width = 125;
+
 			// 
 			// textBox72
 			// 
@@ -2903,8 +3188,13 @@ private: System::Windows::Forms::Button^ button20;
 			this->textBox85->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->textBox85->Multiline = true;
 			this->textBox85->Name = L"textBox85";
-			this->textBox85->Size = System::Drawing::Size(504, 46);
+
+			this->textBox85->Size = System::Drawing::Size(379, 47);
+
 			this->textBox85->TabIndex = 79;
+			this->textBox85->Text = L"Motores que funcionan con corriente continua , voltajes típicos de 12V, 24V y 48V"
+				L",\r\n velocidades variables mediante controladores, y carcasas de acero o aluminio"
+				L" ";
 			// 
 			// panel1
 			// 
@@ -2981,6 +3271,25 @@ private: System::Windows::Forms::Button^ button20;
 			this->btnEditar->Text = L"Editar";
 			this->btnEditar->UseVisualStyleBackColor = false;
 			// 
+
+			// txtLongitud
+			// 
+			this->txtLongitud->AutoSize = true;
+			this->txtLongitud->Location = System::Drawing::Point(275, 122);
+			this->txtLongitud->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->txtLongitud->Name = L"txtLongitud";
+			this->txtLongitud->Size = System::Drawing::Size(48, 13);
+			this->txtLongitud->TabIndex = 49;
+			this->txtLongitud->Text = L"Longitud";
+			// 
+			// txtcompraTornilloLongitud
+			// 
+			this->txtcompraTornilloLongitud->Location = System::Drawing::Point(339, 122);
+			this->txtcompraTornilloLongitud->Margin = System::Windows::Forms::Padding(2);
+			this->txtcompraTornilloLongitud->Name = L"txtcompraTornilloLongitud";
+			this->txtcompraTornilloLongitud->Size = System::Drawing::Size(117, 20);
+			this->txtcompraTornilloLongitud->TabIndex = 50;
+
 			// btnedittornillo
 			// 
 			this->btnedittornillo->Location = System::Drawing::Point(294, 373);
@@ -3160,6 +3469,7 @@ private: System::Windows::Forms::Button^ button20;
 			this->button20->TabIndex = 112;
 			this->button20->Text = L"Agregar";
 			this->button20->UseVisualStyleBackColor = true;
+
 			// 
 			// CompraStockForm
 			// 
@@ -3204,10 +3514,16 @@ private: System::Windows::Forms::Button^ button20;
 	private: System::Void TornillosPage_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void dgvEmpleados_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+
 	}
+	private: System::Void dgvcompratornillos_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+		
+	}
+
 	private: System::Void btnagregar_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 private: System::Void dgvcompratornillos_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 }
+
 };
 }

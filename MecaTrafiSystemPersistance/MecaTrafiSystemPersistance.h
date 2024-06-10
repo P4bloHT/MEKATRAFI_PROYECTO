@@ -3,6 +3,8 @@
 using namespace System;
 using namespace MecaTrafiSystemModel;
 using namespace System::Collections::Generic;
+using namespace System::Data::SqlClient;
+
 namespace MecaTrafiSystemPersistance {
 	public ref class Persistance
 	{
@@ -14,6 +16,7 @@ namespace MecaTrafiSystemPersistance {
 		static Object^ LoadXMLFile(String^ fileName);
 		static void PersistBinaryFile(String^ fileName, Object^ persistObject);
 		static Object^ LoadBinaryFile(String^ fileName);
+		static SqlConnection^ GetConnection();
 
 		//BASE DATOS COMPONENTES - STOCK
 		static List <MechanicComponent^>^ motorACDB = gcnew List <MechanicComponent^>();
