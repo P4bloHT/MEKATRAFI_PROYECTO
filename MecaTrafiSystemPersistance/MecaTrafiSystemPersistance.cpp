@@ -188,22 +188,25 @@ Object^ MecaTrafiSystemPersistance::Persistance::LoadBinaryFile(String^ fileName
 
 SqlConnection^ MecaTrafiSystemPersistance::Persistance::GetConnection()
 {
-    SqlConnection^ conn = gcnew SqlConnection();
+    
+      SqlConnection^ conn = gcnew SqlConnection();
     String^ password = "vichoxd";
-    conn->ConnectionString = "Server=raul202024945.cbfa8qfn6wo3.us-east-1.rds.amazonaws.com;Database=Mecatrafi;User ID= Mecatrafi; Password = " +
-        password + ";";
-
+    conn->ConnectionString = "Server=raul202024945.cbfa8qfn6wo3.us-east-1.rds.amazonaws.com;" +
+        "Database =  Mecatrafi2;" +
+        "User ID = Mecatrafi2a; " +
+        "Password = " + password + ";";
     conn->Open();
     return conn;
 }
 
 int MecaTrafiSystemPersistance::Persistance::AddEmployee(Employee^ employee)
 {
-    employeeListDB->Add(employee);
+  //  employeeListDB->Add(employee);
     //  PresistTextFile(TXT_EMPLOYEE_FILE_NAME, employeeListDB); //Metodo para .txt
     //  PresistXMLFile(XML_EMPLOYEE_FILE_NAME, employeeListDB); //Metodo para XML
-    PersistBinaryFile(BIN_EMPLOYEE_FILE_NAME, employeeListDB); //Metodo para Binario
-    return 1;
+   PersistBinaryFile(BIN_EMPLOYEE_FILE_NAME, employeeListDB); //Metodo para Binario
+   return 1;
+    
 }
 
 List<Employee^>^ MecaTrafiSystemPersistance::Persistance::QueryAllEmployees()
@@ -261,21 +264,48 @@ Employee^ MecaTrafiSystemPersistance::Persistance::QueryAllEmployeesById(int emp
 
 int MecaTrafiSystemPersistance::Persistance::Addclient(Client^ cliente)
 {
-    clientlistdatos->Add(cliente);
+ //   clientlistdatos->Add(cliente);
     //PersistTextFile(TXT_CLIENT_FILE_NAME, clientlistdatos);
     //PersistTextFile(XML_CLIENT_FILE_NAME, clientlistdatos);
-    PersistBinaryFile(BIN_CLIENT_FILE_NAME, clientlistdatos);
+   // PersistBinaryFile(BIN_CLIENT_FILE_NAME, clientlistdatos);
 
-    return 1;
+    //return 1;
+    int clienteId = 0;
+    SqlConnection^ conn = nullptr;
+    try {
+        // Obtener la conexión a la BD
+        conn = GetConnection();
+
+        // Preparar la sentencia
+        String^ sqlStr = "dbo.usp_AddClientes";
+        SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
+        cmd->CommandType = System::Data::CommandType:: StoredProcedure;
+        cmd->Parameters->Add("@NAME", System::Data::SqlDbType::VarChar, 200)->Value = cliente-> Name;
+        cmd->Parameters->Add("@CARRERA", System::Data::SqlDbType::VarChar, 200)->Value = cliente-> Carrera;
+        cmd->Parameters->Add("@TELEFONO", System::Data::SqlDbType::VarChar, 200)->Value = cliente-> Contact;
+        cmd->Parameters->Add("@CODIGO", System::Data::SqlDbType::VarChar, 200)->Value = cliente-> Id;
+        cmd->Parameters->Add("@PHOTO", System::Data::SqlDbType::Image)->Value = cliente->Name;
+        if (cliente->Photo == nullptr)
+            cmd->Parameters["@PHOTO"]->Value = DBNull::Value;
+        else
+            cmd->Parameters["@PHOTO"]->Value = cliente->Photo;
+        cmd-> Prepare();
+        cmd-> ExecuteNonQuery();
+
+        clienteId  = 1; // Asigna el ID del cliente insertado si es necesario
+    }
+    catch (Exception^ ex) {
+        throw ex;
+    }
+    finally {
+        if (conn != nullptr) conn->Close();
+    }
+    return clienteId;
 }
 
 List<Client^>^ MecaTrafiSystemPersistance::Persistance::Queryallcliente()
 {
-    //clientlistdatos = (List<Client^>^)LoadXMLFile(XML_CLIENT_FILE_NAME);
-    //clientlistdatos = (List<Client^>^)LoadBinaryFile(BIN_CLIENT_FILE_NAME);
-    //if (clientlistdatos == nullptr)
-    //    clientlistdatos = gcnew List<Client^>();
-   // return clientlistdatos;
+   
     clientlistdatos = gcnew List<Client^>();
     SqlConnection^ conn;
     SqlDataReader^ reader;
@@ -284,7 +314,7 @@ List<Client^>^ MecaTrafiSystemPersistance::Persistance::Queryallcliente()
         SqlConnection^ conn = GetConnection();
 
         //PREPARA SQL
-        String^ sqlStr = "SELECT * FROM MECATRAFI_CLIENTEAGREGAR";
+        String^ sqlStr = "dbo.usp_QueryAllClientes";
         SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
         cmd->Prepare();
 
@@ -296,9 +326,12 @@ List<Client^>^ MecaTrafiSystemPersistance::Persistance::Queryallcliente()
 
             Client^ cliente = gcnew Client();
             cliente->Id = Convert::ToInt32(reader["CODIGO"]->ToString());
-            cliente->Name = reader["NOMBRES"]->ToString();
+            cliente->Name = reader["NAME"]->ToString();
             cliente->Carrera = reader["CARRERA"]->ToString();
             cliente->Contact = Convert::ToInt32(reader["TELEFONO"]->ToString());
+            if (!DBNull:: Value->Equals(reader["PHOTO"]))
+                cliente ->Photo = (array<Byte>^)reader["PHOTO"];
+           
             clientlistdatos->Add(cliente);
         }
 
@@ -315,11 +348,13 @@ List<Client^>^ MecaTrafiSystemPersistance::Persistance::Queryallcliente()
 
     }
     return clientlistdatos;
+  
+    
 }
 
 int MecaTrafiSystemPersistance::Persistance::UpdateClient(Client^ cliente)
 {
-    for (int i = 0; i < clientlistdatos->Count; i++) { //Buscar 
+    /*for (int i = 0; i < clientlistdatos->Count; i++) { //Buscar 
         if (clientlistdatos[i]->Id == cliente->Id) {
             clientlistdatos[i] = cliente; //Modifica el dato
             //PersistBinaryFile(BIN_EMPLOYEE_FILE_NAME, clientlistdatos);// Metodo para Binario
@@ -328,11 +363,52 @@ int MecaTrafiSystemPersistance::Persistance::UpdateClient(Client^ cliente)
         }
     }
     return 0;
+    */
+    int clienteId = 0;
+    SqlConnection^ conn = nullptr;
+    try {
+        // Obtener la conexión a la BD
+        conn = GetConnection();
+
+        // Preparar la sentencia
+        String^ sqlStr = "dbo.usp_UpdateClientes";
+        SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
+        cmd->CommandType = System::Data::CommandType::StoredProcedure;
+        cmd->Parameters->Add("@NAME", System::Data::SqlDbType::VarChar, 200)->Value = cliente->Name;
+        cmd->Parameters->Add("@CARRERA", System::Data::SqlDbType::VarChar, 200)->Value = cliente->Carrera;
+        cmd->Parameters->Add("@TELEFONO", System::Data::SqlDbType::VarChar, 200)->Value = cliente->Contact;
+        cmd->Parameters->Add("@CODIGO", System::Data::SqlDbType::VarChar, 200)->Value = cliente->Id;
+        cmd->Parameters->Add("@PHOTO", System::Data::SqlDbType::Image)->Value = cliente->Name;
+        cmd->Prepare(); 
+        cmd->Parameters["@NAME"]->Value = cliente->Name;
+        cmd->Parameters["@CARRERA"]->Value = cliente->Carrera;
+        cmd->Parameters["@TELEFONO"]->Value = cliente->Contact;
+        cmd->Parameters["@CODIGO"]->Value = cliente->Id;
+        cmd->Parameters["@PHOTO"]->Value = cliente->Name;
+        if (cliente->Photo == nullptr)
+            cmd->Parameters["@PHOTO"]->Value = DBNull::Value;
+        else
+            cmd->Parameters["@PHOTO"]->Value = cliente->Photo;
+
+        //Paso 3: Se ejecuta las sentncia SQL
+        cmd->ExecuteNonQuery();
+
+        //Paso 4: Se procesan los resultados
+        //robotId = Convert::ToInt32(cmd->Parameters["@ID"]->Value);
+    }
+    catch (Exception^ ex) {
+        throw ex;
+    }
+    finally {
+        if (conn != nullptr) conn->Close();
+    }
+    return 1;
+
 }
 
 int MecaTrafiSystemPersistance::Persistance::DeleteClient(int clienteId)
 {
-    for (int i = 0; i < clientlistdatos->Count; i++) {
+ /*   for (int i = 0; i < clientlistdatos->Count; i++) {
         if (clientlistdatos[i]->Id == clienteId) {
             clientlistdatos->RemoveAt(i);
             //PresistTextFile(TXT_EMPLOYEE_FILE_NAME, employeeListDB);
@@ -341,7 +417,34 @@ int MecaTrafiSystemPersistance::Persistance::DeleteClient(int clienteId)
             return clienteId;
         }
     }
-    return 0;
+    return 0;*/
+
+    SqlConnection^ conn; 
+    try {
+        //Paso 1: Obtener la conexión a la BD
+        SqlConnection^ conn = GetConnection(); 
+
+        //Paso 2: Se prepara la sentencia
+        String^ sqlStr = "dbo.usp_DeleteClientes";
+        SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn); 
+        cmd->CommandType = System::Data::CommandType::StoredProcedure; 
+        cmd->Parameters->Add("@ID", System::Data::SqlDbType::Int); 
+        cmd->Prepare(); 
+        cmd->Parameters["@ID"]->Value = clienteId; 
+
+        //Paso 3: Se ejecuta las sentncia SQL
+        cmd->ExecuteNonQuery();
+
+        //Paso 4: Se procesan los resultados
+        //robotId = Convert::ToInt32(cmd->Parameters["@ID"]->Value);
+    }
+    catch (Exception^ ex) {
+        throw ex;
+    }
+    finally {
+        if (conn != nullptr) conn->Close();
+    }
+    return 1;
 }
 
 
@@ -363,35 +466,34 @@ Client^ MecaTrafiSystemPersistance::Persistance::Queryallclienteid(int clienteId
         SqlConnection^ conn = GetConnection();
 
         //PREPARA SQL
-        String^ sqlStr = "SELECT * FROM MECATRAFI_CLIENTEAGREGAR WHERE ID= "+ clienteId;
+        String^ sqlStr = "dbo.usp_QueryClientesId";
         SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
+        cmd->CommandType = System::Data::CommandType::StoredProcedure;
+        cmd->Parameters->Add("@ID", System::Data::SqlDbType::Int); 
+      
+       
         cmd->Prepare();
-
+        cmd->Parameters["@ID"]->Value = clienteId; 
+      
         //EJECUTA SQL
         reader = cmd->ExecuteReader();
 
         //PROCESA DATO
         if (reader->Read()) {
-
-            Client^ cliente = gcnew Client();
-            cliente->Id = Convert::ToInt32(reader["CODIGO"]->ToString());
-            cliente->Name = reader["NOMBRES"]->ToString();
+            cliente = gcnew Client(); 
+           // Client^ cliente = gcnew Client();
+            cliente->Id = Convert::ToInt64(reader["CODIGO"]->ToString());
+            cliente->Name = reader["NAME"]->ToString();
             cliente->Carrera = reader["CARRERA"]->ToString();
-            cliente->Contact = Convert::ToInt32(reader["TELEFONO"]->ToString());
+            cliente->Contact = Convert::ToInt64(reader["TELEFONO"]->ToString());
+            if (!DBNull::Value->Equals(reader["PHOTO"])) 
+                cliente->Photo = (array<Byte>^)reader["PHOTO"]; 
         }
-
-
-
-
-
     }
     catch (Exception^ ex) {
-        throw ;
+        throw ex ; V
     }
     finally {
-
-
-
         //CERRAR LOS OBJETOS A LA BD
         if (reader != nullptr) reader->Close();
         if (conn != nullptr) conn->Close();
