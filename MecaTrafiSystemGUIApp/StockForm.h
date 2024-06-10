@@ -3237,14 +3237,7 @@ private: System::Void btnaddtornillo_Click(System::Object^ sender, System::Event
 	String^ nametornillo = txttornilloname->Text;
 	//String^ descripciotornillon = txtdescriptornillo->Text;
 	String^ proveedortornillo = txtTornilloprovee->Text; 
-	//String^ marcatornillo = txttornillomarca->Text;
-	//int codigotornillo = Convert::ToInt32(txtmodeltornillo->Text);
-	//String^ tipotornillo  = txtTornilloTipo->Text;
-	//int longitudtornillo = Convert::ToInt32(txtTornilloLongitud->Text);
-	//String^ puntatornillo = txtpuntatornillo->Text;
-//	String^ materialtornillo = txtTornilloMaterial->Text;
-	//String^ tiporoscatornillo = txtroscatornillo->Text;
-	//int diametrotornillo = Convert::ToInt32(txtTornilloDiametroRosca->Text);
+
 	double preciounittornillo = Convert::ToInt32(txtTornilloPrecioUnitario->Text);
 	int cantidadtornillo = Convert::ToInt32(txtTornillocantidad->Text);
 	TornilloCliente^ tornillo = gcnew TornilloCliente();
@@ -3252,13 +3245,7 @@ private: System::Void btnaddtornillo_Click(System::Object^ sender, System::Event
 	tornillo->Name = nametornillo;
 	//tornillo->Description = descripcion;
 	tornillo->Proveedor = proveedortornillo;
-	//tornillo->Model = codigotornillo;
-	//tornillo->Tipo = tipo;
-	//tornillo->Longitud = longitud;
-	//tornillo->Punta = puntatornillo;
-	//tornillo->Material = material;
-	//tornillo->Rosca = tiporoscatornillo;
-	//tornillo->DiametroRosca = diametro;
+
 	tornillo->UnitaryPrice = preciounittornillo;
 	tornillo->Stock = cantidadtornillo;
 	if (pbTornilloPhoto != nullptr && pbTornilloPhoto->Image != nullptr) {
