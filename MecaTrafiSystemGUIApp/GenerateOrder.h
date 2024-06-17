@@ -381,11 +381,11 @@ private: System::Void btnGenerarPedido_Click(System::Object^ sender, System::Eve
 
 		MechanicComponent^ componente = nullptr;
 		
-		if (componentType == "Fajita") {
+		if (componentType == "FAJA") {
 			componente = Service::Queryallfajasid(componentId);
 		}
 
-		if (componentType == "Tornillo") {
+		if (componentType == "TORNILLO") {
 			componente = Service::Queryalltornillosid(componentId);
 		}
 
