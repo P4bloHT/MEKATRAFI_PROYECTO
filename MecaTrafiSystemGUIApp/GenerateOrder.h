@@ -56,12 +56,17 @@ namespace MecaTrafiSystemGUIApp {
 	private: System::Windows::Forms::Label^ label4;
 	private: System::Windows::Forms::DateTimePicker^ FechaPedido;
 
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ ComponentID;
+
+
+
+
+
+	private: System::Windows::Forms::Button^ btnGenerarPedido;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ NombreComponente;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ ComponentID;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ PrecioComponente;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Cantidad;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Subtotal;
-	private: System::Windows::Forms::Button^ btnGenerarPedido;
 
 
 
@@ -99,17 +104,17 @@ namespace MecaTrafiSystemGUIApp {
 			this->txtNCliente = (gcnew System::Windows::Forms::TextBox());
 			this->txtCliente = (gcnew System::Windows::Forms::TextBox());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
-			this->ComponentID = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->NombreComponente = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->PrecioComponente = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Cantidad = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Subtotal = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->FechaPedido = (gcnew System::Windows::Forms::DateTimePicker());
 			this->btnGenerarPedido = (gcnew System::Windows::Forms::Button());
+			this->NombreComponente = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->ComponentID = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->PrecioComponente = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Cantidad = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Subtotal = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -167,8 +172,8 @@ namespace MecaTrafiSystemGUIApp {
 			this->dataGridView1->AllowUserToAddRows = false;
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(5) {
-				this->ComponentID,
-					this->NombreComponente, this->PrecioComponente, this->Cantidad, this->Subtotal
+				this->NombreComponente,
+					this->ComponentID, this->PrecioComponente, this->Cantidad, this->Subtotal
 			});
 			this->dataGridView1->Location = System::Drawing::Point(63, 307);
 			this->dataGridView1->Name = L"dataGridView1";
@@ -177,45 +182,6 @@ namespace MecaTrafiSystemGUIApp {
 			this->dataGridView1->Size = System::Drawing::Size(1115, 314);
 			this->dataGridView1->TabIndex = 6;
 			this->dataGridView1->CellValueChanged += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &GenerateOrder::dataGridView1_CellValueChanged);
-			// 
-			// ComponentID
-			// 
-			this->ComponentID->HeaderText = L"Id.";
-			this->ComponentID->MinimumWidth = 8;
-			this->ComponentID->Name = L"ComponentID";
-			this->ComponentID->ReadOnly = true;
-			this->ComponentID->Width = 150;
-			// 
-			// NombreComponente
-			// 
-			this->NombreComponente->HeaderText = L"Componente";
-			this->NombreComponente->MinimumWidth = 8;
-			this->NombreComponente->Name = L"NombreComponente";
-			this->NombreComponente->ReadOnly = true;
-			this->NombreComponente->Width = 200;
-			// 
-			// PrecioComponente
-			// 
-			this->PrecioComponente->HeaderText = L"P.U.";
-			this->PrecioComponente->MinimumWidth = 8;
-			this->PrecioComponente->Name = L"PrecioComponente";
-			this->PrecioComponente->ReadOnly = true;
-			this->PrecioComponente->Width = 150;
-			// 
-			// Cantidad
-			// 
-			this->Cantidad->HeaderText = L"Cantidad";
-			this->Cantidad->MinimumWidth = 8;
-			this->Cantidad->Name = L"Cantidad";
-			this->Cantidad->Width = 150;
-			// 
-			// Subtotal
-			// 
-			this->Subtotal->HeaderText = L"Subtotal";
-			this->Subtotal->MinimumWidth = 8;
-			this->Subtotal->Name = L"Subtotal";
-			this->Subtotal->ReadOnly = true;
-			this->Subtotal->Width = 150;
 			// 
 			// label1
 			// 
@@ -272,6 +238,45 @@ namespace MecaTrafiSystemGUIApp {
 			this->btnGenerarPedido->Text = L"Generar pedido";
 			this->btnGenerarPedido->UseVisualStyleBackColor = true;
 			this->btnGenerarPedido->Click += gcnew System::EventHandler(this, &GenerateOrder::btnGenerarPedido_Click);
+			// 
+			// NombreComponente
+			// 
+			this->NombreComponente->HeaderText = L"Componente";
+			this->NombreComponente->MinimumWidth = 8;
+			this->NombreComponente->Name = L"NombreComponente";
+			this->NombreComponente->ReadOnly = true;
+			this->NombreComponente->Width = 200;
+			// 
+			// ComponentID
+			// 
+			this->ComponentID->HeaderText = L"Descripción";
+			this->ComponentID->MinimumWidth = 8;
+			this->ComponentID->Name = L"ComponentID";
+			this->ComponentID->ReadOnly = true;
+			this->ComponentID->Width = 300;
+			// 
+			// PrecioComponente
+			// 
+			this->PrecioComponente->HeaderText = L"P.U.";
+			this->PrecioComponente->MinimumWidth = 8;
+			this->PrecioComponente->Name = L"PrecioComponente";
+			this->PrecioComponente->ReadOnly = true;
+			this->PrecioComponente->Width = 150;
+			// 
+			// Cantidad
+			// 
+			this->Cantidad->HeaderText = L"Cantidad";
+			this->Cantidad->MinimumWidth = 8;
+			this->Cantidad->Name = L"Cantidad";
+			this->Cantidad->Width = 150;
+			// 
+			// Subtotal
+			// 
+			this->Subtotal->HeaderText = L"Subtotal";
+			this->Subtotal->MinimumWidth = 8;
+			this->Subtotal->Name = L"Subtotal";
+			this->Subtotal->ReadOnly = true;
+			this->Subtotal->Width = 150;
 			// 
 			// GenerateOrder
 			// 
@@ -339,7 +344,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 		   void AddComponentToGrid(MechanicComponent^ componente) {
 
 
-			   dataGridView1->Rows->Add(gcnew array <String^>{"" + componente->Id, componente->Name, "" + componente->UnitaryPrice, "1", "" + componente->UnitaryPrice});
+			   dataGridView1->Rows->Add(gcnew array <String^>{"" + componente->Name, componente->Description, "" + componente->UnitaryPrice, "1", "" + componente->UnitaryPrice});
 			   
 
 			   //Comparar con el GRID de Generar mensaje si se repite el producto por su ID
