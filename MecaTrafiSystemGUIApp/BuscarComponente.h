@@ -54,9 +54,12 @@ namespace MecaTrafiSystemGUIApp {
 	private: System::Windows::Forms::TextBox^ txtNombre;
 	private: System::Windows::Forms::Button^ btnBuscar;
 	private: System::Windows::Forms::Button^ btnCancelar;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ ComponentName;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ ComponentId;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ ComponentName;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ ComponentPrice;
+
+
+
 
 
 
@@ -84,8 +87,8 @@ namespace MecaTrafiSystemGUIApp {
 			this->txtNombre = (gcnew System::Windows::Forms::TextBox());
 			this->btnBuscar = (gcnew System::Windows::Forms::Button());
 			this->btnCancelar = (gcnew System::Windows::Forms::Button());
-			this->ComponentName = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->ComponentId = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->ComponentName = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->ComponentPrice = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvComponentes))->BeginInit();
 			this->SuspendLayout();
@@ -95,8 +98,8 @@ namespace MecaTrafiSystemGUIApp {
 			this->dgvComponentes->AllowUserToAddRows = false;
 			this->dgvComponentes->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dgvComponentes->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(3) {
-				this->ComponentName,
-					this->ComponentId, this->ComponentPrice
+				this->ComponentId,
+					this->ComponentName, this->ComponentPrice
 			});
 			this->dgvComponentes->Location = System::Drawing::Point(130, 310);
 			this->dgvComponentes->Name = L"dgvComponentes";
@@ -110,16 +113,16 @@ namespace MecaTrafiSystemGUIApp {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(294, 138);
+			this->label1->Location = System::Drawing::Point(294, 67);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(92, 20);
+			this->label1->Size = System::Drawing::Size(23, 20);
 			this->label1->TabIndex = 1;
-			this->label1->Text = L"Descripción";
+			this->label1->Text = L"Id";
 			// 
 			// Nombre
 			// 
 			this->Nombre->AutoSize = true;
-			this->Nombre->Location = System::Drawing::Point(294, 63);
+			this->Nombre->Location = System::Drawing::Point(294, 149);
 			this->Nombre->Name = L"Nombre";
 			this->Nombre->Size = System::Drawing::Size(65, 20);
 			this->Nombre->TabIndex = 2;
@@ -127,14 +130,14 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// txtID
 			// 
-			this->txtID->Location = System::Drawing::Point(456, 135);
+			this->txtID->Location = System::Drawing::Point(456, 64);
 			this->txtID->Name = L"txtID";
 			this->txtID->Size = System::Drawing::Size(331, 26);
 			this->txtID->TabIndex = 3;
 			// 
 			// txtNombre
 			// 
-			this->txtNombre->Location = System::Drawing::Point(456, 60);
+			this->txtNombre->Location = System::Drawing::Point(456, 146);
 			this->txtNombre->Name = L"txtNombre";
 			this->txtNombre->Size = System::Drawing::Size(331, 26);
 			this->txtNombre->TabIndex = 4;
@@ -159,19 +162,19 @@ namespace MecaTrafiSystemGUIApp {
 			this->btnCancelar->UseVisualStyleBackColor = true;
 			this->btnCancelar->Click += gcnew System::EventHandler(this, &BuscarComponente::btnCancelar_Click);
 			// 
+			// ComponentId
+			// 
+			this->ComponentId->HeaderText = L"Id";
+			this->ComponentId->MinimumWidth = 8;
+			this->ComponentId->Name = L"ComponentId";
+			this->ComponentId->Width = 150;
+			// 
 			// ComponentName
 			// 
 			this->ComponentName->HeaderText = L"Nombre";
 			this->ComponentName->MinimumWidth = 8;
 			this->ComponentName->Name = L"ComponentName";
 			this->ComponentName->Width = 200;
-			// 
-			// ComponentId
-			// 
-			this->ComponentId->HeaderText = L"Descripción";
-			this->ComponentId->MinimumWidth = 8;
-			this->ComponentId->Name = L"ComponentId";
-			this->ComponentId->Width = 250;
 			// 
 			// ComponentPrice
 			// 
@@ -206,7 +209,7 @@ namespace MecaTrafiSystemGUIApp {
 	}
 
 		   void AddComponentToGrid(MechanicComponent^ componente) {
-			   dgvComponentes->Rows->Add(gcnew array<String^>{"" + componente->Name, componente->Description, "" + componente->UnitaryPrice});
+			   dgvComponentes->Rows->Add(gcnew array<String^>{"" + componente->Id, componente->Name, "" + componente->UnitaryPrice});
 		   }
 
 
