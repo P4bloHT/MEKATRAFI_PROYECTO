@@ -64,19 +64,17 @@ namespace MecaTrafiSystemGUIApp {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(109, 33);
-			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label1->Location = System::Drawing::Point(164, 51);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(71, 13);
+			this->label1->Size = System::Drawing::Size(106, 20);
 			this->label1->TabIndex = 1;
 			this->label1->Text = L"¿Desea salir\?";
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(34, 163);
-			this->button1->Margin = System::Windows::Forms::Padding(2);
+			this->button1->Location = System::Drawing::Point(51, 251);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(61, 29);
+			this->button1->Size = System::Drawing::Size(92, 45);
 			this->button1->TabIndex = 2;
 			this->button1->Text = L"Sí";
 			this->button1->UseVisualStyleBackColor = true;
@@ -84,10 +82,9 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(193, 163);
-			this->button2->Margin = System::Windows::Forms::Padding(2);
+			this->button2->Location = System::Drawing::Point(290, 251);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(56, 29);
+			this->button2->Size = System::Drawing::Size(84, 45);
 			this->button2->TabIndex = 3;
 			this->button2->Text = L"No";
 			this->button2->UseVisualStyleBackColor = true;
@@ -96,25 +93,24 @@ namespace MecaTrafiSystemGUIApp {
 			// pictureBox1
 			// 
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(93, 63);
-			this->pictureBox1->Margin = System::Windows::Forms::Padding(2);
+			this->pictureBox1->Location = System::Drawing::Point(140, 97);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(104, 84);
+			this->pictureBox1->Size = System::Drawing::Size(156, 129);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox1->TabIndex = 14;
 			this->pictureBox1->TabStop = false;
 			// 
 			// ConfirmarsSalida
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::LightGray;
-			this->ClientSize = System::Drawing::Size(295, 241);
+			this->ClientSize = System::Drawing::Size(442, 371);
 			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->label1);
-			this->Margin = System::Windows::Forms::Padding(2);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"ConfirmarsSalida";
 			this->Text = L"ConfirmarsSalida";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();

@@ -164,7 +164,7 @@ namespace MecaTrafiSystemGUIApp {
 			chartGanancias->Series["Ganancia"]->Points[i]->Label = "" + pedidoList[i]->TotalPrice;
 
 			chart1->Series["Componente"]->Points->Add(pedidoList[i]->TotalPrice);
-			chart1->Series["Componente"]->Points[i]->AxisLabel = "" + pedidoList[i]->Client;
+			chart1->Series["Componente"]->Points[i]->AxisLabel = "" + pedidoList[i]->OrderMeca[i]->componente->Name;
 			chart1->Series["Componente"]->Points[i]->Label = "" + pedidoList[i]->TotalPrice;
 			
 		}
