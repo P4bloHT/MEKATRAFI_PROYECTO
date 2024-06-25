@@ -491,7 +491,7 @@ Client^ MecaTrafiSystemPersistance::Persistance::Queryallclienteid(int clienteId
         }
     }
     catch (Exception^ ex) {
-        throw ex ; V
+        throw ex ; 
     }
     finally {
         //CERRAR LOS OBJETOS A LA BD
