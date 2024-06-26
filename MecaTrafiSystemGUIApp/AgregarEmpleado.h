@@ -106,6 +106,7 @@ namespace MecaTrafiSystemGUIApp {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(AgregarEmpleado::typeid));
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->btnEliminar = (gcnew System::Windows::Forms::Button());
 			this->btnagregar = (gcnew System::Windows::Forms::Button());
@@ -152,8 +153,9 @@ namespace MecaTrafiSystemGUIApp {
 			this->panel1->Controls->Add(this->btnEditar);
 			this->panel1->Dock = System::Windows::Forms::DockStyle::Left;
 			this->panel1->Location = System::Drawing::Point(0, 0);
+			this->panel1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(174, 551);
+			this->panel1->Size = System::Drawing::Size(261, 848);
 			this->panel1->TabIndex = 32;
 			// 
 			// btnEliminar
@@ -163,9 +165,10 @@ namespace MecaTrafiSystemGUIApp {
 			this->btnEliminar->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnEliminar->ForeColor = System::Drawing::SystemColors::Control;
-			this->btnEliminar->Location = System::Drawing::Point(0, 91);
+			this->btnEliminar->Location = System::Drawing::Point(0, 140);
+			this->btnEliminar->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->btnEliminar->Name = L"btnEliminar";
-			this->btnEliminar->Size = System::Drawing::Size(174, 48);
+			this->btnEliminar->Size = System::Drawing::Size(261, 74);
 			this->btnEliminar->TabIndex = 20;
 			this->btnEliminar->Text = L"Eliminar";
 			this->btnEliminar->UseVisualStyleBackColor = false;
@@ -178,10 +181,10 @@ namespace MecaTrafiSystemGUIApp {
 			this->btnagregar->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnagregar->ForeColor = System::Drawing::SystemColors::Control;
-			this->btnagregar->Location = System::Drawing::Point(-1, 0);
+			this->btnagregar->Location = System::Drawing::Point(-2, 0);
 			this->btnagregar->Margin = System::Windows::Forms::Padding(0);
 			this->btnagregar->Name = L"btnagregar";
-			this->btnagregar->Size = System::Drawing::Size(174, 48);
+			this->btnagregar->Size = System::Drawing::Size(261, 74);
 			this->btnagregar->TabIndex = 14;
 			this->btnagregar->Text = L"Agregar";
 			this->btnagregar->UseVisualStyleBackColor = false;
@@ -194,9 +197,10 @@ namespace MecaTrafiSystemGUIApp {
 			this->btncancelar->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btncancelar->ForeColor = System::Drawing::SystemColors::Control;
-			this->btncancelar->Location = System::Drawing::Point(-1, 138);
+			this->btncancelar->Location = System::Drawing::Point(-2, 212);
+			this->btncancelar->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->btncancelar->Name = L"btncancelar";
-			this->btncancelar->Size = System::Drawing::Size(174, 44);
+			this->btncancelar->Size = System::Drawing::Size(261, 68);
 			this->btncancelar->TabIndex = 19;
 			this->btncancelar->Text = L"Cancelar ";
 			this->btncancelar->UseVisualStyleBackColor = false;
@@ -209,9 +213,10 @@ namespace MecaTrafiSystemGUIApp {
 			this->btnEditar->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnEditar->ForeColor = System::Drawing::SystemColors::Control;
-			this->btnEditar->Location = System::Drawing::Point(0, 45);
+			this->btnEditar->Location = System::Drawing::Point(0, 69);
+			this->btnEditar->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->btnEditar->Name = L"btnEditar";
-			this->btnEditar->Size = System::Drawing::Size(174, 48);
+			this->btnEditar->Size = System::Drawing::Size(261, 74);
 			this->btnEditar->TabIndex = 15;
 			this->btnEditar->Text = L"Editar";
 			this->btnEditar->UseVisualStyleBackColor = false;
@@ -226,56 +231,68 @@ namespace MecaTrafiSystemGUIApp {
 				this->Nombres,
 					this->Carrera, this->Telefono, this->HorasdeTrabajo
 			});
-			this->dgvEmpleados->Location = System::Drawing::Point(180, 318);
+			this->dgvEmpleados->Location = System::Drawing::Point(270, 489);
+			this->dgvEmpleados->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->dgvEmpleados->Name = L"dgvEmpleados";
 			this->dgvEmpleados->RowHeadersVisible = false;
-			this->dgvEmpleados->Size = System::Drawing::Size(766, 170);
+			this->dgvEmpleados->RowHeadersWidth = 62;
+			this->dgvEmpleados->Size = System::Drawing::Size(1149, 262);
 			this->dgvEmpleados->TabIndex = 31;
 			this->dgvEmpleados->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &AgregarEmpleado::dgvEmpleados_CellClick);
-			this->dgvEmpleados->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &AgregarEmpleado::dgvEmpleados_CellContentClick);
 			// 
 			// Nombres
 			// 
 			this->Nombres->HeaderText = L"Nombres";
+			this->Nombres->MinimumWidth = 8;
 			this->Nombres->Name = L"Nombres";
+			this->Nombres->Width = 150;
 			// 
 			// Carrera
 			// 
 			this->Carrera->HeaderText = L"Apellidos";
+			this->Carrera->MinimumWidth = 8;
 			this->Carrera->Name = L"Carrera";
+			this->Carrera->Width = 150;
 			// 
 			// Telefono
 			// 
 			this->Telefono->HeaderText = L"Salario";
+			this->Telefono->MinimumWidth = 8;
 			this->Telefono->Name = L"Telefono";
+			this->Telefono->Width = 150;
 			// 
 			// HorasdeTrabajo
 			// 
 			this->HorasdeTrabajo->HeaderText = L"Horas Trabajo";
+			this->HorasdeTrabajo->MinimumWidth = 8;
 			this->HorasdeTrabajo->Name = L"HorasdeTrabajo";
+			this->HorasdeTrabajo->Width = 150;
 			// 
 			// txtApellido
 			// 
-			this->txtApellido->Location = System::Drawing::Point(281, 114);
+			this->txtApellido->Location = System::Drawing::Point(422, 175);
+			this->txtApellido->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->txtApellido->Name = L"txtApellido";
-			this->txtApellido->Size = System::Drawing::Size(186, 20);
+			this->txtApellido->Size = System::Drawing::Size(277, 26);
 			this->txtApellido->TabIndex = 30;
 			this->txtApellido->TextChanged += gcnew System::EventHandler(this, &AgregarEmpleado::txtApellido_TextChanged);
 			// 
 			// txtname
 			// 
-			this->txtname->Location = System::Drawing::Point(281, 77);
+			this->txtname->Location = System::Drawing::Point(422, 118);
+			this->txtname->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->txtname->Name = L"txtname";
-			this->txtname->Size = System::Drawing::Size(186, 20);
+			this->txtname->Size = System::Drawing::Size(277, 26);
 			this->txtname->TabIndex = 29;
 			this->txtname->TextChanged += gcnew System::EventHandler(this, &AgregarEmpleado::txtname_TextChanged);
 			// 
 			// txtid
 			// 
 			this->txtid->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->txtid->Location = System::Drawing::Point(281, 38);
+			this->txtid->Location = System::Drawing::Point(422, 58);
+			this->txtid->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->txtid->Name = L"txtid";
-			this->txtid->Size = System::Drawing::Size(100, 20);
+			this->txtid->Size = System::Drawing::Size(149, 26);
 			this->txtid->TabIndex = 27;
 			this->txtid->TextChanged += gcnew System::EventHandler(this, &AgregarEmpleado::txtid_TextChanged);
 			// 
@@ -283,9 +300,10 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			this->btnEmpUpdatePhoto->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular,
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
-			this->btnEmpUpdatePhoto->Location = System::Drawing::Point(797, 187);
+			this->btnEmpUpdatePhoto->Location = System::Drawing::Point(1196, 288);
+			this->btnEmpUpdatePhoto->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->btnEmpUpdatePhoto->Name = L"btnEmpUpdatePhoto";
-			this->btnEmpUpdatePhoto->Size = System::Drawing::Size(137, 23);
+			this->btnEmpUpdatePhoto->Size = System::Drawing::Size(206, 35);
 			this->btnEmpUpdatePhoto->TabIndex = 26;
 			this->btnEmpUpdatePhoto->Text = L"Actualizar Foto";
 			this->btnEmpUpdatePhoto->UseVisualStyleBackColor = true;
@@ -294,9 +312,10 @@ namespace MecaTrafiSystemGUIApp {
 			// pbEmpPhoto
 			// 
 			this->pbEmpPhoto->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
-			this->pbEmpPhoto->Location = System::Drawing::Point(797, 26);
+			this->pbEmpPhoto->Location = System::Drawing::Point(1196, 40);
+			this->pbEmpPhoto->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->pbEmpPhoto->Name = L"pbEmpPhoto";
-			this->pbEmpPhoto->Size = System::Drawing::Size(137, 145);
+			this->pbEmpPhoto->Size = System::Drawing::Size(204, 221);
 			this->pbEmpPhoto->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pbEmpPhoto->TabIndex = 25;
 			this->pbEmpPhoto->TabStop = false;
@@ -304,146 +323,146 @@ namespace MecaTrafiSystemGUIApp {
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(222, 109);
+			this->label4->Location = System::Drawing::Point(333, 168);
+			this->label4->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(0, 13);
+			this->label4->Size = System::Drawing::Size(0, 20);
 			this->label4->TabIndex = 24;
 			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(212, 84);
+			this->label3->Location = System::Drawing::Point(318, 129);
+			this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(55, 13);
+			this->label3->Size = System::Drawing::Size(81, 20);
 			this->label3->TabIndex = 23;
 			this->label3->Text = L"Nombres :";
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(245, 40);
+			this->label1->Location = System::Drawing::Point(368, 62);
+			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(22, 13);
+			this->label1->Size = System::Drawing::Size(31, 20);
 			this->label1->TabIndex = 21;
 			this->label1->Text = L"Id :";
 			// 
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(212, 117);
+			this->label5->Location = System::Drawing::Point(318, 180);
+			this->label5->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(55, 13);
+			this->label5->Size = System::Drawing::Size(81, 20);
 			this->label5->TabIndex = 33;
 			this->label5->Text = L"Apellidos: ";
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(222, 158);
+			this->label2->Location = System::Drawing::Point(333, 243);
+			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(45, 13);
+			this->label2->Size = System::Drawing::Size(66, 20);
 			this->label2->TabIndex = 35;
 			this->label2->Text = L"Salario: ";
 			// 
 			// txtSalario
 			// 
-			this->txtSalario->Location = System::Drawing::Point(281, 151);
+			this->txtSalario->Location = System::Drawing::Point(422, 232);
+			this->txtSalario->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->txtSalario->Name = L"txtSalario";
-			this->txtSalario->Size = System::Drawing::Size(186, 20);
+			this->txtSalario->Size = System::Drawing::Size(277, 26);
 			this->txtSalario->TabIndex = 34;
 			this->txtSalario->TextChanged += gcnew System::EventHandler(this, &AgregarEmpleado::txtSalario_TextChanged);
 			// 
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(180, 192);
+			this->label6->Location = System::Drawing::Point(270, 295);
+			this->label6->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(95, 13);
+			this->label6->Size = System::Drawing::Size(139, 20);
 			this->label6->TabIndex = 37;
 			this->label6->Text = L"Horas de Trabajo: ";
 			// 
 			// txtHoras
 			// 
-			this->txtHoras->Location = System::Drawing::Point(281, 189);
+			this->txtHoras->Location = System::Drawing::Point(422, 291);
+			this->txtHoras->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->txtHoras->Name = L"txtHoras";
-			this->txtHoras->Size = System::Drawing::Size(186, 20);
+			this->txtHoras->Size = System::Drawing::Size(277, 26);
 			this->txtHoras->TabIndex = 36;
 			this->txtHoras->TextChanged += gcnew System::EventHandler(this, &AgregarEmpleado::txtHoras_TextChanged);
 			// 
 			// dtpEmpHireDate
 			// 
-			this->dtpEmpHireDate->Location = System::Drawing::Point(281, 232);
-			this->dtpEmpHireDate->Margin = System::Windows::Forms::Padding(2);
+			this->dtpEmpHireDate->Location = System::Drawing::Point(422, 357);
 			this->dtpEmpHireDate->Name = L"dtpEmpHireDate";
-			this->dtpEmpHireDate->Size = System::Drawing::Size(156, 20);
+			this->dtpEmpHireDate->Size = System::Drawing::Size(232, 26);
 			this->dtpEmpHireDate->TabIndex = 38;
 			this->dtpEmpHireDate->ValueChanged += gcnew System::EventHandler(this, &AgregarEmpleado::dtpEmpHireDate_ValueChanged);
 			// 
 			// label7
 			// 
 			this->label7->AutoSize = true;
-			this->label7->Location = System::Drawing::Point(190, 232);
-			this->label7->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label7->Location = System::Drawing::Point(285, 357);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(85, 13);
+			this->label7->Size = System::Drawing::Size(124, 20);
 			this->label7->TabIndex = 39;
 			this->label7->Text = L"Fec. de contrat.:";
 			// 
 			// label9
 			// 
 			this->label9->AutoSize = true;
-			this->label9->Location = System::Drawing::Point(521, 121);
-			this->label9->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label9->Location = System::Drawing::Point(782, 186);
 			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(43, 13);
+			this->label9->Size = System::Drawing::Size(64, 20);
 			this->label9->TabIndex = 40;
 			this->label9->Text = L"Estado:";
 			// 
 			// label8
 			// 
 			this->label8->AutoSize = true;
-			this->label8->Location = System::Drawing::Point(512, 84);
-			this->label8->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label8->Location = System::Drawing::Point(768, 129);
 			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(52, 13);
+			this->label8->Size = System::Drawing::Size(75, 20);
 			this->label8->TabIndex = 42;
 			this->label8->Text = L"Teléfono:";
 			// 
 			// txtEmpPhoneNumber
 			// 
-			this->txtEmpPhoneNumber->Location = System::Drawing::Point(568, 77);
-			this->txtEmpPhoneNumber->Margin = System::Windows::Forms::Padding(2);
+			this->txtEmpPhoneNumber->Location = System::Drawing::Point(852, 118);
 			this->txtEmpPhoneNumber->Name = L"txtEmpPhoneNumber";
-			this->txtEmpPhoneNumber->Size = System::Drawing::Size(120, 20);
+			this->txtEmpPhoneNumber->Size = System::Drawing::Size(178, 26);
 			this->txtEmpPhoneNumber->TabIndex = 43;
 			this->txtEmpPhoneNumber->TextChanged += gcnew System::EventHandler(this, &AgregarEmpleado::txtEmpPhoneNumber_TextChanged);
 			// 
 			// label10
 			// 
 			this->label10->AutoSize = true;
-			this->label10->Location = System::Drawing::Point(198, 272);
-			this->label10->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label10->Location = System::Drawing::Point(297, 418);
 			this->label10->Name = L"label10";
-			this->label10->Size = System::Drawing::Size(79, 13);
+			this->label10->Size = System::Drawing::Size(114, 20);
 			this->label10->TabIndex = 44;
 			this->label10->Text = L"Fecha de nac.:";
 			// 
 			// dtpEmpBirthday
 			// 
-			this->dtpEmpBirthday->Location = System::Drawing::Point(281, 266);
-			this->dtpEmpBirthday->Margin = System::Windows::Forms::Padding(2);
+			this->dtpEmpBirthday->Location = System::Drawing::Point(422, 409);
 			this->dtpEmpBirthday->Name = L"dtpEmpBirthday";
-			this->dtpEmpBirthday->Size = System::Drawing::Size(156, 20);
+			this->dtpEmpBirthday->Size = System::Drawing::Size(232, 26);
 			this->dtpEmpBirthday->TabIndex = 45;
 			this->dtpEmpBirthday->ValueChanged += gcnew System::EventHandler(this, &AgregarEmpleado::dtpEmpBirthday_ValueChanged);
 			// 
 			// rbtnEmpActive
 			// 
 			this->rbtnEmpActive->AutoSize = true;
-			this->rbtnEmpActive->Location = System::Drawing::Point(578, 119);
-			this->rbtnEmpActive->Margin = System::Windows::Forms::Padding(2);
+			this->rbtnEmpActive->Location = System::Drawing::Point(867, 183);
 			this->rbtnEmpActive->Name = L"rbtnEmpActive";
-			this->rbtnEmpActive->Size = System::Drawing::Size(55, 17);
+			this->rbtnEmpActive->Size = System::Drawing::Size(77, 24);
 			this->rbtnEmpActive->TabIndex = 46;
 			this->rbtnEmpActive->TabStop = true;
 			this->rbtnEmpActive->Text = L"Activo";
@@ -452,10 +471,9 @@ namespace MecaTrafiSystemGUIApp {
 			// rbtnEmpInactive
 			// 
 			this->rbtnEmpInactive->AutoSize = true;
-			this->rbtnEmpInactive->Location = System::Drawing::Point(637, 119);
-			this->rbtnEmpInactive->Margin = System::Windows::Forms::Padding(2);
+			this->rbtnEmpInactive->Location = System::Drawing::Point(956, 183);
 			this->rbtnEmpInactive->Name = L"rbtnEmpInactive";
-			this->rbtnEmpInactive->Size = System::Drawing::Size(63, 17);
+			this->rbtnEmpInactive->Size = System::Drawing::Size(89, 24);
 			this->rbtnEmpInactive->TabIndex = 47;
 			this->rbtnEmpInactive->TabStop = true;
 			this->rbtnEmpInactive->Text = L"Inactivo";
@@ -463,9 +481,9 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// AgregarEmpleado
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(986, 551);
+			this->ClientSize = System::Drawing::Size(1479, 848);
 			this->Controls->Add(this->rbtnEmpInactive);
 			this->Controls->Add(this->rbtnEmpActive);
 			this->Controls->Add(this->dtpEmpBirthday);
@@ -491,6 +509,8 @@ namespace MecaTrafiSystemGUIApp {
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
+			this->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Name = L"AgregarEmpleado";
 			this->Text = L"AgregarEmpleado";
 			this->Load += gcnew System::EventHandler(this, &AgregarEmpleado::AgregarEmpleado_Load);
@@ -503,8 +523,7 @@ namespace MecaTrafiSystemGUIApp {
 		}
 #pragma endregion
 
-private: System::Void dgvEmpleados_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-}
+
 private: System::Void btncancelar_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->Close();
 }

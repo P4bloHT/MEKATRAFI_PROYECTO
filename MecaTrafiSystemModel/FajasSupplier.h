@@ -13,6 +13,7 @@
 using namespace System;
 
 namespace MecaTrafiSystemModel {
+    [Serializable]
     public ref class FajasSupplier : public SupplyProduct {
     public:
         property String^ Tipo;

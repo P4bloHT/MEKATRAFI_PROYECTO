@@ -188,22 +188,25 @@ Object^ MecaTrafiSystemPersistance::Persistance::LoadBinaryFile(String^ fileName
 
 SqlConnection^ MecaTrafiSystemPersistance::Persistance::GetConnection()
 {
-    SqlConnection^ conn = gcnew SqlConnection();
+    
+      SqlConnection^ conn = gcnew SqlConnection();
     String^ password = "vichoxd";
-    conn->ConnectionString = "Server=raul202024945.cbfa8qfn6wo3.us-east-1.rds.amazonaws.com;Database=Mecatrafi;User ID= Mecatrafi; Password = " +
-        password + ";";
-
+    conn->ConnectionString = "Server=raul202024945.cbfa8qfn6wo3.us-east-1.rds.amazonaws.com;" +
+        "Database =  Mecatrafi2;" +
+        "User ID = Mecatrafi2a; " +
+        "Password = " + password + ";";
     conn->Open();
     return conn;
 }
 
 int MecaTrafiSystemPersistance::Persistance::AddEmployee(Employee^ employee)
 {
-    employeeListDB->Add(employee);
+  //  employeeListDB->Add(employee);
     //  PresistTextFile(TXT_EMPLOYEE_FILE_NAME, employeeListDB); //Metodo para .txt
     //  PresistXMLFile(XML_EMPLOYEE_FILE_NAME, employeeListDB); //Metodo para XML
-    PersistBinaryFile(BIN_EMPLOYEE_FILE_NAME, employeeListDB); //Metodo para Binario
-    return 1;
+   PersistBinaryFile(BIN_EMPLOYEE_FILE_NAME, employeeListDB); //Metodo para Binario
+   return 1;
+    
 }
 
 List<Employee^>^ MecaTrafiSystemPersistance::Persistance::QueryAllEmployees()
@@ -261,21 +264,48 @@ Employee^ MecaTrafiSystemPersistance::Persistance::QueryAllEmployeesById(int emp
 
 int MecaTrafiSystemPersistance::Persistance::Addclient(Client^ cliente)
 {
-    clientlistdatos->Add(cliente);
+ //   clientlistdatos->Add(cliente);
     //PersistTextFile(TXT_CLIENT_FILE_NAME, clientlistdatos);
     //PersistTextFile(XML_CLIENT_FILE_NAME, clientlistdatos);
-    PersistBinaryFile(BIN_CLIENT_FILE_NAME, clientlistdatos);
+   // PersistBinaryFile(BIN_CLIENT_FILE_NAME, clientlistdatos);
 
-    return 1;
+    //return 1;
+    int clienteId = 0;
+    SqlConnection^ conn = nullptr;
+    try {
+        // Obtener la conexiÃ³n a la BD
+        conn = GetConnection();
+
+        // Preparar la sentencia
+        String^ sqlStr = "dbo.usp_AddClientes";
+        SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
+        cmd->CommandType = System::Data::CommandType:: StoredProcedure;
+        cmd->Parameters->Add("@NAME", System::Data::SqlDbType::VarChar, 200)->Value = cliente-> Name;
+        cmd->Parameters->Add("@CARRERA", System::Data::SqlDbType::VarChar, 200)->Value = cliente-> Carrera;
+        cmd->Parameters->Add("@TELEFONO", System::Data::SqlDbType::VarChar, 200)->Value = cliente-> Contact;
+        cmd->Parameters->Add("@CODIGO", System::Data::SqlDbType::VarChar, 200)->Value = cliente-> Id;
+        cmd->Parameters->Add("@PHOTO", System::Data::SqlDbType::Image)->Value = cliente->Name;
+        if (cliente->Photo == nullptr)
+            cmd->Parameters["@PHOTO"]->Value = DBNull::Value;
+        else
+            cmd->Parameters["@PHOTO"]->Value = cliente->Photo;
+        cmd-> Prepare();
+        cmd-> ExecuteNonQuery();
+
+        clienteId  = 1; // Asigna el ID del cliente insertado si es necesario
+    }
+    catch (Exception^ ex) {
+        throw ex;
+    }
+    finally {
+        if (conn != nullptr) conn->Close();
+    }
+    return clienteId;
 }
 
 List<Client^>^ MecaTrafiSystemPersistance::Persistance::Queryallcliente()
 {
-    //clientlistdatos = (List<Client^>^)LoadXMLFile(XML_CLIENT_FILE_NAME);
-    //clientlistdatos = (List<Client^>^)LoadBinaryFile(BIN_CLIENT_FILE_NAME);
-    //if (clientlistdatos == nullptr)
-    //    clientlistdatos = gcnew List<Client^>();
-   // return clientlistdatos;
+   
     clientlistdatos = gcnew List<Client^>();
     SqlConnection^ conn;
     SqlDataReader^ reader;
@@ -284,7 +314,7 @@ List<Client^>^ MecaTrafiSystemPersistance::Persistance::Queryallcliente()
         SqlConnection^ conn = GetConnection();
 
         //PREPARA SQL
-        String^ sqlStr = "SELECT * FROM MECATRAFI_CLIENTEAGREGAR";
+        String^ sqlStr = "dbo.usp_QueryAllClientes";
         SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
         cmd->Prepare();
 
@@ -296,9 +326,12 @@ List<Client^>^ MecaTrafiSystemPersistance::Persistance::Queryallcliente()
 
             Client^ cliente = gcnew Client();
             cliente->Id = Convert::ToInt32(reader["CODIGO"]->ToString());
-            cliente->Name = reader["NOMBRES"]->ToString();
+            cliente->Name = reader["NAME"]->ToString();
             cliente->Carrera = reader["CARRERA"]->ToString();
             cliente->Contact = Convert::ToInt32(reader["TELEFONO"]->ToString());
+            if (!DBNull:: Value->Equals(reader["PHOTO"]))
+                cliente ->Photo = (array<Byte>^)reader["PHOTO"];
+           
             clientlistdatos->Add(cliente);
         }
 
@@ -315,11 +348,13 @@ List<Client^>^ MecaTrafiSystemPersistance::Persistance::Queryallcliente()
 
     }
     return clientlistdatos;
+  
+    
 }
 
 int MecaTrafiSystemPersistance::Persistance::UpdateClient(Client^ cliente)
 {
-    for (int i = 0; i < clientlistdatos->Count; i++) { //Buscar 
+    /*for (int i = 0; i < clientlistdatos->Count; i++) { //Buscar 
         if (clientlistdatos[i]->Id == cliente->Id) {
             clientlistdatos[i] = cliente; //Modifica el dato
             //PersistBinaryFile(BIN_EMPLOYEE_FILE_NAME, clientlistdatos);// Metodo para Binario
@@ -328,11 +363,52 @@ int MecaTrafiSystemPersistance::Persistance::UpdateClient(Client^ cliente)
         }
     }
     return 0;
+    */
+    int clienteId = 0;
+    SqlConnection^ conn = nullptr;
+    try {
+        // Obtener la conexiÃ³n a la BD
+        conn = GetConnection();
+
+        // Preparar la sentencia
+        String^ sqlStr = "dbo.usp_UpdateClientes";
+        SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
+        cmd->CommandType = System::Data::CommandType::StoredProcedure;
+        cmd->Parameters->Add("@NAME", System::Data::SqlDbType::VarChar, 200)->Value = cliente->Name;
+        cmd->Parameters->Add("@CARRERA", System::Data::SqlDbType::VarChar, 200)->Value = cliente->Carrera;
+        cmd->Parameters->Add("@TELEFONO", System::Data::SqlDbType::VarChar, 200)->Value = cliente->Contact;
+        cmd->Parameters->Add("@CODIGO", System::Data::SqlDbType::VarChar, 200)->Value = cliente->Id;
+        cmd->Parameters->Add("@PHOTO", System::Data::SqlDbType::Image)->Value = cliente->Name;
+        cmd->Prepare(); 
+        cmd->Parameters["@NAME"]->Value = cliente->Name;
+        cmd->Parameters["@CARRERA"]->Value = cliente->Carrera;
+        cmd->Parameters["@TELEFONO"]->Value = cliente->Contact;
+        cmd->Parameters["@CODIGO"]->Value = cliente->Id;
+        cmd->Parameters["@PHOTO"]->Value = cliente->Name;
+        if (cliente->Photo == nullptr)
+            cmd->Parameters["@PHOTO"]->Value = DBNull::Value;
+        else
+            cmd->Parameters["@PHOTO"]->Value = cliente->Photo;
+
+        //Paso 3: Se ejecuta las sentncia SQL
+        cmd->ExecuteNonQuery();
+
+        //Paso 4: Se procesan los resultados
+        //robotId = Convert::ToInt32(cmd->Parameters["@ID"]->Value);
+    }
+    catch (Exception^ ex) {
+        throw ex;
+    }
+    finally {
+        if (conn != nullptr) conn->Close();
+    }
+    return 1;
+
 }
 
 int MecaTrafiSystemPersistance::Persistance::DeleteClient(int clienteId)
 {
-    for (int i = 0; i < clientlistdatos->Count; i++) {
+ /*   for (int i = 0; i < clientlistdatos->Count; i++) {
         if (clientlistdatos[i]->Id == clienteId) {
             clientlistdatos->RemoveAt(i);
             //PresistTextFile(TXT_EMPLOYEE_FILE_NAME, employeeListDB);
@@ -341,7 +417,34 @@ int MecaTrafiSystemPersistance::Persistance::DeleteClient(int clienteId)
             return clienteId;
         }
     }
-    return 0;
+    return 0;*/
+
+    SqlConnection^ conn; 
+    try {
+        //Paso 1: Obtener la conexiÃ³n a la BD
+        SqlConnection^ conn = GetConnection(); 
+
+        //Paso 2: Se prepara la sentencia
+        String^ sqlStr = "dbo.usp_DeleteClientes";
+        SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn); 
+        cmd->CommandType = System::Data::CommandType::StoredProcedure; 
+        cmd->Parameters->Add("@ID", System::Data::SqlDbType::Int); 
+        cmd->Prepare(); 
+        cmd->Parameters["@ID"]->Value = clienteId; 
+
+        //Paso 3: Se ejecuta las sentncia SQL
+        cmd->ExecuteNonQuery();
+
+        //Paso 4: Se procesan los resultados
+        //robotId = Convert::ToInt32(cmd->Parameters["@ID"]->Value);
+    }
+    catch (Exception^ ex) {
+        throw ex;
+    }
+    finally {
+        if (conn != nullptr) conn->Close();
+    }
+    return 1;
 }
 
 
@@ -363,35 +466,33 @@ Client^ MecaTrafiSystemPersistance::Persistance::Queryallclienteid(int clienteId
         SqlConnection^ conn = GetConnection();
 
         //PREPARA SQL
-        String^ sqlStr = "SELECT * FROM MECATRAFI_CLIENTEAGREGAR WHERE ID= "+ clienteId;
+        String^ sqlStr = "dbo.usp_QueryClientesId";
         SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
+        cmd->CommandType = System::Data::CommandType::StoredProcedure;
+        cmd->Parameters->Add("@ID", System::Data::SqlDbType::Int); 
+      
         cmd->Prepare();
-
+        cmd->Parameters["@ID"]->Value = clienteId; 
+      
         //EJECUTA SQL
         reader = cmd->ExecuteReader();
 
         //PROCESA DATO
         if (reader->Read()) {
-
-            Client^ cliente = gcnew Client();
-            cliente->Id = Convert::ToInt32(reader["CODIGO"]->ToString());
-            cliente->Name = reader["NOMBRES"]->ToString();
+            cliente = gcnew Client(); 
+           // Client^ cliente = gcnew Client();
+            cliente->Id = Convert::ToInt64(reader["CODIGO"]->ToString());
+            cliente->Name = reader["NAME"]->ToString();
             cliente->Carrera = reader["CARRERA"]->ToString();
-            cliente->Contact = Convert::ToInt32(reader["TELEFONO"]->ToString());
+            cliente->Contact = Convert::ToInt64(reader["TELEFONO"]->ToString());
+            if (!DBNull::Value->Equals(reader["PHOTO"])) 
+                cliente->Photo = (array<Byte>^)reader["PHOTO"]; 
         }
-
-
-
-
-
     }
     catch (Exception^ ex) {
-        throw ;
+        throw ex ; 
     }
     finally {
-
-
-
         //CERRAR LOS OBJETOS A LA BD
         if (reader != nullptr) reader->Close();
         if (conn != nullptr) conn->Close();
@@ -1251,165 +1352,331 @@ MechanicComponent^ MecaTrafiSystemPersistance::Persistance::QueryallMotorDCStock
     }
     return motordc;
 }
-
-int MecaTrafiSystemPersistance::Persistance::AddTornilloPurchase(MechanicComponent^ tornilloPurchase)
+//METODOS PARA TORNILLO - COMPRA
+int MecaTrafiSystemPersistance::Persistance::AddTornilloPurchase(SupplyProduct^ tornilloPurchase)
 {
-    return 0;
+    tornillosPurchaseDB->Add(tornilloPurchase);
+
+    PersistBinaryFile(BIN_PURCHASETORNILLO_FILE_NAME, tornillosPurchaseDB);
+
+    return 1;
 }
 
-List<MechanicComponent^>^ MecaTrafiSystemPersistance::Persistance::QueryAllTornilloPurchase()
+List<SupplyProduct^>^ MecaTrafiSystemPersistance::Persistance::QueryAllTornilloPurchase()
 {
-    throw gcnew System::NotImplementedException();
-    // TODO: Insertar una instrucción "return" aquí
+    tornillosPurchaseDB = (List<SupplyProduct^>^)LoadBinaryFile(BIN_PURCHASETORNILLO_FILE_NAME);
+    if (tornillosPurchaseDB == nullptr)
+        tornillosPurchaseDB = gcnew List<SupplyProduct^>();
+    return tornillosPurchaseDB;
 }
 
-int MecaTrafiSystemPersistance::Persistance::UpdateTornilloPurchase(MechanicComponent^ tornilloPurchase)
+int MecaTrafiSystemPersistance::Persistance::UpdateTornilloPurchase(SupplyProduct^ tornilloPurchase)
 {
+    for (int i = 0; i < tornillosPurchaseDB->Count; i++) {
+        if (tornillosPurchaseDB[i]->Id == tornilloPurchase->Id) {
+            tornillosPurchaseDB[i] = tornilloPurchase;
+            PersistBinaryFile(BIN_PURCHASETORNILLO_FILE_NAME, tornillosPurchaseDB);
+            return tornilloPurchase->Id;
+        }
+    }
     return 0;
 }
 
 int MecaTrafiSystemPersistance::Persistance::DeleteTornilloPurchase(int tornilloPurchaseId)
 {
+    for (int i = 0; i < tornillosPurchaseDB->Count; i++) {
+        if (tornillosPurchaseDB[i]->Id == tornilloPurchaseId) {
+            tornillosPurchaseDB->RemoveAt(i);
+            PersistBinaryFile(BIN_PURCHASETORNILLO_FILE_NAME, tornillosPurchaseDB);
+            return tornilloPurchaseId;
+        }
+    }
     return 0;
 }
 
-MechanicComponent^ MecaTrafiSystemPersistance::Persistance::QueryAllTornilloPurchaseById(int tornilloPurchaseId)
+SupplyProduct^ MecaTrafiSystemPersistance::Persistance::QueryAllTornilloPurchaseById(int tornilloPurchaseId)
 {
-    throw gcnew System::NotImplementedException();
-    // TODO: Insertar una instrucción "return" aquí
+    tornillosPurchaseDB = (List<SupplyProduct^>^)LoadBinaryFile(BIN_PURCHASETORNILLO_FILE_NAME);
+    for (int i = 0; i < tornillosPurchaseDB->Count; i++) { //Cuenta
+        if (tornillosPurchaseDB[i]->Id == tornilloPurchaseId) { //Si lo encuentra lo retorna
+            return tornillosPurchaseDB[i];
+        }
+    }
+    return nullptr;
+}
+//METODOS PARA FAJA - COMPRA
+int MecaTrafiSystemPersistance::Persistance::AddFajaPurchase(SupplyProduct^ fajaPurchase)
+{
+    fajasPurchaseDB->Add(fajaPurchase);
+
+    PersistBinaryFile(BIN_PURCHASEFAJAS_FILE_NAME, fajasPurchaseDB);
+
+    return 1;
 }
 
-int MecaTrafiSystemPersistance::Persistance::AddFajaPurchase(MechanicComponent^ fajaPurchase)
+List<SupplyProduct^>^ MecaTrafiSystemPersistance::Persistance::QueryAllFajaPurchase()
 {
-    return 0;
+    fajasPurchaseDB = (List<SupplyProduct^>^)LoadBinaryFile(BIN_PURCHASEFAJAS_FILE_NAME);
+    if (fajasPurchaseDB == nullptr)
+        fajasPurchaseDB = gcnew List<SupplyProduct^>();
+    return fajasPurchaseDB;
 }
 
-List<MechanicComponent^>^ MecaTrafiSystemPersistance::Persistance::QueryAllFajaPurchase()
+int MecaTrafiSystemPersistance::Persistance::UpdateFajaPurchase(SupplyProduct^ fajaPurchase)
 {
-    throw gcnew System::NotImplementedException();
-    // TODO: Insertar una instrucción "return" aquí
-}
-
-int MecaTrafiSystemPersistance::Persistance::UpdateFajaPurchase(MechanicComponent^ fajaPurchase)
-{
+    for (int i = 0; i < fajasPurchaseDB->Count; i++) {
+        if (fajasPurchaseDB[i]->Id == fajaPurchase->Id) {
+            fajasPurchaseDB[i] = fajaPurchase;
+            PersistBinaryFile(BIN_PURCHASEFAJAS_FILE_NAME, fajasPurchaseDB);
+            return fajaPurchase->Id;
+        }
+    }
     return 0;
 }
 
 int MecaTrafiSystemPersistance::Persistance::DeleteFajaPurchase(int fajaPurchaseId)
 {
+    for (int i = 0; i < fajasPurchaseDB->Count; i++) {
+        if (fajasPurchaseDB[i]->Id == fajaPurchaseId) {
+            fajasPurchaseDB->RemoveAt(i);
+            PersistBinaryFile(BIN_PURCHASEFAJAS_FILE_NAME, fajasPurchaseDB);
+            return fajaPurchaseId;
+        }
+    }
     return 0;
 }
 
-MechanicComponent^ MecaTrafiSystemPersistance::Persistance::QueryAllFajaPurchaseById(int fajaPurchaseId)
+SupplyProduct^ MecaTrafiSystemPersistance::Persistance::QueryAllFajaPurchaseById(int fajaPurchaseId)
 {
-    throw gcnew System::NotImplementedException();
-    // TODO: Insertar una instrucción "return" aquí
+    fajasPurchaseDB = (List<SupplyProduct^>^)LoadBinaryFile(BIN_PURCHASEFAJAS_FILE_NAME);
+    for (int i = 0; i < fajasPurchaseDB->Count; i++) { //Cuenta
+        if (fajasPurchaseDB[i]->Id == fajaPurchaseId) { //Si lo encuentra lo retorna
+            return fajasPurchaseDB[i];
+        }
+    }
+    return nullptr;
+}
+//METODOS PARA POLEA - COMPRA
+int MecaTrafiSystemPersistance::Persistance::AddPoleaPurchase(SupplyProduct^ poleaPurchase)
+{
+    poleaPurchaseDB->Add(poleaPurchase);
+
+    PersistBinaryFile(BIN_PURCHASEPOLEAS_FILE_NAME, poleaPurchaseDB);
+
+    return 1;
 }
 
-int MecaTrafiSystemPersistance::Persistance::AddPoleaPurchase(MechanicComponent^ poleaPurchase)
+List<SupplyProduct^>^ MecaTrafiSystemPersistance::Persistance::QueryAllPoleaPurchase()
 {
-    return 0;
+    poleaPurchaseDB = (List<SupplyProduct^>^)LoadBinaryFile(BIN_PURCHASEPOLEAS_FILE_NAME);
+    if (poleaPurchaseDB == nullptr)
+        poleaPurchaseDB = gcnew List<SupplyProduct^>();
+    return poleaPurchaseDB;
 }
 
-List<MechanicComponent^>^ MecaTrafiSystemPersistance::Persistance::QueryAllPoleaPurchase()
+int MecaTrafiSystemPersistance::Persistance::UpdatePoleaPurchase(SupplyProduct^ poleaPurchase)
 {
-    throw gcnew System::NotImplementedException();
-    // TODO: Insertar una instrucción "return" aquí
-}
-
-int MecaTrafiSystemPersistance::Persistance::UpdatePoleaPurchase(MechanicComponent^ poleaPurchase)
-{
+    for (int i = 0; i < poleaPurchaseDB->Count; i++) {
+        if (poleaPurchaseDB[i]->Id == poleaPurchase->Id) {
+            poleaPurchaseDB[i] = poleaPurchase;
+            PersistBinaryFile(BIN_PURCHASEPOLEAS_FILE_NAME, poleaPurchaseDB);
+            return poleaPurchase->Id;
+        }
+    }
     return 0;
 }
 
 int MecaTrafiSystemPersistance::Persistance::DeletePoleaPurchase(int poleaPurchaseId)
 {
+    for (int i = 0; i < poleaPurchaseDB->Count; i++) {
+        if (poleaPurchaseDB[i]->Id == poleaPurchaseId) {
+            poleaPurchaseDB->RemoveAt(i);
+            PersistBinaryFile(BIN_PURCHASEPOLEAS_FILE_NAME, poleaPurchaseDB);
+            return poleaPurchaseId;
+        }
+    }
     return 0;
 }
 
-MechanicComponent^ MecaTrafiSystemPersistance::Persistance::QueryAllPoleaIdPurchase(int poleaPurchaseId)
+SupplyProduct^ MecaTrafiSystemPersistance::Persistance::QueryAllPoleaByIdPurchase(int poleaPurchaseId)
 {
-    throw gcnew System::NotImplementedException();
-    // TODO: Insertar una instrucción "return" aquí
+    poleaPurchaseDB = (List<SupplyProduct^>^)LoadBinaryFile(BIN_PURCHASEPOLEAS_FILE_NAME);
+    for (int i = 0; i < poleaPurchaseDB->Count; i++) { //Cuenta
+        if (poleaPurchaseDB[i]->Id == poleaPurchaseId) { //Si lo encuentra lo retorna
+            return poleaPurchaseDB[i];
+        }
+    }
+    return nullptr;
+}
+//METODOS PARA RODAMIENTO - COMPRA
+int MecaTrafiSystemPersistance::Persistance::AddRodamientoPurchase(SupplyProduct^ rodamientoPurchase)
+{
+    rodamientoPurchaseDB->Add(rodamientoPurchase);
+
+    PersistBinaryFile(BIN_PURCHASERODAMIENTO_FILE_NAME, rodamientoPurchaseDB);
+
+    return 1;
 }
 
-int MecaTrafiSystemPersistance::Persistance::AddRodamientoPurchase(MechanicComponent^ rodamientoPurchase)
+List<SupplyProduct^>^ MecaTrafiSystemPersistance::Persistance::QueryAllRodamientoPurchase()
 {
-    return 0;
+    rodamientoPurchaseDB = (List<SupplyProduct^>^)LoadBinaryFile(BIN_PURCHASERODAMIENTO_FILE_NAME);
+    if (rodamientoPurchaseDB == nullptr)
+        rodamientoPurchaseDB = gcnew List<SupplyProduct^>();
+    return rodamientoPurchaseDB;
 }
 
-List<MechanicComponent^>^ MecaTrafiSystemPersistance::Persistance::QueryAllRodamientoPurchase()
+int MecaTrafiSystemPersistance::Persistance::UpdateRodamientoPurchase(SupplyProduct^ rodamientoPurchase)
 {
-    throw gcnew System::NotImplementedException();
-    // TODO: Insertar una instrucción "return" aquí
-}
-
-int MecaTrafiSystemPersistance::Persistance::UpdateRodamientoPurchase(MechanicComponent^ rodamientoPurchase)
-{
+    for (int i = 0; i < rodamientoPurchaseDB->Count; i++) {
+        if (rodamientoPurchaseDB[i]->Id == rodamientoPurchase->Id) {
+            rodamientoPurchaseDB[i] = rodamientoPurchase;
+            PersistBinaryFile(BIN_PURCHASERODAMIENTO_FILE_NAME, rodamientoPurchaseDB);
+            return rodamientoPurchase->Id;
+        }
+    }
     return 0;
 }
 
 int MecaTrafiSystemPersistance::Persistance::DeleteRodamientoPurchase(int rodamientoPurchaseId)
 {
+    for (int i = 0; i < rodamientoPurchaseDB->Count; i++) {
+        if (rodamientoPurchaseDB[i]->Id == rodamientoPurchaseId) {
+            rodamientoPurchaseDB->RemoveAt(i);
+            PersistBinaryFile(BIN_PURCHASERODAMIENTO_FILE_NAME, rodamientoPurchaseDB);
+            return rodamientoPurchaseId;
+        }
+    }
     return 0;
 }
 
-MechanicComponent^ MecaTrafiSystemPersistance::Persistance::QueryAllRodamientoPurchaseById(int rodamientoPurchaseId)
+SupplyProduct^ MecaTrafiSystemPersistance::Persistance::QueryAllRodamientoPurchaseById(int rodamientoPurchaseId)
 {
-    throw gcnew System::NotImplementedException();
-    // TODO: Insertar una instrucción "return" aquí
+    rodamientoPurchaseDB = (List<SupplyProduct^>^)LoadBinaryFile(BIN_PURCHASERODAMIENTO_FILE_NAME);
+    for (int i = 0; i < rodamientoPurchaseDB->Count; i++) { //Cuenta
+        if (rodamientoPurchaseDB[i]->Id == rodamientoPurchaseId) { //Si lo encuentra lo retorna
+            return rodamientoPurchaseDB[i];
+        }
+    }
+    return nullptr;
 }
 
-int MecaTrafiSystemPersistance::Persistance::AddMotorACPurchase(MechanicComponent^ motorACPurchase)
+//METODOS PARA MOTOR AC - COMPRA
+int MecaTrafiSystemPersistance::Persistance::AddMotorACPurchase(SupplyProduct^ motorACPurchase)
 {
-    return 0;
+    motorACPurchaseDB->Add(motorACPurchase);
+
+    PersistBinaryFile(BIN_PURCHASEMOTORAC_FILE_NAME, motorACPurchaseDB);
+
+    return 1;
 }
 
-List<MechanicComponent^>^ MecaTrafiSystemPersistance::Persistance::QueryAllMotorACPurchase()
+List<SupplyProduct^>^ MecaTrafiSystemPersistance::Persistance::QueryAllMotorACPurchase()
 {
-    throw gcnew System::NotImplementedException();
-    // TODO: Insertar una instrucción "return" aquí
+    motorACPurchaseDB = (List<SupplyProduct^>^)LoadBinaryFile(BIN_PURCHASEMOTORAC_FILE_NAME);
+    if (motorACPurchaseDB == nullptr)
+        motorACPurchaseDB = gcnew List<SupplyProduct^>();
+    return motorACPurchaseDB;
 }
 
-int MecaTrafiSystemPersistance::Persistance::UpdateMotorACPurchase(MechanicComponent^ motorACPurchase)
+int MecaTrafiSystemPersistance::Persistance::UpdateMotorACPurchase(SupplyProduct^ motorACPurchase)
 {
+    for (int i = 0; i < motorACPurchaseDB->Count; i++) {
+        if (motorACPurchaseDB[i]->Id == motorACPurchase->Id) {
+            motorACPurchaseDB[i] = motorACPurchase;
+            PersistBinaryFile(BIN_PURCHASEMOTORAC_FILE_NAME, motorACPurchaseDB);
+            return motorACPurchase->Id;
+        }
+    }
     return 0;
 }
 
 int MecaTrafiSystemPersistance::Persistance::DeleteMotorACPurchase(int motorACPurchaseId)
 {
+    for (int i = 0; i < motorACPurchaseDB->Count; i++) {
+        if (motorACPurchaseDB[i]->Id == motorACPurchaseId) {
+            motorACPurchaseDB->RemoveAt(i);
+            PersistBinaryFile(BIN_PURCHASEMOTORAC_FILE_NAME, motorACPurchaseDB);
+            return motorACPurchaseId;
+        }
+    }
     return 0;
 }
 
-MechanicComponent^ MecaTrafiSystemPersistance::Persistance::QueryallMotorACPurchaseById(int motorACPurchaseId)
+SupplyProduct^ MecaTrafiSystemPersistance::Persistance::QueryAllMotorACPurchaseById(int motorACPurchaseId)
 {
-    throw gcnew System::NotImplementedException();
-    // TODO: Insertar una instrucción "return" aquí
+    motorACPurchaseDB = (List<SupplyProduct^>^)LoadBinaryFile(BIN_PURCHASEMOTORAC_FILE_NAME);
+    for (int i = 0; i < motorACPurchaseDB->Count; i++) { //Cuenta
+        if (motorACPurchaseDB[i]->Id == motorACPurchaseId) { //Si lo encuentra lo retorna
+            return motorACPurchaseDB[i];
+        }
+    }
+    return nullptr;
+}
+//METODOS PARA MOTOR DC - COMPRA 
+int MecaTrafiSystemPersistance::Persistance::AddMotorDCPurchase(SupplyProduct^ motorDCPurchase)
+{
+    motorDCPurchaseDB->Add(motorDCPurchase);
+
+    PersistBinaryFile(BIN_PURCHASEMOTORDC_FILE_NAME, motorDCPurchaseDB);
+
+    return 1;
 }
 
-int MecaTrafiSystemPersistance::Persistance::AddMotorDCPurchase(MechanicComponent^ motorDCPurchase)
+List<SupplyProduct^>^ MecaTrafiSystemPersistance::Persistance::QueryAllMotorDCPurchase()
 {
-    return 0;
+    motorDCPurchaseDB = (List<SupplyProduct^>^)LoadBinaryFile(BIN_PURCHASEMOTORDC_FILE_NAME);
+    if (motorDCPurchaseDB == nullptr)
+        motorDCPurchaseDB = gcnew List<SupplyProduct^>();
+    return motorDCPurchaseDB;
 }
 
-List<MechanicComponent^>^ MecaTrafiSystemPersistance::Persistance::QueryAllMotorDCPurchase()
+int MecaTrafiSystemPersistance::Persistance::UpdateMotorDCPurchase(SupplyProduct^ motorDCPurchase)
 {
-    throw gcnew System::NotImplementedException();
-    // TODO: Insertar una instrucción "return" aquí
-}
-
-int MecaTrafiSystemPersistance::Persistance::UpdateMotorDCPurchase(MechanicComponent^ motorDCPurchase)
-{
+    for (int i = 0; i < motorDCPurchaseDB->Count; i++) {
+        if (motorDCPurchaseDB[i]->Id == motorDCPurchase->Id) {
+            motorDCPurchaseDB[i] = motorDCPurchase;
+            PersistBinaryFile(BIN_PURCHASEMOTORDC_FILE_NAME, motorDCPurchaseDB);
+            return motorDCPurchase->Id;
+        }
+    }
     return 0;
 }
 
 int MecaTrafiSystemPersistance::Persistance::DeleteMotorDCPurchase(int motorDCPurchaseId)
 {
+    for (int i = 0; i < motorDCPurchaseDB->Count; i++) {
+        if (motorDCPurchaseDB[i]->Id == motorDCPurchaseId) {
+            motorDCPurchaseDB->RemoveAt(i);
+            PersistBinaryFile(BIN_PURCHASEMOTORDC_FILE_NAME, motorDCPurchaseDB);
+            return motorDCPurchaseId;
+        }
+    }
     return 0;
 }
 
-MechanicComponent^ MecaTrafiSystemPersistance::Persistance::QueryallMotorDCPurchaseById(int motorDCPurchaseId)
+SupplyProduct^ MecaTrafiSystemPersistance::Persistance::QueryAllMotorDCPurchaseById(int motorDCPurchaseId)
 {
-    throw gcnew System::NotImplementedException();
-    // TODO: Insertar una instrucción "return" aquí
+    motorDCPurchaseDB = (List<SupplyProduct^>^)LoadBinaryFile(BIN_PURCHASEMOTORDC_FILE_NAME);
+    for (int i = 0; i < motorDCPurchaseDB->Count; i++) { //Cuenta
+        if (motorDCPurchaseDB[i]->Id == motorDCPurchaseId) { //Si lo encuentra lo retorna
+            return motorDCPurchaseDB[i];
+        }
+    }
+    return nullptr;
+}
+
+int MecaTrafiSystemPersistance::Persistance::RegisterPurchase(PurchaseOrder^ compraOrden)
+{
+    compraOrdenListDB->Add(compraOrden);
+    PersistBinaryFile(BIN_COMPRAORDERS_FILE_NAME, compraOrdenListDB);
+    return 1;
+}
+
+List<PurchaseOrder^>^ MecaTrafiSystemPersistance::Persistance::QueryAllPurchaseOrders()
+{
+    compraOrdenListDB = (List<PurchaseOrder^>^)LoadBinaryFile(BIN_COMPRAORDERS_FILE_NAME);
+    if (compraOrdenListDB == nullptr)
+        compraOrdenListDB = gcnew List<PurchaseOrder^>();
+    return compraOrdenListDB;
 }

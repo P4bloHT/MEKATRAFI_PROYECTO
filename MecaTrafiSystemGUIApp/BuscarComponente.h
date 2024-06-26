@@ -61,6 +61,12 @@ namespace MecaTrafiSystemGUIApp {
 
 
 
+
+
+
+
+
+
 	private:
 		/// <summary>
 		/// Variable del diseñador necesaria.
@@ -75,15 +81,15 @@ namespace MecaTrafiSystemGUIApp {
 		void InitializeComponent(void)
 		{
 			this->dgvComponentes = (gcnew System::Windows::Forms::DataGridView());
-			this->ComponentId = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->ComponentName = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->ComponentPrice = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->Nombre = (gcnew System::Windows::Forms::Label());
 			this->txtID = (gcnew System::Windows::Forms::TextBox());
 			this->txtNombre = (gcnew System::Windows::Forms::TextBox());
 			this->btnBuscar = (gcnew System::Windows::Forms::Button());
 			this->btnCancelar = (gcnew System::Windows::Forms::Button());
+			this->ComponentId = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->ComponentName = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->ComponentPrice = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvComponentes))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -104,31 +110,10 @@ namespace MecaTrafiSystemGUIApp {
 			this->dgvComponentes->TabIndex = 0;
 			this->dgvComponentes->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &BuscarComponente::dgvComponentes_CellClick);
 			// 
-			// ComponentId
-			// 
-			this->ComponentId->HeaderText = L"Id";
-			this->ComponentId->MinimumWidth = 8;
-			this->ComponentId->Name = L"ComponentId";
-			this->ComponentId->Width = 150;
-			// 
-			// ComponentName
-			// 
-			this->ComponentName->HeaderText = L"Nombre";
-			this->ComponentName->MinimumWidth = 8;
-			this->ComponentName->Name = L"ComponentName";
-			this->ComponentName->Width = 200;
-			// 
-			// ComponentPrice
-			// 
-			this->ComponentPrice->HeaderText = L"P.U.";
-			this->ComponentPrice->MinimumWidth = 8;
-			this->ComponentPrice->Name = L"ComponentPrice";
-			this->ComponentPrice->Width = 200;
-			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(294, 76);
+			this->label1->Location = System::Drawing::Point(294, 67);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(23, 20);
 			this->label1->TabIndex = 1;
@@ -137,7 +122,7 @@ namespace MecaTrafiSystemGUIApp {
 			// Nombre
 			// 
 			this->Nombre->AutoSize = true;
-			this->Nombre->Location = System::Drawing::Point(294, 130);
+			this->Nombre->Location = System::Drawing::Point(294, 149);
 			this->Nombre->Name = L"Nombre";
 			this->Nombre->Size = System::Drawing::Size(65, 20);
 			this->Nombre->TabIndex = 2;
@@ -145,14 +130,14 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// txtID
 			// 
-			this->txtID->Location = System::Drawing::Point(456, 73);
+			this->txtID->Location = System::Drawing::Point(456, 64);
 			this->txtID->Name = L"txtID";
 			this->txtID->Size = System::Drawing::Size(331, 26);
 			this->txtID->TabIndex = 3;
 			// 
 			// txtNombre
 			// 
-			this->txtNombre->Location = System::Drawing::Point(456, 127);
+			this->txtNombre->Location = System::Drawing::Point(456, 146);
 			this->txtNombre->Name = L"txtNombre";
 			this->txtNombre->Size = System::Drawing::Size(331, 26);
 			this->txtNombre->TabIndex = 4;
@@ -176,6 +161,27 @@ namespace MecaTrafiSystemGUIApp {
 			this->btnCancelar->Text = L"Cancelar";
 			this->btnCancelar->UseVisualStyleBackColor = true;
 			this->btnCancelar->Click += gcnew System::EventHandler(this, &BuscarComponente::btnCancelar_Click);
+			// 
+			// ComponentId
+			// 
+			this->ComponentId->HeaderText = L"Id";
+			this->ComponentId->MinimumWidth = 8;
+			this->ComponentId->Name = L"ComponentId";
+			this->ComponentId->Width = 150;
+			// 
+			// ComponentName
+			// 
+			this->ComponentName->HeaderText = L"Nombre";
+			this->ComponentName->MinimumWidth = 8;
+			this->ComponentName->Name = L"ComponentName";
+			this->ComponentName->Width = 200;
+			// 
+			// ComponentPrice
+			// 
+			this->ComponentPrice->HeaderText = L"P.U.";
+			this->ComponentPrice->MinimumWidth = 8;
+			this->ComponentPrice->Name = L"ComponentPrice";
+			this->ComponentPrice->Width = 200;
 			// 
 			// BuscarComponente
 			// 

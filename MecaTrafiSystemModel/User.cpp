@@ -13,6 +13,7 @@ MecaTrafiSystemModel::User::User()
 {
 }
 
+
 MecaTrafiSystemModel::User::User(int id, String^ username, String^ password, String^ name, String^ lastname)
 {
 	this->Id = id;
@@ -20,4 +21,5 @@ MecaTrafiSystemModel::User::User(int id, String^ username, String^ password, Str
 	this->Password = password;
 	this->Name = name;
 	this->Lastname = lastname;	
+	
 }

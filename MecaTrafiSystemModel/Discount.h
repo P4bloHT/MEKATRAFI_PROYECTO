@@ -10,6 +10,7 @@
 using namespace System;
 
 namespace MecaTrafiSystemModel {
+    [Serializable]
     public ref class Discount {
     public:
         property double PercentDescount;
