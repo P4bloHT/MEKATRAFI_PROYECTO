@@ -17,6 +17,7 @@ namespace MecaTrafiSystemModel {
         property String^ Password;
         property String^ Name;
         property String^ Lastname;
+       
         User();
         User(int id, String^ username, String^ password, String^ name, String^ lastname);
 
