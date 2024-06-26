@@ -1352,165 +1352,331 @@ MechanicComponent^ MecaTrafiSystemPersistance::Persistance::QueryallMotorDCStock
     }
     return motordc;
 }
-
-int MecaTrafiSystemPersistance::Persistance::AddTornilloPurchase(MechanicComponent^ tornilloPurchase)
+//METODOS PARA TORNILLO - COMPRA
+int MecaTrafiSystemPersistance::Persistance::AddTornilloPurchase(SupplyProduct^ tornilloPurchase)
 {
-    return 0;
+    tornillosPurchaseDB->Add(tornilloPurchase);
+
+    PersistBinaryFile(BIN_PURCHASETORNILLO_FILE_NAME, tornillosPurchaseDB);
+
+    return 1;
 }
 
-List<MechanicComponent^>^ MecaTrafiSystemPersistance::Persistance::QueryAllTornilloPurchase()
+List<SupplyProduct^>^ MecaTrafiSystemPersistance::Persistance::QueryAllTornilloPurchase()
 {
-    throw gcnew System::NotImplementedException();
-    // TODO: Insertar una instrucción "return" aquí
+    tornillosPurchaseDB = (List<SupplyProduct^>^)LoadBinaryFile(BIN_PURCHASETORNILLO_FILE_NAME);
+    if (tornillosPurchaseDB == nullptr)
+        tornillosPurchaseDB = gcnew List<SupplyProduct^>();
+    return tornillosPurchaseDB;
 }
 
-int MecaTrafiSystemPersistance::Persistance::UpdateTornilloPurchase(MechanicComponent^ tornilloPurchase)
+int MecaTrafiSystemPersistance::Persistance::UpdateTornilloPurchase(SupplyProduct^ tornilloPurchase)
 {
+    for (int i = 0; i < tornillosPurchaseDB->Count; i++) {
+        if (tornillosPurchaseDB[i]->Id == tornilloPurchase->Id) {
+            tornillosPurchaseDB[i] = tornilloPurchase;
+            PersistBinaryFile(BIN_PURCHASETORNILLO_FILE_NAME, tornillosPurchaseDB);
+            return tornilloPurchase->Id;
+        }
+    }
     return 0;
 }
 
 int MecaTrafiSystemPersistance::Persistance::DeleteTornilloPurchase(int tornilloPurchaseId)
 {
+    for (int i = 0; i < tornillosPurchaseDB->Count; i++) {
+        if (tornillosPurchaseDB[i]->Id == tornilloPurchaseId) {
+            tornillosPurchaseDB->RemoveAt(i);
+            PersistBinaryFile(BIN_PURCHASETORNILLO_FILE_NAME, tornillosPurchaseDB);
+            return tornilloPurchaseId;
+        }
+    }
     return 0;
 }
 
-MechanicComponent^ MecaTrafiSystemPersistance::Persistance::QueryAllTornilloPurchaseById(int tornilloPurchaseId)
+SupplyProduct^ MecaTrafiSystemPersistance::Persistance::QueryAllTornilloPurchaseById(int tornilloPurchaseId)
 {
-    throw gcnew System::NotImplementedException();
-    // TODO: Insertar una instrucción "return" aquí
+    tornillosPurchaseDB = (List<SupplyProduct^>^)LoadBinaryFile(BIN_PURCHASETORNILLO_FILE_NAME);
+    for (int i = 0; i < tornillosPurchaseDB->Count; i++) { //Cuenta
+        if (tornillosPurchaseDB[i]->Id == tornilloPurchaseId) { //Si lo encuentra lo retorna
+            return tornillosPurchaseDB[i];
+        }
+    }
+    return nullptr;
+}
+//METODOS PARA FAJA - COMPRA
+int MecaTrafiSystemPersistance::Persistance::AddFajaPurchase(SupplyProduct^ fajaPurchase)
+{
+    fajasPurchaseDB->Add(fajaPurchase);
+
+    PersistBinaryFile(BIN_PURCHASEFAJAS_FILE_NAME, fajasPurchaseDB);
+
+    return 1;
 }
 
-int MecaTrafiSystemPersistance::Persistance::AddFajaPurchase(MechanicComponent^ fajaPurchase)
+List<SupplyProduct^>^ MecaTrafiSystemPersistance::Persistance::QueryAllFajaPurchase()
 {
-    return 0;
+    fajasPurchaseDB = (List<SupplyProduct^>^)LoadBinaryFile(BIN_PURCHASEFAJAS_FILE_NAME);
+    if (fajasPurchaseDB == nullptr)
+        fajasPurchaseDB = gcnew List<SupplyProduct^>();
+    return fajasPurchaseDB;
 }
 
-List<MechanicComponent^>^ MecaTrafiSystemPersistance::Persistance::QueryAllFajaPurchase()
+int MecaTrafiSystemPersistance::Persistance::UpdateFajaPurchase(SupplyProduct^ fajaPurchase)
 {
-    throw gcnew System::NotImplementedException();
-    // TODO: Insertar una instrucción "return" aquí
-}
-
-int MecaTrafiSystemPersistance::Persistance::UpdateFajaPurchase(MechanicComponent^ fajaPurchase)
-{
+    for (int i = 0; i < fajasPurchaseDB->Count; i++) {
+        if (fajasPurchaseDB[i]->Id == fajaPurchase->Id) {
+            fajasPurchaseDB[i] = fajaPurchase;
+            PersistBinaryFile(BIN_PURCHASEFAJAS_FILE_NAME, fajasPurchaseDB);
+            return fajaPurchase->Id;
+        }
+    }
     return 0;
 }
 
 int MecaTrafiSystemPersistance::Persistance::DeleteFajaPurchase(int fajaPurchaseId)
 {
+    for (int i = 0; i < fajasPurchaseDB->Count; i++) {
+        if (fajasPurchaseDB[i]->Id == fajaPurchaseId) {
+            fajasPurchaseDB->RemoveAt(i);
+            PersistBinaryFile(BIN_PURCHASEFAJAS_FILE_NAME, fajasPurchaseDB);
+            return fajaPurchaseId;
+        }
+    }
     return 0;
 }
 
-MechanicComponent^ MecaTrafiSystemPersistance::Persistance::QueryAllFajaPurchaseById(int fajaPurchaseId)
+SupplyProduct^ MecaTrafiSystemPersistance::Persistance::QueryAllFajaPurchaseById(int fajaPurchaseId)
 {
-    throw gcnew System::NotImplementedException();
-    // TODO: Insertar una instrucción "return" aquí
+    fajasPurchaseDB = (List<SupplyProduct^>^)LoadBinaryFile(BIN_PURCHASEFAJAS_FILE_NAME);
+    for (int i = 0; i < fajasPurchaseDB->Count; i++) { //Cuenta
+        if (fajasPurchaseDB[i]->Id == fajaPurchaseId) { //Si lo encuentra lo retorna
+            return fajasPurchaseDB[i];
+        }
+    }
+    return nullptr;
+}
+//METODOS PARA POLEA - COMPRA
+int MecaTrafiSystemPersistance::Persistance::AddPoleaPurchase(SupplyProduct^ poleaPurchase)
+{
+    poleaPurchaseDB->Add(poleaPurchase);
+
+    PersistBinaryFile(BIN_PURCHASEPOLEAS_FILE_NAME, poleaPurchaseDB);
+
+    return 1;
 }
 
-int MecaTrafiSystemPersistance::Persistance::AddPoleaPurchase(MechanicComponent^ poleaPurchase)
+List<SupplyProduct^>^ MecaTrafiSystemPersistance::Persistance::QueryAllPoleaPurchase()
 {
-    return 0;
+    poleaPurchaseDB = (List<SupplyProduct^>^)LoadBinaryFile(BIN_PURCHASEPOLEAS_FILE_NAME);
+    if (poleaPurchaseDB == nullptr)
+        poleaPurchaseDB = gcnew List<SupplyProduct^>();
+    return poleaPurchaseDB;
 }
 
-List<MechanicComponent^>^ MecaTrafiSystemPersistance::Persistance::QueryAllPoleaPurchase()
+int MecaTrafiSystemPersistance::Persistance::UpdatePoleaPurchase(SupplyProduct^ poleaPurchase)
 {
-    throw gcnew System::NotImplementedException();
-    // TODO: Insertar una instrucción "return" aquí
-}
-
-int MecaTrafiSystemPersistance::Persistance::UpdatePoleaPurchase(MechanicComponent^ poleaPurchase)
-{
+    for (int i = 0; i < poleaPurchaseDB->Count; i++) {
+        if (poleaPurchaseDB[i]->Id == poleaPurchase->Id) {
+            poleaPurchaseDB[i] = poleaPurchase;
+            PersistBinaryFile(BIN_PURCHASEPOLEAS_FILE_NAME, poleaPurchaseDB);
+            return poleaPurchase->Id;
+        }
+    }
     return 0;
 }
 
 int MecaTrafiSystemPersistance::Persistance::DeletePoleaPurchase(int poleaPurchaseId)
 {
+    for (int i = 0; i < poleaPurchaseDB->Count; i++) {
+        if (poleaPurchaseDB[i]->Id == poleaPurchaseId) {
+            poleaPurchaseDB->RemoveAt(i);
+            PersistBinaryFile(BIN_PURCHASEPOLEAS_FILE_NAME, poleaPurchaseDB);
+            return poleaPurchaseId;
+        }
+    }
     return 0;
 }
 
-MechanicComponent^ MecaTrafiSystemPersistance::Persistance::QueryAllPoleaIdPurchase(int poleaPurchaseId)
+SupplyProduct^ MecaTrafiSystemPersistance::Persistance::QueryAllPoleaByIdPurchase(int poleaPurchaseId)
 {
-    throw gcnew System::NotImplementedException();
-    // TODO: Insertar una instrucción "return" aquí
+    poleaPurchaseDB = (List<SupplyProduct^>^)LoadBinaryFile(BIN_PURCHASEPOLEAS_FILE_NAME);
+    for (int i = 0; i < poleaPurchaseDB->Count; i++) { //Cuenta
+        if (poleaPurchaseDB[i]->Id == poleaPurchaseId) { //Si lo encuentra lo retorna
+            return poleaPurchaseDB[i];
+        }
+    }
+    return nullptr;
+}
+//METODOS PARA RODAMIENTO - COMPRA
+int MecaTrafiSystemPersistance::Persistance::AddRodamientoPurchase(SupplyProduct^ rodamientoPurchase)
+{
+    rodamientoPurchaseDB->Add(rodamientoPurchase);
+
+    PersistBinaryFile(BIN_PURCHASERODAMIENTO_FILE_NAME, rodamientoPurchaseDB);
+
+    return 1;
 }
 
-int MecaTrafiSystemPersistance::Persistance::AddRodamientoPurchase(MechanicComponent^ rodamientoPurchase)
+List<SupplyProduct^>^ MecaTrafiSystemPersistance::Persistance::QueryAllRodamientoPurchase()
 {
-    return 0;
+    rodamientoPurchaseDB = (List<SupplyProduct^>^)LoadBinaryFile(BIN_PURCHASERODAMIENTO_FILE_NAME);
+    if (rodamientoPurchaseDB == nullptr)
+        rodamientoPurchaseDB = gcnew List<SupplyProduct^>();
+    return rodamientoPurchaseDB;
 }
 
-List<MechanicComponent^>^ MecaTrafiSystemPersistance::Persistance::QueryAllRodamientoPurchase()
+int MecaTrafiSystemPersistance::Persistance::UpdateRodamientoPurchase(SupplyProduct^ rodamientoPurchase)
 {
-    throw gcnew System::NotImplementedException();
-    // TODO: Insertar una instrucción "return" aquí
-}
-
-int MecaTrafiSystemPersistance::Persistance::UpdateRodamientoPurchase(MechanicComponent^ rodamientoPurchase)
-{
+    for (int i = 0; i < rodamientoPurchaseDB->Count; i++) {
+        if (rodamientoPurchaseDB[i]->Id == rodamientoPurchase->Id) {
+            rodamientoPurchaseDB[i] = rodamientoPurchase;
+            PersistBinaryFile(BIN_PURCHASERODAMIENTO_FILE_NAME, rodamientoPurchaseDB);
+            return rodamientoPurchase->Id;
+        }
+    }
     return 0;
 }
 
 int MecaTrafiSystemPersistance::Persistance::DeleteRodamientoPurchase(int rodamientoPurchaseId)
 {
+    for (int i = 0; i < rodamientoPurchaseDB->Count; i++) {
+        if (rodamientoPurchaseDB[i]->Id == rodamientoPurchaseId) {
+            rodamientoPurchaseDB->RemoveAt(i);
+            PersistBinaryFile(BIN_PURCHASERODAMIENTO_FILE_NAME, rodamientoPurchaseDB);
+            return rodamientoPurchaseId;
+        }
+    }
     return 0;
 }
 
-MechanicComponent^ MecaTrafiSystemPersistance::Persistance::QueryAllRodamientoPurchaseById(int rodamientoPurchaseId)
+SupplyProduct^ MecaTrafiSystemPersistance::Persistance::QueryAllRodamientoPurchaseById(int rodamientoPurchaseId)
 {
-    throw gcnew System::NotImplementedException();
-    // TODO: Insertar una instrucción "return" aquí
+    rodamientoPurchaseDB = (List<SupplyProduct^>^)LoadBinaryFile(BIN_PURCHASERODAMIENTO_FILE_NAME);
+    for (int i = 0; i < rodamientoPurchaseDB->Count; i++) { //Cuenta
+        if (rodamientoPurchaseDB[i]->Id == rodamientoPurchaseId) { //Si lo encuentra lo retorna
+            return rodamientoPurchaseDB[i];
+        }
+    }
+    return nullptr;
 }
 
-int MecaTrafiSystemPersistance::Persistance::AddMotorACPurchase(MechanicComponent^ motorACPurchase)
+//METODOS PARA MOTOR AC - COMPRA
+int MecaTrafiSystemPersistance::Persistance::AddMotorACPurchase(SupplyProduct^ motorACPurchase)
 {
-    return 0;
+    motorACPurchaseDB->Add(motorACPurchase);
+
+    PersistBinaryFile(BIN_PURCHASEMOTORAC_FILE_NAME, motorACPurchaseDB);
+
+    return 1;
 }
 
-List<MechanicComponent^>^ MecaTrafiSystemPersistance::Persistance::QueryAllMotorACPurchase()
+List<SupplyProduct^>^ MecaTrafiSystemPersistance::Persistance::QueryAllMotorACPurchase()
 {
-    throw gcnew System::NotImplementedException();
-    // TODO: Insertar una instrucción "return" aquí
+    motorACPurchaseDB = (List<SupplyProduct^>^)LoadBinaryFile(BIN_PURCHASEMOTORAC_FILE_NAME);
+    if (motorACPurchaseDB == nullptr)
+        motorACPurchaseDB = gcnew List<SupplyProduct^>();
+    return motorACPurchaseDB;
 }
 
-int MecaTrafiSystemPersistance::Persistance::UpdateMotorACPurchase(MechanicComponent^ motorACPurchase)
+int MecaTrafiSystemPersistance::Persistance::UpdateMotorACPurchase(SupplyProduct^ motorACPurchase)
 {
+    for (int i = 0; i < motorACPurchaseDB->Count; i++) {
+        if (motorACPurchaseDB[i]->Id == motorACPurchase->Id) {
+            motorACPurchaseDB[i] = motorACPurchase;
+            PersistBinaryFile(BIN_PURCHASEMOTORAC_FILE_NAME, motorACPurchaseDB);
+            return motorACPurchase->Id;
+        }
+    }
     return 0;
 }
 
 int MecaTrafiSystemPersistance::Persistance::DeleteMotorACPurchase(int motorACPurchaseId)
 {
+    for (int i = 0; i < motorACPurchaseDB->Count; i++) {
+        if (motorACPurchaseDB[i]->Id == motorACPurchaseId) {
+            motorACPurchaseDB->RemoveAt(i);
+            PersistBinaryFile(BIN_PURCHASEMOTORAC_FILE_NAME, motorACPurchaseDB);
+            return motorACPurchaseId;
+        }
+    }
     return 0;
 }
 
-MechanicComponent^ MecaTrafiSystemPersistance::Persistance::QueryallMotorACPurchaseById(int motorACPurchaseId)
+SupplyProduct^ MecaTrafiSystemPersistance::Persistance::QueryAllMotorACPurchaseById(int motorACPurchaseId)
 {
-    throw gcnew System::NotImplementedException();
-    // TODO: Insertar una instrucción "return" aquí
+    motorACPurchaseDB = (List<SupplyProduct^>^)LoadBinaryFile(BIN_PURCHASEMOTORAC_FILE_NAME);
+    for (int i = 0; i < motorACPurchaseDB->Count; i++) { //Cuenta
+        if (motorACPurchaseDB[i]->Id == motorACPurchaseId) { //Si lo encuentra lo retorna
+            return motorACPurchaseDB[i];
+        }
+    }
+    return nullptr;
+}
+//METODOS PARA MOTOR DC - COMPRA 
+int MecaTrafiSystemPersistance::Persistance::AddMotorDCPurchase(SupplyProduct^ motorDCPurchase)
+{
+    motorDCPurchaseDB->Add(motorDCPurchase);
+
+    PersistBinaryFile(BIN_PURCHASEMOTORDC_FILE_NAME, motorDCPurchaseDB);
+
+    return 1;
 }
 
-int MecaTrafiSystemPersistance::Persistance::AddMotorDCPurchase(MechanicComponent^ motorDCPurchase)
+List<SupplyProduct^>^ MecaTrafiSystemPersistance::Persistance::QueryAllMotorDCPurchase()
 {
-    return 0;
+    motorDCPurchaseDB = (List<SupplyProduct^>^)LoadBinaryFile(BIN_PURCHASEMOTORDC_FILE_NAME);
+    if (motorDCPurchaseDB == nullptr)
+        motorDCPurchaseDB = gcnew List<SupplyProduct^>();
+    return motorDCPurchaseDB;
 }
 
-List<MechanicComponent^>^ MecaTrafiSystemPersistance::Persistance::QueryAllMotorDCPurchase()
+int MecaTrafiSystemPersistance::Persistance::UpdateMotorDCPurchase(SupplyProduct^ motorDCPurchase)
 {
-    throw gcnew System::NotImplementedException();
-    // TODO: Insertar una instrucción "return" aquí
-}
-
-int MecaTrafiSystemPersistance::Persistance::UpdateMotorDCPurchase(MechanicComponent^ motorDCPurchase)
-{
+    for (int i = 0; i < motorDCPurchaseDB->Count; i++) {
+        if (motorDCPurchaseDB[i]->Id == motorDCPurchase->Id) {
+            motorDCPurchaseDB[i] = motorDCPurchase;
+            PersistBinaryFile(BIN_PURCHASEMOTORDC_FILE_NAME, motorDCPurchaseDB);
+            return motorDCPurchase->Id;
+        }
+    }
     return 0;
 }
 
 int MecaTrafiSystemPersistance::Persistance::DeleteMotorDCPurchase(int motorDCPurchaseId)
 {
+    for (int i = 0; i < motorDCPurchaseDB->Count; i++) {
+        if (motorDCPurchaseDB[i]->Id == motorDCPurchaseId) {
+            motorDCPurchaseDB->RemoveAt(i);
+            PersistBinaryFile(BIN_PURCHASEMOTORDC_FILE_NAME, motorDCPurchaseDB);
+            return motorDCPurchaseId;
+        }
+    }
     return 0;
 }
 
-MechanicComponent^ MecaTrafiSystemPersistance::Persistance::QueryallMotorDCPurchaseById(int motorDCPurchaseId)
+SupplyProduct^ MecaTrafiSystemPersistance::Persistance::QueryAllMotorDCPurchaseById(int motorDCPurchaseId)
 {
-    throw gcnew System::NotImplementedException();
-    // TODO: Insertar una instrucción "return" aquí
+    motorDCPurchaseDB = (List<SupplyProduct^>^)LoadBinaryFile(BIN_PURCHASEMOTORDC_FILE_NAME);
+    for (int i = 0; i < motorDCPurchaseDB->Count; i++) { //Cuenta
+        if (motorDCPurchaseDB[i]->Id == motorDCPurchaseId) { //Si lo encuentra lo retorna
+            return motorDCPurchaseDB[i];
+        }
+    }
+    return nullptr;
+}
+
+int MecaTrafiSystemPersistance::Persistance::RegisterPurchase(PurchaseOrder^ compraOrden)
+{
+    compraOrdenListDB->Add(compraOrden);
+    PersistBinaryFile(BIN_COMPRAORDERS_FILE_NAME, compraOrdenListDB);
+    return 1;
+}
+
+List<PurchaseOrder^>^ MecaTrafiSystemPersistance::Persistance::QueryAllPurchaseOrders()
+{
+    compraOrdenListDB = (List<PurchaseOrder^>^)LoadBinaryFile(BIN_COMPRAORDERS_FILE_NAME);
+    if (compraOrdenListDB == nullptr)
+        compraOrdenListDB = gcnew List<PurchaseOrder^>();
+    return compraOrdenListDB;
 }

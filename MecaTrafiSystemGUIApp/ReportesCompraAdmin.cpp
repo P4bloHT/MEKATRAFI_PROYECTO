@@ -1,0 +1,2 @@
+#include "ReportesCompraAdmin.h"
+
