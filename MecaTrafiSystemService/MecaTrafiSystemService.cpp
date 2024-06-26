@@ -267,16 +267,16 @@ MechanicComponent^ MecaTrafiSystemService::Service::Queryallrodamientosid(int ro
     return Persistance::Queryallrodamientoid(rodamientosid);
 }
 //METODOS TORNILLO - COMPRA
-int MecaTrafiSystemService::Service::AddTornilloPurchase(MechanicComponent^ tornilloPurchase)
+int MecaTrafiSystemService::Service::AddTornilloPurchase(SupplyProduct^ tornilloPurchase)
 {
     Persistance::AddTornilloPurchase(tornilloPurchase);
     return tornilloPurchase->Id;
 }
-List<MechanicComponent^>^ MecaTrafiSystemService::Service::QueryAllTornilloPurchase()
+List<SupplyProduct^>^ MecaTrafiSystemService::Service::QueryAllTornilloPurchase()
 {
     return Persistance::QueryAllTornilloPurchase();
 }
-int MecaTrafiSystemService::Service::UpdateTornilloPurchase(MechanicComponent^ tornilloPurchase)
+int MecaTrafiSystemService::Service::UpdateTornilloPurchase(SupplyProduct^ tornilloPurchase)
 {
     return Persistance::UpdateTornilloPurchase(tornilloPurchase);
 }
@@ -284,21 +284,21 @@ int MecaTrafiSystemService::Service::DeleteTornilloPurchase(int tornilloPurchase
 {
     return Persistance::DeleteTornilloPurchase(tornilloPurchaseId);
 }
-MechanicComponent^ MecaTrafiSystemService::Service::QueryAllTornilloPurchaseById(int tornilloPurchaseId)
+SupplyProduct^ MecaTrafiSystemService::Service::QueryAllTornilloPurchaseById(int tornilloPurchaseId)
 {
     return Persistance::QueryAllTornilloPurchaseById(tornilloPurchaseId);
 }
 //METODOS FAJA - COMPRA
-int MecaTrafiSystemService::Service::AddFajaPurchase(MechanicComponent^ fajaPurchase)
+int MecaTrafiSystemService::Service::AddFajaPurchase(SupplyProduct^ fajaPurchase)
 {
      Persistance::AddFajaPurchase(fajaPurchase);
      return fajaPurchase->Id;
 }
-List<MechanicComponent^>^ MecaTrafiSystemService::Service::QueryAllFajaPurchase()
+List<SupplyProduct^>^ MecaTrafiSystemService::Service::QueryAllFajaPurchase()
 {
     return Persistance::QueryAllFajaPurchase();
 }
-int MecaTrafiSystemService::Service::UpdateFajaPurchase(MechanicComponent^ fajaPurchase)
+int MecaTrafiSystemService::Service::UpdateFajaPurchase(SupplyProduct^ fajaPurchase)
 {
     return Persistance::UpdateFajaPurchase(fajaPurchase);
 }
@@ -306,21 +306,31 @@ int MecaTrafiSystemService::Service::DeleteFajaPurchase(int fajaPurchaseId)
 {
     return Persistance::DeleteFajaPurchase(fajaPurchaseId);
 }
-MechanicComponent^ MecaTrafiSystemService::Service::QueryAllFajaPurchaseById(int fajaPurchaseId)
+SupplyProduct^ MecaTrafiSystemService::Service::QueryAllFajaPurchaseById(int fajaPurchaseId)
 {
     return Persistance::QueryAllFajaPurchaseById(fajaPurchaseId);
 }
+List<SupplyProduct^>^ MecaTrafiSystemService::Service::QueryFajaPruchaseByName(String^ name)
+{
+    List<SupplyProduct^>^ PurchaseFajaList = Persistance::QueryAllFajaPurchase();
+    List<SupplyProduct^>^ listToReturn = gcnew List<SupplyProduct^>();
+    for (int i = 0; i < PurchaseFajaList->Count; i++) {
+        if (PurchaseFajaList[i]->Name->Contains(name))
+            listToReturn->Add(PurchaseFajaList[i]);
+    }
+    return listToReturn;
+}
 //METODOS POLEA - COMPRA
-int MecaTrafiSystemService::Service::AddPoleaPurchase(MechanicComponent^ poleaPurchase)
+int MecaTrafiSystemService::Service::AddPoleaPurchase(SupplyProduct^ poleaPurchase)
 {
      Persistance::AddPoleaPurchase(poleaPurchase);
      return poleaPurchase->Id;
 }
-List<MechanicComponent^>^ MecaTrafiSystemService::Service::QueryAllPoleaPurchase()
+List<SupplyProduct^>^ MecaTrafiSystemService::Service::QueryAllPoleaPurchase()
 {
     return Persistance::QueryAllPoleaPurchase();
 }
-int MecaTrafiSystemService::Service::UpdatePoleaPurchase(MechanicComponent^ poleaPurchase)
+int MecaTrafiSystemService::Service::UpdatePoleaPurchase(SupplyProduct^ poleaPurchase)
 {
     return Persistance::UpdatePoleaPurchase(poleaPurchase);
 }
@@ -328,21 +338,21 @@ int MecaTrafiSystemService::Service::DeletePoleaPurchase(int poleaPurchaseId)
 {
     return Persistance::DeletePoleaPurchase(poleaPurchaseId);
 }
-MechanicComponent^ MecaTrafiSystemService::Service::QueryAllPoleaByIdPurchase(int poleaPurchaseId)
+SupplyProduct^ MecaTrafiSystemService::Service::QueryAllPoleaByIdPurchase(int poleaPurchaseId)
 {
     return Persistance::QueryAllPoleaByIdPurchase(poleaPurchaseId);
 }
 //METODOS RODAMIENTO - COMPRA
-int MecaTrafiSystemService::Service::AddRodamientoPurchase(MechanicComponent^ rodamientoPurchase)
+int MecaTrafiSystemService::Service::AddRodamientoPurchase(SupplyProduct^ rodamientoPurchase)
 {
     Persistance::AddRodamientoPurchase(rodamientoPurchase);
     return rodamientoPurchase->Id;
 }
-List<MechanicComponent^>^ MecaTrafiSystemService::Service::QueryAllRodamientoPurchase()
+List<SupplyProduct^>^ MecaTrafiSystemService::Service::QueryAllRodamientoPurchase()
 {
     return Persistance::QueryAllRodamientoPurchase();
 }
-int MecaTrafiSystemService::Service::UpdateRodamientoPurchase(MechanicComponent^ rodamientoPurchase)
+int MecaTrafiSystemService::Service::UpdateRodamientoPurchase(SupplyProduct^ rodamientoPurchase)
 {
     return Persistance::UpdateRodamientoPurchase(rodamientoPurchase);
 }
@@ -350,21 +360,21 @@ int MecaTrafiSystemService::Service::DeleteRodamientoPurchase(int rodamientoPurc
 {
     return Persistance::DeleteRodamientoPurchase(rodamientoPurchaseId);
 }
-MechanicComponent^ MecaTrafiSystemService::Service::QueryAllRodamientoPurchaseById(int rodamientoPurchaseId)
+SupplyProduct^ MecaTrafiSystemService::Service::QueryAllRodamientoPurchaseById(int rodamientoPurchaseId)
 {
     return Persistance::QueryAllRodamientoPurchaseById(rodamientoPurchaseId);
 }
 //METODOS MOTORAC - COMPRA
-int MecaTrafiSystemService::Service::AddMotorACPurchase(MechanicComponent^ motorACPurchase)
+int MecaTrafiSystemService::Service::AddMotorACPurchase(SupplyProduct^ motorACPurchase)
 {
      Persistance::AddMotorACPurchase(motorACPurchase);
      return motorACPurchase->Id;
 }
-List<MechanicComponent^>^ MecaTrafiSystemService::Service::QueryAllMotorACPurchase()
+List<SupplyProduct^>^ MecaTrafiSystemService::Service::QueryAllMotorACPurchase()
 {
     return Persistance::QueryAllMotorACPurchase();
 }
-int MecaTrafiSystemService::Service::UpdateMotorACPurchase(MechanicComponent^ motorACPurchase)
+int MecaTrafiSystemService::Service::UpdateMotorACPurchase(SupplyProduct^ motorACPurchase)
 {
     return Persistance::UpdateMotorACPurchase(motorACPurchase);
 }
@@ -372,21 +382,21 @@ int MecaTrafiSystemService::Service::DeleteMotorACPurchase(int motorACPurchaseId
 {
     return Persistance::DeleteMotorACPurchase(motorACPurchaseId);
 }
-MechanicComponent^ MecaTrafiSystemService::Service::QueryAllMotorACPurchaseById(int motorACPurchaseId)
+SupplyProduct^ MecaTrafiSystemService::Service::QueryAllMotorACPurchaseById(int motorACPurchaseId)
 {
     return Persistance::QueryAllMotorACPurchaseById(motorACPurchaseId);
 }
 //METODOS MOTORDC - COMPRA
-int MecaTrafiSystemService::Service::AddMotorDCPurchase(MechanicComponent^ motorDCPurchase)
+int MecaTrafiSystemService::Service::AddMotorDCPurchase(SupplyProduct^ motorDCPurchase)
 {
      Persistance::AddMotorDCPurchase(motorDCPurchase);
      return motorDCPurchase->Id;
 }
-List<MechanicComponent^>^ MecaTrafiSystemService::Service::QueryAllMotorDCPurchase()
+List<SupplyProduct^>^ MecaTrafiSystemService::Service::QueryAllMotorDCPurchase()
 {
     return Persistance::QueryAllMotorDCPurchase();
 }
-int MecaTrafiSystemService::Service::UpdateMotorDCPurchase(MechanicComponent^ motorDCPurchase)
+int MecaTrafiSystemService::Service::UpdateMotorDCPurchase(SupplyProduct^ motorDCPurchase)
 {
     return Persistance::UpdateMotorDCPurchase(motorDCPurchase);
 }
@@ -394,9 +404,21 @@ int MecaTrafiSystemService::Service::DeleteMotorDCPurchase(int motorDCPurchaseId
 {
     return Persistance::DeleteMotorDCPurchase(motorDCPurchaseId);
 }
-MechanicComponent^ MecaTrafiSystemService::Service::QueryallMotorDCPurchaseById(int motorDCPurchaseId)
+SupplyProduct^ MecaTrafiSystemService::Service::QueryallMotorDCPurchaseById(int motorDCPurchaseId)
 {
     return Persistance::QueryAllMotorDCPurchaseById(motorDCPurchaseId);
+}
+Store^ MecaTrafiSystemService::Service::GetGenericStore()
+{
+    return GenericStore;
+}
+int MecaTrafiSystemService::Service::RegisterPurchase(PurchaseOrder^ ordenCompra)
+{
+    return Persistance::RegisterPurchase(ordenCompra);
+}
+List<PurchaseOrder^>^ MecaTrafiSystemService::Service::QueryAllPurchaseOrders()
+{
+    return Persistance::QueryAllPurchaseOrders();
 }
 //CRUD MOTOR AC - STOCK
 int MecaTrafiSystemService::Service::AddMotorACStock(MechanicComponent^ motorAC)

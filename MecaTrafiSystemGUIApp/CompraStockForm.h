@@ -8,6 +8,9 @@ namespace MecaTrafiSystemGUIApp {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace MecaTrafiSystemModel;
+	using namespace MecaTrafiSystemService;
+	using namespace System::Collections::Generic;
 
 	/// <summary>
 	/// Resumen de CompraStockForm
@@ -121,7 +124,8 @@ namespace MecaTrafiSystemGUIApp {
 
 	private: System::Windows::Forms::Label^ label13;
 	private: System::Windows::Forms::Button^ btnEmpUpdatePhoto;
-	private: System::Windows::Forms::PictureBox^ pbEmpPhoto;
+private: System::Windows::Forms::PictureBox^ pbTornilloPhoto;
+
 	private: System::Windows::Forms::TextBox^ txtTornilloproveecompra;
 
 
@@ -140,11 +144,13 @@ namespace MecaTrafiSystemGUIApp {
 
 
 	private: System::Windows::Forms::Label^ label14;
+private: System::Windows::Forms::TextBox^ txtFajaBrand;
 
 
-	private: System::Windows::Forms::TextBox^ textBox12;
+
 	private: System::Windows::Forms::Label^ label17;
-	private: System::Windows::Forms::TextBox^ textBox13;
+private: System::Windows::Forms::TextBox^ txtFajaStore;
+
 	private: System::Windows::Forms::Label^ label19;
 
 
@@ -161,25 +167,34 @@ namespace MecaTrafiSystemGUIApp {
 	private: System::Windows::Forms::Label^ label22;
 	private: System::Windows::Forms::Label^ label23;
 	private: System::Windows::Forms::Label^ label24;
-	private: System::Windows::Forms::TextBox^ textBox16;
-	private: System::Windows::Forms::Label^ label25;
-	private: System::Windows::Forms::TextBox^ textBox17;
+private: System::Windows::Forms::TextBox^ txtFajaCode;
 
-	private: System::Windows::Forms::TextBox^ textBox18;
+	private: System::Windows::Forms::Label^ label25;
+private: System::Windows::Forms::TextBox^ txtDiametroExterno;
+
+private: System::Windows::Forms::TextBox^ txtFajaAltoGoma;
+
+
 	private: System::Windows::Forms::Label^ label27;
-	private: System::Windows::Forms::TextBox^ textBox19;
+private: System::Windows::Forms::TextBox^ txtDiameterInterno;
+
 	private: System::Windows::Forms::Label^ label28;
-	private: System::Windows::Forms::TextBox^ textBox20;
+private: System::Windows::Forms::TextBox^ txtFajaType;
+
 	private: System::Windows::Forms::Label^ label29;
 	private: System::Windows::Forms::Label^ label30;
 	private: System::Windows::Forms::Label^ label31;
-	private: System::Windows::Forms::TextBox^ textBox21;
+private: System::Windows::Forms::TextBox^ txtFajaUnitaryPrice;
+
 	private: System::Windows::Forms::Label^ label32;
 	private: System::Windows::Forms::Label^ label33;
-	private: System::Windows::Forms::TextBox^ textBox22;
+private: System::Windows::Forms::TextBox^ txtIdFaja;
+private: System::Windows::Forms::TextBox^ txtNameFaja;
+private: System::Windows::Forms::TextBox^ txtDescriptionFaja;
 
-	private: System::Windows::Forms::TextBox^ textBox24;
-	private: System::Windows::Forms::TextBox^ textBox25;
+
+
+
 
 
 
@@ -371,9 +386,11 @@ namespace MecaTrafiSystemGUIApp {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Cantidad;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Proveedor;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Telefono;
-	private: System::Windows::Forms::TextBox^ textBox1;
+private: System::Windows::Forms::TextBox^ txtFajaQuantity;
+
 	private: System::Windows::Forms::Label^ label15;
-	private: System::Windows::Forms::DataGridView^ dataGridView1;
+private: System::Windows::Forms::DataGridView^ dgvFaja;
+
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn1;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn2;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn3;
@@ -411,6 +428,26 @@ namespace MecaTrafiSystemGUIApp {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn23;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn24;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn25;
+private: System::Windows::Forms::Button^ btnedittornillo;
+private: System::Windows::Forms::Button^ btndeletetornillo;
+private: System::Windows::Forms::Button^ btnaddtornillo;
+private: System::Windows::Forms::Button^ btn_EditFaja;
+private: System::Windows::Forms::Button^ btn_DeteleFaja;
+
+
+private: System::Windows::Forms::Button^ button8;
+private: System::Windows::Forms::Button^ button9;
+private: System::Windows::Forms::Button^ button10;
+private: System::Windows::Forms::Button^ button11;
+private: System::Windows::Forms::Button^ button12;
+private: System::Windows::Forms::Button^ button13;
+private: System::Windows::Forms::Button^ button14;
+private: System::Windows::Forms::Button^ button15;
+private: System::Windows::Forms::Button^ button16;
+private: System::Windows::Forms::Button^ button17;
+private: System::Windows::Forms::Button^ button18;
+private: System::Windows::Forms::Button^ button19;
+private: System::Windows::Forms::Button^ button20;
 
 
 
@@ -484,6 +521,9 @@ namespace MecaTrafiSystemGUIApp {
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->tabAdminCompraProductos = (gcnew System::Windows::Forms::TabControl());
 			this->TornillosPage = (gcnew System::Windows::Forms::TabPage());
+			this->btnedittornillo = (gcnew System::Windows::Forms::Button());
+			this->btndeletetornillo = (gcnew System::Windows::Forms::Button());
+			this->btnaddtornillo = (gcnew System::Windows::Forms::Button());
 			this->txtcompraTornilloMarca = (gcnew System::Windows::Forms::TextBox());
 			this->label14 = (gcnew System::Windows::Forms::Label());
 			this->txtTornilloproveecompra = (gcnew System::Windows::Forms::TextBox());
@@ -491,7 +531,7 @@ namespace MecaTrafiSystemGUIApp {
 			this->txtcompraTornilloRequerido = (gcnew System::Windows::Forms::TextBox());
 			this->label13 = (gcnew System::Windows::Forms::Label());
 			this->btnEmpUpdatePhoto = (gcnew System::Windows::Forms::Button());
-			this->pbEmpPhoto = (gcnew System::Windows::Forms::PictureBox());
+			this->pbTornilloPhoto = (gcnew System::Windows::Forms::PictureBox());
 			this->txtcompraTornilloDiametroRosca = (gcnew System::Windows::Forms::TextBox());
 			this->dgvcompratornillos = (gcnew System::Windows::Forms::DataGridView());
 			this->Nombres = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
@@ -514,41 +554,47 @@ namespace MecaTrafiSystemGUIApp {
 			this->txtcompraTornilloTipo = (gcnew System::Windows::Forms::TextBox());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->FajasPage = (gcnew System::Windows::Forms::TabPage());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->btn_EditFaja = (gcnew System::Windows::Forms::Button());
+			this->btn_DeteleFaja = (gcnew System::Windows::Forms::Button());
+			this->button8 = (gcnew System::Windows::Forms::Button());
+			this->txtFajaQuantity = (gcnew System::Windows::Forms::TextBox());
 			this->label15 = (gcnew System::Windows::Forms::Label());
-			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
+			this->dgvFaja = (gcnew System::Windows::Forms::DataGridView());
 			this->dataGridViewTextBoxColumn1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dataGridViewTextBoxColumn2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dataGridViewTextBoxColumn3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dataGridViewTextBoxColumn4 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dataGridViewTextBoxColumn5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->textBox12 = (gcnew System::Windows::Forms::TextBox());
+			this->txtFajaBrand = (gcnew System::Windows::Forms::TextBox());
 			this->label17 = (gcnew System::Windows::Forms::Label());
-			this->textBox13 = (gcnew System::Windows::Forms::TextBox());
+			this->txtFajaStore = (gcnew System::Windows::Forms::TextBox());
 			this->label19 = (gcnew System::Windows::Forms::Label());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->label22 = (gcnew System::Windows::Forms::Label());
 			this->label23 = (gcnew System::Windows::Forms::Label());
 			this->label24 = (gcnew System::Windows::Forms::Label());
-			this->textBox16 = (gcnew System::Windows::Forms::TextBox());
+			this->txtFajaCode = (gcnew System::Windows::Forms::TextBox());
 			this->label25 = (gcnew System::Windows::Forms::Label());
-			this->textBox17 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox18 = (gcnew System::Windows::Forms::TextBox());
+			this->txtDiametroExterno = (gcnew System::Windows::Forms::TextBox());
+			this->txtFajaAltoGoma = (gcnew System::Windows::Forms::TextBox());
 			this->label27 = (gcnew System::Windows::Forms::Label());
-			this->textBox19 = (gcnew System::Windows::Forms::TextBox());
+			this->txtDiameterInterno = (gcnew System::Windows::Forms::TextBox());
 			this->label28 = (gcnew System::Windows::Forms::Label());
-			this->textBox20 = (gcnew System::Windows::Forms::TextBox());
+			this->txtFajaType = (gcnew System::Windows::Forms::TextBox());
 			this->label29 = (gcnew System::Windows::Forms::Label());
 			this->label30 = (gcnew System::Windows::Forms::Label());
 			this->label31 = (gcnew System::Windows::Forms::Label());
-			this->textBox21 = (gcnew System::Windows::Forms::TextBox());
+			this->txtFajaUnitaryPrice = (gcnew System::Windows::Forms::TextBox());
 			this->label32 = (gcnew System::Windows::Forms::Label());
 			this->label33 = (gcnew System::Windows::Forms::Label());
-			this->textBox22 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox24 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox25 = (gcnew System::Windows::Forms::TextBox());
+			this->txtIdFaja = (gcnew System::Windows::Forms::TextBox());
+			this->txtNameFaja = (gcnew System::Windows::Forms::TextBox());
+			this->txtDescriptionFaja = (gcnew System::Windows::Forms::TextBox());
 			this->PoleasPage = (gcnew System::Windows::Forms::TabPage());
+			this->button9 = (gcnew System::Windows::Forms::Button());
+			this->button10 = (gcnew System::Windows::Forms::Button());
+			this->button11 = (gcnew System::Windows::Forms::Button());
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			this->label16 = (gcnew System::Windows::Forms::Label());
 			this->dataGridView2 = (gcnew System::Windows::Forms::DataGridView());
@@ -586,6 +632,9 @@ namespace MecaTrafiSystemGUIApp {
 			this->textBox39 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox40 = (gcnew System::Windows::Forms::TextBox());
 			this->RodamientosPage = (gcnew System::Windows::Forms::TabPage());
+			this->button12 = (gcnew System::Windows::Forms::Button());
+			this->button13 = (gcnew System::Windows::Forms::Button());
+			this->button14 = (gcnew System::Windows::Forms::Button());
 			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
 			this->label20 = (gcnew System::Windows::Forms::Label());
 			this->dataGridView3 = (gcnew System::Windows::Forms::DataGridView());
@@ -620,6 +669,9 @@ namespace MecaTrafiSystemGUIApp {
 			this->textBox54 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox55 = (gcnew System::Windows::Forms::TextBox());
 			this->MotoresACPage = (gcnew System::Windows::Forms::TabPage());
+			this->button15 = (gcnew System::Windows::Forms::Button());
+			this->button16 = (gcnew System::Windows::Forms::Button());
+			this->button17 = (gcnew System::Windows::Forms::Button());
 			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
 			this->label21 = (gcnew System::Windows::Forms::Label());
 			this->dataGridView4 = (gcnew System::Windows::Forms::DataGridView());
@@ -661,6 +713,9 @@ namespace MecaTrafiSystemGUIApp {
 			this->textBox69 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox70 = (gcnew System::Windows::Forms::TextBox());
 			this->MotoresDCPage = (gcnew System::Windows::Forms::TabPage());
+			this->button18 = (gcnew System::Windows::Forms::Button());
+			this->button19 = (gcnew System::Windows::Forms::Button());
+			this->button20 = (gcnew System::Windows::Forms::Button());
 			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
 			this->label35 = (gcnew System::Windows::Forms::Label());
 			this->dataGridView5 = (gcnew System::Windows::Forms::DataGridView());
@@ -701,10 +756,10 @@ namespace MecaTrafiSystemGUIApp {
 			this->btnEditar = (gcnew System::Windows::Forms::Button());
 			this->tabAdminCompraProductos->SuspendLayout();
 			this->TornillosPage->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbEmpPhoto))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbTornilloPhoto))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvcompratornillos))->BeginInit();
 			this->FajasPage->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvFaja))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->PoleasPage->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView2))->BeginInit();
@@ -778,24 +833,24 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// txtcompraTornilloTipoRosca
 			// 
-			this->txtcompraTornilloTipoRosca->Location = System::Drawing::Point(108, 257);
+			this->txtcompraTornilloTipoRosca->Location = System::Drawing::Point(106, 220);
 			this->txtcompraTornilloTipoRosca->Margin = System::Windows::Forms::Padding(2);
 			this->txtcompraTornilloTipoRosca->Name = L"txtcompraTornilloTipoRosca";
-			this->txtcompraTornilloTipoRosca->Size = System::Drawing::Size(110, 20);
+			this->txtcompraTornilloTipoRosca->Size = System::Drawing::Size(136, 20);
 			this->txtcompraTornilloTipoRosca->TabIndex = 43;
 			// 
 			// txtcompraTornilloPrecioUnitario
 			// 
-			this->txtcompraTornilloPrecioUnitario->Location = System::Drawing::Point(165, 303);
+			this->txtcompraTornilloPrecioUnitario->Location = System::Drawing::Point(108, 254);
 			this->txtcompraTornilloPrecioUnitario->Margin = System::Windows::Forms::Padding(2);
 			this->txtcompraTornilloPrecioUnitario->Name = L"txtcompraTornilloPrecioUnitario";
-			this->txtcompraTornilloPrecioUnitario->Size = System::Drawing::Size(51, 20);
+			this->txtcompraTornilloPrecioUnitario->Size = System::Drawing::Size(32, 20);
 			this->txtcompraTornilloPrecioUnitario->TabIndex = 45;
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(61, 308);
+			this->label1->Location = System::Drawing::Point(-3, 257);
 			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(100, 13);
@@ -819,6 +874,9 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// TornillosPage
 			// 
+			this->TornillosPage->Controls->Add(this->btnedittornillo);
+			this->TornillosPage->Controls->Add(this->btndeletetornillo);
+			this->TornillosPage->Controls->Add(this->btnaddtornillo);
 			this->TornillosPage->Controls->Add(this->txtcompraTornilloMarca);
 			this->TornillosPage->Controls->Add(this->label14);
 			this->TornillosPage->Controls->Add(this->txtTornilloproveecompra);
@@ -826,7 +884,7 @@ namespace MecaTrafiSystemGUIApp {
 			this->TornillosPage->Controls->Add(this->txtcompraTornilloRequerido);
 			this->TornillosPage->Controls->Add(this->label13);
 			this->TornillosPage->Controls->Add(this->btnEmpUpdatePhoto);
-			this->TornillosPage->Controls->Add(this->pbEmpPhoto);
+			this->TornillosPage->Controls->Add(this->pbTornilloPhoto);
 			this->TornillosPage->Controls->Add(this->txtcompraTornilloDiametroRosca);
 			this->TornillosPage->Controls->Add(this->dgvcompratornillos);
 			this->TornillosPage->Controls->Add(this->label12);
@@ -862,9 +920,39 @@ namespace MecaTrafiSystemGUIApp {
 			this->TornillosPage->UseVisualStyleBackColor = true;
 			this->TornillosPage->Click += gcnew System::EventHandler(this, &CompraStockForm::TornillosPage_Click);
 			// 
+			// btnedittornillo
+			// 
+			this->btnedittornillo->Location = System::Drawing::Point(222, 303);
+			this->btnedittornillo->Name = L"btnedittornillo";
+			this->btnedittornillo->Size = System::Drawing::Size(75, 23);
+			this->btnedittornillo->TabIndex = 75;
+			this->btnedittornillo->Text = L"Editar";
+			this->btnedittornillo->UseVisualStyleBackColor = true;
+			this->btnedittornillo->Click += gcnew System::EventHandler(this, &CompraStockForm::btnedittornillo_Click);
+			// 
+			// btndeletetornillo
+			// 
+			this->btndeletetornillo->Location = System::Drawing::Point(321, 303);
+			this->btndeletetornillo->Name = L"btndeletetornillo";
+			this->btndeletetornillo->Size = System::Drawing::Size(75, 23);
+			this->btndeletetornillo->TabIndex = 74;
+			this->btndeletetornillo->Text = L"Eliminar";
+			this->btndeletetornillo->UseVisualStyleBackColor = true;
+			this->btndeletetornillo->Click += gcnew System::EventHandler(this, &CompraStockForm::btndeletetornillo_Click);
+			// 
+			// btnaddtornillo
+			// 
+			this->btnaddtornillo->Location = System::Drawing::Point(119, 303);
+			this->btnaddtornillo->Name = L"btnaddtornillo";
+			this->btnaddtornillo->Size = System::Drawing::Size(75, 23);
+			this->btnaddtornillo->TabIndex = 73;
+			this->btnaddtornillo->Text = L"Agregar";
+			this->btnaddtornillo->UseVisualStyleBackColor = true;
+			this->btnaddtornillo->Click += gcnew System::EventHandler(this, &CompraStockForm::btnaddtornillo_Click);
+			// 
 			// txtcompraTornilloMarca
 			// 
-			this->txtcompraTornilloMarca->Location = System::Drawing::Point(368, 157);
+			this->txtcompraTornilloMarca->Location = System::Drawing::Point(358, 161);
 			this->txtcompraTornilloMarca->Margin = System::Windows::Forms::Padding(2);
 			this->txtcompraTornilloMarca->Name = L"txtcompraTornilloMarca";
 			this->txtcompraTornilloMarca->Size = System::Drawing::Size(117, 20);
@@ -873,7 +961,7 @@ namespace MecaTrafiSystemGUIApp {
 			// label14
 			// 
 			this->label14->AutoSize = true;
-			this->label14->Location = System::Drawing::Point(304, 160);
+			this->label14->Location = System::Drawing::Point(311, 168);
 			this->label14->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label14->Name = L"label14";
 			this->label14->Size = System::Drawing::Size(37, 13);
@@ -882,7 +970,7 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// txtTornilloproveecompra
 			// 
-			this->txtTornilloproveecompra->Location = System::Drawing::Point(368, 125);
+			this->txtTornilloproveecompra->Location = System::Drawing::Point(358, 128);
 			this->txtTornilloproveecompra->Margin = System::Windows::Forms::Padding(2);
 			this->txtTornilloproveecompra->Name = L"txtTornilloproveecompra";
 			this->txtTornilloproveecompra->Size = System::Drawing::Size(117, 20);
@@ -891,7 +979,7 @@ namespace MecaTrafiSystemGUIApp {
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(269, 128);
+			this->label6->Location = System::Drawing::Point(259, 128);
 			this->label6->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(95, 13);
@@ -900,16 +988,16 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// txtcompraTornilloRequerido
 			// 
-			this->txtcompraTornilloRequerido->Location = System::Drawing::Point(368, 305);
+			this->txtcompraTornilloRequerido->Location = System::Drawing::Point(210, 254);
 			this->txtcompraTornilloRequerido->Margin = System::Windows::Forms::Padding(2);
 			this->txtcompraTornilloRequerido->Name = L"txtcompraTornilloRequerido";
-			this->txtcompraTornilloRequerido->Size = System::Drawing::Size(51, 20);
+			this->txtcompraTornilloRequerido->Size = System::Drawing::Size(34, 20);
 			this->txtcompraTornilloRequerido->TabIndex = 67;
 			// 
 			// label13
 			// 
 			this->label13->AutoSize = true;
-			this->label13->Location = System::Drawing::Point(304, 310);
+			this->label13->Location = System::Drawing::Point(157, 257);
 			this->label13->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label13->Name = L"label13";
 			this->label13->Size = System::Drawing::Size(49, 13);
@@ -927,19 +1015,19 @@ namespace MecaTrafiSystemGUIApp {
 			this->btnEmpUpdatePhoto->Text = L"Actualizar Foto";
 			this->btnEmpUpdatePhoto->UseVisualStyleBackColor = true;
 			// 
-			// pbEmpPhoto
+			// pbTornilloPhoto
 			// 
-			this->pbEmpPhoto->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
-			this->pbEmpPhoto->Location = System::Drawing::Point(516, 18);
-			this->pbEmpPhoto->Name = L"pbEmpPhoto";
-			this->pbEmpPhoto->Size = System::Drawing::Size(137, 145);
-			this->pbEmpPhoto->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
-			this->pbEmpPhoto->TabIndex = 63;
-			this->pbEmpPhoto->TabStop = false;
+			this->pbTornilloPhoto->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
+			this->pbTornilloPhoto->Location = System::Drawing::Point(516, 18);
+			this->pbTornilloPhoto->Name = L"pbTornilloPhoto";
+			this->pbTornilloPhoto->Size = System::Drawing::Size(137, 145);
+			this->pbTornilloPhoto->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+			this->pbTornilloPhoto->TabIndex = 63;
+			this->pbTornilloPhoto->TabStop = false;
 			// 
 			// txtcompraTornilloDiametroRosca
 			// 
-			this->txtcompraTornilloDiametroRosca->Location = System::Drawing::Point(368, 257);
+			this->txtcompraTornilloDiametroRosca->Location = System::Drawing::Point(358, 254);
 			this->txtcompraTornilloDiametroRosca->Margin = System::Windows::Forms::Padding(2);
 			this->txtcompraTornilloDiametroRosca->Name = L"txtcompraTornilloDiametroRosca";
 			this->txtcompraTornilloDiametroRosca->Size = System::Drawing::Size(117, 20);
@@ -959,7 +1047,6 @@ namespace MecaTrafiSystemGUIApp {
 			this->dgvcompratornillos->RowHeadersVisible = false;
 			this->dgvcompratornillos->Size = System::Drawing::Size(504, 119);
 			this->dgvcompratornillos->TabIndex = 61;
-			this->dgvcompratornillos->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &CompraStockForm::dgvEmpleados_CellContentClick);
 			// 
 			// Nombres
 			// 
@@ -989,7 +1076,7 @@ namespace MecaTrafiSystemGUIApp {
 			// label12
 			// 
 			this->label12->AutoSize = true;
-			this->label12->Location = System::Drawing::Point(269, 267);
+			this->label12->Location = System::Drawing::Point(271, 257);
 			this->label12->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label12->Name = L"label12";
 			this->label12->Size = System::Drawing::Size(83, 13);
@@ -999,7 +1086,7 @@ namespace MecaTrafiSystemGUIApp {
 			// label11
 			// 
 			this->label11->AutoSize = true;
-			this->label11->Location = System::Drawing::Point(299, 233);
+			this->label11->Location = System::Drawing::Point(304, 230);
 			this->label11->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label11->Name = L"label11";
 			this->label11->Size = System::Drawing::Size(44, 13);
@@ -1018,7 +1105,7 @@ namespace MecaTrafiSystemGUIApp {
 			// label9
 			// 
 			this->label9->AutoSize = true;
-			this->label9->Location = System::Drawing::Point(20, 163);
+			this->label9->Location = System::Drawing::Point(13, 128);
 			this->label9->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label9->Name = L"label9";
 			this->label9->Size = System::Drawing::Size(84, 13);
@@ -1027,7 +1114,7 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// txtcompraTornilloModel
 			// 
-			this->txtcompraTornilloModel->Location = System::Drawing::Point(108, 156);
+			this->txtcompraTornilloModel->Location = System::Drawing::Point(108, 125);
 			this->txtcompraTornilloModel->Margin = System::Windows::Forms::Padding(2);
 			this->txtcompraTornilloModel->Name = L"txtcompraTornilloModel";
 			this->txtcompraTornilloModel->Size = System::Drawing::Size(136, 20);
@@ -1036,7 +1123,7 @@ namespace MecaTrafiSystemGUIApp {
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(62, 226);
+			this->label5->Location = System::Drawing::Point(62, 196);
 			this->label5->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(35, 13);
@@ -1045,7 +1132,7 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// txtcompraTornilloMaterial
 			// 
-			this->txtcompraTornilloMaterial->Location = System::Drawing::Point(368, 223);
+			this->txtcompraTornilloMaterial->Location = System::Drawing::Point(358, 223);
 			this->txtcompraTornilloMaterial->Margin = System::Windows::Forms::Padding(2);
 			this->txtcompraTornilloMaterial->Name = L"txtcompraTornilloMaterial";
 			this->txtcompraTornilloMaterial->Size = System::Drawing::Size(117, 20);
@@ -1054,7 +1141,7 @@ namespace MecaTrafiSystemGUIApp {
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(20, 264);
+			this->label4->Location = System::Drawing::Point(20, 223);
 			this->label4->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(77, 13);
@@ -1063,16 +1150,16 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// txtcompraTornilloPunta
 			// 
-			this->txtcompraTornilloPunta->Location = System::Drawing::Point(108, 223);
+			this->txtcompraTornilloPunta->Location = System::Drawing::Point(106, 189);
 			this->txtcompraTornilloPunta->Margin = System::Windows::Forms::Padding(2);
 			this->txtcompraTornilloPunta->Name = L"txtcompraTornilloPunta";
-			this->txtcompraTornilloPunta->Size = System::Drawing::Size(108, 20);
+			this->txtcompraTornilloPunta->Size = System::Drawing::Size(138, 20);
 			this->txtcompraTornilloPunta->TabIndex = 52;
 			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(67, 195);
+			this->label3->Location = System::Drawing::Point(69, 164);
 			this->label3->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(28, 13);
@@ -1081,7 +1168,7 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// txtcompraTornilloLongitud
 			// 
-			this->txtcompraTornilloLongitud->Location = System::Drawing::Point(368, 189);
+			this->txtcompraTornilloLongitud->Location = System::Drawing::Point(358, 192);
 			this->txtcompraTornilloLongitud->Margin = System::Windows::Forms::Padding(2);
 			this->txtcompraTornilloLongitud->Name = L"txtcompraTornilloLongitud";
 			this->txtcompraTornilloLongitud->Size = System::Drawing::Size(117, 20);
@@ -1090,7 +1177,7 @@ namespace MecaTrafiSystemGUIApp {
 			// txtLongitud
 			// 
 			this->txtLongitud->AutoSize = true;
-			this->txtLongitud->Location = System::Drawing::Point(304, 189);
+			this->txtLongitud->Location = System::Drawing::Point(299, 199);
 			this->txtLongitud->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->txtLongitud->Name = L"txtLongitud";
 			this->txtLongitud->Size = System::Drawing::Size(48, 13);
@@ -1099,7 +1186,7 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// txtcompraTornilloTipo
 			// 
-			this->txtcompraTornilloTipo->Location = System::Drawing::Point(108, 189);
+			this->txtcompraTornilloTipo->Location = System::Drawing::Point(106, 157);
 			this->txtcompraTornilloTipo->Margin = System::Windows::Forms::Padding(2);
 			this->txtcompraTornilloTipo->Name = L"txtcompraTornilloTipo";
 			this->txtcompraTornilloTipo->Size = System::Drawing::Size(136, 20);
@@ -1116,35 +1203,38 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// FajasPage
 			// 
-			this->FajasPage->Controls->Add(this->textBox1);
+			this->FajasPage->Controls->Add(this->btn_EditFaja);
+			this->FajasPage->Controls->Add(this->btn_DeteleFaja);
+			this->FajasPage->Controls->Add(this->button8);
+			this->FajasPage->Controls->Add(this->txtFajaQuantity);
 			this->FajasPage->Controls->Add(this->label15);
-			this->FajasPage->Controls->Add(this->dataGridView1);
-			this->FajasPage->Controls->Add(this->textBox12);
+			this->FajasPage->Controls->Add(this->dgvFaja);
+			this->FajasPage->Controls->Add(this->txtFajaBrand);
 			this->FajasPage->Controls->Add(this->label17);
-			this->FajasPage->Controls->Add(this->textBox13);
+			this->FajasPage->Controls->Add(this->txtFajaStore);
 			this->FajasPage->Controls->Add(this->label19);
 			this->FajasPage->Controls->Add(this->button1);
 			this->FajasPage->Controls->Add(this->pictureBox1);
 			this->FajasPage->Controls->Add(this->label22);
 			this->FajasPage->Controls->Add(this->label23);
 			this->FajasPage->Controls->Add(this->label24);
-			this->FajasPage->Controls->Add(this->textBox16);
+			this->FajasPage->Controls->Add(this->txtFajaCode);
 			this->FajasPage->Controls->Add(this->label25);
-			this->FajasPage->Controls->Add(this->textBox17);
-			this->FajasPage->Controls->Add(this->textBox18);
+			this->FajasPage->Controls->Add(this->txtDiametroExterno);
+			this->FajasPage->Controls->Add(this->txtFajaAltoGoma);
 			this->FajasPage->Controls->Add(this->label27);
-			this->FajasPage->Controls->Add(this->textBox19);
+			this->FajasPage->Controls->Add(this->txtDiameterInterno);
 			this->FajasPage->Controls->Add(this->label28);
-			this->FajasPage->Controls->Add(this->textBox20);
+			this->FajasPage->Controls->Add(this->txtFajaType);
 			this->FajasPage->Controls->Add(this->label29);
 			this->FajasPage->Controls->Add(this->label30);
 			this->FajasPage->Controls->Add(this->label31);
-			this->FajasPage->Controls->Add(this->textBox21);
+			this->FajasPage->Controls->Add(this->txtFajaUnitaryPrice);
 			this->FajasPage->Controls->Add(this->label32);
 			this->FajasPage->Controls->Add(this->label33);
-			this->FajasPage->Controls->Add(this->textBox22);
-			this->FajasPage->Controls->Add(this->textBox24);
-			this->FajasPage->Controls->Add(this->textBox25);
+			this->FajasPage->Controls->Add(this->txtIdFaja);
+			this->FajasPage->Controls->Add(this->txtNameFaja);
+			this->FajasPage->Controls->Add(this->txtDescriptionFaja);
 			this->FajasPage->Location = System::Drawing::Point(4, 22);
 			this->FajasPage->Margin = System::Windows::Forms::Padding(2);
 			this->FajasPage->Name = L"FajasPage";
@@ -1154,38 +1244,68 @@ namespace MecaTrafiSystemGUIApp {
 			this->FajasPage->Text = L"Fajas";
 			this->FajasPage->UseVisualStyleBackColor = true;
 			// 
-			// textBox1
+			// btn_EditFaja
 			// 
-			this->textBox1->Location = System::Drawing::Point(366, 263);
-			this->textBox1->Margin = System::Windows::Forms::Padding(2);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(51, 20);
-			this->textBox1->TabIndex = 111;
+			this->btn_EditFaja->Location = System::Drawing::Point(270, 266);
+			this->btn_EditFaja->Name = L"btn_EditFaja";
+			this->btn_EditFaja->Size = System::Drawing::Size(75, 23);
+			this->btn_EditFaja->TabIndex = 114;
+			this->btn_EditFaja->Text = L"Editar";
+			this->btn_EditFaja->UseVisualStyleBackColor = true;
+			this->btn_EditFaja->Click += gcnew System::EventHandler(this, &CompraStockForm::btn_EditFaja_Click);
+			// 
+			// btn_DeteleFaja
+			// 
+			this->btn_DeteleFaja->Location = System::Drawing::Point(369, 266);
+			this->btn_DeteleFaja->Name = L"btn_DeteleFaja";
+			this->btn_DeteleFaja->Size = System::Drawing::Size(75, 23);
+			this->btn_DeteleFaja->TabIndex = 113;
+			this->btn_DeteleFaja->Text = L"Eliminar";
+			this->btn_DeteleFaja->UseVisualStyleBackColor = true;
+			this->btn_DeteleFaja->Click += gcnew System::EventHandler(this, &CompraStockForm::btn_DeteleFaja_Click);
+			// 
+			// button8
+			// 
+			this->button8->Location = System::Drawing::Point(167, 266);
+			this->button8->Name = L"button8";
+			this->button8->Size = System::Drawing::Size(75, 23);
+			this->button8->TabIndex = 112;
+			this->button8->Text = L"Agregar";
+			this->button8->UseVisualStyleBackColor = true;
+			this->button8->Click += gcnew System::EventHandler(this, &CompraStockForm::button8_Click);
+			// 
+			// txtFajaQuantity
+			// 
+			this->txtFajaQuantity->Location = System::Drawing::Point(206, 220);
+			this->txtFajaQuantity->Margin = System::Windows::Forms::Padding(2);
+			this->txtFajaQuantity->Name = L"txtFajaQuantity";
+			this->txtFajaQuantity->Size = System::Drawing::Size(36, 20);
+			this->txtFajaQuantity->TabIndex = 111;
 			// 
 			// label15
 			// 
 			this->label15->AutoSize = true;
-			this->label15->Location = System::Drawing::Point(302, 268);
+			this->label15->Location = System::Drawing::Point(153, 227);
 			this->label15->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label15->Name = L"label15";
 			this->label15->Size = System::Drawing::Size(49, 13);
 			this->label15->TabIndex = 110;
 			this->label15->Text = L"Cantidad";
 			// 
-			// dataGridView1
+			// dgvFaja
 			// 
-			this->dataGridView1->AllowUserToAddRows = false;
-			this->dataGridView1->AllowUserToOrderColumns = true;
-			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(5) {
+			this->dgvFaja->AllowUserToAddRows = false;
+			this->dgvFaja->AllowUserToOrderColumns = true;
+			this->dgvFaja->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dgvFaja->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(5) {
 				this->dataGridViewTextBoxColumn1,
 					this->dataGridViewTextBoxColumn2, this->dataGridViewTextBoxColumn3, this->dataGridViewTextBoxColumn4, this->dataGridViewTextBoxColumn5
 			});
-			this->dataGridView1->Location = System::Drawing::Point(62, 319);
-			this->dataGridView1->Name = L"dataGridView1";
-			this->dataGridView1->RowHeadersVisible = false;
-			this->dataGridView1->Size = System::Drawing::Size(504, 119);
-			this->dataGridView1->TabIndex = 109;
+			this->dgvFaja->Location = System::Drawing::Point(62, 319);
+			this->dgvFaja->Name = L"dgvFaja";
+			this->dgvFaja->RowHeadersVisible = false;
+			this->dgvFaja->Size = System::Drawing::Size(504, 119);
+			this->dgvFaja->TabIndex = 109;
 			// 
 			// dataGridViewTextBoxColumn1
 			// 
@@ -1212,36 +1332,36 @@ namespace MecaTrafiSystemGUIApp {
 			this->dataGridViewTextBoxColumn5->HeaderText = L"Precio Unitario";
 			this->dataGridViewTextBoxColumn5->Name = L"dataGridViewTextBoxColumn5";
 			// 
-			// textBox12
+			// txtFajaBrand
 			// 
-			this->textBox12->Location = System::Drawing::Point(366, 161);
-			this->textBox12->Margin = System::Windows::Forms::Padding(2);
-			this->textBox12->Name = L"textBox12";
-			this->textBox12->Size = System::Drawing::Size(117, 20);
-			this->textBox12->TabIndex = 106;
+			this->txtFajaBrand->Location = System::Drawing::Point(366, 165);
+			this->txtFajaBrand->Margin = System::Windows::Forms::Padding(2);
+			this->txtFajaBrand->Name = L"txtFajaBrand";
+			this->txtFajaBrand->Size = System::Drawing::Size(117, 20);
+			this->txtFajaBrand->TabIndex = 106;
 			// 
 			// label17
 			// 
 			this->label17->AutoSize = true;
-			this->label17->Location = System::Drawing::Point(302, 164);
+			this->label17->Location = System::Drawing::Point(315, 171);
 			this->label17->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label17->Name = L"label17";
 			this->label17->Size = System::Drawing::Size(37, 13);
 			this->label17->TabIndex = 105;
 			this->label17->Text = L"Marca";
 			// 
-			// textBox13
+			// txtFajaStore
 			// 
-			this->textBox13->Location = System::Drawing::Point(366, 129);
-			this->textBox13->Margin = System::Windows::Forms::Padding(2);
-			this->textBox13->Name = L"textBox13";
-			this->textBox13->Size = System::Drawing::Size(117, 20);
-			this->textBox13->TabIndex = 104;
+			this->txtFajaStore->Location = System::Drawing::Point(366, 133);
+			this->txtFajaStore->Margin = System::Windows::Forms::Padding(2);
+			this->txtFajaStore->Name = L"txtFajaStore";
+			this->txtFajaStore->Size = System::Drawing::Size(117, 20);
+			this->txtFajaStore->TabIndex = 104;
 			// 
 			// label19
 			// 
 			this->label19->AutoSize = true;
-			this->label19->Location = System::Drawing::Point(267, 132);
+			this->label19->Location = System::Drawing::Point(257, 140);
 			this->label19->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label19->Name = L"label19";
 			this->label19->Size = System::Drawing::Size(95, 13);
@@ -1272,7 +1392,7 @@ namespace MecaTrafiSystemGUIApp {
 			// label22
 			// 
 			this->label22->AutoSize = true;
-			this->label22->Location = System::Drawing::Point(18, 234);
+			this->label22->Location = System::Drawing::Point(24, 199);
 			this->label22->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label22->Name = L"label22";
 			this->label22->Size = System::Drawing::Size(71, 13);
@@ -1291,82 +1411,82 @@ namespace MecaTrafiSystemGUIApp {
 			// label24
 			// 
 			this->label24->AutoSize = true;
-			this->label24->Location = System::Drawing::Point(18, 167);
+			this->label24->Location = System::Drawing::Point(11, 136);
 			this->label24->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label24->Name = L"label24";
 			this->label24->Size = System::Drawing::Size(84, 13);
 			this->label24->TabIndex = 93;
 			this->label24->Text = L"Codigo (Modelo)";
 			// 
-			// textBox16
+			// txtFajaCode
 			// 
-			this->textBox16->Location = System::Drawing::Point(106, 160);
-			this->textBox16->Margin = System::Windows::Forms::Padding(2);
-			this->textBox16->Name = L"textBox16";
-			this->textBox16->Size = System::Drawing::Size(136, 20);
-			this->textBox16->TabIndex = 92;
+			this->txtFajaCode->Location = System::Drawing::Point(106, 133);
+			this->txtFajaCode->Margin = System::Windows::Forms::Padding(2);
+			this->txtFajaCode->Name = L"txtFajaCode";
+			this->txtFajaCode->Size = System::Drawing::Size(136, 20);
+			this->txtFajaCode->TabIndex = 92;
 			// 
 			// label25
 			// 
 			this->label25->AutoSize = true;
-			this->label25->Location = System::Drawing::Point(270, 234);
+			this->label25->Location = System::Drawing::Point(264, 223);
 			this->label25->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label25->Name = L"label25";
 			this->label25->Size = System::Drawing::Size(88, 13);
 			this->label25->TabIndex = 91;
 			this->label25->Text = L"Diametro Externo";
 			// 
-			// textBox17
+			// txtDiametroExterno
 			// 
-			this->textBox17->Location = System::Drawing::Point(366, 227);
-			this->textBox17->Margin = System::Windows::Forms::Padding(2);
-			this->textBox17->Name = L"textBox17";
-			this->textBox17->Size = System::Drawing::Size(117, 20);
-			this->textBox17->TabIndex = 90;
+			this->txtDiametroExterno->Location = System::Drawing::Point(366, 220);
+			this->txtDiametroExterno->Margin = System::Windows::Forms::Padding(2);
+			this->txtDiametroExterno->Name = L"txtDiametroExterno";
+			this->txtDiametroExterno->Size = System::Drawing::Size(117, 20);
+			this->txtDiametroExterno->TabIndex = 90;
 			// 
-			// textBox18
+			// txtFajaAltoGoma
 			// 
-			this->textBox18->Location = System::Drawing::Point(106, 227);
-			this->textBox18->Margin = System::Windows::Forms::Padding(2);
-			this->textBox18->Name = L"textBox18";
-			this->textBox18->Size = System::Drawing::Size(108, 20);
-			this->textBox18->TabIndex = 88;
+			this->txtFajaAltoGoma->Location = System::Drawing::Point(106, 193);
+			this->txtFajaAltoGoma->Margin = System::Windows::Forms::Padding(2);
+			this->txtFajaAltoGoma->Name = L"txtFajaAltoGoma";
+			this->txtFajaAltoGoma->Size = System::Drawing::Size(136, 20);
+			this->txtFajaAltoGoma->TabIndex = 88;
 			// 
 			// label27
 			// 
 			this->label27->AutoSize = true;
-			this->label27->Location = System::Drawing::Point(59, 196);
+			this->label27->Location = System::Drawing::Point(67, 168);
 			this->label27->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label27->Name = L"label27";
 			this->label27->Size = System::Drawing::Size(28, 13);
 			this->label27->TabIndex = 87;
 			this->label27->Text = L"Tipo";
 			// 
-			// textBox19
+			// txtDiameterInterno
 			// 
-			this->textBox19->Location = System::Drawing::Point(366, 193);
-			this->textBox19->Margin = System::Windows::Forms::Padding(2);
-			this->textBox19->Name = L"textBox19";
-			this->textBox19->Size = System::Drawing::Size(117, 20);
-			this->textBox19->TabIndex = 86;
+			this->txtDiameterInterno->Location = System::Drawing::Point(366, 192);
+			this->txtDiameterInterno->Margin = System::Windows::Forms::Padding(2);
+			this->txtDiameterInterno->Name = L"txtDiameterInterno";
+			this->txtDiameterInterno->Size = System::Drawing::Size(117, 20);
+			this->txtDiameterInterno->TabIndex = 86;
 			// 
 			// label28
 			// 
 			this->label28->AutoSize = true;
-			this->label28->Location = System::Drawing::Point(273, 199);
+			this->label28->Location = System::Drawing::Point(267, 196);
 			this->label28->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label28->Name = L"label28";
 			this->label28->Size = System::Drawing::Size(85, 13);
 			this->label28->TabIndex = 85;
 			this->label28->Text = L"Diametro Interno";
 			// 
-			// textBox20
+			// txtFajaType
 			// 
-			this->textBox20->Location = System::Drawing::Point(106, 193);
-			this->textBox20->Margin = System::Windows::Forms::Padding(2);
-			this->textBox20->Name = L"textBox20";
-			this->textBox20->Size = System::Drawing::Size(136, 20);
-			this->textBox20->TabIndex = 84;
+			this->txtFajaType->Location = System::Drawing::Point(106, 164);
+			this->txtFajaType->Margin = System::Windows::Forms::Padding(2);
+			this->txtFajaType->Name = L"txtFajaType";
+			this->txtFajaType->Size = System::Drawing::Size(136, 20);
+			this->txtFajaType->TabIndex = 84;
 			// 
 			// label29
 			// 
@@ -1397,13 +1517,13 @@ namespace MecaTrafiSystemGUIApp {
 			this->label31->TabIndex = 74;
 			this->label31->Text = L"Id";
 			// 
-			// textBox21
+			// txtFajaUnitaryPrice
 			// 
-			this->textBox21->Location = System::Drawing::Point(163, 272);
-			this->textBox21->Margin = System::Windows::Forms::Padding(2);
-			this->textBox21->Name = L"textBox21";
-			this->textBox21->Size = System::Drawing::Size(51, 20);
-			this->textBox21->TabIndex = 82;
+			this->txtFajaUnitaryPrice->Location = System::Drawing::Point(106, 220);
+			this->txtFajaUnitaryPrice->Margin = System::Windows::Forms::Padding(2);
+			this->txtFajaUnitaryPrice->Name = L"txtFajaUnitaryPrice";
+			this->txtFajaUnitaryPrice->Size = System::Drawing::Size(26, 20);
+			this->txtFajaUnitaryPrice->TabIndex = 82;
 			// 
 			// label32
 			// 
@@ -1418,40 +1538,44 @@ namespace MecaTrafiSystemGUIApp {
 			// label33
 			// 
 			this->label33->AutoSize = true;
-			this->label33->Location = System::Drawing::Point(50, 279);
+			this->label33->Location = System::Drawing::Point(-5, 227);
 			this->label33->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label33->Name = L"label33";
 			this->label33->Size = System::Drawing::Size(100, 13);
 			this->label33->TabIndex = 81;
 			this->label33->Text = L"Precio Unitario (S/.)";
 			// 
-			// textBox22
+			// txtIdFaja
 			// 
-			this->textBox22->Location = System::Drawing::Point(104, 29);
-			this->textBox22->Margin = System::Windows::Forms::Padding(2);
-			this->textBox22->Name = L"textBox22";
-			this->textBox22->Size = System::Drawing::Size(43, 20);
-			this->textBox22->TabIndex = 76;
+			this->txtIdFaja->Location = System::Drawing::Point(104, 29);
+			this->txtIdFaja->Margin = System::Windows::Forms::Padding(2);
+			this->txtIdFaja->Name = L"txtIdFaja";
+			this->txtIdFaja->Size = System::Drawing::Size(43, 20);
+			this->txtIdFaja->TabIndex = 76;
 			// 
-			// textBox24
+			// txtNameFaja
 			// 
-			this->textBox24->Location = System::Drawing::Point(260, 30);
-			this->textBox24->Margin = System::Windows::Forms::Padding(2);
-			this->textBox24->Name = L"textBox24";
-			this->textBox24->Size = System::Drawing::Size(223, 20);
-			this->textBox24->TabIndex = 77;
+			this->txtNameFaja->Location = System::Drawing::Point(260, 30);
+			this->txtNameFaja->Margin = System::Windows::Forms::Padding(2);
+			this->txtNameFaja->Name = L"txtNameFaja";
+			this->txtNameFaja->Size = System::Drawing::Size(223, 20);
+			this->txtNameFaja->TabIndex = 77;
+			this->txtNameFaja->TextChanged += gcnew System::EventHandler(this, &CompraStockForm::textBox24_TextChanged);
 			// 
-			// textBox25
+			// txtDescriptionFaja
 			// 
-			this->textBox25->Location = System::Drawing::Point(104, 65);
-			this->textBox25->Margin = System::Windows::Forms::Padding(2);
-			this->textBox25->Multiline = true;
-			this->textBox25->Name = L"textBox25";
-			this->textBox25->Size = System::Drawing::Size(379, 38);
-			this->textBox25->TabIndex = 79;
+			this->txtDescriptionFaja->Location = System::Drawing::Point(104, 65);
+			this->txtDescriptionFaja->Margin = System::Windows::Forms::Padding(2);
+			this->txtDescriptionFaja->Multiline = true;
+			this->txtDescriptionFaja->Name = L"txtDescriptionFaja";
+			this->txtDescriptionFaja->Size = System::Drawing::Size(379, 38);
+			this->txtDescriptionFaja->TabIndex = 79;
 			// 
 			// PoleasPage
 			// 
+			this->PoleasPage->Controls->Add(this->button9);
+			this->PoleasPage->Controls->Add(this->button10);
+			this->PoleasPage->Controls->Add(this->button11);
 			this->PoleasPage->Controls->Add(this->textBox2);
 			this->PoleasPage->Controls->Add(this->label16);
 			this->PoleasPage->Controls->Add(this->dataGridView2);
@@ -1492,18 +1616,45 @@ namespace MecaTrafiSystemGUIApp {
 			this->PoleasPage->Text = L"Poleas";
 			this->PoleasPage->UseVisualStyleBackColor = true;
 			// 
+			// button9
+			// 
+			this->button9->Location = System::Drawing::Point(270, 288);
+			this->button9->Name = L"button9";
+			this->button9->Size = System::Drawing::Size(75, 23);
+			this->button9->TabIndex = 138;
+			this->button9->Text = L"Editar";
+			this->button9->UseVisualStyleBackColor = true;
+			// 
+			// button10
+			// 
+			this->button10->Location = System::Drawing::Point(369, 288);
+			this->button10->Name = L"button10";
+			this->button10->Size = System::Drawing::Size(75, 23);
+			this->button10->TabIndex = 137;
+			this->button10->Text = L"Eliminar";
+			this->button10->UseVisualStyleBackColor = true;
+			// 
+			// button11
+			// 
+			this->button11->Location = System::Drawing::Point(167, 288);
+			this->button11->Name = L"button11";
+			this->button11->Size = System::Drawing::Size(75, 23);
+			this->button11->TabIndex = 136;
+			this->button11->Text = L"Agregar";
+			this->button11->UseVisualStyleBackColor = true;
+			// 
 			// textBox2
 			// 
-			this->textBox2->Location = System::Drawing::Point(362, 298);
+			this->textBox2->Location = System::Drawing::Point(204, 246);
 			this->textBox2->Margin = System::Windows::Forms::Padding(2);
 			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(51, 20);
+			this->textBox2->Size = System::Drawing::Size(39, 20);
 			this->textBox2->TabIndex = 135;
 			// 
 			// label16
 			// 
 			this->label16->AutoSize = true;
-			this->label16->Location = System::Drawing::Point(298, 303);
+			this->label16->Location = System::Drawing::Point(151, 249);
 			this->label16->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label16->Name = L"label16";
 			this->label16->Size = System::Drawing::Size(49, 13);
@@ -1553,7 +1704,7 @@ namespace MecaTrafiSystemGUIApp {
 			// label43
 			// 
 			this->label43->AutoSize = true;
-			this->label43->Location = System::Drawing::Point(274, 272);
+			this->label43->Location = System::Drawing::Point(285, 249);
 			this->label43->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label43->Name = L"label43";
 			this->label43->Size = System::Drawing::Size(67, 13);
@@ -1562,16 +1713,16 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// textBox35
 			// 
-			this->textBox35->Location = System::Drawing::Point(362, 265);
+			this->textBox35->Location = System::Drawing::Point(366, 246);
 			this->textBox35->Margin = System::Windows::Forms::Padding(2);
 			this->textBox35->Name = L"textBox35";
-			this->textBox35->Size = System::Drawing::Size(108, 20);
+			this->textBox35->Size = System::Drawing::Size(117, 20);
 			this->textBox35->TabIndex = 131;
 			// 
 			// label42
 			// 
 			this->label42->AutoSize = true;
-			this->label42->Location = System::Drawing::Point(18, 272);
+			this->label42->Location = System::Drawing::Point(55, 210);
 			this->label42->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label42->Name = L"label42";
 			this->label42->Size = System::Drawing::Size(44, 13);
@@ -1580,15 +1731,15 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// textBox34
 			// 
-			this->textBox34->Location = System::Drawing::Point(106, 265);
+			this->textBox34->Location = System::Drawing::Point(107, 210);
 			this->textBox34->Margin = System::Windows::Forms::Padding(2);
 			this->textBox34->Name = L"textBox34";
-			this->textBox34->Size = System::Drawing::Size(108, 20);
+			this->textBox34->Size = System::Drawing::Size(136, 20);
 			this->textBox34->TabIndex = 129;
 			// 
 			// textBox23
 			// 
-			this->textBox23->Location = System::Drawing::Point(366, 164);
+			this->textBox23->Location = System::Drawing::Point(366, 147);
 			this->textBox23->Margin = System::Windows::Forms::Padding(2);
 			this->textBox23->Name = L"textBox23";
 			this->textBox23->Size = System::Drawing::Size(117, 20);
@@ -1597,7 +1748,7 @@ namespace MecaTrafiSystemGUIApp {
 			// label26
 			// 
 			this->label26->AutoSize = true;
-			this->label26->Location = System::Drawing::Point(302, 167);
+			this->label26->Location = System::Drawing::Point(315, 154);
 			this->label26->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label26->Name = L"label26";
 			this->label26->Size = System::Drawing::Size(37, 13);
@@ -1606,7 +1757,7 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// textBox26
 			// 
-			this->textBox26->Location = System::Drawing::Point(366, 132);
+			this->textBox26->Location = System::Drawing::Point(366, 119);
 			this->textBox26->Margin = System::Windows::Forms::Padding(2);
 			this->textBox26->Name = L"textBox26";
 			this->textBox26->Size = System::Drawing::Size(117, 20);
@@ -1615,7 +1766,7 @@ namespace MecaTrafiSystemGUIApp {
 			// label34
 			// 
 			this->label34->AutoSize = true;
-			this->label34->Location = System::Drawing::Point(267, 135);
+			this->label34->Location = System::Drawing::Point(257, 122);
 			this->label34->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label34->Name = L"label34";
 			this->label34->Size = System::Drawing::Size(95, 13);
@@ -1625,7 +1776,7 @@ namespace MecaTrafiSystemGUIApp {
 			// label36
 			// 
 			this->label36->AutoSize = true;
-			this->label36->Location = System::Drawing::Point(18, 237);
+			this->label36->Location = System::Drawing::Point(23, 183);
 			this->label36->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label36->Name = L"label36";
 			this->label36->Size = System::Drawing::Size(80, 13);
@@ -1635,7 +1786,7 @@ namespace MecaTrafiSystemGUIApp {
 			// label37
 			// 
 			this->label37->AutoSize = true;
-			this->label37->Location = System::Drawing::Point(18, 170);
+			this->label37->Location = System::Drawing::Point(15, 122);
 			this->label37->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label37->Name = L"label37";
 			this->label37->Size = System::Drawing::Size(84, 13);
@@ -1644,7 +1795,7 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// textBox28
 			// 
-			this->textBox28->Location = System::Drawing::Point(106, 163);
+			this->textBox28->Location = System::Drawing::Point(107, 119);
 			this->textBox28->Margin = System::Windows::Forms::Padding(2);
 			this->textBox28->Name = L"textBox28";
 			this->textBox28->Size = System::Drawing::Size(136, 20);
@@ -1653,7 +1804,7 @@ namespace MecaTrafiSystemGUIApp {
 			// label38
 			// 
 			this->label38->AutoSize = true;
-			this->label38->Location = System::Drawing::Point(270, 237);
+			this->label38->Location = System::Drawing::Point(267, 217);
 			this->label38->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label38->Name = L"label38";
 			this->label38->Size = System::Drawing::Size(88, 13);
@@ -1662,7 +1813,7 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// textBox29
 			// 
-			this->textBox29->Location = System::Drawing::Point(366, 230);
+			this->textBox29->Location = System::Drawing::Point(366, 210);
 			this->textBox29->Margin = System::Windows::Forms::Padding(2);
 			this->textBox29->Name = L"textBox29";
 			this->textBox29->Size = System::Drawing::Size(117, 20);
@@ -1670,16 +1821,16 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// textBox30
 			// 
-			this->textBox30->Location = System::Drawing::Point(106, 230);
+			this->textBox30->Location = System::Drawing::Point(107, 176);
 			this->textBox30->Margin = System::Windows::Forms::Padding(2);
 			this->textBox30->Name = L"textBox30";
-			this->textBox30->Size = System::Drawing::Size(108, 20);
+			this->textBox30->Size = System::Drawing::Size(136, 20);
 			this->textBox30->TabIndex = 115;
 			// 
 			// label39
 			// 
 			this->label39->AutoSize = true;
-			this->label39->Location = System::Drawing::Point(59, 199);
+			this->label39->Location = System::Drawing::Point(68, 154);
 			this->label39->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label39->Name = L"label39";
 			this->label39->Size = System::Drawing::Size(28, 13);
@@ -1688,7 +1839,7 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// textBox31
 			// 
-			this->textBox31->Location = System::Drawing::Point(366, 196);
+			this->textBox31->Location = System::Drawing::Point(366, 176);
 			this->textBox31->Margin = System::Windows::Forms::Padding(2);
 			this->textBox31->Name = L"textBox31";
 			this->textBox31->Size = System::Drawing::Size(117, 20);
@@ -1697,7 +1848,7 @@ namespace MecaTrafiSystemGUIApp {
 			// label40
 			// 
 			this->label40->AutoSize = true;
-			this->label40->Location = System::Drawing::Point(273, 202);
+			this->label40->Location = System::Drawing::Point(267, 179);
 			this->label40->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label40->Name = L"label40";
 			this->label40->Size = System::Drawing::Size(85, 13);
@@ -1706,7 +1857,7 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// textBox32
 			// 
-			this->textBox32->Location = System::Drawing::Point(106, 196);
+			this->textBox32->Location = System::Drawing::Point(107, 147);
 			this->textBox32->Margin = System::Windows::Forms::Padding(2);
 			this->textBox32->Name = L"textBox32";
 			this->textBox32->Size = System::Drawing::Size(136, 20);
@@ -1714,16 +1865,16 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// textBox33
 			// 
-			this->textBox33->Location = System::Drawing::Point(163, 298);
+			this->textBox33->Location = System::Drawing::Point(107, 246);
 			this->textBox33->Margin = System::Windows::Forms::Padding(2);
 			this->textBox33->Name = L"textBox33";
-			this->textBox33->Size = System::Drawing::Size(51, 20);
+			this->textBox33->Size = System::Drawing::Size(40, 20);
 			this->textBox33->TabIndex = 110;
 			// 
 			// label41
 			// 
 			this->label41->AutoSize = true;
-			this->label41->Location = System::Drawing::Point(50, 305);
+			this->label41->Location = System::Drawing::Point(-1, 249);
 			this->label41->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label41->Name = L"label41";
 			this->label41->Size = System::Drawing::Size(100, 13);
@@ -1808,6 +1959,9 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// RodamientosPage
 			// 
+			this->RodamientosPage->Controls->Add(this->button12);
+			this->RodamientosPage->Controls->Add(this->button13);
+			this->RodamientosPage->Controls->Add(this->button14);
 			this->RodamientosPage->Controls->Add(this->textBox3);
 			this->RodamientosPage->Controls->Add(this->label20);
 			this->RodamientosPage->Controls->Add(this->dataGridView3);
@@ -1845,18 +1999,45 @@ namespace MecaTrafiSystemGUIApp {
 			this->RodamientosPage->Text = L"Rodamientos";
 			this->RodamientosPage->UseVisualStyleBackColor = true;
 			// 
+			// button12
+			// 
+			this->button12->Location = System::Drawing::Point(287, 264);
+			this->button12->Name = L"button12";
+			this->button12->Size = System::Drawing::Size(75, 23);
+			this->button12->TabIndex = 114;
+			this->button12->Text = L"Editar";
+			this->button12->UseVisualStyleBackColor = true;
+			// 
+			// button13
+			// 
+			this->button13->Location = System::Drawing::Point(386, 264);
+			this->button13->Name = L"button13";
+			this->button13->Size = System::Drawing::Size(75, 23);
+			this->button13->TabIndex = 113;
+			this->button13->Text = L"Eliminar";
+			this->button13->UseVisualStyleBackColor = true;
+			// 
+			// button14
+			// 
+			this->button14->Location = System::Drawing::Point(184, 264);
+			this->button14->Name = L"button14";
+			this->button14->Size = System::Drawing::Size(75, 23);
+			this->button14->TabIndex = 112;
+			this->button14->Text = L"Agregar";
+			this->button14->UseVisualStyleBackColor = true;
+			// 
 			// textBox3
 			// 
-			this->textBox3->Location = System::Drawing::Point(366, 268);
+			this->textBox3->Location = System::Drawing::Point(200, 227);
 			this->textBox3->Margin = System::Windows::Forms::Padding(2);
 			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(51, 20);
+			this->textBox3->Size = System::Drawing::Size(40, 20);
 			this->textBox3->TabIndex = 111;
 			// 
 			// label20
 			// 
 			this->label20->AutoSize = true;
-			this->label20->Location = System::Drawing::Point(302, 273);
+			this->label20->Location = System::Drawing::Point(147, 230);
 			this->label20->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label20->Name = L"label20";
 			this->label20->Size = System::Drawing::Size(49, 13);
@@ -1905,7 +2086,7 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// textBox42
 			// 
-			this->textBox42->Location = System::Drawing::Point(366, 161);
+			this->textBox42->Location = System::Drawing::Point(366, 164);
 			this->textBox42->Margin = System::Windows::Forms::Padding(2);
 			this->textBox42->Name = L"textBox42";
 			this->textBox42->Size = System::Drawing::Size(117, 20);
@@ -1914,7 +2095,7 @@ namespace MecaTrafiSystemGUIApp {
 			// label52
 			// 
 			this->label52->AutoSize = true;
-			this->label52->Location = System::Drawing::Point(302, 164);
+			this->label52->Location = System::Drawing::Point(315, 171);
 			this->label52->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label52->Name = L"label52";
 			this->label52->Size = System::Drawing::Size(37, 13);
@@ -1923,7 +2104,7 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// textBox43
 			// 
-			this->textBox43->Location = System::Drawing::Point(366, 129);
+			this->textBox43->Location = System::Drawing::Point(366, 133);
 			this->textBox43->Margin = System::Windows::Forms::Padding(2);
 			this->textBox43->Name = L"textBox43";
 			this->textBox43->Size = System::Drawing::Size(117, 20);
@@ -1932,7 +2113,7 @@ namespace MecaTrafiSystemGUIApp {
 			// label53
 			// 
 			this->label53->AutoSize = true;
-			this->label53->Location = System::Drawing::Point(267, 132);
+			this->label53->Location = System::Drawing::Point(257, 136);
 			this->label53->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label53->Name = L"label53";
 			this->label53->Size = System::Drawing::Size(95, 13);
@@ -1973,7 +2154,7 @@ namespace MecaTrafiSystemGUIApp {
 			// label58
 			// 
 			this->label58->AutoSize = true;
-			this->label58->Location = System::Drawing::Point(18, 167);
+			this->label58->Location = System::Drawing::Point(11, 136);
 			this->label58->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label58->Name = L"label58";
 			this->label58->Size = System::Drawing::Size(84, 13);
@@ -1982,16 +2163,16 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// textBox46
 			// 
-			this->textBox46->Location = System::Drawing::Point(106, 160);
+			this->textBox46->Location = System::Drawing::Point(106, 133);
 			this->textBox46->Margin = System::Windows::Forms::Padding(2);
 			this->textBox46->Name = L"textBox46";
-			this->textBox46->Size = System::Drawing::Size(136, 20);
+			this->textBox46->Size = System::Drawing::Size(134, 20);
 			this->textBox46->TabIndex = 92;
 			// 
 			// label59
 			// 
 			this->label59->AutoSize = true;
-			this->label59->Location = System::Drawing::Point(60, 230);
+			this->label59->Location = System::Drawing::Point(49, 196);
 			this->label59->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label59->Name = L"label59";
 			this->label59->Size = System::Drawing::Size(38, 13);
@@ -2008,7 +2189,7 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// textBox48
 			// 
-			this->textBox48->Location = System::Drawing::Point(106, 227);
+			this->textBox48->Location = System::Drawing::Point(104, 193);
 			this->textBox48->Margin = System::Windows::Forms::Padding(2);
 			this->textBox48->Name = L"textBox48";
 			this->textBox48->Size = System::Drawing::Size(136, 20);
@@ -2017,7 +2198,7 @@ namespace MecaTrafiSystemGUIApp {
 			// label61
 			// 
 			this->label61->AutoSize = true;
-			this->label61->Location = System::Drawing::Point(65, 199);
+			this->label61->Location = System::Drawing::Point(59, 164);
 			this->label61->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label61->Name = L"label61";
 			this->label61->Size = System::Drawing::Size(28, 13);
@@ -2026,7 +2207,7 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// textBox49
 			// 
-			this->textBox49->Location = System::Drawing::Point(366, 193);
+			this->textBox49->Location = System::Drawing::Point(366, 196);
 			this->textBox49->Margin = System::Windows::Forms::Padding(2);
 			this->textBox49->Name = L"textBox49";
 			this->textBox49->Size = System::Drawing::Size(117, 20);
@@ -2035,7 +2216,7 @@ namespace MecaTrafiSystemGUIApp {
 			// label62
 			// 
 			this->label62->AutoSize = true;
-			this->label62->Location = System::Drawing::Point(277, 200);
+			this->label62->Location = System::Drawing::Point(267, 196);
 			this->label62->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label62->Name = L"label62";
 			this->label62->Size = System::Drawing::Size(85, 13);
@@ -2044,7 +2225,7 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// textBox50
 			// 
-			this->textBox50->Location = System::Drawing::Point(106, 193);
+			this->textBox50->Location = System::Drawing::Point(104, 164);
 			this->textBox50->Margin = System::Windows::Forms::Padding(2);
 			this->textBox50->Name = L"textBox50";
 			this->textBox50->Size = System::Drawing::Size(136, 20);
@@ -2081,10 +2262,10 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// textBox51
 			// 
-			this->textBox51->Location = System::Drawing::Point(163, 263);
+			this->textBox51->Location = System::Drawing::Point(104, 224);
 			this->textBox51->Margin = System::Windows::Forms::Padding(2);
 			this->textBox51->Name = L"textBox51";
-			this->textBox51->Size = System::Drawing::Size(51, 20);
+			this->textBox51->Size = System::Drawing::Size(39, 20);
 			this->textBox51->TabIndex = 82;
 			// 
 			// label66
@@ -2100,7 +2281,7 @@ namespace MecaTrafiSystemGUIApp {
 			// label67
 			// 
 			this->label67->AutoSize = true;
-			this->label67->Location = System::Drawing::Point(59, 268);
+			this->label67->Location = System::Drawing::Point(4, 227);
 			this->label67->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label67->Name = L"label67";
 			this->label67->Size = System::Drawing::Size(100, 13);
@@ -2134,6 +2315,9 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// MotoresACPage
 			// 
+			this->MotoresACPage->Controls->Add(this->button15);
+			this->MotoresACPage->Controls->Add(this->button16);
+			this->MotoresACPage->Controls->Add(this->button17);
 			this->MotoresACPage->Controls->Add(this->textBox4);
 			this->MotoresACPage->Controls->Add(this->label21);
 			this->MotoresACPage->Controls->Add(this->dataGridView4);
@@ -2178,18 +2362,45 @@ namespace MecaTrafiSystemGUIApp {
 			this->MotoresACPage->Text = L"MotoresAC";
 			this->MotoresACPage->UseVisualStyleBackColor = true;
 			// 
+			// button15
+			// 
+			this->button15->Location = System::Drawing::Point(270, 295);
+			this->button15->Name = L"button15";
+			this->button15->Size = System::Drawing::Size(75, 23);
+			this->button15->TabIndex = 116;
+			this->button15->Text = L"Editar";
+			this->button15->UseVisualStyleBackColor = true;
+			// 
+			// button16
+			// 
+			this->button16->Location = System::Drawing::Point(369, 295);
+			this->button16->Name = L"button16";
+			this->button16->Size = System::Drawing::Size(75, 23);
+			this->button16->TabIndex = 115;
+			this->button16->Text = L"Eliminar";
+			this->button16->UseVisualStyleBackColor = true;
+			// 
+			// button17
+			// 
+			this->button17->Location = System::Drawing::Point(167, 295);
+			this->button17->Name = L"button17";
+			this->button17->Size = System::Drawing::Size(75, 23);
+			this->button17->TabIndex = 114;
+			this->button17->Text = L"Agregar";
+			this->button17->UseVisualStyleBackColor = true;
+			// 
 			// textBox4
 			// 
-			this->textBox4->Location = System::Drawing::Point(352, 305);
+			this->textBox4->Location = System::Drawing::Point(201, 263);
 			this->textBox4->Margin = System::Windows::Forms::Padding(2);
 			this->textBox4->Name = L"textBox4";
-			this->textBox4->Size = System::Drawing::Size(51, 20);
+			this->textBox4->Size = System::Drawing::Size(41, 20);
 			this->textBox4->TabIndex = 113;
 			// 
 			// label21
 			// 
 			this->label21->AutoSize = true;
-			this->label21->Location = System::Drawing::Point(288, 310);
+			this->label21->Location = System::Drawing::Point(151, 266);
 			this->label21->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label21->Name = L"label21";
 			this->label21->Size = System::Drawing::Size(49, 13);
@@ -2239,7 +2450,7 @@ namespace MecaTrafiSystemGUIApp {
 			// label44
 			// 
 			this->label44->AutoSize = true;
-			this->label44->Location = System::Drawing::Point(422, 268);
+			this->label44->Location = System::Drawing::Point(414, 270);
 			this->label44->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label44->Name = L"label44";
 			this->label44->Size = System::Drawing::Size(39, 13);
@@ -2248,10 +2459,10 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// textBox36
 			// 
-			this->textBox36->Location = System::Drawing::Point(468, 265);
+			this->textBox36->Location = System::Drawing::Point(457, 266);
 			this->textBox36->Margin = System::Windows::Forms::Padding(2);
 			this->textBox36->Name = L"textBox36";
-			this->textBox36->Size = System::Drawing::Size(110, 20);
+			this->textBox36->Size = System::Drawing::Size(34, 20);
 			this->textBox36->TabIndex = 109;
 			// 
 			// textBox57
@@ -2259,13 +2470,13 @@ namespace MecaTrafiSystemGUIApp {
 			this->textBox57->Location = System::Drawing::Point(366, 161);
 			this->textBox57->Margin = System::Windows::Forms::Padding(2);
 			this->textBox57->Name = L"textBox57";
-			this->textBox57->Size = System::Drawing::Size(117, 20);
+			this->textBox57->Size = System::Drawing::Size(125, 20);
 			this->textBox57->TabIndex = 106;
 			// 
 			// label69
 			// 
 			this->label69->AutoSize = true;
-			this->label69->Location = System::Drawing::Point(302, 164);
+			this->label69->Location = System::Drawing::Point(320, 168);
 			this->label69->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label69->Name = L"label69";
 			this->label69->Size = System::Drawing::Size(37, 13);
@@ -2277,13 +2488,13 @@ namespace MecaTrafiSystemGUIApp {
 			this->textBox58->Location = System::Drawing::Point(366, 129);
 			this->textBox58->Margin = System::Windows::Forms::Padding(2);
 			this->textBox58->Name = L"textBox58";
-			this->textBox58->Size = System::Drawing::Size(117, 20);
+			this->textBox58->Size = System::Drawing::Size(125, 20);
 			this->textBox58->TabIndex = 104;
 			// 
 			// label70
 			// 
 			this->label70->AutoSize = true;
-			this->label70->Location = System::Drawing::Point(267, 132);
+			this->label70->Location = System::Drawing::Point(262, 136);
 			this->label70->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label70->Name = L"label70";
 			this->label70->Size = System::Drawing::Size(95, 13);
@@ -2313,16 +2524,16 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// textBox60
 			// 
-			this->textBox60->Location = System::Drawing::Point(286, 264);
+			this->textBox60->Location = System::Drawing::Point(367, 263);
 			this->textBox60->Margin = System::Windows::Forms::Padding(2);
 			this->textBox60->Name = L"textBox60";
-			this->textBox60->Size = System::Drawing::Size(117, 20);
+			this->textBox60->Size = System::Drawing::Size(43, 20);
 			this->textBox60->TabIndex = 98;
 			// 
 			// label72
 			// 
 			this->label72->AutoSize = true;
-			this->label72->Location = System::Drawing::Point(187, 271);
+			this->label72->Location = System::Drawing::Point(267, 266);
 			this->label72->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label72->Name = L"label72";
 			this->label72->Size = System::Drawing::Size(90, 13);
@@ -2332,17 +2543,17 @@ namespace MecaTrafiSystemGUIApp {
 			// label73
 			// 
 			this->label73->AutoSize = true;
-			this->label73->Location = System::Drawing::Point(230, 234);
+			this->label73->Location = System::Drawing::Point(284, 227);
 			this->label73->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label73->Name = L"label73";
-			this->label73->Size = System::Drawing::Size(132, 13);
+			this->label73->Size = System::Drawing::Size(78, 26);
 			this->label73->TabIndex = 95;
-			this->label73->Text = L"Compatibilidad del inversor";
+			this->label73->Text = L"Compatibilidad \r\ndel inversor";
 			// 
 			// label74
 			// 
 			this->label74->AutoSize = true;
-			this->label74->Location = System::Drawing::Point(32, 293);
+			this->label74->Location = System::Drawing::Point(295, 295);
 			this->label74->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label74->Name = L"label74";
 			this->label74->Size = System::Drawing::Size(0, 13);
@@ -2351,7 +2562,7 @@ namespace MecaTrafiSystemGUIApp {
 			// label75
 			// 
 			this->label75->AutoSize = true;
-			this->label75->Location = System::Drawing::Point(18, 167);
+			this->label75->Location = System::Drawing::Point(11, 132);
 			this->label75->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label75->Name = L"label75";
 			this->label75->Size = System::Drawing::Size(84, 13);
@@ -2360,7 +2571,7 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// textBox61
 			// 
-			this->textBox61->Location = System::Drawing::Point(106, 160);
+			this->textBox61->Location = System::Drawing::Point(106, 129);
 			this->textBox61->Margin = System::Windows::Forms::Padding(2);
 			this->textBox61->Name = L"textBox61";
 			this->textBox61->Size = System::Drawing::Size(136, 20);
@@ -2369,25 +2580,25 @@ namespace MecaTrafiSystemGUIApp {
 			// label76
 			// 
 			this->label76->AutoSize = true;
-			this->label76->Location = System::Drawing::Point(4, 230);
+			this->label76->Location = System::Drawing::Point(37, 200);
 			this->label76->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label76->Name = L"label76";
-			this->label76->Size = System::Drawing::Size(102, 13);
+			this->label76->Size = System::Drawing::Size(58, 13);
 			this->label76->TabIndex = 91;
-			this->label76->Text = L"Clase de Protección";
+			this->label76->Text = L"Protección";
 			// 
 			// textBox62
 			// 
 			this->textBox62->Location = System::Drawing::Point(366, 231);
 			this->textBox62->Margin = System::Windows::Forms::Padding(2);
 			this->textBox62->Name = L"textBox62";
-			this->textBox62->Size = System::Drawing::Size(117, 20);
+			this->textBox62->Size = System::Drawing::Size(125, 20);
 			this->textBox62->TabIndex = 90;
 			// 
 			// label77
 			// 
 			this->label77->AutoSize = true;
-			this->label77->Location = System::Drawing::Point(7, 268);
+			this->label77->Location = System::Drawing::Point(59, 230);
 			this->label77->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label77->Name = L"label77";
 			this->label77->Size = System::Drawing::Size(35, 13);
@@ -2396,16 +2607,16 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// textBox63
 			// 
-			this->textBox63->Location = System::Drawing::Point(106, 227);
+			this->textBox63->Location = System::Drawing::Point(104, 193);
 			this->textBox63->Margin = System::Windows::Forms::Padding(2);
 			this->textBox63->Name = L"textBox63";
-			this->textBox63->Size = System::Drawing::Size(108, 20);
+			this->textBox63->Size = System::Drawing::Size(136, 20);
 			this->textBox63->TabIndex = 88;
 			// 
 			// label78
 			// 
 			this->label78->AutoSize = true;
-			this->label78->Location = System::Drawing::Point(65, 199);
+			this->label78->Location = System::Drawing::Point(59, 164);
 			this->label78->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label78->Name = L"label78";
 			this->label78->Size = System::Drawing::Size(36, 13);
@@ -2417,13 +2628,13 @@ namespace MecaTrafiSystemGUIApp {
 			this->textBox64->Location = System::Drawing::Point(366, 193);
 			this->textBox64->Margin = System::Windows::Forms::Padding(2);
 			this->textBox64->Name = L"textBox64";
-			this->textBox64->Size = System::Drawing::Size(117, 20);
+			this->textBox64->Size = System::Drawing::Size(125, 20);
 			this->textBox64->TabIndex = 86;
 			// 
 			// label79
 			// 
 			this->label79->AutoSize = true;
-			this->label79->Location = System::Drawing::Point(302, 193);
+			this->label79->Location = System::Drawing::Point(308, 196);
 			this->label79->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label79->Name = L"label79";
 			this->label79->Size = System::Drawing::Size(49, 13);
@@ -2432,7 +2643,7 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// textBox65
 			// 
-			this->textBox65->Location = System::Drawing::Point(106, 193);
+			this->textBox65->Location = System::Drawing::Point(104, 161);
 			this->textBox65->Margin = System::Windows::Forms::Padding(2);
 			this->textBox65->Name = L"textBox65";
 			this->textBox65->Size = System::Drawing::Size(136, 20);
@@ -2469,10 +2680,10 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// textBox66
 			// 
-			this->textBox66->Location = System::Drawing::Point(163, 307);
+			this->textBox66->Location = System::Drawing::Point(106, 263);
 			this->textBox66->Margin = System::Windows::Forms::Padding(2);
 			this->textBox66->Name = L"textBox66";
-			this->textBox66->Size = System::Drawing::Size(51, 20);
+			this->textBox66->Size = System::Drawing::Size(41, 20);
 			this->textBox66->TabIndex = 82;
 			// 
 			// label83
@@ -2488,7 +2699,7 @@ namespace MecaTrafiSystemGUIApp {
 			// label84
 			// 
 			this->label84->AutoSize = true;
-			this->label84->Location = System::Drawing::Point(59, 312);
+			this->label84->Location = System::Drawing::Point(-5, 266);
 			this->label84->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label84->Name = L"label84";
 			this->label84->Size = System::Drawing::Size(100, 13);
@@ -2505,10 +2716,10 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// textBox68
 			// 
-			this->textBox68->Location = System::Drawing::Point(53, 265);
+			this->textBox68->Location = System::Drawing::Point(106, 227);
 			this->textBox68->Margin = System::Windows::Forms::Padding(2);
 			this->textBox68->Name = L"textBox68";
-			this->textBox68->Size = System::Drawing::Size(110, 20);
+			this->textBox68->Size = System::Drawing::Size(136, 20);
 			this->textBox68->TabIndex = 80;
 			// 
 			// textBox69
@@ -2530,6 +2741,9 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// MotoresDCPage
 			// 
+			this->MotoresDCPage->Controls->Add(this->button18);
+			this->MotoresDCPage->Controls->Add(this->button19);
+			this->MotoresDCPage->Controls->Add(this->button20);
 			this->MotoresDCPage->Controls->Add(this->textBox5);
 			this->MotoresDCPage->Controls->Add(this->label35);
 			this->MotoresDCPage->Controls->Add(this->dataGridView5);
@@ -2567,18 +2781,45 @@ namespace MecaTrafiSystemGUIApp {
 			this->MotoresDCPage->Text = L"MotoresDC";
 			this->MotoresDCPage->UseVisualStyleBackColor = true;
 			// 
+			// button18
+			// 
+			this->button18->Location = System::Drawing::Point(272, 270);
+			this->button18->Name = L"button18";
+			this->button18->Size = System::Drawing::Size(75, 23);
+			this->button18->TabIndex = 114;
+			this->button18->Text = L"Editar";
+			this->button18->UseVisualStyleBackColor = true;
+			// 
+			// button19
+			// 
+			this->button19->Location = System::Drawing::Point(371, 270);
+			this->button19->Name = L"button19";
+			this->button19->Size = System::Drawing::Size(75, 23);
+			this->button19->TabIndex = 113;
+			this->button19->Text = L"Eliminar";
+			this->button19->UseVisualStyleBackColor = true;
+			// 
+			// button20
+			// 
+			this->button20->Location = System::Drawing::Point(169, 270);
+			this->button20->Name = L"button20";
+			this->button20->Size = System::Drawing::Size(75, 23);
+			this->button20->TabIndex = 112;
+			this->button20->Text = L"Agregar";
+			this->button20->UseVisualStyleBackColor = true;
+			// 
 			// textBox5
 			// 
-			this->textBox5->Location = System::Drawing::Point(366, 270);
+			this->textBox5->Location = System::Drawing::Point(201, 224);
 			this->textBox5->Margin = System::Windows::Forms::Padding(2);
 			this->textBox5->Name = L"textBox5";
-			this->textBox5->Size = System::Drawing::Size(51, 20);
+			this->textBox5->Size = System::Drawing::Size(39, 20);
 			this->textBox5->TabIndex = 111;
 			// 
 			// label35
 			// 
 			this->label35->AutoSize = true;
-			this->label35->Location = System::Drawing::Point(302, 275);
+			this->label35->Location = System::Drawing::Point(152, 227);
 			this->label35->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label35->Name = L"label35";
 			this->label35->Size = System::Drawing::Size(49, 13);
@@ -2636,7 +2877,7 @@ namespace MecaTrafiSystemGUIApp {
 			// label86
 			// 
 			this->label86->AutoSize = true;
-			this->label86->Location = System::Drawing::Point(302, 164);
+			this->label86->Location = System::Drawing::Point(310, 164);
 			this->label86->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label86->Name = L"label86";
 			this->label86->Size = System::Drawing::Size(37, 13);
@@ -2654,7 +2895,7 @@ namespace MecaTrafiSystemGUIApp {
 			// label87
 			// 
 			this->label87->AutoSize = true;
-			this->label87->Location = System::Drawing::Point(267, 132);
+			this->label87->Location = System::Drawing::Point(252, 136);
 			this->label87->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label87->Name = L"label87";
 			this->label87->Size = System::Drawing::Size(95, 13);
@@ -2685,7 +2926,7 @@ namespace MecaTrafiSystemGUIApp {
 			// label90
 			// 
 			this->label90->AutoSize = true;
-			this->label90->Location = System::Drawing::Point(297, 237);
+			this->label90->Location = System::Drawing::Point(302, 230);
 			this->label90->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label90->Name = L"label90";
 			this->label90->Size = System::Drawing::Size(45, 13);
@@ -2695,7 +2936,7 @@ namespace MecaTrafiSystemGUIApp {
 			// label92
 			// 
 			this->label92->AutoSize = true;
-			this->label92->Location = System::Drawing::Point(18, 167);
+			this->label92->Location = System::Drawing::Point(18, 132);
 			this->label92->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label92->Name = L"label92";
 			this->label92->Size = System::Drawing::Size(84, 13);
@@ -2704,7 +2945,7 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// textBox76
 			// 
-			this->textBox76->Location = System::Drawing::Point(106, 160);
+			this->textBox76->Location = System::Drawing::Point(106, 129);
 			this->textBox76->Margin = System::Windows::Forms::Padding(2);
 			this->textBox76->Name = L"textBox76";
 			this->textBox76->Size = System::Drawing::Size(136, 20);
@@ -2713,7 +2954,7 @@ namespace MecaTrafiSystemGUIApp {
 			// label93
 			// 
 			this->label93->AutoSize = true;
-			this->label93->Location = System::Drawing::Point(41, 234);
+			this->label93->Location = System::Drawing::Point(41, 193);
 			this->label93->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label93->Name = L"label93";
 			this->label93->Size = System::Drawing::Size(54, 13);
@@ -2730,16 +2971,16 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// textBox78
 			// 
-			this->textBox78->Location = System::Drawing::Point(106, 227);
+			this->textBox78->Location = System::Drawing::Point(104, 190);
 			this->textBox78->Margin = System::Windows::Forms::Padding(2);
 			this->textBox78->Name = L"textBox78";
-			this->textBox78->Size = System::Drawing::Size(108, 20);
+			this->textBox78->Size = System::Drawing::Size(136, 20);
 			this->textBox78->TabIndex = 88;
 			// 
 			// label95
 			// 
 			this->label95->AutoSize = true;
-			this->label95->Location = System::Drawing::Point(46, 200);
+			this->label95->Location = System::Drawing::Point(46, 164);
 			this->label95->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label95->Name = L"label95";
 			this->label95->Size = System::Drawing::Size(49, 13);
@@ -2757,7 +2998,7 @@ namespace MecaTrafiSystemGUIApp {
 			// label96
 			// 
 			this->label96->AutoSize = true;
-			this->label96->Location = System::Drawing::Point(302, 193);
+			this->label96->Location = System::Drawing::Point(308, 196);
 			this->label96->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label96->Name = L"label96";
 			this->label96->Size = System::Drawing::Size(39, 13);
@@ -2766,7 +3007,7 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// textBox80
 			// 
-			this->textBox80->Location = System::Drawing::Point(106, 193);
+			this->textBox80->Location = System::Drawing::Point(104, 161);
 			this->textBox80->Margin = System::Windows::Forms::Padding(2);
 			this->textBox80->Name = L"textBox80";
 			this->textBox80->Size = System::Drawing::Size(136, 20);
@@ -2803,10 +3044,10 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// textBox81
 			// 
-			this->textBox81->Location = System::Drawing::Point(154, 272);
+			this->textBox81->Location = System::Drawing::Point(106, 224);
 			this->textBox81->Margin = System::Windows::Forms::Padding(2);
 			this->textBox81->Name = L"textBox81";
-			this->textBox81->Size = System::Drawing::Size(51, 20);
+			this->textBox81->Size = System::Drawing::Size(25, 20);
 			this->textBox81->TabIndex = 82;
 			// 
 			// label100
@@ -2822,7 +3063,7 @@ namespace MecaTrafiSystemGUIApp {
 			// label101
 			// 
 			this->label101->AutoSize = true;
-			this->label101->Location = System::Drawing::Point(50, 277);
+			this->label101->Location = System::Drawing::Point(-3, 227);
 			this->label101->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label101->Name = L"label101";
 			this->label101->Size = System::Drawing::Size(100, 13);
@@ -2935,14 +3176,15 @@ namespace MecaTrafiSystemGUIApp {
 			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"CompraStockForm";
 			this->Text = L"\'";
+			this->Load += gcnew System::EventHandler(this, &CompraStockForm::CompraStockForm_Load);
 			this->tabAdminCompraProductos->ResumeLayout(false);
 			this->TornillosPage->ResumeLayout(false);
 			this->TornillosPage->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbEmpPhoto))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbTornilloPhoto))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvcompratornillos))->EndInit();
 			this->FajasPage->ResumeLayout(false);
 			this->FajasPage->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvFaja))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->PoleasPage->ResumeLayout(false);
 			this->PoleasPage->PerformLayout();
@@ -2971,5 +3213,168 @@ namespace MecaTrafiSystemGUIApp {
 	}
 	private: System::Void btnagregar_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
+
+		   void showtornillo() {
+			   List <SupplyProduct^>^ tornilloxdatos = Service::QueryAllTornilloPurchase();
+			   if (tornilloxdatos != nullptr) {
+				   dgvcompratornillos->Rows->Clear();
+
+				   for (int i = 0; i < tornilloxdatos->Count; i++) {
+					   dgvcompratornillos->Rows->Add(gcnew array<String^> {"" + tornilloxdatos[i]->Id, tornilloxdatos[i]->Name, "" + tornilloxdatos[i]->Needed, tornilloxdatos[i]->Store, "" + tornilloxdatos[i]->UnitaryPrice });
+				   }
+			   }
+		   }
+		   void Showfaja() {
+			   List <SupplyProduct^>^ fajaxdatos = Service::QueryAllFajaPurchase();
+			   if (fajaxdatos != nullptr) {
+				   dgvFaja->Rows->Clear();
+
+				   for (int i = 0; i < fajaxdatos->Count; i++) {
+					   dgvFaja->Rows->Add(gcnew array<String^> {"" + fajaxdatos[i]->Id, fajaxdatos[i]->Name, "" + fajaxdatos[i]->Needed, fajaxdatos[i]->Store, "" + fajaxdatos[i]->UnitaryPrice });
+				   }
+			   }
+		   }
+private: System::Void btnaddtornillo_Click(System::Object^ sender, System::EventArgs^ e) {
+	//BOTON PARA AGREGAR TORNILLOS
+	int idtornillo = Convert::ToInt32(txtidtornillocompra->Text);
+
+	String^ nametornillo = txttornillonamecompra->Text;
+	//String^ descripciotornillon = txtdescriptornillo->Text;
+	String^ proveedortornillo = txtTornilloproveecompra->Text;
+	//String^ marcatornillo = txttornillomarca->Text;
+	//int codigotornillo = Convert::ToInt32(txtmodeltornillo->Text);
+	//String^ tipotornillo  = txtTornilloTipo->Text;
+	//int longitudtornillo = Convert::ToInt32(txtTornilloLongitud->Text);
+	//String^ puntatornillo = txtpuntatornillo->Text;
+//	String^ materialtornillo = txtTornilloMaterial->Text;
+	//String^ tiporoscatornillo = txtroscatornillo->Text;
+	//int diametrotornillo = Convert::ToInt32(txtTornilloDiametroRosca->Text);
+	double preciounittornillo = Convert::ToInt32(txtcompraTornilloPrecioUnitario->Text);
+	int cantidadtornillo = Convert::ToInt32(txtcompraTornilloRequerido->Text);
+
+
+	TornilloSupplier^ tornillo = gcnew TornilloSupplier();
+	tornillo->Id = idtornillo;
+	tornillo->Name = nametornillo;
+	//tornillo->Description = descripcion;
+	tornillo->Store = proveedortornillo;
+	//tornillo->Model = codigotornillo;
+	//tornillo->Tipo = tipo;
+	//tornillo->Longitud = longitud;
+	//tornillo->Punta = puntatornillo;
+	//tornillo->Material = material;
+	//tornillo->Rosca = tiporoscatornillo;
+	//tornillo->DiametroRosca = diametro;
+	tornillo->UnitaryPrice = preciounittornillo;
+	tornillo->Needed = cantidadtornillo;
+	if (pbTornilloPhoto != nullptr && pbTornilloPhoto->Image != nullptr) {
+		System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream();
+		pbTornilloPhoto->Image->Save(ms, System::Drawing::Imaging::ImageFormat::Jpeg);
+		tornillo->Photo = ms->ToArray();
+	}
+	//FAJAS DATOS PARA EL GUI Y CRUD
+	Service::AddTornilloPurchase(tornillo);
+	showtornillo();
+}
+private: System::Void btnedittornillo_Click(System::Object^ sender, System::EventArgs^ e) {
+	//EDITAR TORNILLO
+	int idtornillo = Convert::ToInt32(txtidtornillocompra->Text);
+
+	String^ nametornillo = txttornillonamecompra->Text;
+	//String^ descripcion = txtTornilloDescription->Text;
+	String^ proveedortornillo = txtTornilloproveecompra->Text;
+	//String^ marca = txtTornilloMarca->Text;
+	//int codigo = Convert::ToInt32(txtTornilloModel->Text);
+	//String^ tipo  = txtTornilloTipo->Text;
+	//int longitud = Convert::ToInt32(txtTornilloLongitud->Text);
+	//String^ punta = txtTornilloPunta->Text;
+	//String^ material = txtTornilloMaterial->Text;
+	//String^ tiporosca = txtTornilloTipoRosca->Text;
+	//int diametro = Convert::ToInt32(txtTornilloDiametroRosca->Text);
+	double preciounittornillo = Convert::ToInt32(txtcompraTornilloPrecioUnitario->Text);
+	int cantidadtornillo = Convert::ToInt32(txtcompraTornilloRequerido->Text);
+	TornilloSupplier^ tornillo = gcnew TornilloSupplier();
+	tornillo->Id = idtornillo;
+	tornillo->Name = nametornillo;
+	//tornillo->Description = descripcion;
+	tornillo->Store = proveedortornillo;
+	//tornillo->Model = codigo;
+	//tornillo->Tipo = tipo;
+	//tornillo->Longitud = longitud;
+	//tornillo->Punta = punta;
+	//tornillo->Material = material;
+	//tornillo->Rosca = tiporosca;
+	//tornillo->DiametroRosca = diametro;
+	tornillo->UnitaryPrice = preciounittornillo;
+	tornillo->Needed = cantidadtornillo;
+
+	if (pbTornilloPhoto != nullptr && pbTornilloPhoto->Image != nullptr) {
+		System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream();
+		pbTornilloPhoto->Image->Save(ms, System::Drawing::Imaging::ImageFormat::Jpeg);
+		tornillo->Photo = ms->ToArray();
+	}
+	Service::UpdateTornilloPurchase(tornillo);
+
+	showtornillo();
+
+}
+
+private: System::Void btndeletetornillo_Click(System::Object^ sender, System::EventArgs^ e) {
+	//ELIMINAR TORNILLOS
+	int idtornillo = Convert::ToInt32(txtidtornillocompra->Text);
+
+	Service::DeleteTornilloPurchase(idtornillo);
+
+	showtornillo();
+}
+private: System::Void CompraStockForm_Load(System::Object^ sender, System::EventArgs^ e) {
+	showtornillo();
+	Showfaja();
+}
+private: System::Void button8_Click(System::Object^ sender, System::EventArgs^ e) {
+	int idfaja = Convert::ToInt32(txtIdFaja->Text);
+	String^ namefaja = txtNameFaja->Text;
+	String^ proveedorfaja = txtFajaStore->Text;
+	double preciounitfaja = Convert::ToInt32(txtFajaUnitaryPrice->Text);
+	int cantidadfaja = Convert::ToInt32(txtFajaUnitaryPrice->Text);
+	FajasSupplier^ faja = gcnew FajasSupplier();
+	faja->Id = idfaja;
+	faja->Name = namefaja;
+	faja->Store = proveedorfaja;
+	faja->UnitaryPrice = preciounitfaja;
+	faja->Needed = cantidadfaja;
+
+
+
+	Service::AddFajaPurchase(faja);
+	Showfaja();
+}
+private: System::Void textBox24_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void btn_EditFaja_Click(System::Object^ sender, System::EventArgs^ e) {
+	int idfaja = Convert::ToInt32(txtIdFaja->Text);
+	String^ namefaja = txtNameFaja->Text;
+	String^ proveedorfaja = txtFajaStore->Text;
+	double preciounitfaja = Convert::ToInt32(txtFajaUnitaryPrice->Text);
+	int cantidadfaja = Convert::ToInt32(txtFajaUnitaryPrice->Text);
+
+	FajasSupplier^ faja = gcnew FajasSupplier();
+	faja->Id = idfaja;
+	faja->Name = namefaja;
+	faja->Store = proveedorfaja;
+	faja->UnitaryPrice = preciounitfaja;
+	faja->Needed = cantidadfaja;
+	Service::UpdateFajaPurchase(faja);
+	Showfaja();
+}
+private: System::Void btn_DeteleFaja_Click(System::Object^ sender, System::EventArgs^ e) {
+	//ELIMINAR FAJA
+//int idtornillo = Convert::ToInt32(txtidtornillo->Text);
+	int idfaja = Convert::ToInt32(txtIdFaja->Text);
+	//Service::Deletetornillos(idtornillo);
+	Service::DeleteFajaPurchase(idfaja);
+	//showtornillo();
+	Showfaja();
+}
 };
 }

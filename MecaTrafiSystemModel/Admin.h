@@ -12,6 +12,7 @@
 using namespace System;
 
 namespace MecaTrafiSystemModel {
+    [Serializable]
     public ref class Admin : public User {
     public:
         property String^ Observation;

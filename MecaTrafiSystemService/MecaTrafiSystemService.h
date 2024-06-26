@@ -12,7 +12,7 @@ namespace MecaTrafiSystemService {
 		static List<Client^>^ ClientsDB = gcnew List<Client^>();
 		// BASE DE DATOS DE CLIENTE
 		static List<Client^>^ Clientdatos = gcnew List <Client^>();
-
+		static Store^ GenericStore = gcnew Store(1,"Generica");
 		//Cliente anonimo
 		static Client^ AnnonymusClient = gcnew Client();
 
@@ -102,56 +102,58 @@ namespace MecaTrafiSystemService {
 		
 		//METODOS DE CRUD TORNILLO - PURCHASE
 
-		static int AddTornilloPurchase(MechanicComponent^ tornilloPurchase);
-		static List<MechanicComponent^>^ QueryAllTornilloPurchase();
-		static int UpdateTornilloPurchase(MechanicComponent^ tornilloPurchase);
+		static int AddTornilloPurchase(SupplyProduct^ tornilloPurchase);
+		static List<SupplyProduct^>^ QueryAllTornilloPurchase();
+		static int UpdateTornilloPurchase(SupplyProduct^ tornilloPurchase);
 		static int DeleteTornilloPurchase(int tornilloPurchaseId);
-		static MechanicComponent^ QueryAllTornilloPurchaseById(int tornilloPurchaseId);
+		static SupplyProduct^ QueryAllTornilloPurchaseById(int tornilloPurchaseId);
 
 		//METODOS DE CRUD FAJAS - PURCHASE
 
-		static int AddFajaPurchase(MechanicComponent^ fajaPurchase);
-		static List<MechanicComponent^>^ QueryAllFajaPurchase();
-		static int UpdateFajaPurchase(MechanicComponent^ fajaPurchase);
+		static int AddFajaPurchase(SupplyProduct^ fajaPurchase);
+		static List<SupplyProduct^>^ QueryAllFajaPurchase();
+		static int UpdateFajaPurchase(SupplyProduct^ fajaPurchase);
 		static int DeleteFajaPurchase(int fajaPurchaseId);
-		static MechanicComponent^ QueryAllFajaPurchaseById(int fajaPurchaseId);
+		static SupplyProduct^ QueryAllFajaPurchaseById(int fajaPurchaseId);
 
+		//Transacciones
+		static List<SupplyProduct^>^ QueryFajaPruchaseByName(String^ name);
 		//METODOS DE CRUD POLEAS - PURCHASE
 
-		static int AddPoleaPurchase(MechanicComponent^ poleaPurchase);
-		static List<MechanicComponent^>^ QueryAllPoleaPurchase();
-		static int UpdatePoleaPurchase(MechanicComponent^ poleaPurchase);
+		static int AddPoleaPurchase(SupplyProduct^ poleaPurchase);
+		static List<SupplyProduct^>^ QueryAllPoleaPurchase();
+		static int UpdatePoleaPurchase(SupplyProduct^ poleaPurchase);
 		static int DeletePoleaPurchase(int poleaPurchaseId);
-		static MechanicComponent^ QueryAllPoleaByIdPurchase(int poleaPurchaseId);
+		static SupplyProduct^ QueryAllPoleaByIdPurchase(int poleaPurchaseId);
 
 
 		//METODOS DE CRUD RODAMIENTO - PURCHASE
 
-		static int AddRodamientoPurchase(MechanicComponent^ rodamientoPurchase);
-		static List<MechanicComponent^>^ QueryAllRodamientoPurchase();
-		static int UpdateRodamientoPurchase(MechanicComponent^ rodamientoPurchase);
+		static int AddRodamientoPurchase(SupplyProduct^ rodamientoPurchase);
+		static List<SupplyProduct^>^ QueryAllRodamientoPurchase();
+		static int UpdateRodamientoPurchase(SupplyProduct^ rodamientoPurchase);
 		static int DeleteRodamientoPurchase(int rodamientoPurchaseId);
-		static MechanicComponent^ QueryAllRodamientoPurchaseById(int rodamientoPurchaseId);
+		static SupplyProduct^ QueryAllRodamientoPurchaseById(int rodamientoPurchaseId);
 
 		//METODOS DE CRUD MOTORAC - PURCHASE
 
-		static int AddMotorACPurchase(MechanicComponent^ motorACPurchase);
-		static List<MechanicComponent^>^ QueryAllMotorACPurchase();
-		static int UpdateMotorACPurchase(MechanicComponent^ motorACPurchase);
+		static int AddMotorACPurchase(SupplyProduct^ motorACPurchase);
+		static List<SupplyProduct^>^ QueryAllMotorACPurchase();
+		static int UpdateMotorACPurchase(SupplyProduct^ motorACPurchase);
 		static int DeleteMotorACPurchase(int motorACPurchaseId);
-		static MechanicComponent^ QueryAllMotorACPurchaseById(int motorACPurchaseId);
+		static SupplyProduct^ QueryAllMotorACPurchaseById(int motorACPurchaseId);
 
 		//METODOS DE CRUD MOTORDC - PURCHASE
 
-		static int AddMotorDCPurchase(MechanicComponent^ motorDCPurchase);
-		static List<MechanicComponent^>^ QueryAllMotorDCPurchase();
-		static int UpdateMotorDCPurchase(MechanicComponent^ motorDCPurchase);
+		static int AddMotorDCPurchase(SupplyProduct^ motorDCPurchase);
+		static List<SupplyProduct^>^ QueryAllMotorDCPurchase();
+		static int UpdateMotorDCPurchase(SupplyProduct^ motorDCPurchase);
 		static int DeleteMotorDCPurchase(int motorDCPurchaseId);
-		static MechanicComponent^ QueryallMotorDCPurchaseById(int motorDCPurchaseId);
+		static SupplyProduct^ QueryallMotorDCPurchaseById(int motorDCPurchaseId);
 
-
-
-
-
+		static Store^ GetGenericStore();
+		//Metodos Mantenmiento Admin
+		static int RegisterPurchase(PurchaseOrder^ ordenCompra);
+		static List<PurchaseOrder^>^ QueryAllPurchaseOrders();
 	};
 }

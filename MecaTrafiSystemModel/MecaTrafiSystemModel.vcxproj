@@ -143,6 +143,7 @@
     <ClInclude Include="RodamientoSupplier.h" />
     <ClInclude Include="Sale.h" />
     <ClInclude Include="SaleOrder.h" />
+    <ClInclude Include="Store.h" />
     <ClInclude Include="Sugerencia.h" />
     <ClInclude Include="SupplyProduct.h" />
     <ClInclude Include="TornilloCliente.h" />
@@ -179,6 +180,7 @@
     <ClCompile Include="RodamientoSupplier.cpp" />
     <ClCompile Include="Sale.cpp" />
     <ClCompile Include="SaleOrder.cpp" />
+    <ClCompile Include="Store.cpp" />
     <ClCompile Include="Sugerencia.cpp" />
     <ClCompile Include="SupplyProduct.cpp" />
     <ClCompile Include="TornilloCliente.cpp" />

@@ -646,7 +646,7 @@ MechanicComponent^ MecaTrafiSystemPersistance::Persistance::QueryallMotorDCStock
     return nullptr;
 }
 //METODOS PARA TORNILLO - COMPRA
-int MecaTrafiSystemPersistance::Persistance::AddTornilloPurchase(MechanicComponent^ tornilloPurchase)
+int MecaTrafiSystemPersistance::Persistance::AddTornilloPurchase(SupplyProduct^ tornilloPurchase)
 {
     tornillosPurchaseDB->Add(tornilloPurchase);
 
@@ -655,15 +655,15 @@ int MecaTrafiSystemPersistance::Persistance::AddTornilloPurchase(MechanicCompone
     return 1;
 }
 
-List<MechanicComponent^>^ MecaTrafiSystemPersistance::Persistance::QueryAllTornilloPurchase()
+List<SupplyProduct^>^ MecaTrafiSystemPersistance::Persistance::QueryAllTornilloPurchase()
 {
-    tornillosPurchaseDB = (List<MechanicComponent^>^)LoadBinaryFile(BIN_PURCHASETORNILLO_FILE_NAME);
+    tornillosPurchaseDB = (List<SupplyProduct^>^)LoadBinaryFile(BIN_PURCHASETORNILLO_FILE_NAME);
     if (tornillosPurchaseDB == nullptr)
-        tornillosPurchaseDB = gcnew List<MechanicComponent^>();
+        tornillosPurchaseDB = gcnew List<SupplyProduct^>();
     return tornillosPurchaseDB;
 }
 
-int MecaTrafiSystemPersistance::Persistance::UpdateTornilloPurchase(MechanicComponent^ tornilloPurchase)
+int MecaTrafiSystemPersistance::Persistance::UpdateTornilloPurchase(SupplyProduct^ tornilloPurchase)
 {
     for (int i = 0; i < tornillosPurchaseDB->Count; i++) {
         if (tornillosPurchaseDB[i]->Id == tornilloPurchase->Id) {
@@ -687,9 +687,9 @@ int MecaTrafiSystemPersistance::Persistance::DeleteTornilloPurchase(int tornillo
     return 0;
 }
 
-MechanicComponent^ MecaTrafiSystemPersistance::Persistance::QueryAllTornilloPurchaseById(int tornilloPurchaseId)
+SupplyProduct^ MecaTrafiSystemPersistance::Persistance::QueryAllTornilloPurchaseById(int tornilloPurchaseId)
 {
-    tornillosPurchaseDB = (List<MechanicComponent^>^)LoadBinaryFile(BIN_PURCHASETORNILLO_FILE_NAME);
+    tornillosPurchaseDB = (List<SupplyProduct^>^)LoadBinaryFile(BIN_PURCHASETORNILLO_FILE_NAME);
     for (int i = 0; i < tornillosPurchaseDB->Count; i++) { //Cuenta
         if (tornillosPurchaseDB[i]->Id == tornilloPurchaseId) { //Si lo encuentra lo retorna
             return tornillosPurchaseDB[i];
@@ -698,7 +698,7 @@ MechanicComponent^ MecaTrafiSystemPersistance::Persistance::QueryAllTornilloPurc
     return nullptr;
 }
 //METODOS PARA FAJA - COMPRA
-int MecaTrafiSystemPersistance::Persistance::AddFajaPurchase(MechanicComponent^ fajaPurchase)
+int MecaTrafiSystemPersistance::Persistance::AddFajaPurchase(SupplyProduct^ fajaPurchase)
 {
     fajasPurchaseDB->Add(fajaPurchase);
 
@@ -707,15 +707,15 @@ int MecaTrafiSystemPersistance::Persistance::AddFajaPurchase(MechanicComponent^ 
     return 1;
 }
 
-List<MechanicComponent^>^ MecaTrafiSystemPersistance::Persistance::QueryAllFajaPurchase()
+List<SupplyProduct^>^ MecaTrafiSystemPersistance::Persistance::QueryAllFajaPurchase()
 {
-    fajasPurchaseDB = (List<MechanicComponent^>^)LoadBinaryFile(BIN_PURCHASEFAJAS_FILE_NAME);
+    fajasPurchaseDB = (List<SupplyProduct^>^)LoadBinaryFile(BIN_PURCHASEFAJAS_FILE_NAME);
     if (fajasPurchaseDB == nullptr)
-        fajasPurchaseDB = gcnew List<MechanicComponent^>();
+        fajasPurchaseDB = gcnew List<SupplyProduct^>();
     return fajasPurchaseDB;
 }
 
-int MecaTrafiSystemPersistance::Persistance::UpdateFajaPurchase(MechanicComponent^ fajaPurchase)
+int MecaTrafiSystemPersistance::Persistance::UpdateFajaPurchase(SupplyProduct^ fajaPurchase)
 {
     for (int i = 0; i < fajasPurchaseDB->Count; i++) {
         if (fajasPurchaseDB[i]->Id == fajaPurchase->Id) {
@@ -739,9 +739,9 @@ int MecaTrafiSystemPersistance::Persistance::DeleteFajaPurchase(int fajaPurchase
     return 0;
 }
 
-MechanicComponent^ MecaTrafiSystemPersistance::Persistance::QueryAllFajaPurchaseById(int fajaPurchaseId)
+SupplyProduct^ MecaTrafiSystemPersistance::Persistance::QueryAllFajaPurchaseById(int fajaPurchaseId)
 {
-    fajasPurchaseDB = (List<MechanicComponent^>^)LoadBinaryFile(BIN_PURCHASEFAJAS_FILE_NAME);
+    fajasPurchaseDB = (List<SupplyProduct^>^)LoadBinaryFile(BIN_PURCHASEFAJAS_FILE_NAME);
     for (int i = 0; i < fajasPurchaseDB->Count; i++) { //Cuenta
         if (fajasPurchaseDB[i]->Id == fajaPurchaseId) { //Si lo encuentra lo retorna
             return fajasPurchaseDB[i];
@@ -750,7 +750,7 @@ MechanicComponent^ MecaTrafiSystemPersistance::Persistance::QueryAllFajaPurchase
     return nullptr;
 }
 //METODOS PARA POLEA - COMPRA
-int MecaTrafiSystemPersistance::Persistance::AddPoleaPurchase(MechanicComponent^ poleaPurchase)
+int MecaTrafiSystemPersistance::Persistance::AddPoleaPurchase(SupplyProduct^ poleaPurchase)
 {
     poleaPurchaseDB->Add(poleaPurchase);
 
@@ -759,15 +759,15 @@ int MecaTrafiSystemPersistance::Persistance::AddPoleaPurchase(MechanicComponent^
     return 1;
 }
 
-List<MechanicComponent^>^ MecaTrafiSystemPersistance::Persistance::QueryAllPoleaPurchase()
+List<SupplyProduct^>^ MecaTrafiSystemPersistance::Persistance::QueryAllPoleaPurchase()
 {
-    poleaPurchaseDB = (List<MechanicComponent^>^)LoadBinaryFile(BIN_PURCHASEPOLEAS_FILE_NAME);
+    poleaPurchaseDB = (List<SupplyProduct^>^)LoadBinaryFile(BIN_PURCHASEPOLEAS_FILE_NAME);
     if (poleaPurchaseDB == nullptr)
-        poleaPurchaseDB = gcnew List<MechanicComponent^>();
+        poleaPurchaseDB = gcnew List<SupplyProduct^>();
     return poleaPurchaseDB;
 }
 
-int MecaTrafiSystemPersistance::Persistance::UpdatePoleaPurchase(MechanicComponent^ poleaPurchase)
+int MecaTrafiSystemPersistance::Persistance::UpdatePoleaPurchase(SupplyProduct^ poleaPurchase)
 {
     for (int i = 0; i < poleaPurchaseDB->Count; i++) {
         if (poleaPurchaseDB[i]->Id == poleaPurchase->Id) {
@@ -791,9 +791,9 @@ int MecaTrafiSystemPersistance::Persistance::DeletePoleaPurchase(int poleaPurcha
     return 0;
 }
 
-MechanicComponent^ MecaTrafiSystemPersistance::Persistance::QueryAllPoleaByIdPurchase(int poleaPurchaseId)
+SupplyProduct^ MecaTrafiSystemPersistance::Persistance::QueryAllPoleaByIdPurchase(int poleaPurchaseId)
 {
-    poleaPurchaseDB = (List<MechanicComponent^>^)LoadBinaryFile(BIN_PURCHASEPOLEAS_FILE_NAME);
+    poleaPurchaseDB = (List<SupplyProduct^>^)LoadBinaryFile(BIN_PURCHASEPOLEAS_FILE_NAME);
     for (int i = 0; i < poleaPurchaseDB->Count; i++) { //Cuenta
         if (poleaPurchaseDB[i]->Id == poleaPurchaseId) { //Si lo encuentra lo retorna
             return poleaPurchaseDB[i];
@@ -802,7 +802,7 @@ MechanicComponent^ MecaTrafiSystemPersistance::Persistance::QueryAllPoleaByIdPur
     return nullptr;
 }
 //METODOS PARA RODAMIENTO - COMPRA
-int MecaTrafiSystemPersistance::Persistance::AddRodamientoPurchase(MechanicComponent^ rodamientoPurchase)
+int MecaTrafiSystemPersistance::Persistance::AddRodamientoPurchase(SupplyProduct^ rodamientoPurchase)
 {
     rodamientoPurchaseDB->Add(rodamientoPurchase);
 
@@ -811,15 +811,15 @@ int MecaTrafiSystemPersistance::Persistance::AddRodamientoPurchase(MechanicCompo
     return 1;
 }
 
-List<MechanicComponent^>^ MecaTrafiSystemPersistance::Persistance::QueryAllRodamientoPurchase()
+List<SupplyProduct^>^ MecaTrafiSystemPersistance::Persistance::QueryAllRodamientoPurchase()
 {
-    rodamientoPurchaseDB = (List<MechanicComponent^>^)LoadBinaryFile(BIN_PURCHASERODAMIENTO_FILE_NAME);
+    rodamientoPurchaseDB = (List<SupplyProduct^>^)LoadBinaryFile(BIN_PURCHASERODAMIENTO_FILE_NAME);
     if (rodamientoPurchaseDB == nullptr)
-        rodamientoPurchaseDB = gcnew List<MechanicComponent^>();
+        rodamientoPurchaseDB = gcnew List<SupplyProduct^>();
     return rodamientoPurchaseDB;
 }
 
-int MecaTrafiSystemPersistance::Persistance::UpdateRodamientoPurchase(MechanicComponent^ rodamientoPurchase)
+int MecaTrafiSystemPersistance::Persistance::UpdateRodamientoPurchase(SupplyProduct^ rodamientoPurchase)
 {
     for (int i = 0; i < rodamientoPurchaseDB->Count; i++) {
         if (rodamientoPurchaseDB[i]->Id == rodamientoPurchase->Id) {
@@ -843,9 +843,9 @@ int MecaTrafiSystemPersistance::Persistance::DeleteRodamientoPurchase(int rodami
     return 0;
 }
 
-MechanicComponent^ MecaTrafiSystemPersistance::Persistance::QueryAllRodamientoPurchaseById(int rodamientoPurchaseId)
+SupplyProduct^ MecaTrafiSystemPersistance::Persistance::QueryAllRodamientoPurchaseById(int rodamientoPurchaseId)
 {
-    rodamientoPurchaseDB = (List<MechanicComponent^>^)LoadBinaryFile(BIN_PURCHASERODAMIENTO_FILE_NAME);
+    rodamientoPurchaseDB = (List<SupplyProduct^>^)LoadBinaryFile(BIN_PURCHASERODAMIENTO_FILE_NAME);
     for (int i = 0; i < rodamientoPurchaseDB->Count; i++) { //Cuenta
         if (rodamientoPurchaseDB[i]->Id == rodamientoPurchaseId) { //Si lo encuentra lo retorna
             return rodamientoPurchaseDB[i];
@@ -855,7 +855,7 @@ MechanicComponent^ MecaTrafiSystemPersistance::Persistance::QueryAllRodamientoPu
 }
 
 //METODOS PARA MOTOR AC - COMPRA
-int MecaTrafiSystemPersistance::Persistance::AddMotorACPurchase(MechanicComponent^ motorACPurchase)
+int MecaTrafiSystemPersistance::Persistance::AddMotorACPurchase(SupplyProduct^ motorACPurchase)
 {
     motorACPurchaseDB->Add(motorACPurchase);
 
@@ -864,15 +864,15 @@ int MecaTrafiSystemPersistance::Persistance::AddMotorACPurchase(MechanicComponen
     return 1;
 }
 
-List<MechanicComponent^>^ MecaTrafiSystemPersistance::Persistance::QueryAllMotorACPurchase()
+List<SupplyProduct^>^ MecaTrafiSystemPersistance::Persistance::QueryAllMotorACPurchase()
 {
-    motorACPurchaseDB = (List<MechanicComponent^>^)LoadBinaryFile(BIN_PURCHASEMOTORAC_FILE_NAME);
+    motorACPurchaseDB = (List<SupplyProduct^>^)LoadBinaryFile(BIN_PURCHASEMOTORAC_FILE_NAME);
     if (motorACPurchaseDB == nullptr)
-        motorACPurchaseDB = gcnew List<MechanicComponent^>();
+        motorACPurchaseDB = gcnew List<SupplyProduct^>();
     return motorACPurchaseDB;
 }
 
-int MecaTrafiSystemPersistance::Persistance::UpdateMotorACPurchase(MechanicComponent^ motorACPurchase)
+int MecaTrafiSystemPersistance::Persistance::UpdateMotorACPurchase(SupplyProduct^ motorACPurchase)
 {
     for (int i = 0; i < motorACPurchaseDB->Count; i++) {
         if (motorACPurchaseDB[i]->Id == motorACPurchase->Id) {
@@ -896,9 +896,9 @@ int MecaTrafiSystemPersistance::Persistance::DeleteMotorACPurchase(int motorACPu
     return 0;
 }
 
-MechanicComponent^ MecaTrafiSystemPersistance::Persistance::QueryAllMotorACPurchaseById(int motorACPurchaseId)
+SupplyProduct^ MecaTrafiSystemPersistance::Persistance::QueryAllMotorACPurchaseById(int motorACPurchaseId)
 {
-    motorACPurchaseDB = (List<MechanicComponent^>^)LoadBinaryFile(BIN_PURCHASEMOTORAC_FILE_NAME);
+    motorACPurchaseDB = (List<SupplyProduct^>^)LoadBinaryFile(BIN_PURCHASEMOTORAC_FILE_NAME);
     for (int i = 0; i < motorACPurchaseDB->Count; i++) { //Cuenta
         if (motorACPurchaseDB[i]->Id == motorACPurchaseId) { //Si lo encuentra lo retorna
             return motorACPurchaseDB[i];
@@ -907,7 +907,7 @@ MechanicComponent^ MecaTrafiSystemPersistance::Persistance::QueryAllMotorACPurch
     return nullptr;
 }
 //METODOS PARA MOTOR DC - COMPRA 
-int MecaTrafiSystemPersistance::Persistance::AddMotorDCPurchase(MechanicComponent^ motorDCPurchase)
+int MecaTrafiSystemPersistance::Persistance::AddMotorDCPurchase(SupplyProduct^ motorDCPurchase)
 {
     motorDCPurchaseDB->Add(motorDCPurchase);
 
@@ -916,15 +916,15 @@ int MecaTrafiSystemPersistance::Persistance::AddMotorDCPurchase(MechanicComponen
     return 1;
 }
 
-List<MechanicComponent^>^ MecaTrafiSystemPersistance::Persistance::QueryAllMotorDCPurchase()
+List<SupplyProduct^>^ MecaTrafiSystemPersistance::Persistance::QueryAllMotorDCPurchase()
 {
-    motorDCPurchaseDB = (List<MechanicComponent^>^)LoadBinaryFile(BIN_PURCHASEMOTORDC_FILE_NAME);
+    motorDCPurchaseDB = (List<SupplyProduct^>^)LoadBinaryFile(BIN_PURCHASEMOTORDC_FILE_NAME);
     if (motorDCPurchaseDB == nullptr)
-        motorDCPurchaseDB = gcnew List<MechanicComponent^>();
+        motorDCPurchaseDB = gcnew List<SupplyProduct^>();
     return motorDCPurchaseDB;
 }
 
-int MecaTrafiSystemPersistance::Persistance::UpdateMotorDCPurchase(MechanicComponent^ motorDCPurchase)
+int MecaTrafiSystemPersistance::Persistance::UpdateMotorDCPurchase(SupplyProduct^ motorDCPurchase)
 {
     for (int i = 0; i < motorDCPurchaseDB->Count; i++) {
         if (motorDCPurchaseDB[i]->Id == motorDCPurchase->Id) {
@@ -948,13 +948,28 @@ int MecaTrafiSystemPersistance::Persistance::DeleteMotorDCPurchase(int motorDCPu
     return 0;
 }
 
-MechanicComponent^ MecaTrafiSystemPersistance::Persistance::QueryAllMotorDCPurchaseById(int motorDCPurchaseId)
+SupplyProduct^ MecaTrafiSystemPersistance::Persistance::QueryAllMotorDCPurchaseById(int motorDCPurchaseId)
 {
-    motorDCPurchaseDB = (List<MechanicComponent^>^)LoadBinaryFile(BIN_PURCHASEMOTORDC_FILE_NAME);
+    motorDCPurchaseDB = (List<SupplyProduct^>^)LoadBinaryFile(BIN_PURCHASEMOTORDC_FILE_NAME);
     for (int i = 0; i < motorDCPurchaseDB->Count; i++) { //Cuenta
         if (motorDCPurchaseDB[i]->Id == motorDCPurchaseId) { //Si lo encuentra lo retorna
             return motorDCPurchaseDB[i];
         }
     }
     return nullptr;
+}
+
+int MecaTrafiSystemPersistance::Persistance::RegisterPurchase(PurchaseOrder^ compraOrden)
+{
+    compraOrdenListDB->Add(compraOrden);
+    PersistBinaryFile(BIN_COMPRAORDERS_FILE_NAME, compraOrdenListDB);
+    return 1;
+}
+
+List<PurchaseOrder^>^ MecaTrafiSystemPersistance::Persistance::QueryAllPurchaseOrders()
+{
+    compraOrdenListDB = (List<PurchaseOrder^>^)LoadBinaryFile(BIN_COMPRAORDERS_FILE_NAME);
+    if (compraOrdenListDB == nullptr)
+        compraOrdenListDB = gcnew List<PurchaseOrder^>();
+    return compraOrdenListDB;
 }

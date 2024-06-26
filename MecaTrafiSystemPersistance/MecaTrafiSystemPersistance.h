@@ -26,16 +26,18 @@ namespace MecaTrafiSystemPersistance {
 		static List<Employee^>^ employeeListDB = gcnew List<Employee^>();
 		static List <Client^>^ clientlistdatos = gcnew List <Client^>();
 		//BASE DATOS COMPONENTES - COMPRAS
-		static List <MechanicComponent^>^ motorACPurchaseDB = gcnew List <MechanicComponent^>();
-		static List <MechanicComponent^>^ motorDCPurchaseDB = gcnew List <MechanicComponent^>();
-		static List <MechanicComponent^>^ tornillosPurchaseDB = gcnew List <MechanicComponent^>();
-		static List <MechanicComponent^>^ fajasPurchaseDB = gcnew List <MechanicComponent^>();
-		static List <MechanicComponent^>^ poleaPurchaseDB = gcnew List <MechanicComponent^>();
-		static List <MechanicComponent^>^ rodamientoPurchaseDB = gcnew List <MechanicComponent^>();
+		static List <SupplyProduct^>^ motorACPurchaseDB = gcnew List <SupplyProduct^>();
+		static List <SupplyProduct^>^ motorDCPurchaseDB = gcnew List <SupplyProduct^>();
+		static List <SupplyProduct^>^ tornillosPurchaseDB = gcnew List <SupplyProduct^>();
+		static List <SupplyProduct^>^ fajasPurchaseDB = gcnew List <SupplyProduct^>();
+		static List <SupplyProduct^>^ poleaPurchaseDB = gcnew List <SupplyProduct^>();
+		static List <SupplyProduct^>^ rodamientoPurchaseDB = gcnew List <SupplyProduct^>();
 
 
 		//BASE DATOS LISTA DE VENTAS 
 		static List<SaleOrder^>^ orderListDB = gcnew List<SaleOrder^>();
+		//BD lista de compras
+		static List <PurchaseOrder^>^ compraOrdenListDB = gcnew List <PurchaseOrder^>();
 
 	public:
 
@@ -43,6 +45,8 @@ namespace MecaTrafiSystemPersistance {
 		static String^ BIN_ORDERS_FILE_NAME = "orders.bin";
 		static int RegisterOrder(SaleOrder^ order);
 		static List<SaleOrder^>^ QueryAllOrders();
+
+		static String^ BIN_COMPRAORDERS_FILE_NAME = "CompraOrders.bin";
 
 		// CRUD empleados
 		static String^ TXT_EMPLOYEE_FILE_NAME = "EmployeesDB.txt";
@@ -127,55 +131,59 @@ namespace MecaTrafiSystemPersistance {
 		static String^ TXT_PURCHASETORNILLO_FILE_NAME = "tornilloPurchase.txt";
 		static String^ XML_PURCHASETORNILLO_FILE_NAME = "tornilloPurchase.xml";
 		static String^ BIN_PURCHASETORNILLO_FILE_NAME = "tornilloPurchase.bin";
-		static int AddTornilloPurchase(MechanicComponent^ tornilloPurchase);
-		static List<MechanicComponent^>^ QueryAllTornilloPurchase();
-		static int UpdateTornilloPurchase(MechanicComponent^ tornilloPurchase);
+		static int AddTornilloPurchase(SupplyProduct^ tornilloPurchase);
+		static List<SupplyProduct^>^ QueryAllTornilloPurchase();
+		static int UpdateTornilloPurchase(SupplyProduct^ tornilloPurchase);
 		static int DeleteTornilloPurchase(int tornilloPurchaseId);
-		static MechanicComponent^ QueryAllTornilloPurchaseById(int tornilloPurchaseId);
+		static SupplyProduct^ QueryAllTornilloPurchaseById(int tornilloPurchaseId);
 
 		//METODOS DE CRUD FAJAS - PURCHASE
 		static String^ BIN_PURCHASEFAJAS_FILE_NAME = "fajasPurchase.bin";
-		static int AddFajaPurchase(MechanicComponent^ fajaPurchase);
-		static List<MechanicComponent^>^ QueryAllFajaPurchase();
-		static int UpdateFajaPurchase(MechanicComponent^ fajaPurchase);
+		static int AddFajaPurchase(SupplyProduct^ fajaPurchase);
+		static List<SupplyProduct^>^ QueryAllFajaPurchase();
+		static int UpdateFajaPurchase(SupplyProduct^ fajaPurchase);
 		static int DeleteFajaPurchase(int fajaPurchaseId);
-		static MechanicComponent^ QueryAllFajaPurchaseById(int fajaPurchaseId);
+		static SupplyProduct^ QueryAllFajaPurchaseById(int fajaPurchaseId);
 
 		//METODOS DE CRUD POLEAS - PURCHASE
 		static String^ BIN_PURCHASEPOLEAS_FILE_NAME = "poleaPurchase.bin";
-		static int AddPoleaPurchase(MechanicComponent^ poleaPurchase);
-		static List<MechanicComponent^>^ QueryAllPoleaPurchase();
-		static int UpdatePoleaPurchase(MechanicComponent^ poleaPurchase);
+		static int AddPoleaPurchase(SupplyProduct^ poleaPurchase);
+		static List<SupplyProduct^>^ QueryAllPoleaPurchase();
+		static int UpdatePoleaPurchase(SupplyProduct^ poleaPurchase);
 		static int DeletePoleaPurchase(int poleaPurchaseId);
-		static MechanicComponent^ QueryAllPoleaByIdPurchase(int poleaPurchaseId);
+		static SupplyProduct^ QueryAllPoleaByIdPurchase(int poleaPurchaseId);
 
 
 		//METODOS DE CRUD RODAMIENTO - PURCHASE
 		static String^ BIN_PURCHASERODAMIENTO_FILE_NAME = "rodamientoPurchase.bin";
-		static int AddRodamientoPurchase(MechanicComponent^ rodamientoPurchase);
-		static List<MechanicComponent^>^ QueryAllRodamientoPurchase();
-		static int UpdateRodamientoPurchase(MechanicComponent^ rodamientoPurchase);
+		static int AddRodamientoPurchase(SupplyProduct^ rodamientoPurchase);
+		static List<SupplyProduct^>^ QueryAllRodamientoPurchase();
+		static int UpdateRodamientoPurchase(SupplyProduct^ rodamientoPurchase);
 		static int DeleteRodamientoPurchase(int rodamientoPurchaseId);
-		static MechanicComponent^ QueryAllRodamientoPurchaseById(int rodamientoPurchaseId);
+		static SupplyProduct^ QueryAllRodamientoPurchaseById(int rodamientoPurchaseId);
 
 		//METODOS DE CRUD MOTORAC - PURCHASE
 		static String^ TXT_PURCHASEMOTORAC_FILE_NAME = "motorACPurchase.txt";
 		static String^ XML_PURCHASEMOTORAC_FILE_NAME = "motorACPurchase.xml";
 		static String^ BIN_PURCHASEMOTORAC_FILE_NAME = "motorACPurchase.bin";
-		static int AddMotorACPurchase(MechanicComponent^ motorACPurchase);
-		static List<MechanicComponent^>^ QueryAllMotorACPurchase();
-		static int UpdateMotorACPurchase(MechanicComponent^ motorACPurchase);
+		static int AddMotorACPurchase(SupplyProduct^ motorACPurchase);
+		static List<SupplyProduct^>^ QueryAllMotorACPurchase();
+		static int UpdateMotorACPurchase(SupplyProduct^ motorACPurchase);
 		static int DeleteMotorACPurchase(int motorACPurchaseId);
-		static MechanicComponent^ QueryAllMotorACPurchaseById(int motorACPurchaseId);
+		static SupplyProduct^ QueryAllMotorACPurchaseById(int motorACPurchaseId);
 
 		//METODOS DE CRUD MOTORDC - PURCHASE
 		static String^ TXT_PURCHASEMOTORDC_FILE_NAME = "motorDCPurchase.txt";
 		static String^ XML_PURCHASEMOTORDC_FILE_NAME = "motorDCPurchase.xml";
 		static String^ BIN_PURCHASEMOTORDC_FILE_NAME = "motorDCPurchase.bin";
-		static int AddMotorDCPurchase(MechanicComponent^ motorDCPurchase);
-		static List<MechanicComponent^>^ QueryAllMotorDCPurchase();
-		static int UpdateMotorDCPurchase(MechanicComponent^ motorDCPurchase);
+		static int AddMotorDCPurchase(SupplyProduct^ motorDCPurchase);
+		static List<SupplyProduct^>^ QueryAllMotorDCPurchase();
+		static int UpdateMotorDCPurchase(SupplyProduct^ motorDCPurchase);
 		static int DeleteMotorDCPurchase(int motorDCPurchaseId);
-		static MechanicComponent^ QueryAllMotorDCPurchaseById(int motorDCPurchaseId);
+		static SupplyProduct^ QueryAllMotorDCPurchaseById(int motorDCPurchaseId);
+
+		//Metodos para transacciones de Compra Admin
+		static int RegisterPurchase(PurchaseOrder^ compraOrden);
+		static List<PurchaseOrder^>^ QueryAllPurchaseOrders();
 	};
 }
