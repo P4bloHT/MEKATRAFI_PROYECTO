@@ -142,15 +142,18 @@
     <ClCompile Include="fajagrande.cpp" />
     <ClCompile Include="fajamediana.cpp" />
     <ClCompile Include="GenerateOrder.cpp" />
+    <ClCompile Include="GeneratePurchase.cpp" />
     <ClCompile Include="InterfazCliente.cpp" />
     <ClCompile Include="Login.cpp" />
     <ClCompile Include="MecaTrafiSystemMainForm.cpp" />
     <ClCompile Include="Monofásico.cpp" />
     <ClCompile Include="Poleaconpiñon.cpp" />
     <ClCompile Include="Poleasinpiñon.cpp" />
+    <ClCompile Include="PurchaseSearchForm.cpp" />
     <ClCompile Include="Reclamar.cpp" />
     <ClCompile Include="ReportePedidos.cpp" />
     <ClCompile Include="Reportes.cpp" />
+    <ClCompile Include="ReportesCompraAdmin.cpp" />
     <ClCompile Include="rodaguja.cpp" />
     <ClCompile Include="rodbolas.cpp" />
     <ClCompile Include="rodrodillos.cpp" />
@@ -207,6 +210,9 @@
     <ClInclude Include="GenerateOrder.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="GeneratePurchase.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="InterfazCliente.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -222,6 +228,9 @@
     <ClInclude Include="Poleasinpiñon.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="PurchaseSearchForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Reclamar.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -229,6 +238,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Reportes.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="ReportesCompraAdmin.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="rodaguja.h">
@@ -323,6 +335,9 @@
     <EmbeddedResource Include="GenerateOrder.resx">
       <DependentUpon>GenerateOrder.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GeneratePurchase.resx">
+      <DependentUpon>GeneratePurchase.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InterfazCliente.resx">
       <DependentUpon>InterfazCliente.h</DependentUpon>
     </EmbeddedResource>
@@ -338,6 +353,9 @@
     <EmbeddedResource Include="Poleasinpiñon.resx">
       <DependentUpon>Poleasinpiñon.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PurchaseSearchForm.resx">
+      <DependentUpon>PurchaseSearchForm.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reclamar.resx">
       <DependentUpon>Reclamar.h</DependentUpon>
     </EmbeddedResource>
@@ -346,6 +364,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes.resx">
       <DependentUpon>Reportes.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportesCompraAdmin.resx">
+      <DependentUpon>ReportesCompraAdmin.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="rodaguja.resx">
       <DependentUpon>rodaguja.h</DependentUpon>

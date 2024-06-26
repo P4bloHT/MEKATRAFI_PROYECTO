@@ -239,7 +239,6 @@ namespace MecaTrafiSystemGUIApp {
 			this->dgvEmpleados->Size = System::Drawing::Size(1149, 262);
 			this->dgvEmpleados->TabIndex = 31;
 			this->dgvEmpleados->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &AgregarEmpleado::dgvEmpleados_CellClick);
-			this->dgvEmpleados->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &AgregarEmpleado::dgvEmpleados_CellContentClick);
 			// 
 			// Nombres
 			// 
@@ -524,8 +523,7 @@ namespace MecaTrafiSystemGUIApp {
 		}
 #pragma endregion
 
-private: System::Void dgvEmpleados_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-}
+
 private: System::Void btncancelar_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->Close();
 }

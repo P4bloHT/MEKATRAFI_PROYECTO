@@ -2,7 +2,9 @@
 #include "AgregarEmpleado.h"
 #include "usuario.h"
 #include "CompraStockForm.h"
-
+#include "GeneratePurchase.h"
+#include "ReportesCompraAdmin.h"
+#include "StockForm.h"
 namespace MecaTrafiSystemGUIApp {
 
 	using namespace System;
@@ -22,13 +24,13 @@ namespace MecaTrafiSystemGUIApp {
 		{
 			InitializeComponent();
 			//
-			//TODO: agregar código de constructor aquí
+			//TODO: agregar cÃ³digo de constructor aquÃ­
 			//
 		}
 
 	protected:
 		/// <summary>
-		/// Limpiar los recursos que se estén usando.
+		/// Limpiar los recursos que se estÃ©n usando.
 		/// </summary>
 		~AdminForm()
 		{
@@ -72,14 +74,14 @@ namespace MecaTrafiSystemGUIApp {
 
 	private:
 		/// <summary>
-		/// Variable del diseñador necesaria.
+		/// Variable del diseÃ±ador necesaria.
 		/// </summary>
 
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// Método necesario para admitir el Diseñador. No se puede modificar
-		/// el contenido de este método con el editor de código.
+		/// MÃ©todo necesario para admitir el DiseÃ±ador. No se puede modificar
+		/// el contenido de este mÃ©todo con el editor de cÃ³digo.
 		/// </summary>
 		void InitializeComponent(void)
 		{
@@ -89,6 +91,7 @@ namespace MecaTrafiSystemGUIApp {
 			System::Windows::Forms::Button^ btnAgregarClientes;
 			System::Windows::Forms::Button^ btnComprarProductos;
 			System::Windows::Forms::Button^ BtnAgregarTask;
+			System::Windows::Forms::Button^ btn_GenerarCompra;
 			this->SlideBarContainer = (gcnew System::Windows::Forms::FlowLayoutPanel());
 			this->SliderBar = (gcnew System::Windows::Forms::Panel());
 			this->label1 = (gcnew System::Windows::Forms::Label());
@@ -103,6 +106,7 @@ namespace MecaTrafiSystemGUIApp {
 			btnAgregarClientes = (gcnew System::Windows::Forms::Button());
 			btnComprarProductos = (gcnew System::Windows::Forms::Button());
 			BtnAgregarTask = (gcnew System::Windows::Forms::Button());
+			btn_GenerarCompra = (gcnew System::Windows::Forms::Button());
 			this->SlideBarContainer->SuspendLayout();
 			this->SliderBar->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->MenuBtn))->BeginInit();
@@ -166,7 +170,7 @@ namespace MecaTrafiSystemGUIApp {
 			btnComprarProductos->Name = L"btnComprarProductos";
 			btnComprarProductos->Size = System::Drawing::Size(258, 65);
 			btnComprarProductos->TabIndex = 16;
-			btnComprarProductos->Text = L"COMPRAR PRODUCTOS";
+			btnComprarProductos->Text = L"AGREGAR COMPRAS";
 			btnComprarProductos->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			btnComprarProductos->UseVisualStyleBackColor = false;
 			btnComprarProductos->Click += gcnew System::EventHandler(this, &AdminForm::btnComprarProductos_Click);
@@ -190,6 +194,28 @@ namespace MecaTrafiSystemGUIApp {
 			BtnAgregarTask->Text = L"REPORTES";
 			BtnAgregarTask->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			BtnAgregarTask->UseVisualStyleBackColor = false;
+			BtnAgregarTask->Click += gcnew System::EventHandler(this, &AdminForm::BtnAgregarTask_Click);
+			// 
+			// btn_GenerarCompra
+			// 
+			btn_GenerarCompra->AccessibleRole = System::Windows::Forms::AccessibleRole::None;
+			btn_GenerarCompra->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(242)), static_cast<System::Int32>(static_cast<System::Byte>(161)),
+				static_cast<System::Int32>(static_cast<System::Byte>(84)));
+			btn_GenerarCompra->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
+			btn_GenerarCompra->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+			btn_GenerarCompra->Font = (gcnew System::Drawing::Font(L"Yu Gothic", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			btn_GenerarCompra->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
+			btn_GenerarCompra->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btn_GenerarCompra.Image")));
+			btn_GenerarCompra->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			btn_GenerarCompra->Location = System::Drawing::Point(732, 202);
+			btn_GenerarCompra->Name = L"btn_GenerarCompra";
+			btn_GenerarCompra->Size = System::Drawing::Size(258, 65);
+			btn_GenerarCompra->TabIndex = 18;
+			btn_GenerarCompra->Text = L"GENERAR COMPRA";
+			btn_GenerarCompra->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
+			btn_GenerarCompra->UseVisualStyleBackColor = false;
+			btn_GenerarCompra->Click += gcnew System::EventHandler(this, &AdminForm::button1_Click_1);
 			// 
 			// SlideBarContainer
 			// 
@@ -328,7 +354,10 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(11, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1257, 666);
+
+			this->ClientSize = System::Drawing::Size(1261, 675);
+			this->Controls->Add(btn_GenerarCompra);
+
 			this->Controls->Add(BtnAgregarTask);
 			this->Controls->Add(btnComprarProductos);
 			this->Controls->Add(btnAgregarClientes);
@@ -358,7 +387,8 @@ private: System::Void flowLayoutPanel3_Paint(System::Object^ sender, System::Win
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void button4_Click_1(System::Object^ sender, System::EventArgs^ e) {
-
+	StockForm^ AgregarStock = gcnew StockForm();
+	AgregarStock->Show();
 }
 private: System::Void AdminForm_Load(System::Object^ sender, System::EventArgs^ e) {
 }
@@ -414,7 +444,25 @@ private: System::Void btnAgregarClientes_Click(System::Object^ sender, System::E
 		bandera = false;
 	}
 }
+	   bool bandera2 = true;
+	   CompraStockForm^ agregarCompra = nullptr;
 private: System::Void btnComprarProductos_Click(System::Object^ sender, System::EventArgs^ e) {
+	//usuario^ agregarCliente = gcnew usuario();
+	if (bandera2) {
+		if (agregarCompra == nullptr || !agregarCompra->Visible) {
+			agregarCompra = gcnew CompraStockForm();
+			agregarCompra->Show();
+		}
+		bandera2 = false;
+	}
+}
+private: System::Void button1_Click_1(System::Object^ sender, System::EventArgs^ e) {
+	GeneratePurchase^ generatePurchaseForm = gcnew GeneratePurchase();
+	generatePurchaseForm->Show();
+}
+private: System::Void BtnAgregarTask_Click(System::Object^ sender, System::EventArgs^ e) {
+	ReportesCompraAdmin^ ReportesDeCompra = gcnew ReportesCompraAdmin();
+	ReportesDeCompra->Show();
 }
 };
 }
