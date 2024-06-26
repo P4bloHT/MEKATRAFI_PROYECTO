@@ -273,7 +273,7 @@ int MecaTrafiSystemPersistance::Persistance::Addclient(Client^ cliente)
     int clienteId = 0;
     SqlConnection^ conn = nullptr;
     try {
-        // Obtener la conexión a la BD
+        // Obtener la conexiÃ³n a la BD
         conn = GetConnection();
 
         // Preparar la sentencia
@@ -367,7 +367,7 @@ int MecaTrafiSystemPersistance::Persistance::UpdateClient(Client^ cliente)
     int clienteId = 0;
     SqlConnection^ conn = nullptr;
     try {
-        // Obtener la conexión a la BD
+        // Obtener la conexiÃ³n a la BD
         conn = GetConnection();
 
         // Preparar la sentencia
@@ -421,7 +421,7 @@ int MecaTrafiSystemPersistance::Persistance::DeleteClient(int clienteId)
 
     SqlConnection^ conn; 
     try {
-        //Paso 1: Obtener la conexión a la BD
+        //Paso 1: Obtener la conexiÃ³n a la BD
         SqlConnection^ conn = GetConnection(); 
 
         //Paso 2: Se prepara la sentencia

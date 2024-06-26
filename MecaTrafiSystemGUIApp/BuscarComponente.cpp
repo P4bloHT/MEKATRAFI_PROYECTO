@@ -8,8 +8,8 @@ System::Void MecaTrafiSystemGUIApp::BuscarComponente::dgvComponentes_CellClick(S
     MechanicComponent^ tornillo = Service::Queryalltornillosid(componenteId);
     MechanicComponent^ rodamiento = Service::Queryallrodamientosid(componenteId);
     MechanicComponent^ polea = Service::Queryallpoleasid(componenteId);
-    //MechanicComponent^ motorAC = Service::QueryallMotorACStockById(componenteId);
-    //MechanicComponent^ motorDC = Service::QueryallMotorDCStockById(componenteId);
+    MechanicComponent^ motorAC = Service::QueryallMotorACStockById(componenteId);
+    MechanicComponent^ motorDC = Service::QueryallMotorDCStockById(componenteId);
 
 
 
