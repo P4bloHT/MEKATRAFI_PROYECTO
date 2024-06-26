@@ -471,7 +471,6 @@ Client^ MecaTrafiSystemPersistance::Persistance::Queryallclienteid(int clienteId
         cmd->CommandType = System::Data::CommandType::StoredProcedure;
         cmd->Parameters->Add("@ID", System::Data::SqlDbType::Int); 
       
-       
         cmd->Prepare();
         cmd->Parameters["@ID"]->Value = clienteId; 
       
@@ -491,7 +490,7 @@ Client^ MecaTrafiSystemPersistance::Persistance::Queryallclienteid(int clienteId
         }
     }
     catch (Exception^ ex) {
-        throw ex ; V
+        throw ex ; 
     }
     finally {
         //CERRAR LOS OBJETOS A LA BD
