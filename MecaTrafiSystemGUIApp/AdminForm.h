@@ -24,13 +24,13 @@ namespace MecaTrafiSystemGUIApp {
 		{
 			InitializeComponent();
 			//
-			//TODO: agregar código de constructor aquí
+			//TODO: agregar cÃ³digo de constructor aquÃ­
 			//
 		}
 
 	protected:
 		/// <summary>
-		/// Limpiar los recursos que se estén usando.
+		/// Limpiar los recursos que se estÃ©n usando.
 		/// </summary>
 		~AdminForm()
 		{
@@ -74,14 +74,14 @@ namespace MecaTrafiSystemGUIApp {
 
 	private:
 		/// <summary>
-		/// Variable del diseñador necesaria.
+		/// Variable del diseÃ±ador necesaria.
 		/// </summary>
 
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// Método necesario para admitir el Diseñador. No se puede modificar
-		/// el contenido de este método con el editor de código.
+		/// MÃ©todo necesario para admitir el DiseÃ±ador. No se puede modificar
+		/// el contenido de este mÃ©todo con el editor de cÃ³digo.
 		/// </summary>
 		void InitializeComponent(void)
 		{
@@ -251,7 +251,7 @@ namespace MecaTrafiSystemGUIApp {
 				static_cast<System::Byte>(0)));
 			this->label1->Location = System::Drawing::Point(70, 42);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(49, 21);
+			this->label1->Size = System::Drawing::Size(72, 32);
 			this->label1->TabIndex = 18;
 			this->label1->Text = L"Menu";
 			// 
@@ -341,7 +341,7 @@ namespace MecaTrafiSystemGUIApp {
 			this->flowLayoutPanel3->FlowDirection = System::Windows::Forms::FlowDirection::TopDown;
 			this->flowLayoutPanel3->Location = System::Drawing::Point(157, 0);
 			this->flowLayoutPanel3->Name = L"flowLayoutPanel3";
-			this->flowLayoutPanel3->Size = System::Drawing::Size(1104, 100);
+			this->flowLayoutPanel3->Size = System::Drawing::Size(1100, 100);
 			this->flowLayoutPanel3->TabIndex = 8;
 			this->flowLayoutPanel3->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &AdminForm::flowLayoutPanel3_Paint);
 			// 
@@ -352,10 +352,12 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// AdminForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(7, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(11, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+
 			this->ClientSize = System::Drawing::Size(1261, 675);
 			this->Controls->Add(btn_GenerarCompra);
+
 			this->Controls->Add(BtnAgregarTask);
 			this->Controls->Add(btnComprarProductos);
 			this->Controls->Add(btnAgregarClientes);
@@ -365,6 +367,7 @@ namespace MecaTrafiSystemGUIApp {
 			this->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->MaximumSize = System::Drawing::Size(1279, 722);
 			this->Name = L"AdminForm";
 			this->Text = L"AdminForm";

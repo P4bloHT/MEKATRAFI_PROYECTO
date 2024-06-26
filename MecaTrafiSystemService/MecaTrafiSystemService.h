@@ -81,12 +81,28 @@ namespace MecaTrafiSystemService {
 		//MANTENIMIENTO
 		static List<MechanicComponent^>^ QueryTornillosByName(String^ name);
 
+
 		//Cliente Anonimo
+
+		static List<MechanicComponent^>^ QueryfajasByName(String^ name);
+
+		static List<MechanicComponent^>^ QueryRodamientosByName(String^ name);
+
+		static List<MechanicComponent^>^ QueryPoleasByName(String^ name);
+
+		static List<MechanicComponent^>^ QueryMotorACByName(String^ name);
+
+		static List<MechanicComponent^>^ QueryMotorDCByName(String^ name);
+
+
+
 		static Client^ GetAnnonymusClient();
 
 		//Metodos para las transacciones
 		static int RegisterOrder(SaleOrder^ order);
 		static List<SaleOrder^>^ QueryAllOrders();
+
+		
 
 
 

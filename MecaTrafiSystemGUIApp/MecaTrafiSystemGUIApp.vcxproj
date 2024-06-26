@@ -151,6 +151,7 @@
     <ClCompile Include="Poleasinpiñon.cpp" />
     <ClCompile Include="PurchaseSearchForm.cpp" />
     <ClCompile Include="Reclamar.cpp" />
+    <ClCompile Include="ReportePedidos.cpp" />
     <ClCompile Include="Reportes.cpp" />
     <ClCompile Include="ReportesCompraAdmin.cpp" />
     <ClCompile Include="rodaguja.cpp" />
@@ -231,6 +232,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Reclamar.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="ReportePedidos.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Reportes.h">
@@ -354,6 +358,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reclamar.resx">
       <DependentUpon>Reclamar.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportePedidos.resx">
+      <DependentUpon>ReportePedidos.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes.resx">
       <DependentUpon>Reportes.h</DependentUpon>
