@@ -251,7 +251,7 @@ namespace MecaTrafiSystemGUIApp {
 				static_cast<System::Byte>(0)));
 			this->label1->Location = System::Drawing::Point(70, 42);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(72, 32);
+			this->label1->Size = System::Drawing::Size(49, 21);
 			this->label1->TabIndex = 18;
 			this->label1->Text = L"Menu";
 			// 
@@ -341,7 +341,7 @@ namespace MecaTrafiSystemGUIApp {
 			this->flowLayoutPanel3->FlowDirection = System::Windows::Forms::FlowDirection::TopDown;
 			this->flowLayoutPanel3->Location = System::Drawing::Point(157, 0);
 			this->flowLayoutPanel3->Name = L"flowLayoutPanel3";
-			this->flowLayoutPanel3->Size = System::Drawing::Size(1100, 100);
+			this->flowLayoutPanel3->Size = System::Drawing::Size(1104, 100);
 			this->flowLayoutPanel3->TabIndex = 8;
 			this->flowLayoutPanel3->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &AdminForm::flowLayoutPanel3_Paint);
 			// 
@@ -352,12 +352,10 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// AdminForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(11, 20);
+			this->AutoScaleDimensions = System::Drawing::SizeF(7, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-
 			this->ClientSize = System::Drawing::Size(1261, 675);
 			this->Controls->Add(btn_GenerarCompra);
-
 			this->Controls->Add(BtnAgregarTask);
 			this->Controls->Add(btnComprarProductos);
 			this->Controls->Add(btnAgregarClientes);

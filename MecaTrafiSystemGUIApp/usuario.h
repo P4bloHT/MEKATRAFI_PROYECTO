@@ -24,13 +24,13 @@ namespace MecaTrafiSystemGUIApp {
 		{
 			InitializeComponent();
 			//
-			//TODO: agregar código de constructor aquí
+			//TODO: agregar cÃ³digo de constructor aquÃ­
 			//
 		}
 
 	protected:
 		/// <summary>
-		/// Limpiar los recursos que se estén usando.
+		/// Limpiar los recursos que se estÃ©n usando.
 		/// </summary>
 		~usuario()
 		{
@@ -87,14 +87,14 @@ namespace MecaTrafiSystemGUIApp {
 
 	private:
 		/// <summary>
-		/// Variable del diseñador necesaria.
+		/// Variable del diseÃ±ador necesaria.
 		/// </summary>
 
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// Método necesario para admitir el Diseñador. No se puede modificar
-		/// el contenido de este método con el editor de código.
+		/// MÃ©todo necesario para admitir el DiseÃ±ador. No se puede modificar
+		/// el contenido de este mÃ©todo con el editor de cÃ³digo.
 		/// </summary>
 		void InitializeComponent(void)
 		{
@@ -428,15 +428,15 @@ private: System::Void txteliminar_Click(System::Object^ sender, System::EventArg
 		// Intenta convertir el texto a Int64
 		Int64 id = Convert::ToInt64(txtid->Text);
 
-		// Llama al método para eliminar el cliente
+		// Llama al mÃ©todo para eliminar el cliente
 		Service::Deletecliente(id);
 
 		// Actualiza la vista de los clientes
 		showclient();
 	}
 	catch (FormatException^ ex) {
-		// Maneja la excepción de formato si ocurre
-		MessageBox::Show("El valor ingresado no es válido. Asegúrate de ingresar un número entero válido.", "Error de formato", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		// Maneja la excepciÃ³n de formato si ocurre
+		MessageBox::Show("El valor ingresado no es vÃ¡lido. AsegÃºrate de ingresar un nÃºmero entero vÃ¡lido.", "Error de formato", MessageBoxButtons::OK, MessageBoxIcon::Error);
 	}
 }
 private: System::Void usuario_load(System::Object^ sender, System::EventArgs^ e) {
@@ -481,12 +481,12 @@ private: System::Void dataGridView1_CellClick(System::Object ^ sender, System::W
 
 
 private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-	/*// Verifica si la celda seleccionada es válida
+	/*// Verifica si la celda seleccionada es vÃ¡lida
 	if (e->RowIndex >= 0 && e->ColumnIndex >= 0) {
 		// Obtiene el clienteId de la celda seleccionada en la columna "Id" (suponiendo que la columna del Id sea la primera)
 		int clienteId;
 		if (Int32::TryParse(dataGridView1->Rows[e->RowIndex]->Cells[0]->Value->ToString(), clienteId)) {
-			// Llama al método para obtener el cliente con el clienteId seleccionado
+			// Llama al mÃ©todo para obtener el cliente con el clienteId seleccionado
 			Client^ cliente = Service::Queryallclienteid(clienteId);
 			if (cliente != nullptr) {
 				// Llena los TextBox con los datos del cliente
@@ -496,11 +496,11 @@ private: System::Void dataGridView1_CellContentClick(System::Object^ sender, Sys
 				txtcontact->Text = cliente->Contact.ToString();
 			}
 			else {
-				MessageBox::Show("No se encontró ningún cliente con el ID seleccionado.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				MessageBox::Show("No se encontrÃ³ ningÃºn cliente con el ID seleccionado.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 			}
 		}
 		else {
-			MessageBox::Show("El ID del cliente seleccionado no es válido.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			MessageBox::Show("El ID del cliente seleccionado no es vÃ¡lido.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 		}
 	}*/
 }
