@@ -388,6 +388,7 @@ private: System::Void btnGenerarPedido_Click(System::Object^ sender, System::Eve
 	for (int i = 0; i < dataGridView1->RowCount; i++) {
 		OrderProduct^ orderProduct = gcnew OrderProduct();
 		orderProduct->id = i + 1;
+		
 		int componentId = Convert::ToInt32(dataGridView1->Rows[i]->Cells[0]->Value->ToString());
 
 		// Consultar el componente basado en su tipo (ejemplo)
@@ -396,19 +397,19 @@ private: System::Void btnGenerarPedido_Click(System::Object^ sender, System::Eve
 
 		MechanicComponent^ componente = nullptr;
 		
-		if (componentType == "FAJA") {
+		if (componentType == "Fajota") {
 			componente = Service::Queryallfajasid(componentId);
 		}
 
-		if (componentType == "TORNILLO") {
+		if (componentType == "Tornillito" || componentType == "Tornillo") {
 			componente = Service::Queryalltornillosid(componentId);
 		}
 
-		if (componentType == "Polea") {
+		if (componentType == "Polea" || componentType == "Poleita") {
 			componente = Service::Queryallpoleasid(componentId);
 		}
 
-		if (componentType == "Rodamientito") {
+		if (componentType == "rodamientito") {
 			componente = Service::Queryallrodamientosid(componentId);
 		}
 
