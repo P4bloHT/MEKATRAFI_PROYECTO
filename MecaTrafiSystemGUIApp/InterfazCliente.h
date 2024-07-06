@@ -100,20 +100,18 @@ namespace MecaTrafiSystemGUIApp {
 			this->label4->AutoSize = true;
 			this->label4->Font = (gcnew System::Drawing::Font(L"Constantia", 14, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label4->Location = System::Drawing::Point(61, 32);
-			this->label4->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label4->Location = System::Drawing::Point(92, 49);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(102, 23);
+			this->label4->Size = System::Drawing::Size(148, 35);
 			this->label4->TabIndex = 28;
 			this->label4->Text = L"MekaTrafi";
 			// 
 			// pictureBox3
 			// 
 			this->pictureBox3->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox3.Image")));
-			this->pictureBox3->Location = System::Drawing::Point(16, 21);
-			this->pictureBox3->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->pictureBox3->Location = System::Drawing::Point(24, 32);
 			this->pictureBox3->Name = L"pictureBox3";
-			this->pictureBox3->Size = System::Drawing::Size(41, 38);
+			this->pictureBox3->Size = System::Drawing::Size(62, 58);
 			this->pictureBox3->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox3->TabIndex = 27;
 			this->pictureBox3->TabStop = false;
@@ -124,10 +122,9 @@ namespace MecaTrafiSystemGUIApp {
 			this->btnVerCatalogo->Font = (gcnew System::Drawing::Font(L"Gadugi", 14, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnVerCatalogo->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->btnVerCatalogo->Location = System::Drawing::Point(117, 291);
-			this->btnVerCatalogo->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->btnVerCatalogo->Location = System::Drawing::Point(176, 448);
 			this->btnVerCatalogo->Name = L"btnVerCatalogo";
-			this->btnVerCatalogo->Size = System::Drawing::Size(171, 49);
+			this->btnVerCatalogo->Size = System::Drawing::Size(256, 75);
 			this->btnVerCatalogo->TabIndex = 25;
 			this->btnVerCatalogo->Text = L"Ver Catálogo ->";
 			this->btnVerCatalogo->UseVisualStyleBackColor = false;
@@ -135,10 +132,9 @@ namespace MecaTrafiSystemGUIApp {
 			// pictureBox2
 			// 
 			this->pictureBox2->BackColor = System::Drawing::Color::Black;
-			this->pictureBox2->Location = System::Drawing::Point(133, 307);
-			this->pictureBox2->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->pictureBox2->Location = System::Drawing::Point(200, 472);
 			this->pictureBox2->Name = L"pictureBox2";
-			this->pictureBox2->Size = System::Drawing::Size(171, 49);
+			this->pictureBox2->Size = System::Drawing::Size(256, 75);
 			this->pictureBox2->TabIndex = 24;
 			this->pictureBox2->TabStop = false;
 			// 
@@ -147,22 +143,21 @@ namespace MecaTrafiSystemGUIApp {
 			this->label3->AutoSize = true;
 			this->label3->Font = (gcnew System::Drawing::Font(L"Century", 22, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label3->Location = System::Drawing::Point(61, 199);
-			this->label3->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label3->Location = System::Drawing::Point(92, 306);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(234, 35);
+			this->label3->Size = System::Drawing::Size(340, 54);
 			this->label3->TabIndex = 23;
 			this->label3->Text = L"¿Reparar algo\?";
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Swis721 Blk BT", 48, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Tai Le", 48, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label2->Location = System::Drawing::Point(599, 92);
-			this->label2->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label2->ForeColor = System::Drawing::SystemColors::ControlText;
+			this->label2->Location = System::Drawing::Point(931, 132);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(387, 77);
+			this->label2->Size = System::Drawing::Size(512, 122);
 			this->label2->TabIndex = 22;
 			this->label2->Text = L"MekaTrafi";
 			// 
@@ -171,10 +166,9 @@ namespace MecaTrafiSystemGUIApp {
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Constantia", 26, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(60, 99);
-			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label1->Location = System::Drawing::Point(90, 152);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(381, 84);
+			this->label1->Size = System::Drawing::Size(571, 128);
 			this->label1->TabIndex = 21;
 			this->label1->Text = L"¿Algún proyecto entre \r\nmanos\?";
 			// 
@@ -184,10 +178,9 @@ namespace MecaTrafiSystemGUIApp {
 			this->btnMotores->Font = (gcnew System::Drawing::Font(L"Bahnschrift Condensed", 22, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnMotores->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->btnMotores->Location = System::Drawing::Point(547, 196);
-			this->btnMotores->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->btnMotores->Location = System::Drawing::Point(820, 302);
 			this->btnMotores->Name = L"btnMotores";
-			this->btnMotores->Size = System::Drawing::Size(241, 146);
+			this->btnMotores->Size = System::Drawing::Size(362, 225);
 			this->btnMotores->TabIndex = 20;
 			this->btnMotores->Text = L"MOTORES";
 			this->btnMotores->UseVisualStyleBackColor = false;
@@ -199,10 +192,9 @@ namespace MecaTrafiSystemGUIApp {
 			this->btnRodamientos->Font = (gcnew System::Drawing::Font(L"Bahnschrift Condensed", 22, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnRodamientos->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->btnRodamientos->Location = System::Drawing::Point(547, 356);
-			this->btnRodamientos->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->btnRodamientos->Location = System::Drawing::Point(820, 548);
 			this->btnRodamientos->Name = L"btnRodamientos";
-			this->btnRodamientos->Size = System::Drawing::Size(303, 66);
+			this->btnRodamientos->Size = System::Drawing::Size(454, 102);
 			this->btnRodamientos->TabIndex = 19;
 			this->btnRodamientos->Text = L"RODAMIENTOS";
 			this->btnRodamientos->UseVisualStyleBackColor = false;
@@ -214,10 +206,9 @@ namespace MecaTrafiSystemGUIApp {
 			this->btnPoleas->Font = (gcnew System::Drawing::Font(L"Bahnschrift Condensed", 22, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnPoleas->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->btnPoleas->Location = System::Drawing::Point(809, 199);
-			this->btnPoleas->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->btnPoleas->Location = System::Drawing::Point(1214, 306);
 			this->btnPoleas->Name = L"btnPoleas";
-			this->btnPoleas->Size = System::Drawing::Size(213, 72);
+			this->btnPoleas->Size = System::Drawing::Size(320, 111);
 			this->btnPoleas->TabIndex = 18;
 			this->btnPoleas->Text = L"POLEAS";
 			this->btnPoleas->UseVisualStyleBackColor = false;
@@ -229,10 +220,9 @@ namespace MecaTrafiSystemGUIApp {
 			this->btnFajas->Font = (gcnew System::Drawing::Font(L"Bahnschrift Condensed", 22, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnFajas->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->btnFajas->Location = System::Drawing::Point(876, 356);
-			this->btnFajas->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->btnFajas->Location = System::Drawing::Point(1314, 548);
 			this->btnFajas->Name = L"btnFajas";
-			this->btnFajas->Size = System::Drawing::Size(147, 66);
+			this->btnFajas->Size = System::Drawing::Size(220, 102);
 			this->btnFajas->TabIndex = 17;
 			this->btnFajas->Text = L"FAJAS";
 			this->btnFajas->UseVisualStyleBackColor = false;
@@ -244,10 +234,9 @@ namespace MecaTrafiSystemGUIApp {
 			this->btnTornillos->Font = (gcnew System::Drawing::Font(L"Bahnschrift Condensed", 22, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnTornillos->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->btnTornillos->Location = System::Drawing::Point(809, 278);
-			this->btnTornillos->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->btnTornillos->Location = System::Drawing::Point(1214, 428);
 			this->btnTornillos->Name = L"btnTornillos";
-			this->btnTornillos->Size = System::Drawing::Size(213, 63);
+			this->btnTornillos->Size = System::Drawing::Size(320, 97);
 			this->btnTornillos->TabIndex = 16;
 			this->btnTornillos->Text = L"TORNILLOS";
 			this->btnTornillos->UseVisualStyleBackColor = false;
@@ -256,20 +245,19 @@ namespace MecaTrafiSystemGUIApp {
 			// pictureBox1
 			// 
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(105, 415);
-			this->pictureBox1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->pictureBox1->Location = System::Drawing::Point(158, 638);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(199, 188);
+			this->pictureBox1->Size = System::Drawing::Size(298, 289);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox1->TabIndex = 15;
 			this->pictureBox1->TabStop = false;
 			// 
 			// InterfazCliente
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::LightGray;
-			this->ClientSize = System::Drawing::Size(1088, 639);
+			this->ClientSize = System::Drawing::Size(1632, 983);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->pictureBox3);
 			this->Controls->Add(this->btnVerCatalogo);
@@ -284,7 +272,6 @@ namespace MecaTrafiSystemGUIApp {
 			this->Controls->Add(this->btnTornillos);
 			this->Controls->Add(this->pictureBox1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::SizableToolWindow;
-			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->Name = L"InterfazCliente";
 			this->Text = L"InterfazCliente";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
