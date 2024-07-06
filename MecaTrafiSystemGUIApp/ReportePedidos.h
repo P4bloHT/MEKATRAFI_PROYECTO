@@ -270,12 +270,12 @@ namespace MecaTrafiSystemGUIApp {
 
 		//Gráfico de clientes
 		List<Client^>^ cliente = Service::Queryallcliente();
-		for (int i = 0; i < cliente->Count; i++) {
+		/*for (int i = 0; i < cliente->Count; i++) {
 			chartGanancias->Series["ClienteRegistrado"]->Points->Add(cliente[i]->Ciclo);
 			chartGanancias->Series["ClienteRegistrado"]->Points[i]->AxisLabel = "" + cliente[i];
 			chartGanancias->Series["ClienteRegistrado"]->Points[i]->Label = "" + cliente[i]->Ciclo;
 		
-		}
+		}*/
 
 		List<MechanicComponent^>^ componente = Service::Queryalltornillos();
 		for (int i = 0; i < componente->Count; i++) {
