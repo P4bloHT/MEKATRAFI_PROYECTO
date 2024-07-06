@@ -1,5 +1,7 @@
 #pragma once
 
+#include "StockDisponible.h"
+
 namespace MecaTrafiSystemGUIApp {
 
 	using namespace System;
@@ -193,6 +195,7 @@ namespace MecaTrafiSystemGUIApp {
 			this->btnVerSTOCK->TabIndex = 26;
 			this->btnVerSTOCK->Text = L"Stock Disponible";
 			this->btnVerSTOCK->UseVisualStyleBackColor = false;
+			this->btnVerSTOCK->Click += gcnew System::EventHandler(this, &ReportePedidos::btnVerSTOCK_Click);
 			// 
 			// label1
 			// 
@@ -226,6 +229,7 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::Color::LightGray;
 			this->ClientSize = System::Drawing::Size(1595, 807);
 			this->Controls->Add(this->chartClientes);
 			this->Controls->Add(this->label1);
@@ -289,5 +293,9 @@ namespace MecaTrafiSystemGUIApp {
 	}
 	private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
+private: System::Void btnVerSTOCK_Click(System::Object^ sender, System::EventArgs^ e) {
+	StockDisponible^ VerStock = gcnew StockDisponible();
+	VerStock->Show();
+}
 };
 }
