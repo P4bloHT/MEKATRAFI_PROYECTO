@@ -105,6 +105,9 @@
     <ClInclude Include="Store.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="Brand.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MecaTrafiSystemModel.cpp">
@@ -195,6 +198,9 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="Store.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="Brand.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>

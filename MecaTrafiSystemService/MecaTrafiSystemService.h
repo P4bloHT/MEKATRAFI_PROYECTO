@@ -28,12 +28,17 @@ namespace MecaTrafiSystemService {
 		static List<Employee^>^ EmployeeDB = gcnew List<Employee^>();
 		static List<TornilloCliente^>^ TornilloDB = gcnew List<TornilloCliente^>();
 	public:
+		//REGISTRO DE USUARIO
+		static User^ QueryUserByName(String^ name);
+
 		// CRUD de empleados
 		static int AddEmployee(Employee^);
 		static int UpdateEmployee(Employee^);
 		static int DeleteEmployee(int clientId);
 		static List<Employee^>^ QueryAllEmployees();
 		static Employee^ QueryEmployeeById(int clientId);
+		
+
 		// CRUD cliente
 		static int Addcliente(Client^);
 		static int Updatecliente(Client^);

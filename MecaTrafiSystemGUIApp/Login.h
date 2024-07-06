@@ -10,6 +10,8 @@ namespace MecaTrafiSystemGUIApp {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace MecaTrafiSystemService;
+	using namespace MecaTrafiSystemModel;
 
 	/// <summary>
 	/// Resumen de Login
@@ -17,12 +19,13 @@ namespace MecaTrafiSystemGUIApp {
 	public ref class Login : public System::Windows::Forms::Form
 	{
 	public:
-		Login(void)
+		Login::Login(User^ usuario)
 		{
 			InitializeComponent();
-			//
-			//TODO: agregar código de constructor aquí
-			//
+			this->user = usuario;
+		}
+		Login::User^ GetUser() {
+			return user;
 		}
 
 	protected:
@@ -38,6 +41,8 @@ namespace MecaTrafiSystemGUIApp {
 		}
 	private: System::Windows::Forms::Panel^ panel1;
 	protected:
+	private: User^ user;
+	private: int isRegisterDone;
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Label^ label2;
 
@@ -199,20 +204,41 @@ namespace MecaTrafiSystemGUIApp {
 		//EmployeeForm^ employee = gcnew EmployeeForm();
 		//employee->Show();
 	}
-private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-if(txtcuenta-> Text=="Vicho"&&txtcontra->Text == "xd"){
-	EmployeeForm^ employee = gcnew EmployeeForm();
+	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+		SignIn();
+	}
+	void SignIn() {
+		User^ usercheck = Service::QueryUserByName(txtcuenta->Text);
 
-	employee->Show();
-}
-else if(txtcuenta->Text == "Carlos" && txtcontra->Text == "password"){
-	AdminForm^ admin = gcnew AdminForm();
+		if ((txtcuenta->Text == "admin") && (txtcontra->Text == "admin")) {
+			this->Hide();
+			AdminForm^ obj = gcnew AdminForm();
+			obj->ShowDialog();
 
-	admin-> Show();
-}
+			this->Show();
 
-}
+		}
+		else if (usercheck != nullptr) {
+			if (txtcontra->Text == usercheck->Password) {
+				MessageBox::Show("Bienvenido " + usercheck->Name);
+				user = usercheck;
+				this->Hide();
+			}
+			else {
+				MessageBox::Show("Contraseña incorrecta para " + usercheck->Name + ". Ingrese los datos de nuevo.");
+				this->txtcuenta->Text = L"Username";
+				this->txtcontra->Text = L"Password";
+			}
+		}
+		else {
+			MessageBox::Show("Usuario o contraseña incorrectos. Ingrese los datos de nuevo.");
+			this->txtcuenta->Text = L"Username";
+			this->txtcontra->Text = L"Password";
+
+		}
+	}
 private: System::Void button2_Click_1(System::Object^ sender, System::EventArgs^ e) {
+	MessageBox::Show("Gracias por utilizar MecaTrafi");
 	Application::Exit();
 }
 private: System::Void Login_Load(System::Object^ sender, System::EventArgs^ e) {

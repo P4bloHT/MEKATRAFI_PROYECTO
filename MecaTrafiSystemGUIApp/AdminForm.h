@@ -13,6 +13,8 @@ namespace MecaTrafiSystemGUIApp {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace MecaTrafiSystemModel;
+	using namespace MecaTrafiSystemService;
 
 	/// <summary>
 	/// Resumen de AdminForm
@@ -26,6 +28,7 @@ namespace MecaTrafiSystemGUIApp {
 			//
 			//TODO: agregar código de constructor aquí
 			//
+			this->ControlBox = false;
 		}
 
 	protected:
@@ -42,7 +45,9 @@ namespace MecaTrafiSystemGUIApp {
 	private: System::Windows::Forms::FlowLayoutPanel^ SlideBarContainer;
 	protected:
 
-
+	private: User^ user;
+	private: Random^ rand = gcnew Random();
+	private: AdminForm^ adminform;
 	private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel3;
 	private: System::Windows::Forms::Panel^ SliderBar;
 	private: System::Windows::Forms::Button^ btnPrincipal;
@@ -386,9 +391,10 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 }
 private: System::Void button4_Click_1(System::Object^ sender, System::EventArgs^ e) {
 	StockForm^ AgregarStock = gcnew StockForm();
-	AgregarStock->Show();
+	AgregarStock->ShowDialog();
 }
 private: System::Void AdminForm_Load(System::Object^ sender, System::EventArgs^ e) {
+
 }
 private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
 }
@@ -428,39 +434,30 @@ private: System::Void MenuBtn_Click(System::Object^ sender, System::EventArgs^ e
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	//Form^ agregarEmpleado = gcnew Form();
 	AgregarEmpleado^ agregarEmpleado = gcnew AgregarEmpleado();
-	agregarEmpleado->Show();
+	agregarEmpleado->ShowDialog();
+
 }
-	   bool bandera = true;
-	   usuario^ agregarCliente = nullptr;
+
 private: System::Void btnAgregarClientes_Click(System::Object^ sender, System::EventArgs^ e) {
-	//usuario^ agregarCliente = gcnew usuario();
-	if (bandera) {
-		if (agregarCliente == nullptr || !agregarCliente->Visible) {
-			agregarCliente = gcnew usuario();
-			agregarCliente->Show();
-		}
-		bandera = false;
-	}
+	usuario^ agregarCliente = nullptr;
+	agregarCliente = gcnew usuario();
+	agregarCliente->ShowDialog();
+
 }
-	   bool bandera2 = true;
-	   CompraStockForm^ agregarCompra = nullptr;
+
 private: System::Void btnComprarProductos_Click(System::Object^ sender, System::EventArgs^ e) {
-	//usuario^ agregarCliente = gcnew usuario();
-	if (bandera2) {
-		if (agregarCompra == nullptr || !agregarCompra->Visible) {
-			agregarCompra = gcnew CompraStockForm();
-			agregarCompra->Show();
-		}
-		bandera2 = false;
-	}
+	
+	CompraStockForm^ agregarCompra = nullptr;
+	agregarCompra = gcnew CompraStockForm();
+	agregarCompra->ShowDialog();
 }
 private: System::Void button1_Click_1(System::Object^ sender, System::EventArgs^ e) {
 	GeneratePurchase^ generatePurchaseForm = gcnew GeneratePurchase();
-	generatePurchaseForm->Show();
+	generatePurchaseForm->ShowDialog();
 }
 private: System::Void BtnAgregarTask_Click(System::Object^ sender, System::EventArgs^ e) {
 	ReportesCompraAdmin^ ReportesDeCompra = gcnew ReportesCompraAdmin();
-	ReportesDeCompra->Show();
+	ReportesDeCompra->ShowDialog();
 }
 };
 }

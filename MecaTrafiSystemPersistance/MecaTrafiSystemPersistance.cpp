@@ -190,13 +190,56 @@ SqlConnection^ MecaTrafiSystemPersistance::Persistance::GetConnection()
 {
     
       SqlConnection^ conn = gcnew SqlConnection();
-    String^ password = "vichoxd";
-    conn->ConnectionString = "Server=raul202024945.cbfa8qfn6wo3.us-east-1.rds.amazonaws.com;" +
-        "Database =  Mecatrafi2;" +
-        "User ID = Mecatrafi2a; " +
+    String^ password = "Manchas76";
+    conn->ConnectionString = "Server=db-meca.cdevogwd46a9.us-east-1.rds.amazonaws.com;" +
+        "Database =  MecaDB;" +
+        "User ID = Externo; " +
         "Password = " + password + ";";
     conn->Open();
     return conn;
+}
+
+List<User^>^ MecaTrafiSystemPersistance::Persistance::LoadUser()
+{
+    List<User^>^ userlist = gcnew List<User^>();
+    SqlConnection^ conn;
+    SqlDataReader^ reader;
+
+    try {
+        //OBTENER CONEXION
+        SqlConnection^ conn = GetConnection();
+
+        //PREPARA SQL
+        SqlCommand^ cmd = gcnew SqlCommand("SELECT * FROM ALL_USER", conn);
+        //EJECUTA SQL
+        reader = cmd->ExecuteReader();
+
+        //PROCESA DATO
+        while (reader->Read()) {
+            User^ user = gcnew User();
+            // Client^ cliente = gcnew Client();
+            user->Id = Convert::ToInt32(reader["CODIGO"]->ToString());
+            user->Name = reader["USERNAME"]->ToString();
+            user->Password = reader["PASSWORD"]->ToString();
+            
+            /*if (!DBNull::Value->Equals(reader["PHOTO"]))
+                cliente->Photo = (array<Byte>^)reader["PHOTO"];
+                */
+            userlist->Add(user);
+        }
+    }
+    catch (Exception^ ex) {
+        throw ex;
+    }
+    finally {
+        //CERRAR LOS OBJETOS A LA BD
+        if (reader != nullptr) reader->Close();
+        if (conn != nullptr) conn->Close();
+
+    }
+
+    return userlist;
+
 }
 
 int MecaTrafiSystemPersistance::Persistance::AddEmployee(Employee^ employee)
@@ -285,10 +328,11 @@ int MecaTrafiSystemPersistance::Persistance::Addclient(Client^ cliente)
         cmd->Parameters->Add("@TELEFONO", System::Data::SqlDbType::VarChar, 200)->Value = cliente-> Contact;
         cmd->Parameters->Add("@CODIGO", System::Data::SqlDbType::VarChar, 200)->Value = cliente-> Id;
         cmd->Parameters->Add("@PHOTO", System::Data::SqlDbType::Image)->Value = cliente->Name;
-        if (cliente->Photo == nullptr)
+        /*if (cliente->Photo == nullptr)
             cmd->Parameters["@PHOTO"]->Value = DBNull::Value;
         else
             cmd->Parameters["@PHOTO"]->Value = cliente->Photo;
+        */
         cmd-> Prepare();
         cmd-> ExecuteNonQuery();
 
@@ -329,9 +373,10 @@ List<Client^>^ MecaTrafiSystemPersistance::Persistance::Queryallcliente()
             cliente->Name = reader["NAME"]->ToString();
             cliente->Carrera = reader["CARRERA"]->ToString();
             cliente->Contact = Convert::ToInt32(reader["TELEFONO"]->ToString());
+            /*
             if (!DBNull:: Value->Equals(reader["PHOTO"]))
                 cliente ->Photo = (array<Byte>^)reader["PHOTO"];
-           
+           */
             clientlistdatos->Add(cliente);
         }
 
@@ -385,11 +430,11 @@ int MecaTrafiSystemPersistance::Persistance::UpdateClient(Client^ cliente)
         cmd->Parameters["@TELEFONO"]->Value = cliente->Contact;
         cmd->Parameters["@CODIGO"]->Value = cliente->Id;
         cmd->Parameters["@PHOTO"]->Value = cliente->Name;
-        if (cliente->Photo == nullptr)
+        /*if (cliente->Photo == nullptr)
             cmd->Parameters["@PHOTO"]->Value = DBNull::Value;
         else
             cmd->Parameters["@PHOTO"]->Value = cliente->Photo;
-
+        */
         //Paso 3: Se ejecuta las sentncia SQL
         cmd->ExecuteNonQuery();
 
@@ -485,8 +530,9 @@ Client^ MecaTrafiSystemPersistance::Persistance::Queryallclienteid(int clienteId
             cliente->Name = reader["NAME"]->ToString();
             cliente->Carrera = reader["CARRERA"]->ToString();
             cliente->Contact = Convert::ToInt64(reader["TELEFONO"]->ToString());
-            if (!DBNull::Value->Equals(reader["PHOTO"])) 
+            /*if (!DBNull::Value->Equals(reader["PHOTO"]))
                 cliente->Photo = (array<Byte>^)reader["PHOTO"]; 
+                */
         }
     }
     catch (Exception^ ex) {
@@ -535,8 +581,14 @@ List<MechanicComponent^>^ MecaTrafiSystemPersistance::Persistance::Queryallfaja(
         SqlConnection^ conn = GetConnection();
 
         //PREPARA SQL
-        String^ sqlStr = "SELECT * FROM FAJA_STOCK";
+        //String^ sqlStr = "SELECT * FROM FAJA_STOCK";
+
+        //CONSULTA X PROCEDURE
+        String^ sqlStr = "dbo.usp_QueryAllFajas";
         SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
+        cmd->CommandType = System::Data::CommandType::StoredProcedure;
+
+
         cmd->Prepare();
 
         //EJECUTA SQL
@@ -616,9 +668,12 @@ MechanicComponent^ MecaTrafiSystemPersistance::Persistance::Queryallfajaid(int f
         SqlConnection^ conn = GetConnection();
 
         //PREPARA SQL
-        String^ sqlStr = "SELECT * FROM FAJA_STOCK WHERE ID= " + fajaId;
+        //String^ sqlStr = "SELECT * FROM FAJA_STOCK WHERE ID= " + fajaId;
+        String^ sqlStr = "dbo.usp_QueryFajasId";
         SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
+        cmd->Parameters->Add("@id", System::Data::SqlDbType::Int);
         cmd->Prepare();
+        cmd->Parameters["@id"]->Value = fajaId;
 
         //EJECUTA SQL
         reader = cmd->ExecuteReader();
@@ -803,6 +858,15 @@ List<SaleOrder^>^ MecaTrafiSystemPersistance::Persistance::QueryAllOrders()
         orderListDB = gcnew List<SaleOrder^>();
     }
     return orderListDB;
+}
+User^ MecaTrafiSystemPersistance::Persistance::QueryUserByName(String^ name)
+{
+    UserList = (List<User^>^)LoadUser();
+    for (int i = 0; i < UserList->Count; i++) {
+        if (UserList[i]->Name == name)
+            return UserList[i];
+    }
+    return nullptr;
 }
 int MecaTrafiSystemPersistance::Persistance::Addrodamiento(MechanicComponent^ rodamiento)
 {

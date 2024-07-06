@@ -114,44 +114,37 @@ namespace MecaTrafiSystemGUIApp {
 			this->txtNCliente = (gcnew System::Windows::Forms::TextBox());
 			this->txtCliente = (gcnew System::Windows::Forms::TextBox());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
+			this->ComponentID = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->NombreComponente = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->PrecioComponente = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Cantidad = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Subtotal = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->FechaPedido = (gcnew System::Windows::Forms::DateTimePicker());
 			this->btnGenerarPedido = (gcnew System::Windows::Forms::Button());
-			this->ComponentID = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->NombreComponente = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->PrecioComponente = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Cantidad = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Subtotal = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// Id
 			// 
 			this->Id->AutoSize = true;
-
-			this->Id->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-
-		
 			this->Id->Location = System::Drawing::Point(120, 32);
+			this->Id->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->Id->Name = L"Id";
-			this->Id->Size = System::Drawing::Size(37, 20);
-
+			this->Id->Size = System::Drawing::Size(26, 13);
 			this->Id->TabIndex = 0;
 			this->Id->Text = L"DNI";
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-
-			this->label2->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-
 			this->label2->Location = System::Drawing::Point(116, 105);
+			this->label2->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(132, 20);
-
+			this->label2->Size = System::Drawing::Size(90, 13);
 			this->label2->TabIndex = 1;
 			this->label2->Text = L"Código de ventas";
 			this->label2->Click += gcnew System::EventHandler(this, &GenerateOrder::label2_Click);
@@ -159,11 +152,8 @@ namespace MecaTrafiSystemGUIApp {
 			// label3
 			// 
 			this->label3->AutoSize = true;
-
-			this->label3->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-
 			this->label3->Location = System::Drawing::Point(120, 171);
-
+			this->label3->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(39, 13);
 			this->label3->TabIndex = 2;
@@ -171,35 +161,26 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// txtID
 			// 
-
-			this->txtID->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
-
 			this->txtID->Location = System::Drawing::Point(283, 32);
+			this->txtID->Margin = System::Windows::Forms::Padding(2);
 			this->txtID->Name = L"txtID";
-			this->txtID->Size = System::Drawing::Size(200, 26);
-
+			this->txtID->Size = System::Drawing::Size(200, 20);
 			this->txtID->TabIndex = 3;
 			// 
 			// txtNCliente
 			// 
-
-			this->txtNCliente->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
-
 			this->txtNCliente->Location = System::Drawing::Point(283, 98);
+			this->txtNCliente->Margin = System::Windows::Forms::Padding(2);
 			this->txtNCliente->Name = L"txtNCliente";
-			this->txtNCliente->Size = System::Drawing::Size(200, 26);
-
+			this->txtNCliente->Size = System::Drawing::Size(200, 20);
 			this->txtNCliente->TabIndex = 4;
 			// 
 			// txtCliente
 			// 
-
-			this->txtCliente->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
-
 			this->txtCliente->Location = System::Drawing::Point(283, 168);
+			this->txtCliente->Margin = System::Windows::Forms::Padding(2);
 			this->txtCliente->Name = L"txtCliente";
-			this->txtCliente->Size = System::Drawing::Size(200, 26);
-
+			this->txtCliente->Size = System::Drawing::Size(200, 20);
 			this->txtCliente->TabIndex = 5;
 			// 
 			// dataGridView1
@@ -210,73 +191,14 @@ namespace MecaTrafiSystemGUIApp {
 				this->ComponentID,
 					this->NombreComponente, this->PrecioComponente, this->Cantidad, this->Subtotal
 			});
-
-			this->dataGridView1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
-
 			this->dataGridView1->Location = System::Drawing::Point(63, 307);
+			this->dataGridView1->Margin = System::Windows::Forms::Padding(2);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersWidth = 62;
 			this->dataGridView1->RowTemplate->Height = 28;
 			this->dataGridView1->Size = System::Drawing::Size(1115, 314);
-
 			this->dataGridView1->TabIndex = 6;
 			this->dataGridView1->CellValueChanged += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &GenerateOrder::dataGridView1_CellValueChanged);
-			// 
-			// label1
-			// 
-			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(853, 672);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(77, 20);
-			this->label1->TabIndex = 7;
-			this->label1->Text = L"Total (S/.)";
-			// 
-			// textBox1
-			// 
-			this->textBox1->Location = System::Drawing::Point(957, 669);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(198, 26);
-			this->textBox1->TabIndex = 8;
-			// 
-			// button1
-			// 
-			this->button1->Location = System::Drawing::Point(991, 145);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(145, 72);
-			this->button1->TabIndex = 9;
-			this->button1->Text = L"Agregar Componente";
-			this->button1->UseVisualStyleBackColor = true;
-			this->button1->Click += gcnew System::EventHandler(this, &GenerateOrder::button1_Click);
-			// 
-			// label4
-			// 
-			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(120, 243);
-			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(128, 20);
-			this->label4->TabIndex = 10;
-			this->label4->Text = L"Fecha de pedido";
-			// 
-			// FechaPedido
-			// 
-			this->FechaPedido->CalendarFont = (gcnew System::Drawing::Font(L"Microsoft YaHei", 8, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->FechaPedido->Enabled = false;
-			this->FechaPedido->Location = System::Drawing::Point(283, 238);
-			this->FechaPedido->Name = L"FechaPedido";
-			this->FechaPedido->Size = System::Drawing::Size(200, 26);
-			this->FechaPedido->TabIndex = 12;
-			this->FechaPedido->ValueChanged += gcnew System::EventHandler(this, &GenerateOrder::FechaPedido_ValueChanged);
-			// 
-			// btnGenerarPedido
-			// 
-			this->btnGenerarPedido->Location = System::Drawing::Point(189, 641);
-			this->btnGenerarPedido->Name = L"btnGenerarPedido";
-			this->btnGenerarPedido->Size = System::Drawing::Size(267, 82);
-			this->btnGenerarPedido->TabIndex = 13;
-			this->btnGenerarPedido->Text = L"Generar pedido";
-			this->btnGenerarPedido->UseVisualStyleBackColor = true;
-			this->btnGenerarPedido->Click += gcnew System::EventHandler(this, &GenerateOrder::btnGenerarPedido_Click);
 			// 
 			// ComponentID
 			// 
@@ -317,7 +239,6 @@ namespace MecaTrafiSystemGUIApp {
 			this->Subtotal->ReadOnly = true;
 			this->Subtotal->Width = 150;
 			// 
-
 			// label1
 			// 
 			this->label1->AutoSize = true;
@@ -331,7 +252,7 @@ namespace MecaTrafiSystemGUIApp {
 			// textBox1
 			// 
 			this->textBox1->Location = System::Drawing::Point(638, 435);
-			this->textBox1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->textBox1->Margin = System::Windows::Forms::Padding(2);
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(133, 20);
 			this->textBox1->TabIndex = 8;
@@ -339,7 +260,7 @@ namespace MecaTrafiSystemGUIApp {
 			// button1
 			// 
 			this->button1->Location = System::Drawing::Point(572, 114);
-			this->button1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->button1->Margin = System::Windows::Forms::Padding(2);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(156, 49);
 			this->button1->TabIndex = 9;
@@ -347,17 +268,44 @@ namespace MecaTrafiSystemGUIApp {
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &GenerateOrder::button1_Click);
 			// 
-
+			// label4
+			// 
+			this->label4->AutoSize = true;
+			this->label4->Location = System::Drawing::Point(120, 243);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(87, 13);
+			this->label4->TabIndex = 10;
+			this->label4->Text = L"Fecha de pedido";
+			// 
+			// FechaPedido
+			// 
+			this->FechaPedido->CalendarFont = (gcnew System::Drawing::Font(L"Microsoft YaHei", 8, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->FechaPedido->Enabled = false;
+			this->FechaPedido->Location = System::Drawing::Point(283, 238);
+			this->FechaPedido->Name = L"FechaPedido";
+			this->FechaPedido->Size = System::Drawing::Size(200, 20);
+			this->FechaPedido->TabIndex = 12;
+			this->FechaPedido->ValueChanged += gcnew System::EventHandler(this, &GenerateOrder::FechaPedido_ValueChanged);
+			// 
+			// btnGenerarPedido
+			// 
+			this->btnGenerarPedido->Location = System::Drawing::Point(189, 641);
+			this->btnGenerarPedido->Name = L"btnGenerarPedido";
+			this->btnGenerarPedido->Size = System::Drawing::Size(267, 82);
+			this->btnGenerarPedido->TabIndex = 13;
+			this->btnGenerarPedido->Text = L"Generar pedido";
+			this->btnGenerarPedido->UseVisualStyleBackColor = true;
+			this->btnGenerarPedido->Click += gcnew System::EventHandler(this, &GenerateOrder::btnGenerarPedido_Click);
+			// 
 			// GenerateOrder
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-
 			this->ClientSize = System::Drawing::Size(1292, 759);
 			this->Controls->Add(this->btnGenerarPedido);
 			this->Controls->Add(this->FechaPedido);
 			this->Controls->Add(this->label4);
-
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->label1);
@@ -368,11 +316,8 @@ namespace MecaTrafiSystemGUIApp {
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->Id);
-
-			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
-
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::SizableToolWindow;
-
+			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"GenerateOrder";
 			this->Text = L"GenerateOrder";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();

@@ -132,7 +132,6 @@
     <ClCompile Include="VerMotores.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-
     <ClCompile Include="GeneratePurchase.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
@@ -261,7 +260,6 @@
     <ClInclude Include="VerMotores.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-
     <ClInclude Include="GeneratePurchase.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
@@ -387,5 +385,8 @@
     <EmbeddedResource Include="VerMotores.resx">
       <Filter>Archivos de recursos</Filter>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>

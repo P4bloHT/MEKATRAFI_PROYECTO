@@ -9,6 +9,8 @@ namespace MecaTrafiSystemPersistance {
 	public ref class Persistance
 	{
 	private:
+
+
 		//FUNCIONES DE CRUD
 		static void PersistTextFile(String^ fileName, Object^ persistObject);
 		static Object^ LoadTextFile(String^ fileName);
@@ -16,8 +18,14 @@ namespace MecaTrafiSystemPersistance {
 		static Object^ LoadXMLFile(String^ fileName);
 		static void PersistBinaryFile(String^ fileName, Object^ persistObject);
 		static Object^ LoadBinaryFile(String^ fileName);
+		
+		//Conexion SQL
 		static SqlConnection^ GetConnection();
+		static List<User^>^ LoadUser();
 
+		//REGISTRO DE USUARIOS
+		static List<User^>^ UserList = gcnew List<User^>();
+		
 		//BASE DATOS COMPONENTES - STOCK
 		static List <MechanicComponent^>^ motorACDB = gcnew List <MechanicComponent^>();
 		static List <MechanicComponent^>^ motorDCDB = gcnew List <MechanicComponent^>();
@@ -50,6 +58,8 @@ namespace MecaTrafiSystemPersistance {
 		static List<SaleOrder^>^ QueryAllOrders();
 
 		static String^ BIN_COMPRAORDERS_FILE_NAME = "CompraOrders.bin";
+		//REGISTRO DE USUARIOS
+		static User^ QueryUserByName(String^ name);
 
 		// CRUD empleados
 		static String^ TXT_EMPLOYEE_FILE_NAME = "EmployeesDB.txt";

@@ -46,6 +46,11 @@ Client^ MecaTrafiSystemService::Service::QueryClientById(int clientId)
     return nullptr;
 }
 
+User^ MecaTrafiSystemService::Service::QueryUserByName(String^ name)
+{
+    return Persistance::QueryUserByName(name);
+}
+
 int MecaTrafiSystemService::Service::AddEmployee(Employee^ employee)
 {
     //EmployeeDB->Add(employee);

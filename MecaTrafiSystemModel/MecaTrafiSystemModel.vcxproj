@@ -120,6 +120,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Admin.h" />
+    <ClInclude Include="Brand.h" />
     <ClInclude Include="Client.h" />
     <ClInclude Include="Discount.h" />
     <ClInclude Include="Employee.h" />
@@ -153,6 +154,7 @@
   <ItemGroup>
     <ClCompile Include="Admin.cpp" />
     <ClCompile Include="AssemblyInfo.cpp" />
+    <ClCompile Include="Brand.cpp" />
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="Discount.cpp" />
     <ClCompile Include="Employee.cpp" />
