@@ -640,13 +640,12 @@ private: System::Windows::Forms::Label^ label5;
 			this->btnEditar = (gcnew System::Windows::Forms::Button());
 			this->tabStock = (gcnew System::Windows::Forms::TabControl());
 			this->TornillosPage = (gcnew System::Windows::Forms::TabPage());
+			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->txtroscatornillo = (gcnew System::Windows::Forms::TextBox());
 			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->txtpuntatornillo = (gcnew System::Windows::Forms::TextBox());
 			this->label4 = (gcnew System::Windows::Forms::Label());
-			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->txtdescriptornillo = (gcnew System::Windows::Forms::TextBox());
-			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->btnedittornillo = (gcnew System::Windows::Forms::Button());
 			this->btndeletetornillo = (gcnew System::Windows::Forms::Button());
 			this->btnaddtornillo = (gcnew System::Windows::Forms::Button());
@@ -773,6 +772,7 @@ private: System::Windows::Forms::Label^ label5;
 			this->textBox55 = (gcnew System::Windows::Forms::TextBox());
 			this->btnAgregarMotorAC = (gcnew System::Windows::Forms::TabPage());
 			this->txtproveedorMotorAC = (gcnew System::Windows::Forms::TextBox());
+			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->btnEditMotorAC = (gcnew System::Windows::Forms::Button());
 			this->btnDeteleMotorAC = (gcnew System::Windows::Forms::Button());
 			this->button9 = (gcnew System::Windows::Forms::Button());
@@ -816,6 +816,7 @@ private: System::Windows::Forms::Label^ label5;
 			this->txtMotorACDescription = (gcnew System::Windows::Forms::TextBox());
 			this->MotoresDCPage = (gcnew System::Windows::Forms::TabPage());
 			this->txtProveedorMotorDC = (gcnew System::Windows::Forms::TextBox());
+			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->btnEditarMotorDC = (gcnew System::Windows::Forms::Button());
 			this->btnDeleteMotorDC = (gcnew System::Windows::Forms::Button());
 			this->btnAgregarMotorDC = (gcnew System::Windows::Forms::Button());
@@ -850,7 +851,6 @@ private: System::Windows::Forms::Label^ label5;
 			this->txtMotorDCId = (gcnew System::Windows::Forms::TextBox());
 			this->txtMotorDCName = (gcnew System::Windows::Forms::TextBox());
 			this->txtMotorDescripcion = (gcnew System::Windows::Forms::TextBox());
-			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->panel1->SuspendLayout();
 			this->tabStock->SuspendLayout();
 			this->TornillosPage->SuspendLayout();
@@ -883,7 +883,7 @@ private: System::Windows::Forms::Label^ label5;
 			this->panel1->Dock = System::Windows::Forms::DockStyle::Left;
 			this->panel1->Location = System::Drawing::Point(0, 0);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(148, 525);
+			this->panel1->Size = System::Drawing::Size(174, 525);
 			this->panel1->TabIndex = 50;
 			// 
 			// btnEliminar
@@ -955,8 +955,8 @@ private: System::Windows::Forms::Label^ label5;
 			this->tabStock->Controls->Add(this->RodamientosPage);
 			this->tabStock->Controls->Add(this->btnAgregarMotorAC);
 			this->tabStock->Controls->Add(this->MotoresDCPage);
-			this->tabStock->Location = System::Drawing::Point(175, 11);
-			this->tabStock->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->tabStock->Location = System::Drawing::Point(199, 11);
+			this->tabStock->Margin = System::Windows::Forms::Padding(2);
 			this->tabStock->Name = L"tabStock";
 			this->tabStock->SelectedIndex = 0;
 			this->tabStock->Size = System::Drawing::Size(677, 514);
@@ -988,13 +988,23 @@ private: System::Windows::Forms::Label^ label5;
 			this->TornillosPage->Controls->Add(this->txtidtornillo);
 			this->TornillosPage->Controls->Add(this->txttornilloname);
 			this->TornillosPage->Location = System::Drawing::Point(4, 22);
-			this->TornillosPage->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->TornillosPage->Margin = System::Windows::Forms::Padding(2);
 			this->TornillosPage->Name = L"TornillosPage";
-			this->TornillosPage->Padding = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->TornillosPage->Padding = System::Windows::Forms::Padding(2);
 			this->TornillosPage->Size = System::Drawing::Size(669, 488);
 			this->TornillosPage->TabIndex = 0;
 			this->TornillosPage->Text = L"Tornillos";
 			this->TornillosPage->UseVisualStyleBackColor = true;
+			// 
+			// label5
+			// 
+			this->label5->AutoSize = true;
+			this->label5->Location = System::Drawing::Point(200, 129);
+			this->label5->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label5->Name = L"label5";
+			this->label5->Size = System::Drawing::Size(63, 13);
+			this->label5->TabIndex = 83;
+			this->label5->Text = L"Descripcion";
 			// 
 			// txtroscatornillo
 			// 
@@ -1032,16 +1042,6 @@ private: System::Windows::Forms::Label^ label5;
 			this->label4->TabIndex = 77;
 			this->label4->Text = L"Tipo de punta";
 			// 
-			// label3
-			// 
-			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(437, 245);
-			this->label3->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(95, 13);
-			this->label3->TabIndex = 145;
-			this->label3->Text = L"Proveedor(Tienda)";
-			// 
 			// txtdescriptornillo
 			// 
 			this->txtdescriptornillo->Location = System::Drawing::Point(267, 126);
@@ -1050,16 +1050,6 @@ private: System::Windows::Forms::Label^ label5;
 			this->txtdescriptornillo->Name = L"txtdescriptornillo";
 			this->txtdescriptornillo->Size = System::Drawing::Size(218, 19);
 			this->txtdescriptornillo->TabIndex = 74;
-			// 
-			// label2
-			// 
-			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(368, 268);
-			this->label2->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(95, 13);
-			this->label2->TabIndex = 145;
-			this->label2->Text = L"Proveedor(Tienda)";
 			// 
 			// btnedittornillo
 			// 
@@ -1094,7 +1084,7 @@ private: System::Windows::Forms::Label^ label5;
 			// txtTornilloprovee
 			// 
 			this->txtTornilloprovee->Location = System::Drawing::Point(303, 67);
-			this->txtTornilloprovee->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtTornilloprovee->Margin = System::Windows::Forms::Padding(2);
 			this->txtTornilloprovee->Name = L"txtTornilloprovee";
 			this->txtTornilloprovee->Size = System::Drawing::Size(117, 20);
 			this->txtTornilloprovee->TabIndex = 69;
@@ -1112,7 +1102,7 @@ private: System::Windows::Forms::Label^ label5;
 			// txtTornillocantidad
 			// 
 			this->txtTornillocantidad->Location = System::Drawing::Point(106, 63);
-			this->txtTornillocantidad->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtTornillocantidad->Margin = System::Windows::Forms::Padding(2);
 			this->txtTornillocantidad->Name = L"txtTornillocantidad";
 			this->txtTornillocantidad->Size = System::Drawing::Size(51, 20);
 			this->txtTornillocantidad->TabIndex = 67;
@@ -1223,7 +1213,7 @@ private: System::Windows::Forms::Label^ label5;
 			// txtTornilloPrecioUnitario
 			// 
 			this->txtTornilloPrecioUnitario->Location = System::Drawing::Point(124, 94);
-			this->txtTornilloPrecioUnitario->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtTornilloPrecioUnitario->Margin = System::Windows::Forms::Padding(2);
 			this->txtTornilloPrecioUnitario->Name = L"txtTornilloPrecioUnitario";
 			this->txtTornilloPrecioUnitario->Size = System::Drawing::Size(51, 20);
 			this->txtTornilloPrecioUnitario->TabIndex = 45;
@@ -1252,7 +1242,7 @@ private: System::Windows::Forms::Label^ label5;
 			// txtidtornillo
 			// 
 			this->txtidtornillo->Location = System::Drawing::Point(106, 25);
-			this->txtidtornillo->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtidtornillo->Margin = System::Windows::Forms::Padding(2);
 			this->txtidtornillo->Name = L"txtidtornillo";
 			this->txtidtornillo->Size = System::Drawing::Size(43, 20);
 			this->txtidtornillo->TabIndex = 38;
@@ -1260,7 +1250,7 @@ private: System::Windows::Forms::Label^ label5;
 			// txttornilloname
 			// 
 			this->txttornilloname->Location = System::Drawing::Point(262, 26);
-			this->txttornilloname->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txttornilloname->Margin = System::Windows::Forms::Padding(2);
 			this->txttornilloname->Name = L"txttornilloname";
 			this->txttornilloname->Size = System::Drawing::Size(223, 20);
 			this->txttornilloname->TabIndex = 39;
@@ -1293,9 +1283,9 @@ private: System::Windows::Forms::Label^ label5;
 			this->FajasPage->Controls->Add(this->txtnamefajastock);
 			this->FajasPage->Controls->Add(this->textBox25);
 			this->FajasPage->Location = System::Drawing::Point(4, 22);
-			this->FajasPage->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->FajasPage->Margin = System::Windows::Forms::Padding(2);
 			this->FajasPage->Name = L"FajasPage";
-			this->FajasPage->Padding = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->FajasPage->Padding = System::Windows::Forms::Padding(2);
 			this->FajasPage->Size = System::Drawing::Size(669, 488);
 			this->FajasPage->TabIndex = 1;
 			this->FajasPage->Text = L"Fajas";
@@ -1334,7 +1324,7 @@ private: System::Windows::Forms::Label^ label5;
 			// txtcantidadfaja
 			// 
 			this->txtcantidadfaja->Location = System::Drawing::Point(145, 129);
-			this->txtcantidadfaja->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtcantidadfaja->Margin = System::Windows::Forms::Padding(2);
 			this->txtcantidadfaja->Name = L"txtcantidadfaja";
 			this->txtcantidadfaja->Size = System::Drawing::Size(51, 20);
 			this->txtcantidadfaja->TabIndex = 111;
@@ -1404,7 +1394,7 @@ private: System::Windows::Forms::Label^ label5;
 			// textBox12
 			// 
 			this->textBox12->Location = System::Drawing::Point(366, 129);
-			this->textBox12->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->textBox12->Margin = System::Windows::Forms::Padding(2);
 			this->textBox12->Name = L"textBox12";
 			this->textBox12->Size = System::Drawing::Size(117, 20);
 			this->textBox12->TabIndex = 106;
@@ -1422,7 +1412,7 @@ private: System::Windows::Forms::Label^ label5;
 			// txtproveedorfaja
 			// 
 			this->txtproveedorfaja->Location = System::Drawing::Point(366, 97);
-			this->txtproveedorfaja->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtproveedorfaja->Margin = System::Windows::Forms::Padding(2);
 			this->txtproveedorfaja->Name = L"txtproveedorfaja";
 			this->txtproveedorfaja->Size = System::Drawing::Size(117, 20);
 			this->txtproveedorfaja->TabIndex = 104;
@@ -1480,7 +1470,7 @@ private: System::Windows::Forms::Label^ label5;
 			// textBox17
 			// 
 			this->textBox17->Location = System::Drawing::Point(143, 167);
-			this->textBox17->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->textBox17->Margin = System::Windows::Forms::Padding(2);
 			this->textBox17->Name = L"textBox17";
 			this->textBox17->Size = System::Drawing::Size(117, 20);
 			this->textBox17->TabIndex = 90;
@@ -1488,7 +1478,7 @@ private: System::Windows::Forms::Label^ label5;
 			// textBox19
 			// 
 			this->textBox19->Location = System::Drawing::Point(366, 161);
-			this->textBox19->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->textBox19->Margin = System::Windows::Forms::Padding(2);
 			this->textBox19->Name = L"textBox19";
 			this->textBox19->Size = System::Drawing::Size(117, 20);
 			this->textBox19->TabIndex = 86;
@@ -1526,7 +1516,7 @@ private: System::Windows::Forms::Label^ label5;
 			// txtpreciofajastock
 			// 
 			this->txtpreciofajastock->Location = System::Drawing::Point(143, 102);
-			this->txtpreciofajastock->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtpreciofajastock->Margin = System::Windows::Forms::Padding(2);
 			this->txtpreciofajastock->Name = L"txtpreciofajastock";
 			this->txtpreciofajastock->Size = System::Drawing::Size(51, 20);
 			this->txtpreciofajastock->TabIndex = 82;
@@ -1554,7 +1544,7 @@ private: System::Windows::Forms::Label^ label5;
 			// txtidfajastock
 			// 
 			this->txtidfajastock->Location = System::Drawing::Point(104, 29);
-			this->txtidfajastock->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtidfajastock->Margin = System::Windows::Forms::Padding(2);
 			this->txtidfajastock->Name = L"txtidfajastock";
 			this->txtidfajastock->Size = System::Drawing::Size(43, 20);
 			this->txtidfajastock->TabIndex = 76;
@@ -1562,7 +1552,7 @@ private: System::Windows::Forms::Label^ label5;
 			// txtnamefajastock
 			// 
 			this->txtnamefajastock->Location = System::Drawing::Point(260, 30);
-			this->txtnamefajastock->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtnamefajastock->Margin = System::Windows::Forms::Padding(2);
 			this->txtnamefajastock->Name = L"txtnamefajastock";
 			this->txtnamefajastock->Size = System::Drawing::Size(223, 20);
 			this->txtnamefajastock->TabIndex = 77;
@@ -1570,7 +1560,7 @@ private: System::Windows::Forms::Label^ label5;
 			// textBox25
 			// 
 			this->textBox25->Location = System::Drawing::Point(104, 65);
-			this->textBox25->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->textBox25->Margin = System::Windows::Forms::Padding(2);
 			this->textBox25->Multiline = true;
 			this->textBox25->Name = L"textBox25";
 			this->textBox25->Size = System::Drawing::Size(379, 16);
@@ -1613,9 +1603,9 @@ private: System::Windows::Forms::Label^ label5;
 			this->PoleasPage->Controls->Add(this->txtpoleaname);
 			this->PoleasPage->Controls->Add(this->textBox40);
 			this->PoleasPage->Location = System::Drawing::Point(4, 22);
-			this->PoleasPage->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->PoleasPage->Margin = System::Windows::Forms::Padding(2);
 			this->PoleasPage->Name = L"PoleasPage";
-			this->PoleasPage->Padding = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->PoleasPage->Padding = System::Windows::Forms::Padding(2);
 			this->PoleasPage->Size = System::Drawing::Size(669, 488);
 			this->PoleasPage->TabIndex = 2;
 			this->PoleasPage->Text = L"Poleas";
@@ -1654,7 +1644,7 @@ private: System::Windows::Forms::Label^ label5;
 			// txtpoleacantidad
 			// 
 			this->txtpoleacantidad->Location = System::Drawing::Point(362, 261);
-			this->txtpoleacantidad->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtpoleacantidad->Margin = System::Windows::Forms::Padding(2);
 			this->txtpoleacantidad->Name = L"txtpoleacantidad";
 			this->txtpoleacantidad->Size = System::Drawing::Size(51, 20);
 			this->txtpoleacantidad->TabIndex = 135;
@@ -1734,7 +1724,7 @@ private: System::Windows::Forms::Label^ label5;
 			// textBox35
 			// 
 			this->textBox35->Location = System::Drawing::Point(362, 226);
-			this->textBox35->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->textBox35->Margin = System::Windows::Forms::Padding(2);
 			this->textBox35->Name = L"textBox35";
 			this->textBox35->Size = System::Drawing::Size(108, 20);
 			this->textBox35->TabIndex = 131;
@@ -1752,7 +1742,7 @@ private: System::Windows::Forms::Label^ label5;
 			// textBox34
 			// 
 			this->textBox34->Location = System::Drawing::Point(116, 206);
-			this->textBox34->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->textBox34->Margin = System::Windows::Forms::Padding(2);
 			this->textBox34->Name = L"textBox34";
 			this->textBox34->Size = System::Drawing::Size(108, 20);
 			this->textBox34->TabIndex = 129;
@@ -1760,7 +1750,7 @@ private: System::Windows::Forms::Label^ label5;
 			// textBox23
 			// 
 			this->textBox23->Location = System::Drawing::Point(366, 136);
-			this->textBox23->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->textBox23->Margin = System::Windows::Forms::Padding(2);
 			this->textBox23->Name = L"textBox23";
 			this->textBox23->Size = System::Drawing::Size(117, 20);
 			this->textBox23->TabIndex = 126;
@@ -1778,7 +1768,7 @@ private: System::Windows::Forms::Label^ label5;
 			// txtproveedorpolea
 			// 
 			this->txtproveedorpolea->Location = System::Drawing::Point(366, 104);
-			this->txtproveedorpolea->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtproveedorpolea->Margin = System::Windows::Forms::Padding(2);
 			this->txtproveedorpolea->Name = L"txtproveedorpolea";
 			this->txtproveedorpolea->Size = System::Drawing::Size(117, 20);
 			this->txtproveedorpolea->TabIndex = 124;
@@ -1816,7 +1806,7 @@ private: System::Windows::Forms::Label^ label5;
 			// textBox28
 			// 
 			this->textBox28->Location = System::Drawing::Point(116, 104);
-			this->textBox28->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->textBox28->Margin = System::Windows::Forms::Padding(2);
 			this->textBox28->Name = L"textBox28";
 			this->textBox28->Size = System::Drawing::Size(136, 20);
 			this->textBox28->TabIndex = 118;
@@ -1834,7 +1824,7 @@ private: System::Windows::Forms::Label^ label5;
 			// textBox29
 			// 
 			this->textBox29->Location = System::Drawing::Point(366, 202);
-			this->textBox29->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->textBox29->Margin = System::Windows::Forms::Padding(2);
 			this->textBox29->Name = L"textBox29";
 			this->textBox29->Size = System::Drawing::Size(117, 20);
 			this->textBox29->TabIndex = 116;
@@ -1842,7 +1832,7 @@ private: System::Windows::Forms::Label^ label5;
 			// textBox30
 			// 
 			this->textBox30->Location = System::Drawing::Point(116, 171);
-			this->textBox30->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->textBox30->Margin = System::Windows::Forms::Padding(2);
 			this->textBox30->Name = L"textBox30";
 			this->textBox30->Size = System::Drawing::Size(108, 20);
 			this->textBox30->TabIndex = 115;
@@ -1860,7 +1850,7 @@ private: System::Windows::Forms::Label^ label5;
 			// textBox31
 			// 
 			this->textBox31->Location = System::Drawing::Point(366, 168);
-			this->textBox31->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->textBox31->Margin = System::Windows::Forms::Padding(2);
 			this->textBox31->Name = L"textBox31";
 			this->textBox31->Size = System::Drawing::Size(117, 20);
 			this->textBox31->TabIndex = 113;
@@ -1878,7 +1868,7 @@ private: System::Windows::Forms::Label^ label5;
 			// textBox32
 			// 
 			this->textBox32->Location = System::Drawing::Point(116, 137);
-			this->textBox32->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->textBox32->Margin = System::Windows::Forms::Padding(2);
 			this->textBox32->Name = L"textBox32";
 			this->textBox32->Size = System::Drawing::Size(136, 20);
 			this->textBox32->TabIndex = 111;
@@ -1886,7 +1876,7 @@ private: System::Windows::Forms::Label^ label5;
 			// txtpreciopolea
 			// 
 			this->txtpreciopolea->Location = System::Drawing::Point(173, 230);
-			this->txtpreciopolea->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtpreciopolea->Margin = System::Windows::Forms::Padding(2);
 			this->txtpreciopolea->Name = L"txtpreciopolea";
 			this->txtpreciopolea->Size = System::Drawing::Size(51, 20);
 			this->txtpreciopolea->TabIndex = 110;
@@ -1955,7 +1945,7 @@ private: System::Windows::Forms::Label^ label5;
 			// txtidpolea
 			// 
 			this->txtidpolea->Location = System::Drawing::Point(104, 29);
-			this->txtidpolea->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtidpolea->Margin = System::Windows::Forms::Padding(2);
 			this->txtidpolea->Name = L"txtidpolea";
 			this->txtidpolea->Size = System::Drawing::Size(43, 20);
 			this->txtidpolea->TabIndex = 76;
@@ -1963,7 +1953,7 @@ private: System::Windows::Forms::Label^ label5;
 			// txtpoleaname
 			// 
 			this->txtpoleaname->Location = System::Drawing::Point(260, 30);
-			this->txtpoleaname->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtpoleaname->Margin = System::Windows::Forms::Padding(2);
 			this->txtpoleaname->Name = L"txtpoleaname";
 			this->txtpoleaname->Size = System::Drawing::Size(223, 20);
 			this->txtpoleaname->TabIndex = 77;
@@ -1971,7 +1961,7 @@ private: System::Windows::Forms::Label^ label5;
 			// textBox40
 			// 
 			this->textBox40->Location = System::Drawing::Point(104, 65);
-			this->textBox40->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->textBox40->Margin = System::Windows::Forms::Padding(2);
 			this->textBox40->Multiline = true;
 			this->textBox40->Name = L"textBox40";
 			this->textBox40->Size = System::Drawing::Size(379, 28);
@@ -2005,9 +1995,9 @@ private: System::Windows::Forms::Label^ label5;
 			this->RodamientosPage->Controls->Add(this->txtrodamientoname);
 			this->RodamientosPage->Controls->Add(this->textBox55);
 			this->RodamientosPage->Location = System::Drawing::Point(4, 22);
-			this->RodamientosPage->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->RodamientosPage->Margin = System::Windows::Forms::Padding(2);
 			this->RodamientosPage->Name = L"RodamientosPage";
-			this->RodamientosPage->Padding = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->RodamientosPage->Padding = System::Windows::Forms::Padding(2);
 			this->RodamientosPage->Size = System::Drawing::Size(669, 488);
 			this->RodamientosPage->TabIndex = 3;
 			this->RodamientosPage->Text = L"Rodamientos";
@@ -2046,7 +2036,7 @@ private: System::Windows::Forms::Label^ label5;
 			// txtcantidadrodamiento
 			// 
 			this->txtcantidadrodamiento->Location = System::Drawing::Point(366, 186);
-			this->txtcantidadrodamiento->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtcantidadrodamiento->Margin = System::Windows::Forms::Padding(2);
 			this->txtcantidadrodamiento->Name = L"txtcantidadrodamiento";
 			this->txtcantidadrodamiento->Size = System::Drawing::Size(51, 20);
 			this->txtcantidadrodamiento->TabIndex = 111;
@@ -2116,7 +2106,7 @@ private: System::Windows::Forms::Label^ label5;
 			// textBox42
 			// 
 			this->textBox42->Location = System::Drawing::Point(104, 154);
-			this->textBox42->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->textBox42->Margin = System::Windows::Forms::Padding(2);
 			this->textBox42->Name = L"textBox42";
 			this->textBox42->Size = System::Drawing::Size(117, 20);
 			this->textBox42->TabIndex = 106;
@@ -2134,7 +2124,7 @@ private: System::Windows::Forms::Label^ label5;
 			// txtrodamientoproveedor
 			// 
 			this->txtrodamientoproveedor->Location = System::Drawing::Point(104, 122);
-			this->txtrodamientoproveedor->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtrodamientoproveedor->Margin = System::Windows::Forms::Padding(2);
 			this->txtrodamientoproveedor->Name = L"txtrodamientoproveedor";
 			this->txtrodamientoproveedor->Size = System::Drawing::Size(117, 20);
 			this->txtrodamientoproveedor->TabIndex = 104;
@@ -2183,7 +2173,7 @@ private: System::Windows::Forms::Label^ label5;
 			// textBox47
 			// 
 			this->textBox47->Location = System::Drawing::Point(366, 147);
-			this->textBox47->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->textBox47->Margin = System::Windows::Forms::Padding(2);
 			this->textBox47->Name = L"textBox47";
 			this->textBox47->Size = System::Drawing::Size(117, 20);
 			this->textBox47->TabIndex = 90;
@@ -2191,7 +2181,7 @@ private: System::Windows::Forms::Label^ label5;
 			// textBox49
 			// 
 			this->textBox49->Location = System::Drawing::Point(366, 113);
-			this->textBox49->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->textBox49->Margin = System::Windows::Forms::Padding(2);
 			this->textBox49->Name = L"textBox49";
 			this->textBox49->Size = System::Drawing::Size(117, 20);
 			this->textBox49->TabIndex = 86;
@@ -2238,7 +2228,7 @@ private: System::Windows::Forms::Label^ label5;
 			// txtpreciorodamiento
 			// 
 			this->txtpreciorodamiento->Location = System::Drawing::Point(132, 200);
-			this->txtpreciorodamiento->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtpreciorodamiento->Margin = System::Windows::Forms::Padding(2);
 			this->txtpreciorodamiento->Name = L"txtpreciorodamiento";
 			this->txtpreciorodamiento->Size = System::Drawing::Size(51, 20);
 			this->txtpreciorodamiento->TabIndex = 82;
@@ -2266,7 +2256,7 @@ private: System::Windows::Forms::Label^ label5;
 			// txtidrodamiento
 			// 
 			this->txtidrodamiento->Location = System::Drawing::Point(104, 29);
-			this->txtidrodamiento->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtidrodamiento->Margin = System::Windows::Forms::Padding(2);
 			this->txtidrodamiento->Name = L"txtidrodamiento";
 			this->txtidrodamiento->Size = System::Drawing::Size(43, 20);
 			this->txtidrodamiento->TabIndex = 76;
@@ -2274,7 +2264,7 @@ private: System::Windows::Forms::Label^ label5;
 			// txtrodamientoname
 			// 
 			this->txtrodamientoname->Location = System::Drawing::Point(260, 30);
-			this->txtrodamientoname->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtrodamientoname->Margin = System::Windows::Forms::Padding(2);
 			this->txtrodamientoname->Name = L"txtrodamientoname";
 			this->txtrodamientoname->Size = System::Drawing::Size(223, 20);
 			this->txtrodamientoname->TabIndex = 77;
@@ -2282,7 +2272,7 @@ private: System::Windows::Forms::Label^ label5;
 			// textBox55
 			// 
 			this->textBox55->Location = System::Drawing::Point(104, 65);
-			this->textBox55->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->textBox55->Margin = System::Windows::Forms::Padding(2);
 			this->textBox55->Multiline = true;
 			this->textBox55->Name = L"textBox55";
 			this->textBox55->Size = System::Drawing::Size(379, 38);
@@ -2329,9 +2319,9 @@ private: System::Windows::Forms::Label^ label5;
 			this->btnAgregarMotorAC->Controls->Add(this->txtMotorACName);
 			this->btnAgregarMotorAC->Controls->Add(this->txtMotorACDescription);
 			this->btnAgregarMotorAC->Location = System::Drawing::Point(4, 22);
-			this->btnAgregarMotorAC->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->btnAgregarMotorAC->Margin = System::Windows::Forms::Padding(2);
 			this->btnAgregarMotorAC->Name = L"btnAgregarMotorAC";
-			this->btnAgregarMotorAC->Padding = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->btnAgregarMotorAC->Padding = System::Windows::Forms::Padding(2);
 			this->btnAgregarMotorAC->Size = System::Drawing::Size(669, 488);
 			this->btnAgregarMotorAC->TabIndex = 4;
 			this->btnAgregarMotorAC->Text = L"MotoresAC";
@@ -2340,10 +2330,20 @@ private: System::Windows::Forms::Label^ label5;
 			// txtproveedorMotorAC
 			// 
 			this->txtproveedorMotorAC->Location = System::Drawing::Point(466, 265);
-			this->txtproveedorMotorAC->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtproveedorMotorAC->Margin = System::Windows::Forms::Padding(2);
 			this->txtproveedorMotorAC->Name = L"txtproveedorMotorAC";
 			this->txtproveedorMotorAC->Size = System::Drawing::Size(117, 20);
 			this->txtproveedorMotorAC->TabIndex = 146;
+			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->Location = System::Drawing::Point(368, 268);
+			this->label2->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(95, 13);
+			this->label2->TabIndex = 145;
+			this->label2->Text = L"Proveedor(Tienda)";
 			// 
 			// btnEditMotorAC
 			// 
@@ -2378,7 +2378,7 @@ private: System::Windows::Forms::Label^ label5;
 			// txtMotorACCantidad
 			// 
 			this->txtMotorACCantidad->Location = System::Drawing::Point(303, 262);
-			this->txtMotorACCantidad->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtMotorACCantidad->Margin = System::Windows::Forms::Padding(2);
 			this->txtMotorACCantidad->Name = L"txtMotorACCantidad";
 			this->txtMotorACCantidad->Size = System::Drawing::Size(51, 20);
 			this->txtMotorACCantidad->TabIndex = 113;
@@ -2458,7 +2458,7 @@ private: System::Windows::Forms::Label^ label5;
 			// txtMotorACVolatje
 			// 
 			this->txtMotorACVolatje->Location = System::Drawing::Point(466, 233);
-			this->txtMotorACVolatje->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtMotorACVolatje->Margin = System::Windows::Forms::Padding(2);
 			this->txtMotorACVolatje->Name = L"txtMotorACVolatje";
 			this->txtMotorACVolatje->Size = System::Drawing::Size(110, 20);
 			this->txtMotorACVolatje->TabIndex = 109;
@@ -2466,7 +2466,7 @@ private: System::Windows::Forms::Label^ label5;
 			// txtMotorACBrand
 			// 
 			this->txtMotorACBrand->Location = System::Drawing::Point(364, 129);
-			this->txtMotorACBrand->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtMotorACBrand->Margin = System::Windows::Forms::Padding(2);
 			this->txtMotorACBrand->Name = L"txtMotorACBrand";
 			this->txtMotorACBrand->Size = System::Drawing::Size(117, 20);
 			this->txtMotorACBrand->TabIndex = 106;
@@ -2505,7 +2505,7 @@ private: System::Windows::Forms::Label^ label5;
 			// txtMotorACFormaFijacion
 			// 
 			this->txtMotorACFormaFijacion->Location = System::Drawing::Point(284, 232);
-			this->txtMotorACFormaFijacion->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtMotorACFormaFijacion->Margin = System::Windows::Forms::Padding(2);
 			this->txtMotorACFormaFijacion->Name = L"txtMotorACFormaFijacion";
 			this->txtMotorACFormaFijacion->Size = System::Drawing::Size(117, 20);
 			this->txtMotorACFormaFijacion->TabIndex = 98;
@@ -2552,7 +2552,7 @@ private: System::Windows::Forms::Label^ label5;
 			// txtMotorACModel
 			// 
 			this->txtMotorACModel->Location = System::Drawing::Point(104, 128);
-			this->txtMotorACModel->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtMotorACModel->Margin = System::Windows::Forms::Padding(2);
 			this->txtMotorACModel->Name = L"txtMotorACModel";
 			this->txtMotorACModel->Size = System::Drawing::Size(136, 20);
 			this->txtMotorACModel->TabIndex = 92;
@@ -2570,7 +2570,7 @@ private: System::Windows::Forms::Label^ label5;
 			// txtMotorACInversorCompatilbidad
 			// 
 			this->txtMotorACInversorCompatilbidad->Location = System::Drawing::Point(364, 199);
-			this->txtMotorACInversorCompatilbidad->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtMotorACInversorCompatilbidad->Margin = System::Windows::Forms::Padding(2);
 			this->txtMotorACInversorCompatilbidad->Name = L"txtMotorACInversorCompatilbidad";
 			this->txtMotorACInversorCompatilbidad->Size = System::Drawing::Size(117, 20);
 			this->txtMotorACInversorCompatilbidad->TabIndex = 90;
@@ -2588,7 +2588,7 @@ private: System::Windows::Forms::Label^ label5;
 			// txtMotorACTipoProteccion
 			// 
 			this->txtMotorACTipoProteccion->Location = System::Drawing::Point(104, 195);
-			this->txtMotorACTipoProteccion->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtMotorACTipoProteccion->Margin = System::Windows::Forms::Padding(2);
 			this->txtMotorACTipoProteccion->Name = L"txtMotorACTipoProteccion";
 			this->txtMotorACTipoProteccion->Size = System::Drawing::Size(108, 20);
 			this->txtMotorACTipoProteccion->TabIndex = 88;
@@ -2606,7 +2606,7 @@ private: System::Windows::Forms::Label^ label5;
 			// txtMotorACPotencia
 			// 
 			this->txtMotorACPotencia->Location = System::Drawing::Point(364, 162);
-			this->txtMotorACPotencia->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtMotorACPotencia->Margin = System::Windows::Forms::Padding(2);
 			this->txtMotorACPotencia->Name = L"txtMotorACPotencia";
 			this->txtMotorACPotencia->Size = System::Drawing::Size(117, 20);
 			this->txtMotorACPotencia->TabIndex = 86;
@@ -2624,7 +2624,7 @@ private: System::Windows::Forms::Label^ label5;
 			// txtMotorACFrame
 			// 
 			this->txtMotorACFrame->Location = System::Drawing::Point(104, 162);
-			this->txtMotorACFrame->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtMotorACFrame->Margin = System::Windows::Forms::Padding(2);
 			this->txtMotorACFrame->Name = L"txtMotorACFrame";
 			this->txtMotorACFrame->Size = System::Drawing::Size(136, 20);
 			this->txtMotorACFrame->TabIndex = 84;
@@ -2661,7 +2661,7 @@ private: System::Windows::Forms::Label^ label5;
 			// txtMotorACPrecioUnitario
 			// 
 			this->txtMotorACPrecioUnitario->Location = System::Drawing::Point(136, 262);
-			this->txtMotorACPrecioUnitario->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtMotorACPrecioUnitario->Margin = System::Windows::Forms::Padding(2);
 			this->txtMotorACPrecioUnitario->Name = L"txtMotorACPrecioUnitario";
 			this->txtMotorACPrecioUnitario->Size = System::Drawing::Size(51, 20);
 			this->txtMotorACPrecioUnitario->TabIndex = 82;
@@ -2689,7 +2689,7 @@ private: System::Windows::Forms::Label^ label5;
 			// txtMotorACId
 			// 
 			this->txtMotorACId->Location = System::Drawing::Point(104, 29);
-			this->txtMotorACId->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtMotorACId->Margin = System::Windows::Forms::Padding(2);
 			this->txtMotorACId->Name = L"txtMotorACId";
 			this->txtMotorACId->Size = System::Drawing::Size(43, 20);
 			this->txtMotorACId->TabIndex = 76;
@@ -2697,7 +2697,7 @@ private: System::Windows::Forms::Label^ label5;
 			// txtMotorACFases
 			// 
 			this->txtMotorACFases->Location = System::Drawing::Point(52, 233);
-			this->txtMotorACFases->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtMotorACFases->Margin = System::Windows::Forms::Padding(2);
 			this->txtMotorACFases->Name = L"txtMotorACFases";
 			this->txtMotorACFases->Size = System::Drawing::Size(110, 20);
 			this->txtMotorACFases->TabIndex = 80;
@@ -2705,7 +2705,7 @@ private: System::Windows::Forms::Label^ label5;
 			// txtMotorACName
 			// 
 			this->txtMotorACName->Location = System::Drawing::Point(260, 30);
-			this->txtMotorACName->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtMotorACName->Margin = System::Windows::Forms::Padding(2);
 			this->txtMotorACName->Name = L"txtMotorACName";
 			this->txtMotorACName->Size = System::Drawing::Size(223, 20);
 			this->txtMotorACName->TabIndex = 77;
@@ -2713,7 +2713,7 @@ private: System::Windows::Forms::Label^ label5;
 			// txtMotorACDescription
 			// 
 			this->txtMotorACDescription->Location = System::Drawing::Point(104, 65);
-			this->txtMotorACDescription->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtMotorACDescription->Margin = System::Windows::Forms::Padding(2);
 			this->txtMotorACDescription->Multiline = true;
 			this->txtMotorACDescription->Name = L"txtMotorACDescription";
 			this->txtMotorACDescription->Size = System::Drawing::Size(379, 38);
@@ -2753,9 +2753,9 @@ private: System::Windows::Forms::Label^ label5;
 			this->MotoresDCPage->Controls->Add(this->txtMotorDCName);
 			this->MotoresDCPage->Controls->Add(this->txtMotorDescripcion);
 			this->MotoresDCPage->Location = System::Drawing::Point(4, 22);
-			this->MotoresDCPage->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->MotoresDCPage->Margin = System::Windows::Forms::Padding(2);
 			this->MotoresDCPage->Name = L"MotoresDCPage";
-			this->MotoresDCPage->Padding = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->MotoresDCPage->Padding = System::Windows::Forms::Padding(2);
 			this->MotoresDCPage->Size = System::Drawing::Size(669, 488);
 			this->MotoresDCPage->TabIndex = 5;
 			this->MotoresDCPage->Text = L"MotoresDC";
@@ -2764,10 +2764,20 @@ private: System::Windows::Forms::Label^ label5;
 			// txtProveedorMotorDC
 			// 
 			this->txtProveedorMotorDC->Location = System::Drawing::Point(536, 241);
-			this->txtProveedorMotorDC->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtProveedorMotorDC->Margin = System::Windows::Forms::Padding(2);
 			this->txtProveedorMotorDC->Name = L"txtProveedorMotorDC";
 			this->txtProveedorMotorDC->Size = System::Drawing::Size(117, 20);
 			this->txtProveedorMotorDC->TabIndex = 146;
+			// 
+			// label3
+			// 
+			this->label3->AutoSize = true;
+			this->label3->Location = System::Drawing::Point(437, 245);
+			this->label3->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(95, 13);
+			this->label3->TabIndex = 145;
+			this->label3->Text = L"Proveedor(Tienda)";
 			// 
 			// btnEditarMotorDC
 			// 
@@ -2802,7 +2812,7 @@ private: System::Windows::Forms::Label^ label5;
 			// txtMotorDCStock
 			// 
 			this->txtMotorDCStock->Location = System::Drawing::Point(366, 240);
-			this->txtMotorDCStock->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtMotorDCStock->Margin = System::Windows::Forms::Padding(2);
 			this->txtMotorDCStock->Name = L"txtMotorDCStock";
 			this->txtMotorDCStock->Size = System::Drawing::Size(51, 20);
 			this->txtMotorDCStock->TabIndex = 111;
@@ -2872,7 +2882,7 @@ private: System::Windows::Forms::Label^ label5;
 			// txtMotorDCMarca
 			// 
 			this->txtMotorDCMarca->Location = System::Drawing::Point(366, 131);
-			this->txtMotorDCMarca->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtMotorDCMarca->Margin = System::Windows::Forms::Padding(2);
 			this->txtMotorDCMarca->Name = L"txtMotorDCMarca";
 			this->txtMotorDCMarca->Size = System::Drawing::Size(117, 20);
 			this->txtMotorDCMarca->TabIndex = 106;
@@ -2931,7 +2941,7 @@ private: System::Windows::Forms::Label^ label5;
 			// txtMotorDCModel
 			// 
 			this->txtMotorDCModel->Location = System::Drawing::Point(106, 130);
-			this->txtMotorDCModel->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtMotorDCModel->Margin = System::Windows::Forms::Padding(2);
 			this->txtMotorDCModel->Name = L"txtMotorDCModel";
 			this->txtMotorDCModel->Size = System::Drawing::Size(136, 20);
 			this->txtMotorDCModel->TabIndex = 92;
@@ -2949,7 +2959,7 @@ private: System::Windows::Forms::Label^ label5;
 			// txtMotorDCMontaje
 			// 
 			this->txtMotorDCMontaje->Location = System::Drawing::Point(366, 197);
-			this->txtMotorDCMontaje->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtMotorDCMontaje->Margin = System::Windows::Forms::Padding(2);
 			this->txtMotorDCMontaje->Name = L"txtMotorDCMontaje";
 			this->txtMotorDCMontaje->Size = System::Drawing::Size(117, 20);
 			this->txtMotorDCMontaje->TabIndex = 90;
@@ -2957,7 +2967,7 @@ private: System::Windows::Forms::Label^ label5;
 			// txtMotorDCVelocidad
 			// 
 			this->txtMotorDCVelocidad->Location = System::Drawing::Point(106, 197);
-			this->txtMotorDCVelocidad->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtMotorDCVelocidad->Margin = System::Windows::Forms::Padding(2);
 			this->txtMotorDCVelocidad->Name = L"txtMotorDCVelocidad";
 			this->txtMotorDCVelocidad->Size = System::Drawing::Size(108, 20);
 			this->txtMotorDCVelocidad->TabIndex = 88;
@@ -2975,7 +2985,7 @@ private: System::Windows::Forms::Label^ label5;
 			// txtMotorDCVoltaje
 			// 
 			this->txtMotorDCVoltaje->Location = System::Drawing::Point(366, 163);
-			this->txtMotorDCVoltaje->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtMotorDCVoltaje->Margin = System::Windows::Forms::Padding(2);
 			this->txtMotorDCVoltaje->Name = L"txtMotorDCVoltaje";
 			this->txtMotorDCVoltaje->Size = System::Drawing::Size(117, 20);
 			this->txtMotorDCVoltaje->TabIndex = 86;
@@ -2993,7 +3003,7 @@ private: System::Windows::Forms::Label^ label5;
 			// txtMotorDCPotencia
 			// 
 			this->txtMotorDCPotencia->Location = System::Drawing::Point(106, 163);
-			this->txtMotorDCPotencia->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtMotorDCPotencia->Margin = System::Windows::Forms::Padding(2);
 			this->txtMotorDCPotencia->Name = L"txtMotorDCPotencia";
 			this->txtMotorDCPotencia->Size = System::Drawing::Size(136, 20);
 			this->txtMotorDCPotencia->TabIndex = 84;
@@ -3030,7 +3040,7 @@ private: System::Windows::Forms::Label^ label5;
 			// txtMotorDCPrecioUniario
 			// 
 			this->txtMotorDCPrecioUniario->Location = System::Drawing::Point(154, 242);
-			this->txtMotorDCPrecioUniario->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtMotorDCPrecioUniario->Margin = System::Windows::Forms::Padding(2);
 			this->txtMotorDCPrecioUniario->Name = L"txtMotorDCPrecioUniario";
 			this->txtMotorDCPrecioUniario->Size = System::Drawing::Size(51, 20);
 			this->txtMotorDCPrecioUniario->TabIndex = 82;
@@ -3058,7 +3068,7 @@ private: System::Windows::Forms::Label^ label5;
 			// txtMotorDCId
 			// 
 			this->txtMotorDCId->Location = System::Drawing::Point(104, 29);
-			this->txtMotorDCId->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtMotorDCId->Margin = System::Windows::Forms::Padding(2);
 			this->txtMotorDCId->Name = L"txtMotorDCId";
 			this->txtMotorDCId->Size = System::Drawing::Size(43, 20);
 			this->txtMotorDCId->TabIndex = 76;
@@ -3066,7 +3076,7 @@ private: System::Windows::Forms::Label^ label5;
 			// txtMotorDCName
 			// 
 			this->txtMotorDCName->Location = System::Drawing::Point(260, 30);
-			this->txtMotorDCName->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtMotorDCName->Margin = System::Windows::Forms::Padding(2);
 			this->txtMotorDCName->Name = L"txtMotorDCName";
 			this->txtMotorDCName->Size = System::Drawing::Size(223, 20);
 			this->txtMotorDCName->TabIndex = 77;
@@ -3074,21 +3084,11 @@ private: System::Windows::Forms::Label^ label5;
 			// txtMotorDescripcion
 			// 
 			this->txtMotorDescripcion->Location = System::Drawing::Point(104, 65);
-			this->txtMotorDescripcion->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->txtMotorDescripcion->Margin = System::Windows::Forms::Padding(2);
 			this->txtMotorDescripcion->Multiline = true;
 			this->txtMotorDescripcion->Name = L"txtMotorDescripcion";
 			this->txtMotorDescripcion->Size = System::Drawing::Size(379, 38);
 			this->txtMotorDescripcion->TabIndex = 79;
-			// 
-			// label5
-			// 
-			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(200, 129);
-			this->label5->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
-			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(63, 13);
-			this->label5->TabIndex = 83;
-			this->label5->Text = L"Descripcion";
 			// 
 			// StockForm
 			// 
@@ -3237,14 +3237,7 @@ private: System::Void btnaddtornillo_Click(System::Object^ sender, System::Event
 	String^ nametornillo = txttornilloname->Text;
 	//String^ descripciotornillon = txtdescriptornillo->Text;
 	String^ proveedortornillo = txtTornilloprovee->Text; 
-	//String^ marcatornillo = txttornillomarca->Text;
-	//int codigotornillo = Convert::ToInt32(txtmodeltornillo->Text);
-	//String^ tipotornillo  = txtTornilloTipo->Text;
-	//int longitudtornillo = Convert::ToInt32(txtTornilloLongitud->Text);
-	//String^ puntatornillo = txtpuntatornillo->Text;
-//	String^ materialtornillo = txtTornilloMaterial->Text;
-	//String^ tiporoscatornillo = txtroscatornillo->Text;
-	//int diametrotornillo = Convert::ToInt32(txtTornilloDiametroRosca->Text);
+
 	double preciounittornillo = Convert::ToInt32(txtTornilloPrecioUnitario->Text);
 	int cantidadtornillo = Convert::ToInt32(txtTornillocantidad->Text);
 	TornilloCliente^ tornillo = gcnew TornilloCliente();
@@ -3252,13 +3245,7 @@ private: System::Void btnaddtornillo_Click(System::Object^ sender, System::Event
 	tornillo->Name = nametornillo;
 	//tornillo->Description = descripcion;
 	tornillo->Proveedor = proveedortornillo;
-	//tornillo->Model = codigotornillo;
-	//tornillo->Tipo = tipo;
-	//tornillo->Longitud = longitud;
-	//tornillo->Punta = puntatornillo;
-	//tornillo->Material = material;
-	//tornillo->Rosca = tiporoscatornillo;
-	//tornillo->DiametroRosca = diametro;
+
 	tornillo->UnitaryPrice = preciounittornillo;
 	tornillo->Stock = cantidadtornillo;
 	if (pbTornilloPhoto != nullptr && pbTornilloPhoto->Image != nullptr) {

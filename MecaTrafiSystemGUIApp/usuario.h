@@ -11,24 +11,26 @@ namespace MecaTrafiSystemGUIApp {
 	using namespace MecaTrafiSystemModel;
 	using namespace MecaTrafiSystemService;
 	using namespace System::Collections::Generic;
+	using namespace System::Threading; 
 
 	/// <summary>
 	/// Resumen de usuario
 	/// </summary>
 	public ref class usuario : public System::Windows::Forms::Form
 	{
+		Thread^ myThread; 
 	public:
 		usuario(void)
 		{
 			InitializeComponent();
 			//
-			//TODO: agregar c�digo de constructor aqu�
+			//TODO: agregar código de constructor aquí
 			//
 		}
 
 	protected:
 		/// <summary>
-		/// Limpiar los recursos que se est�n usando.
+		/// Limpiar los recursos que se estén usando.
 		/// </summary>
 		~usuario()
 		{
@@ -85,14 +87,14 @@ namespace MecaTrafiSystemGUIApp {
 
 	private:
 		/// <summary>
-		/// Variable del dise�ador necesaria.
+		/// Variable del diseñador necesaria.
 		/// </summary>
 
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// M�todo necesario para admitir el Dise�ador. No se puede modificar
-		/// el contenido de este m�todo con el editor de c�digo.
+		/// Método necesario para admitir el Diseñador. No se puede modificar
+		/// el contenido de este método con el editor de código.
 		/// </summary>
 		void InitializeComponent(void)
 		{
@@ -171,6 +173,7 @@ namespace MecaTrafiSystemGUIApp {
 			this->btnsubefoto->TabIndex = 7;
 			this->btnsubefoto->Text = L"Actualizar Foto";
 			this->btnsubefoto->UseVisualStyleBackColor = true;
+			this->btnsubefoto->Click += gcnew System::EventHandler(this, &usuario::btnsubefoto_Click);
 			// 
 			// txtid
 			// 
@@ -234,7 +237,11 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// dataGridView1
 			// 
+			this->dataGridView1->AllowUserToAddRows = false;
+			this->dataGridView1->AllowUserToDeleteRows = false;
 			this->dataGridView1->AllowUserToOrderColumns = true;
+			this->dataGridView1->AllowUserToResizeColumns = false;
+			this->dataGridView1->AllowUserToResizeRows = false;
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(4) {
 				this->Codigo,
@@ -356,7 +363,7 @@ namespace MecaTrafiSystemGUIApp {
 private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
 //	this -> Close(); 
 
-	int id = Convert::ToInt32(txtid->Text); 
+	Int64 id = Convert::ToInt64(txtid->Text); 
 	String^ name = txtname->Text; 
 	String^ carrera = txtcarrera->Text; 
 	int contacto = Convert::ToInt32(txtcontact->Text); 
@@ -388,10 +395,11 @@ private: System::Void nuevoToolStripMenuItem_Click(System::Object^ sender, Syste
 
 }
 private: System::Void btnagregar_Click(System::Object^ sender, System::EventArgs^ e) {
-	int id = Convert::ToInt32(txtid->Text);
+
+	Int64 id = Convert::ToInt64(txtid->Text);  
 	String^ name = txtname->Text;
 	String^ carrera = txtcarrera->Text;
-	int contacto = Convert::ToInt32(txtcontact->Text);
+	int contacto = Convert::ToInt64(txtcontact->Text);
 	Client^ cliente = gcnew Client();
 	cliente->Id = id;
 	cliente->Name = name;
@@ -411,32 +419,98 @@ private: System::Void btnagregar_Click(System::Object^ sender, System::EventArgs
 			   }
 		   }
 	   }
+
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->Close();
 }
 private: System::Void txteliminar_Click(System::Object^ sender, System::EventArgs^ e) {
-	int id = Convert::ToInt32(txtid->Text);
-	Service ::Deletecliente(id);
-	 showclient();
+	try {
+		// Intenta convertir el texto a Int64
+		Int64 id = Convert::ToInt64(txtid->Text);
+
+		// Llama al método para eliminar el cliente
+		Service::Deletecliente(id);
+
+		// Actualiza la vista de los clientes
+		showclient();
+	}
+	catch (FormatException^ ex) {
+		// Maneja la excepción de formato si ocurre
+		MessageBox::Show("El valor ingresado no es válido. Asegúrate de ingresar un número entero válido.", "Error de formato", MessageBoxButtons::OK, MessageBoxIcon::Error);
+	}
 }
 private: System::Void usuario_load(System::Object^ sender, System::EventArgs^ e) {
 	showclient(); 
+	myThread = gcnew Thread(gcnew ThreadStart(this, &usuario::MyRun));
+	myThread->Start();
 }
-private: System::Void dataGridView1_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+	   delegate void MyDelegate();
 
-	int clienteId = Int32::Parse(dataGridView1->Rows[dataGridView1->SelectedCells[0]->RowIndex]->Cells[0]->Value->ToString());
+	   void MyRun() {
+		   while (true) {
+			   try {
+				   myThread->Sleep(10000);
+				   Invoke(gcnew MyDelegate(this, &usuario::showclient));
+			   }
+			   catch (Exception^ ex) {
+				   return;
+			   }			   
+		   }
+}
+
+
+private: System::Void dataGridView1_CellClick(System::Object ^ sender, System::Windows::Forms::DataGridViewCellEventArgs ^ e) { 
+	int clienteId = Int32::Parse(dataGridView1->Rows[dataGridView1->SelectedCells[0]->RowIndex]->Cells[0]->Value->ToString()); 
 	Client^ cliente = Service::Queryallclienteid(clienteId);
 	if (cliente != nullptr) {
-		txtid->Text = Convert::ToString(cliente->Id); // "" + robot->Id;
-		txtname->Text = cliente->Name;
-		txtcarrera->Text = cliente->Carrera;
-		txtcontact->Text = Convert:: ToString(cliente->Contact);
-		
-		
-	}
+		txtid->Text = Convert::ToString(cliente->Id);
+		txtname->Text = cliente->Name; 
+		txtcarrera->Text = cliente->Carrera; 
+		txtcontact->Text = Convert::ToString(cliente->Contact);
 
+		if (cliente->Photo != nullptr) {
+			System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream(cliente->Photo);
+			pbphoto->Image = Image::FromStream(ms);
+		}
+		else {
+			pbphoto->Image = nullptr;
+			pbphoto->Invalidate();
+		}
+	}
 }
+
+
 private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+	/*// Verifica si la celda seleccionada es válida
+	if (e->RowIndex >= 0 && e->ColumnIndex >= 0) {
+		// Obtiene el clienteId de la celda seleccionada en la columna "Id" (suponiendo que la columna del Id sea la primera)
+		int clienteId;
+		if (Int32::TryParse(dataGridView1->Rows[e->RowIndex]->Cells[0]->Value->ToString(), clienteId)) {
+			// Llama al método para obtener el cliente con el clienteId seleccionado
+			Client^ cliente = Service::Queryallclienteid(clienteId);
+			if (cliente != nullptr) {
+				// Llena los TextBox con los datos del cliente
+				txtid->Text = cliente->Id.ToString();
+				txtname->Text = cliente->Name;
+				txtcarrera->Text = cliente->Carrera;
+				txtcontact->Text = cliente->Contact.ToString();
+			}
+			else {
+				MessageBox::Show("No se encontró ningún cliente con el ID seleccionado.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			}
+		}
+		else {
+			MessageBox::Show("El ID del cliente seleccionado no es válido.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		}
+	}*/
+}
+
+private: System::Void btnsubefoto_Click(System::Object^ sender, System::EventArgs^ e) {
+	OpenFileDialog^ ofd = gcnew OpenFileDialog(); 
+	ofd->Filter = "Image Files (*.jpg;*.jpeg;)|*.jpg;*.jpeg;"; 
+	if (ofd->ShowDialog() == System::Windows::Forms::DialogResult::OK) { 
+		pbphoto->Image = gcnew Bitmap(ofd->FileName);
+	} 
 }
 };
 
