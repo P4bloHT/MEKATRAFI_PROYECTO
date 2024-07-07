@@ -140,17 +140,19 @@ namespace MecaTrafiSystemGUIApp {
 			this->panelmotores->Controls->Add(this->pictureBox1);
 			this->panelmotores->Dock = System::Windows::Forms::DockStyle::Left;
 			this->panelmotores->Location = System::Drawing::Point(0, 0);
+			this->panelmotores->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->panelmotores->Name = L"panelmotores";
-			this->panelmotores->Size = System::Drawing::Size(191, 531);
+			this->panelmotores->Size = System::Drawing::Size(286, 817);
 			this->panelmotores->TabIndex = 4;
 			// 
 			// pictureBox2
 			// 
 			this->pictureBox2->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
 			this->pictureBox2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.Image")));
-			this->pictureBox2->Location = System::Drawing::Point(32, 303);
+			this->pictureBox2->Location = System::Drawing::Point(48, 466);
+			this->pictureBox2->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->pictureBox2->Name = L"pictureBox2";
-			this->pictureBox2->Size = System::Drawing::Size(111, 114);
+			this->pictureBox2->Size = System::Drawing::Size(164, 173);
 			this->pictureBox2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox2->TabIndex = 3;
 			this->pictureBox2->TabStop = false;
@@ -159,9 +161,10 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			this->pictureBox3->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
 			this->pictureBox3->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox3.Image")));
-			this->pictureBox3->Location = System::Drawing::Point(32, 170);
+			this->pictureBox3->Location = System::Drawing::Point(48, 262);
+			this->pictureBox3->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->pictureBox3->Name = L"pictureBox3";
-			this->pictureBox3->Size = System::Drawing::Size(111, 110);
+			this->pictureBox3->Size = System::Drawing::Size(164, 167);
 			this->pictureBox3->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox3->TabIndex = 4;
 			this->pictureBox3->TabStop = false;
@@ -170,44 +173,43 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			this->pictureBox1->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(32, 29);
+			this->pictureBox1->Location = System::Drawing::Point(48, 45);
+			this->pictureBox1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(111, 109);
+			this->pictureBox1->Size = System::Drawing::Size(164, 166);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox1->TabIndex = 3;
 			this->pictureBox1->TabStop = false;
 			// 
 			// numericUpDown3
 			// 
-			this->numericUpDown3->Location = System::Drawing::Point(440, 304);
-			this->numericUpDown3->Margin = System::Windows::Forms::Padding(2);
+			this->numericUpDown3->Location = System::Drawing::Point(660, 468);
 			this->numericUpDown3->Name = L"numericUpDown3";
-			this->numericUpDown3->Size = System::Drawing::Size(80, 20);
+			this->numericUpDown3->Size = System::Drawing::Size(120, 26);
 			this->numericUpDown3->TabIndex = 154;
 			// 
 			// numericUpDown2
 			// 
-			this->numericUpDown2->Location = System::Drawing::Point(440, 164);
-			this->numericUpDown2->Margin = System::Windows::Forms::Padding(2);
+			this->numericUpDown2->Location = System::Drawing::Point(660, 252);
 			this->numericUpDown2->Name = L"numericUpDown2";
-			this->numericUpDown2->Size = System::Drawing::Size(80, 20);
+			this->numericUpDown2->Size = System::Drawing::Size(120, 26);
 			this->numericUpDown2->TabIndex = 153;
 			// 
 			// numericUpDown1
 			// 
-			this->numericUpDown1->Location = System::Drawing::Point(440, 24);
-			this->numericUpDown1->Margin = System::Windows::Forms::Padding(2);
+			this->numericUpDown1->Location = System::Drawing::Point(660, 37);
 			this->numericUpDown1->Name = L"numericUpDown1";
-			this->numericUpDown1->Size = System::Drawing::Size(80, 20);
+			this->numericUpDown1->Size = System::Drawing::Size(120, 26);
 			this->numericUpDown1->TabIndex = 152;
 			// 
 			// pictureBox6
 			// 
 			this->pictureBox6->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
 			this->pictureBox6->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox6.Image")));
-			this->pictureBox6->Location = System::Drawing::Point(545, 298);
+			this->pictureBox6->Location = System::Drawing::Point(818, 458);
+			this->pictureBox6->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->pictureBox6->Name = L"pictureBox6";
-			this->pictureBox6->Size = System::Drawing::Size(31, 26);
+			this->pictureBox6->Size = System::Drawing::Size(44, 38);
 			this->pictureBox6->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox6->TabIndex = 151;
 			this->pictureBox6->TabStop = false;
@@ -216,9 +218,10 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			this->pictureBox5->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
 			this->pictureBox5->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox5.Image")));
-			this->pictureBox5->Location = System::Drawing::Point(545, 158);
+			this->pictureBox5->Location = System::Drawing::Point(818, 243);
+			this->pictureBox5->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->pictureBox5->Name = L"pictureBox5";
-			this->pictureBox5->Size = System::Drawing::Size(31, 26);
+			this->pictureBox5->Size = System::Drawing::Size(44, 38);
 			this->pictureBox5->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox5->TabIndex = 150;
 			this->pictureBox5->TabStop = false;
@@ -227,9 +230,10 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			this->pictureBox4->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
 			this->pictureBox4->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox4.Image")));
-			this->pictureBox4->Location = System::Drawing::Point(545, 24);
+			this->pictureBox4->Location = System::Drawing::Point(818, 37);
+			this->pictureBox4->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->pictureBox4->Name = L"pictureBox4";
-			this->pictureBox4->Size = System::Drawing::Size(31, 26);
+			this->pictureBox4->Size = System::Drawing::Size(44, 38);
 			this->pictureBox4->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox4->TabIndex = 149;
 			this->pictureBox4->TabStop = false;
@@ -239,10 +243,9 @@ namespace MecaTrafiSystemGUIApp {
 			this->label10->AutoSize = true;
 			this->label10->Font = (gcnew System::Drawing::Font(L"Constantia", 12, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label10->Location = System::Drawing::Point(214, 324);
-			this->label10->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label10->Location = System::Drawing::Point(321, 498);
 			this->label10->Name = L"label10";
-			this->label10->Size = System::Drawing::Size(125, 19);
+			this->label10->Size = System::Drawing::Size(192, 29);
 			this->label10->TabIndex = 148;
 			this->label10->Text = L"Especificaciones :";
 			// 
@@ -251,10 +254,9 @@ namespace MecaTrafiSystemGUIApp {
 			this->label9->AutoSize = true;
 			this->label9->Font = (gcnew System::Drawing::Font(L"Constantia", 12, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label9->Location = System::Drawing::Point(214, 188);
-			this->label9->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label9->Location = System::Drawing::Point(321, 289);
 			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(125, 19);
+			this->label9->Size = System::Drawing::Size(192, 29);
 			this->label9->TabIndex = 147;
 			this->label9->Text = L"Especificaciones :";
 			// 
@@ -263,10 +265,9 @@ namespace MecaTrafiSystemGUIApp {
 			this->label8->AutoSize = true;
 			this->label8->Font = (gcnew System::Drawing::Font(L"Constantia", 12, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label8->Location = System::Drawing::Point(214, 44);
-			this->label8->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label8->Location = System::Drawing::Point(321, 68);
 			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(125, 19);
+			this->label8->Size = System::Drawing::Size(192, 29);
 			this->label8->TabIndex = 146;
 			this->label8->Text = L"Especificaciones :";
 			// 
@@ -275,9 +276,10 @@ namespace MecaTrafiSystemGUIApp {
 			this->label3->AutoSize = true;
 			this->label3->Font = (gcnew System::Drawing::Font(L"Sitka Small", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label3->Location = System::Drawing::Point(214, 300);
+			this->label3->Location = System::Drawing::Point(321, 462);
+			this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(221, 24);
+			this->label3->Size = System::Drawing::Size(330, 35);
 			this->label3->TabIndex = 145;
 			this->label3->Text = L"Rodamientos de Rodillos";
 			// 
@@ -286,9 +288,10 @@ namespace MecaTrafiSystemGUIApp {
 			this->label2->AutoSize = true;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Sitka Small", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label2->Location = System::Drawing::Point(214, 164);
+			this->label2->Location = System::Drawing::Point(321, 252);
+			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(198, 24);
+			this->label2->Size = System::Drawing::Size(295, 35);
 			this->label2->TabIndex = 144;
 			this->label2->Text = L"Rodamientos de Bolas";
 			// 
@@ -297,9 +300,10 @@ namespace MecaTrafiSystemGUIApp {
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Sitka Small", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(214, 20);
+			this->label1->Location = System::Drawing::Point(321, 31);
+			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(200, 24);
+			this->label1->Size = System::Drawing::Size(298, 35);
 			this->label1->TabIndex = 143;
 			this->label1->Text = L"Rodamiento de Agujas";
 			// 
@@ -308,10 +312,9 @@ namespace MecaTrafiSystemGUIApp {
 			this->label11->AutoSize = true;
 			this->label11->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label11->Location = System::Drawing::Point(395, 246);
-			this->label11->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label11->Location = System::Drawing::Point(592, 378);
 			this->label11->Name = L"label11";
-			this->label11->Size = System::Drawing::Size(244, 17);
+			this->label11->Size = System::Drawing::Size(337, 25);
 			this->label11->TabIndex = 170;
 			this->label11->Text = L"* Velocidad de rotación : 17,000 RPM";
 			// 
@@ -320,10 +323,9 @@ namespace MecaTrafiSystemGUIApp {
 			this->label12->AutoSize = true;
 			this->label12->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label12->Location = System::Drawing::Point(215, 246);
-			this->label12->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label12->Location = System::Drawing::Point(322, 378);
 			this->label12->Name = L"label12";
-			this->label12->Size = System::Drawing::Size(103, 17);
+			this->label12->Size = System::Drawing::Size(147, 25);
 			this->label12->TabIndex = 169;
 			this->label12->Text = L"* Ancho: 14mm";
 			// 
@@ -332,10 +334,9 @@ namespace MecaTrafiSystemGUIApp {
 			this->label13->AutoSize = true;
 			this->label13->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label13->Location = System::Drawing::Point(395, 218);
-			this->label13->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label13->Location = System::Drawing::Point(592, 335);
 			this->label13->Name = L"label13";
-			this->label13->Size = System::Drawing::Size(175, 17);
+			this->label13->Size = System::Drawing::Size(242, 25);
 			this->label13->TabIndex = 168;
 			this->label13->Text = L"* Diametro exterior : 47mm";
 			// 
@@ -344,10 +345,9 @@ namespace MecaTrafiSystemGUIApp {
 			this->label14->AutoSize = true;
 			this->label14->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label14->Location = System::Drawing::Point(215, 218);
-			this->label14->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label14->Location = System::Drawing::Point(322, 335);
 			this->label14->Name = L"label14";
-			this->label14->Size = System::Drawing::Size(176, 17);
+			this->label14->Size = System::Drawing::Size(241, 25);
 			this->label14->TabIndex = 167;
 			this->label14->Text = L"*  Diametro interior : 20mm";
 			// 
@@ -356,10 +356,9 @@ namespace MecaTrafiSystemGUIApp {
 			this->label6->AutoSize = true;
 			this->label6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label6->Location = System::Drawing::Point(215, 103);
-			this->label6->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label6->Location = System::Drawing::Point(322, 158);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(244, 17);
+			this->label6->Size = System::Drawing::Size(337, 25);
 			this->label6->TabIndex = 174;
 			this->label6->Text = L"* Velocidad de rotación : 15,000 RPM";
 			// 
@@ -368,10 +367,9 @@ namespace MecaTrafiSystemGUIApp {
 			this->label5->AutoSize = true;
 			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label5->Location = System::Drawing::Point(215, 131);
-			this->label5->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label5->Location = System::Drawing::Point(322, 202);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(187, 17);
+			this->label5->Size = System::Drawing::Size(257, 25);
 			this->label5->TabIndex = 173;
 			this->label5->Text = L"* Longitud del rodillo : 20mm";
 			// 
@@ -380,10 +378,9 @@ namespace MecaTrafiSystemGUIApp {
 			this->label4->AutoSize = true;
 			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label4->Location = System::Drawing::Point(401, 73);
-			this->label4->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label4->Location = System::Drawing::Point(602, 112);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(175, 17);
+			this->label4->Size = System::Drawing::Size(242, 25);
 			this->label4->TabIndex = 172;
 			this->label4->Text = L"* Diametro exterior : 32mm";
 			// 
@@ -392,10 +389,9 @@ namespace MecaTrafiSystemGUIApp {
 			this->label7->AutoSize = true;
 			this->label7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label7->Location = System::Drawing::Point(215, 73);
-			this->label7->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label7->Location = System::Drawing::Point(322, 112);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(176, 17);
+			this->label7->Size = System::Drawing::Size(241, 25);
 			this->label7->TabIndex = 171;
 			this->label7->Text = L"*  Diametro interior : 20mm";
 			// 
@@ -404,10 +400,9 @@ namespace MecaTrafiSystemGUIApp {
 			this->label15->AutoSize = true;
 			this->label15->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label15->Location = System::Drawing::Point(401, 395);
-			this->label15->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label15->Location = System::Drawing::Point(602, 608);
 			this->label15->Name = L"label15";
-			this->label15->Size = System::Drawing::Size(244, 17);
+			this->label15->Size = System::Drawing::Size(337, 25);
 			this->label15->TabIndex = 178;
 			this->label15->Text = L"* Velocidad de rotación : 14,000 RPM";
 			// 
@@ -416,10 +411,9 @@ namespace MecaTrafiSystemGUIApp {
 			this->label16->AutoSize = true;
 			this->label16->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label16->Location = System::Drawing::Point(401, 357);
-			this->label16->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label16->Location = System::Drawing::Point(602, 549);
 			this->label16->Name = L"label16";
-			this->label16->Size = System::Drawing::Size(103, 17);
+			this->label16->Size = System::Drawing::Size(147, 25);
 			this->label16->TabIndex = 177;
 			this->label16->Text = L"* Ancho: 14mm";
 			// 
@@ -428,10 +422,9 @@ namespace MecaTrafiSystemGUIApp {
 			this->label17->AutoSize = true;
 			this->label17->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label17->Location = System::Drawing::Point(215, 395);
-			this->label17->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label17->Location = System::Drawing::Point(322, 608);
 			this->label17->Name = L"label17";
-			this->label17->Size = System::Drawing::Size(175, 17);
+			this->label17->Size = System::Drawing::Size(242, 25);
 			this->label17->TabIndex = 176;
 			this->label17->Text = L"* Diametro exterior : 47mm";
 			// 
@@ -440,19 +433,22 @@ namespace MecaTrafiSystemGUIApp {
 			this->label18->AutoSize = true;
 			this->label18->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label18->Location = System::Drawing::Point(215, 357);
-			this->label18->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label18->Location = System::Drawing::Point(322, 549);
 			this->label18->Name = L"label18";
-			this->label18->Size = System::Drawing::Size(176, 17);
+			this->label18->Size = System::Drawing::Size(241, 25);
 			this->label18->TabIndex = 175;
 			this->label18->Text = L"*  Diametro interior : 20mm";
 			// 
 			// button1
 			// 
-			this->button1->BackColor = System::Drawing::Color::DarkSlateGray;
-			this->button1->Location = System::Drawing::Point(218, 443);
+			this->button1->BackColor = System::Drawing::Color::SandyBrown;
+			this->button1->Font = (gcnew System::Drawing::Font(L"Gadugi", 10, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button1->ForeColor = System::Drawing::SystemColors::Control;
+			this->button1->Location = System::Drawing::Point(327, 682);
+			this->button1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(84, 31);
+			this->button1->Size = System::Drawing::Size(126, 48);
 			this->button1->TabIndex = 179;
 			this->button1->Text = L"Regresar";
 			this->button1->UseVisualStyleBackColor = false;
@@ -460,10 +456,10 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// ventaroda
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::LightGray;
-			this->ClientSize = System::Drawing::Size(694, 531);
+			this->ClientSize = System::Drawing::Size(1041, 817);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->label15);
 			this->Controls->Add(this->label16);
@@ -491,6 +487,7 @@ namespace MecaTrafiSystemGUIApp {
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->panelmotores);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+			this->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Name = L"ventaroda";
 			this->Text = L"ventaroda";
 			this->panelmotores->ResumeLayout(false);

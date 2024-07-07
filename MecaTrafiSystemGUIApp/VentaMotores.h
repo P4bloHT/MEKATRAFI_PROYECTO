@@ -63,10 +63,13 @@ namespace MecaTrafiSystemGUIApp {
 	private: System::Windows::Forms::PictureBox^ pictureBox4;
 	private: System::Windows::Forms::PictureBox^ pictureBox5;
 	private: System::Windows::Forms::PictureBox^ pictureBox6;
-	private: System::Windows::Forms::NumericUpDown^ numericUpDown1;
-	private: System::Windows::Forms::NumericUpDown^ numericUpDown2;
-	private: System::Windows::Forms::NumericUpDown^ numericUpDown3;
+
+
+
 	private: System::Windows::Forms::Button^ button1;
+	private: System::Windows::Forms::TextBox^ textBox1;
+	private: System::Windows::Forms::TextBox^ textBox2;
+	private: System::Windows::Forms::TextBox^ textBox3;
 
 	private:
 		/// <summary>
@@ -107,10 +110,10 @@ namespace MecaTrafiSystemGUIApp {
 			this->pictureBox4 = (gcnew System::Windows::Forms::PictureBox());
 			this->pictureBox5 = (gcnew System::Windows::Forms::PictureBox());
 			this->pictureBox6 = (gcnew System::Windows::Forms::PictureBox());
-			this->numericUpDown1 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->numericUpDown2 = (gcnew System::Windows::Forms::NumericUpDown());
-			this->numericUpDown3 = (gcnew System::Windows::Forms::NumericUpDown());
 			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
+			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
 			this->panelmotores->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
@@ -118,9 +121,6 @@ namespace MecaTrafiSystemGUIApp {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown1))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown2))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown3))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// panelmotores
@@ -411,30 +411,11 @@ namespace MecaTrafiSystemGUIApp {
 			this->pictureBox6->TabIndex = 89;
 			this->pictureBox6->TabStop = false;
 			// 
-			// numericUpDown1
-			// 
-			this->numericUpDown1->Location = System::Drawing::Point(602, 45);
-			this->numericUpDown1->Name = L"numericUpDown1";
-			this->numericUpDown1->Size = System::Drawing::Size(120, 26);
-			this->numericUpDown1->TabIndex = 104;
-			// 
-			// numericUpDown2
-			// 
-			this->numericUpDown2->Location = System::Drawing::Point(602, 257);
-			this->numericUpDown2->Name = L"numericUpDown2";
-			this->numericUpDown2->Size = System::Drawing::Size(120, 26);
-			this->numericUpDown2->TabIndex = 105;
-			// 
-			// numericUpDown3
-			// 
-			this->numericUpDown3->Location = System::Drawing::Point(602, 472);
-			this->numericUpDown3->Name = L"numericUpDown3";
-			this->numericUpDown3->Size = System::Drawing::Size(120, 26);
-			this->numericUpDown3->TabIndex = 106;
-			// 
 			// button1
 			// 
 			this->button1->BackColor = System::Drawing::Color::SandyBrown;
+			this->button1->Font = (gcnew System::Drawing::Font(L"Gadugi", 10, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->button1->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
 			this->button1->Location = System::Drawing::Point(568, 605);
 			this->button1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
@@ -445,15 +426,36 @@ namespace MecaTrafiSystemGUIApp {
 			this->button1->UseVisualStyleBackColor = false;
 			this->button1->Click += gcnew System::EventHandler(this, &VentaMotores::button1_Click);
 			// 
+			// textBox1
+			// 
+			this->textBox1->Location = System::Drawing::Point(639, 44);
+			this->textBox1->Name = L"textBox1";
+			this->textBox1->Size = System::Drawing::Size(100, 26);
+			this->textBox1->TabIndex = 145;
+			// 
+			// textBox2
+			// 
+			this->textBox2->Location = System::Drawing::Point(639, 266);
+			this->textBox2->Name = L"textBox2";
+			this->textBox2->Size = System::Drawing::Size(100, 26);
+			this->textBox2->TabIndex = 146;
+			// 
+			// textBox3
+			// 
+			this->textBox3->Location = System::Drawing::Point(639, 475);
+			this->textBox3->Name = L"textBox3";
+			this->textBox3->Size = System::Drawing::Size(100, 26);
+			this->textBox3->TabIndex = 147;
+			// 
 			// VentaMotores
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1032, 674);
+			this->Controls->Add(this->textBox3);
+			this->Controls->Add(this->textBox2);
+			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->button1);
-			this->Controls->Add(this->numericUpDown3);
-			this->Controls->Add(this->numericUpDown2);
-			this->Controls->Add(this->numericUpDown1);
 			this->Controls->Add(this->pictureBox6);
 			this->Controls->Add(this->pictureBox5);
 			this->Controls->Add(this->pictureBox4);
@@ -480,6 +482,7 @@ namespace MecaTrafiSystemGUIApp {
 			this->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Name = L"VentaMotores";
 			this->Text = L"VentaMotores";
+			this->Load += gcnew System::EventHandler(this, &VentaMotores::VentaMotores_Load);
 			this->panelmotores->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
@@ -487,9 +490,6 @@ namespace MecaTrafiSystemGUIApp {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown1))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown2))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown3))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -501,6 +501,9 @@ private: System::Void pictureBox5_Click(System::Object^ sender, System::EventArg
 }
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->Close();
+}
+private: System::Void VentaMotores_Load(System::Object^ sender, System::EventArgs^ e) {
+	/*Mostrar el stock de los motores*/
 }
 };
 }

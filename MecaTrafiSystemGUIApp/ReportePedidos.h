@@ -240,9 +240,9 @@ namespace MecaTrafiSystemGUIApp {
 			this->Controls->Add(this->chartVentas);
 			this->Controls->Add(this->chartGanancias);
 			this->Controls->Add(this->chart1);
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::SizableToolWindow;
 			this->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Name = L"ReportePedidos";
-			this->Text = L"ReportePedidos";
 			this->Load += gcnew System::EventHandler(this, &ReportePedidos::ReportePedidos_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chartGanancias))->EndInit();
