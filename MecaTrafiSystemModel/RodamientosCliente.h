@@ -22,8 +22,8 @@ namespace MecaTrafiSystemModel {
         property double Ancho;
         RodamientosCliente() {}
         RodamientosCliente(int id, String^ name, String^ description, double unitaryPrice, int stock, array<Byte>^ photo, String^ brand, String^ model,
-            String^ tipo, double diametroInter, double diametroExter, double ancho) :
-            MechanicComponent(id, Proveedor, name, description, unitaryPrice, stock, photo, brand, model) {
+            String^ tipo, double diametroInter, double diametroExter, double ancho, String^ proveedor) :
+            MechanicComponent(id, proveedor, name, description, unitaryPrice, stock, photo, brand, model) {
             Tipo = tipo;
             DiametroInter = diametroInter;
             DiametroExter = diametroExter;

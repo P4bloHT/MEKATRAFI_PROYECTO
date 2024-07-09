@@ -13,13 +13,15 @@ namespace MecaTrafiSystemModel {
     public ref class User {
     public:
         int Id;
+        property int Dni;
+        property int Codigo;
         property String^ Username;
         property String^ Password;
         property String^ Name;
         property String^ Lastname;
        
         User();
-        User(int id, String^ username, String^ password, String^ name, String^ lastname);
+        User(int id, int dni, int codigo, String^ username, String^ password, String^ name, String^ lastname);
 
     };
 }

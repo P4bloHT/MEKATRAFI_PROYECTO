@@ -22,11 +22,13 @@ namespace MecaTrafiSystemModel {
         property String^ Carrera;
         property int Contact;
         property array<Byte>^ Photo;
-       
+        property int Dni;
+        property int Codigo;
+        property String^ Status;
         Client(){}
         Client(int id, String^ username, String^ password, String^ name, String^ lastname, bool isCorp, bool isFrequent, 
-            String^ curso, int ciclo, String^ carrera, int contact, array<Byte>^ Photo) :
-            User(id, username, password, name, lastname) {
+            String^ curso, int ciclo, String^ carrera, int contact, array<Byte>^ Photo, int dni, int codigo, String^ status) :
+            User(id,dni,codigo, username, password, name, lastname) {
             IsCorp = isCorp;
             IsFrequent = isFrequent;
             Curso = curso;
@@ -34,6 +36,9 @@ namespace MecaTrafiSystemModel {
             Carrera = carrera;
             Contact = contact;
             Photo = Photo;
+            Codigo = codigo;
+            Dni = dni;
+            Status = status;
         }
     };
 }

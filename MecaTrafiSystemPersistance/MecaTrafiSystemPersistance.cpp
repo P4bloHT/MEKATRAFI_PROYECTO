@@ -210,7 +210,7 @@ List<User^>^ MecaTrafiSystemPersistance::Persistance::LoadUser()
         SqlConnection^ conn = GetConnection();
 
         //PREPARA SQL
-        SqlCommand^ cmd = gcnew SqlCommand("SELECT * FROM ALL_USER", conn);
+        SqlCommand^ cmd = gcnew SqlCommand("SELECT * FROM EMPLEADO", conn);
         //EJECUTA SQL
         reader = cmd->ExecuteReader();
 
@@ -244,309 +244,635 @@ List<User^>^ MecaTrafiSystemPersistance::Persistance::LoadUser()
 
 int MecaTrafiSystemPersistance::Persistance::AddEmployee(Employee^ employee)
 {
-  //  employeeListDB->Add(employee);
-    //  PresistTextFile(TXT_EMPLOYEE_FILE_NAME, employeeListDB); //Metodo para .txt
-    //  PresistXMLFile(XML_EMPLOYEE_FILE_NAME, employeeListDB); //Metodo para XML
-   PersistBinaryFile(BIN_EMPLOYEE_FILE_NAME, employeeListDB); //Metodo para Binario
-   return 1;
-    
+    int employeeId = 0;
+    SqlConnection^ conn = nullptr;
+
+    try {
+        // Paso 1: Obtener la conexión a la BD
+        conn = GetConnection();
+
+        // Paso 2: Preparar la sentencia
+        String^ sqlStr = "dbo.usp_AddEmpleado"; // Nombre del procedimiento almacenado
+        SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
+        cmd->CommandType = System::Data::CommandType::StoredProcedure;
+
+        // Paso 3: Definir los parámetros del procedimiento almacenado
+        cmd->Parameters->Add("@CODIGO", System::Data::SqlDbType::Int);
+        cmd->Parameters->Add("@DNI", System::Data::SqlDbType::Int);
+        cmd->Parameters->Add("@USERNAME", System::Data::SqlDbType::VarChar, 100);
+        cmd->Parameters->Add("@PASSWORD", System::Data::SqlDbType::VarChar, 100);
+        cmd->Parameters->Add("@NAME", System::Data::SqlDbType::VarChar, 100);
+        cmd->Parameters->Add("@LASTNAME", System::Data::SqlDbType::VarChar, 100);
+        cmd->Parameters->Add("@STATUS", System::Data::SqlDbType::Char, 1);
+        cmd->Parameters->Add("@TELEFONO", System::Data::SqlDbType::Int);
+        cmd->Parameters->Add("@PHOTO", System::Data::SqlDbType::Image);
+        cmd->Parameters->Add("@QUOTA", System::Data::SqlDbType::Decimal);
+        cmd->Parameters["@QUOTA"]->Precision = 10;
+        cmd->Parameters["@QUOTA"]->Scale = 2;
+        cmd->Parameters->Add("@SALES", System::Data::SqlDbType::Decimal);
+        cmd->Parameters["@SALES"]->Precision = 10;
+        cmd->Parameters["@SALES"]->Scale = 2;
+        cmd->Parameters->Add("@WORKHOURS", System::Data::SqlDbType::Decimal);
+        cmd->Parameters["@WORKHOURS"]->Precision = 10;
+        cmd->Parameters["@WORKHOURS"]->Scale = 2;
+        cmd->Parameters->Add("@SALARY", System::Data::SqlDbType::Decimal);
+        cmd->Parameters["@SALARY"]->Precision = 10;
+        cmd->Parameters["@SALARY"]->Scale = 2;
+        cmd->Parameters->Add("@WARNINGS", System::Data::SqlDbType::VarChar, 300);
+        cmd->Parameters->Add("@TURNO", System::Data::SqlDbType::VarChar, 50);
+        cmd->Parameters->Add("@I_CONTRATO", System::Data::SqlDbType::Date);
+        cmd->Parameters->Add("@F_CONTRATO", System::Data::SqlDbType::Date);
+
+        // Parámetro de salida para el ID del empleado
+        SqlParameter^ outputIdParam = gcnew SqlParameter("@ID", System::Data::SqlDbType::Int);
+        outputIdParam->Direction = System::Data::ParameterDirection::Output;
+        cmd->Parameters->Add(outputIdParam);
+
+        // Paso 4: Preparar la sentencia
+        cmd->Prepare();
+
+        // Paso 5: Asignar valores a los parámetros
+        cmd->Parameters["@CODIGO"]->Value = employee->Codigo;
+        cmd->Parameters["@DNI"]->Value = employee->Dni;
+        cmd->Parameters["@USERNAME"]->Value = employee->Username;
+        cmd->Parameters["@PASSWORD"]->Value = employee->Password;
+        cmd->Parameters["@NAME"]->Value = employee->Name;
+        cmd->Parameters["@LASTNAME"]->Value = employee->Lastname;
+        cmd->Parameters["@STATUS"]->Value = employee->Status ? "Y" : "N";
+        cmd->Parameters["@TELEFONO"]->Value = employee->PhoneNumber;
+        cmd->Parameters["@QUOTA"]->Value = employee->Quota;
+        cmd->Parameters["@SALES"]->Value = employee->Sales;
+        cmd->Parameters["@WORKHOURS"]->Value = employee->WorkHours;
+        cmd->Parameters["@SALARY"]->Value = employee->Salary;
+        cmd->Parameters["@WARNINGS"]->Value = employee->Warnings;
+        cmd->Parameters["@TURNO"]->Value = employee->Turn;
+        cmd->Parameters["@I_CONTRATO"]->Value = employee->InicioContratoDate;
+        cmd->Parameters["@F_CONTRATO"]->Value = employee->FinContratoDate;
+        if (employee->Photo == nullptr)
+            cmd->Parameters["@PHOTO"]->Value = DBNull::Value;
+        else
+            cmd->Parameters["@PHOTO"]->Value = employee->Photo;
+
+        // Paso 6: Ejecutar la consulta
+        cmd->ExecuteNonQuery();
+
+        // Paso 7: Obtener el ID del empleado insertado
+        employeeId = Convert::ToInt32(cmd->Parameters["@ID"]->Value);
+    }
+    catch (Exception^ ex) {
+        throw ex;
+    }
+    finally {
+        // Paso 8: Cerrar la conexión
+        if (conn != nullptr) conn->Close();
+    }
+
+    return employeeId;
 }
 
 List<Employee^>^ MecaTrafiSystemPersistance::Persistance::QueryAllEmployees()
 {
-    //employeeListDB = (List<Employee^>^)LoadTextFile(TXT_EMPLOYEE_FILE_NAME); //Casting Metodo para .txt
-   // employeeListDB = (List<Employee^>^)LoadXMLFile(XML_EMPLOYEE_FILE_NAME); //Casting Metodo para XML
-    employeeListDB = (List<Employee^>^)LoadBinaryFile(BIN_EMPLOYEE_FILE_NAME);// Metodo para Binario
-    if (employeeListDB == nullptr) {
-        employeeListDB = gcnew List<Employee^>(); // Este es el caso que si es un nullptr
+    List<Employee^>^ employees = gcnew List<Employee^>();
+    SqlConnection^ conn = nullptr;
+    SqlDataReader^ reader = nullptr;
+    try {
+        // Obtener la conexión a la BD
+        conn = GetConnection();
+
+        // Preparar la consulta SQL
+        String^ sqlStr = "dbo.usp_QueryAllEmpleados"; // Nombre del procedimiento almacenado
+        SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
+        cmd->CommandType = System::Data::CommandType::StoredProcedure;
+
+        // Ejecutar la consulta
+        reader = cmd->ExecuteReader();
+
+        // Procesar los datos
+        while (reader->Read()) {
+            Employee^ employee = gcnew Employee();
+            employee->Id = Convert::ToInt32(reader["ID"]->ToString());
+            employee->Codigo = Convert::ToInt32(reader["CODIGO"]->ToString());
+            employee->Dni = Convert::ToInt32(reader["DNI"]->ToString());
+            employee->Username = reader["USERNAME"]->ToString();
+            employee->Password = reader["PASSWORD"]->ToString();
+            employee->Name = reader["NAME"]->ToString();
+            employee->Lastname = reader["LASTNAME"]->ToString();
+            employee->Status = (reader["STATUS"]->ToString() == "Y"); // Convertir "Y" a true, "N" a false
+            employee->PhoneNumber = Convert::ToInt32(reader["TELEFONO"]->ToString());
+            // Verificar si la columna PHOTO es NULL antes de asignarla
+            if (!DBNull::Value->Equals(reader["PHOTO"]))
+            employee->Photo = (array<Byte>^)reader["PHOTO"];
+            employee->Quota = Convert::ToDouble(reader["QUOTA"]->ToString());
+            employee->Sales = Convert::ToInt32(reader["SALES"]->ToString());
+            employee->WorkHours = Convert::ToDouble(reader["WORKHOURS"]->ToString());
+            employee->Salary = Convert::ToDouble(reader["SALARY"]->ToString());
+            employee->Warnings = reader["WARNINGS"]->ToString();
+            employee->Turn = reader["TURNO"]->ToString();
+            employee->InicioContratoDate = Convert::ToDateTime(reader["I_CONTRATO"]->ToString());
+            employee->FinContratoDate = Convert::ToDateTime(reader["F_CONTRATO"]->ToString());
+
+            employees->Add(employee);
+        }
     }
-    return employeeListDB;
+    catch (Exception^ ex) {
+        throw ex; // Relanzar la excepción para manejo externo
+    }
+    finally {
+        // Cerrar objetos de BD
+        if (reader != nullptr) reader->Close();
+        if (conn != nullptr) conn->Close();
+    }
+    return employees;
 }
 
 int MecaTrafiSystemPersistance::Persistance::UpdateEmployee(Employee^ employee)
 {
-    for (int i = 0; i < employeeListDB->Count; i++) { //Buscar 
-        if (employeeListDB[i]->Id == employee->Id) {
-            employeeListDB[i] = employee; //Modifica el dato
-            // PresistTextFile(TXT_EMPLOYEE_FILE_NAME, employeeListDB);
-            // PresistXMLFile(XML_EMPLOYEE_FILE_NAME, employeeListDB);
-            PersistBinaryFile(BIN_EMPLOYEE_FILE_NAME, employeeListDB);// Metodo para Binario
-            return employee->Id;
-        }
-    }
-    return 0;
-}
+    SqlConnection^ conn = nullptr;
 
-int MecaTrafiSystemPersistance::Persistance::DeleteEmployee(int employeeId)
-{
-    for (int i = 0; i < employeeListDB->Count; i++) {
-        if (employeeListDB[i]->Id == employeeId) {
-            employeeListDB->RemoveAt(i);
-            //PresistTextFile(TXT_EMPLOYEE_FILE_NAME, employeeListDB);
-           // PresistXMLFile(XML_EMPLOYEE_FILE_NAME, employeeListDB);
-            PersistBinaryFile(BIN_EMPLOYEE_FILE_NAME, employeeListDB);// Metodo para Binario
-            return employeeId;
-        }
+    try {
+        // Paso 1: Obtener la conexión a la BD
+        conn = GetConnection();
+
+        // Paso 2: Preparar la sentencia
+        String^ sqlStr = "dbo.usp_UpdateEmpleado"; // Nombre del procedimiento almacenado
+        SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
+        cmd->CommandType = System::Data::CommandType::StoredProcedure;
+
+        // Paso 3: Definir los parámetros del procedimiento almacenado
+        cmd->Parameters->Add("@ID", System::Data::SqlDbType::Int);
+        cmd->Parameters->Add("@CODIGO", System::Data::SqlDbType::Int);
+        cmd->Parameters->Add("@DNI", System::Data::SqlDbType::Int);
+        cmd->Parameters->Add("@USERNAME", System::Data::SqlDbType::VarChar, 100);
+        cmd->Parameters->Add("@PASSWORD", System::Data::SqlDbType::VarChar, 100);
+        cmd->Parameters->Add("@NAME", System::Data::SqlDbType::VarChar, 100);
+        cmd->Parameters->Add("@LASTNAME", System::Data::SqlDbType::VarChar, 100);
+        cmd->Parameters->Add("@STATUS", System::Data::SqlDbType::Char, 1);
+        cmd->Parameters->Add("@TELEFONO", System::Data::SqlDbType::Int);
+        cmd->Parameters->Add("@PHOTO", System::Data::SqlDbType::Image);
+        cmd->Parameters->Add("@QUOTA", System::Data::SqlDbType::Decimal);
+        cmd->Parameters["@QUOTA"]->Precision = 10;
+        cmd->Parameters["@QUOTA"]->Scale = 2;
+        cmd->Parameters->Add("@SALES", System::Data::SqlDbType::Decimal);
+        cmd->Parameters["@SALES"]->Precision = 10;
+        cmd->Parameters["@SALES"]->Scale = 2;
+        cmd->Parameters->Add("@WORKHOURS", System::Data::SqlDbType::Decimal);
+        cmd->Parameters["@WORKHOURS"]->Precision = 10;
+        cmd->Parameters["@WORKHOURS"]->Scale = 2;
+        cmd->Parameters->Add("@SALARY", System::Data::SqlDbType::Decimal);
+        cmd->Parameters["@SALARY"]->Precision = 10;
+        cmd->Parameters["@SALARY"]->Scale = 2;
+        cmd->Parameters->Add("@WARNINGS", System::Data::SqlDbType::VarChar, 300);
+        cmd->Parameters->Add("@TURNO", System::Data::SqlDbType::VarChar, 50);
+        cmd->Parameters->Add("@I_CONTRATO", System::Data::SqlDbType::Date);
+        cmd->Parameters->Add("@F_CONTRATO", System::Data::SqlDbType::Date);
+
+        // Paso 4: Preparar la sentencia
+        cmd->Prepare();
+
+        // Paso 5: Asignar valores a los parámetros
+        cmd->Parameters["@ID"]->Value = employee->Id;
+        cmd->Parameters["@CODIGO"]->Value = employee->Codigo;
+        cmd->Parameters["@DNI"]->Value = employee->Dni;
+        cmd->Parameters["@USERNAME"]->Value = employee->Username;
+        cmd->Parameters["@PASSWORD"]->Value = employee->Password;
+        cmd->Parameters["@NAME"]->Value = employee->Name;
+        cmd->Parameters["@LASTNAME"]->Value = employee->Lastname;
+        cmd->Parameters["@STATUS"]->Value = employee->Status ? "Y" : "N";
+        cmd->Parameters["@TELEFONO"]->Value = employee->PhoneNumber;
+        cmd->Parameters["@QUOTA"]->Value = employee->Quota;
+        cmd->Parameters["@SALES"]->Value = employee->Sales;
+        cmd->Parameters["@WORKHOURS"]->Value = employee->WorkHours;
+        cmd->Parameters["@SALARY"]->Value = employee->Salary;
+        cmd->Parameters["@WARNINGS"]->Value = employee->Warnings;
+        cmd->Parameters["@TURNO"]->Value = employee->Turn;
+        cmd->Parameters["@I_CONTRATO"]->Value = employee->InicioContratoDate;
+        cmd->Parameters["@F_CONTRATO"]->Value = employee->FinContratoDate;
+        if (employee->Photo == nullptr)
+            cmd->Parameters["@PHOTO"]->Value = DBNull::Value;
+        else
+            cmd->Parameters["@PHOTO"]->Value = employee->Photo;
+
+        // Paso 6: Ejecutar la consulta
+        cmd->ExecuteNonQuery();
     }
-    return 0;
+    catch (Exception^ ex) {
+        throw ex; // Relanzar la excepción para manejo externo
+    }
+    finally {
+        // Paso 7: Cerrar la conexión
+        if (conn != nullptr) conn->Close();
+    }
+
+    return 1; // Indicar éxito en la operación (puedes ajustar según lo necesario)
 }
 
 Employee^ MecaTrafiSystemPersistance::Persistance::QueryAllEmployeesById(int employeeId)
 {
-    // employeeListDB = (List<Employee^>^)LoadTextFile(TXT_EMPLOYEE_FILE_NAME); //Carga Archivo
-     //employeeListDB = (List<Employee^>^)LoadXMLFile(XML_EMPLOYEE_FILE_NAME); 
-    employeeListDB = (List<Employee^>^)LoadBinaryFile(BIN_EMPLOYEE_FILE_NAME);
-
-    for (int i = 0; i < employeeListDB->Count; i++) { //Cuenta
-        if (employeeListDB[i]->Id == employeeId) { //Si lo encuentra lo retorna
-            return employeeListDB[i];
-        }
-    }
-    return nullptr;
-}
-
-int MecaTrafiSystemPersistance::Persistance::Addclient(Client^ cliente)
-{
- //   clientlistdatos->Add(cliente);
-    //PersistTextFile(TXT_CLIENT_FILE_NAME, clientlistdatos);
-    //PersistTextFile(XML_CLIENT_FILE_NAME, clientlistdatos);
-   // PersistBinaryFile(BIN_CLIENT_FILE_NAME, clientlistdatos);
-
-    //return 1;
-    int clienteId = 0;
+    Employee^ employee = nullptr;
     SqlConnection^ conn = nullptr;
+    SqlDataReader^ reader = nullptr;
     try {
         // Obtener la conexión a la BD
         conn = GetConnection();
 
-        // Preparar la sentencia
-        String^ sqlStr = "dbo.usp_AddClientes";
+        // Preparar la consulta SQL
+        String^ sqlStr = "dbo.usp_QueryEmpleadoById"; // Nombre del procedimiento almacenado
         SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
-        cmd->CommandType = System::Data::CommandType:: StoredProcedure;
-        cmd->Parameters->Add("@NAME", System::Data::SqlDbType::VarChar, 200)->Value = cliente-> Name;
-        cmd->Parameters->Add("@CARRERA", System::Data::SqlDbType::VarChar, 200)->Value = cliente-> Carrera;
-        cmd->Parameters->Add("@TELEFONO", System::Data::SqlDbType::VarChar, 200)->Value = cliente-> Contact;
-        cmd->Parameters->Add("@CODIGO", System::Data::SqlDbType::VarChar, 200)->Value = cliente-> Id;
-        cmd->Parameters->Add("@PHOTO", System::Data::SqlDbType::Image)->Value = cliente->Name;
-        /*if (cliente->Photo == nullptr)
+        cmd->CommandType = System::Data::CommandType::StoredProcedure;
+
+        // Agregar parámetro
+        cmd->Parameters->Add("@ID", System::Data::SqlDbType::Int);
+        cmd->Prepare();
+        cmd->Parameters["@ID"]->Value = employeeId;
+
+        // Ejecutar la consulta
+        reader = cmd->ExecuteReader();
+
+        // Procesar los datos
+        if (reader->Read()) {
+            employee = gcnew Employee();
+            employee->Id = Convert::ToInt32(reader["ID"]);
+            employee->Codigo = Convert::ToInt32(reader["CODIGO"]);
+            employee->Dni = Convert::ToInt32(reader["DNI"]);
+            employee->Username = reader["USERNAME"]->ToString();
+            employee->Password = reader["PASSWORD"]->ToString();
+            employee->Name = reader["NAME"]->ToString();
+            employee->Lastname = reader["LASTNAME"]->ToString();
+            employee->Status = (reader["STATUS"]->ToString() == "Y"); // Convertir "Y" a true, "N" a false
+            employee->PhoneNumber = Convert::ToInt32(reader["TELEFONO"]);
+            employee->Quota = Convert::ToDouble(reader["QUOTA"]);
+            employee->Sales = Convert::ToDouble(reader["SALES"]);
+            employee->WorkHours = Convert::ToDouble(reader["WORKHOURS"]);
+            employee->Salary = Convert::ToDouble(reader["SALARY"]);
+            employee->Warnings = reader["WARNINGS"]->ToString();
+            employee->Turn = reader["TURNO"]->ToString();
+            employee->InicioContratoDate = Convert::ToDateTime(reader["I_CONTRATO"]);
+            employee->FinContratoDate = Convert::ToDateTime(reader["F_CONTRATO"]);
+
+            // Verificar si la columna PHOTO es NULL antes de asignarla
+            if (reader["PHOTO"] != DBNull::Value) {
+                employee->Photo = safe_cast<array<Byte>^>(reader["PHOTO"]);
+            }
+        }
+    }
+    catch (Exception^ ex) {
+        throw ex; // Relanzar la excepción para manejo externo
+    }
+    finally {
+        // Cerrar objetos de BD
+        if (reader != nullptr) reader->Close();
+        if (conn != nullptr) conn->Close();
+    }
+    return employee;
+}
+
+Employee^ MecaTrafiSystemPersistance::Persistance::QueryAllEmployeesByName(String^ name)
+{
+    Employee^ employee = nullptr;
+    SqlConnection^ conn = nullptr;
+    SqlDataReader^ reader = nullptr;
+    try {
+        // Obtener la conexión a la BD
+        conn = GetConnection();
+
+        // Preparar la consulta SQL
+        String^ sqlStr = "dbo.usp_QueryEmpleadoByName"; // Nombre del procedimiento almacenado
+        SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
+        cmd->CommandType = System::Data::CommandType::StoredProcedure;
+
+        // Asignar parámetro
+        cmd->Parameters->Add("@NAME", System::Data::SqlDbType::VarChar, 100);
+        cmd->Prepare();
+        cmd->Parameters["@NAME"]->Value = name;
+
+        // Ejecutar la consulta
+        reader = cmd->ExecuteReader();
+
+        // Procesar los datos
+        if (reader->Read()) {
+            employee = gcnew Employee();
+            employee->Id = Convert::ToInt32(reader["ID"]);
+            employee->Codigo = Convert::ToInt32(reader["CODIGO"]);
+            employee->Dni = Convert::ToInt32(reader["DNI"]);
+            employee->Username = reader["USERNAME"]->ToString();
+            employee->Password = reader["PASSWORD"]->ToString();
+            employee->Name = reader["NAME"]->ToString();
+            employee->Lastname = reader["LASTNAME"]->ToString();
+            employee->Status = (reader["STATUS"]->ToString() == "Y"); // Convertir "Y" a true, "N" a false
+            employee->PhoneNumber = Convert::ToInt32(reader["TELEFONO"]);
+            employee->Quota = Convert::ToDouble(reader["QUOTA"]);
+            employee->Sales = Convert::ToDouble(reader["SALES"]);
+            employee->WorkHours = Convert::ToDouble(reader["WORKHOURS"]);
+            employee->Salary = Convert::ToDouble(reader["SALARY"]);
+            employee->Warnings = reader["WARNINGS"]->ToString();
+            employee->Turn = reader["TURNO"]->ToString();
+            employee->InicioContratoDate = Convert::ToDateTime(reader["I_CONTRATO"]);
+            employee->FinContratoDate = Convert::ToDateTime(reader["F_CONTRATO"]);
+
+            // Verificar si la columna PHOTO es NULL antes de asignarla
+            if (reader["PHOTO"] != DBNull::Value) {
+                employee->Photo = safe_cast<array<Byte>^>(reader["PHOTO"]);
+            }
+        }
+    }
+    catch (Exception^ ex) {
+        throw ex; // Relanzar la excepción para manejo externo
+    }
+    finally {
+        // Cerrar objetos de BD
+        if (reader != nullptr) reader->Close();
+        if (conn != nullptr) conn->Close();
+    }
+    return employee;
+}
+
+int MecaTrafiSystemPersistance::Persistance::AddClient(Client^ cliente)
+{
+    int clienteId = 0;
+    SqlConnection^ conn = nullptr;
+
+    try {
+        // Paso 1: Obtener la conexión a la BD
+        conn = GetConnection();
+
+        // Paso 2: Preparar la sentencia
+        String^ sqlStr = "dbo.usp_AddCliente"; // Nombre del procedimiento almacenado
+        SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
+        cmd->CommandType = System::Data::CommandType::StoredProcedure;
+        cliente->Status = "A";
+        cliente->IsCorp = "Y";
+        cliente->IsFrequent = "Y";
+        // Paso 3: Definir los parámetros del procedimiento almacenado
+        cmd->Parameters->Add("@CODIGO", System::Data::SqlDbType::Int);
+        cmd->Parameters->Add("@DNI", System::Data::SqlDbType::Int);
+        cmd->Parameters->Add("@USERNAME", System::Data::SqlDbType::VarChar, 100);
+        cmd->Parameters->Add("@PASSWORD", System::Data::SqlDbType::VarChar, 100);
+        cmd->Parameters->Add("@NAME", System::Data::SqlDbType::VarChar, 100);
+        cmd->Parameters->Add("@LASTNAME", System::Data::SqlDbType::VarChar, 100);
+        cmd->Parameters->Add("@STATUS", System::Data::SqlDbType::Char, 1);
+        cmd->Parameters->Add("@TELEFONO", System::Data::SqlDbType::Int);
+        cmd->Parameters->Add("@PHOTO", System::Data::SqlDbType::Image);
+        cmd->Parameters->Add("@ISCORP", System::Data::SqlDbType::Char, 1);
+        cmd->Parameters->Add("@ISFREQUENT", System::Data::SqlDbType::Char, 1);
+        cmd->Parameters->Add("@CARRERA", System::Data::SqlDbType::VarChar, 100);
+        cmd->Parameters->Add("@CURSO", System::Data::SqlDbType::VarChar, 50);
+
+        // Parámetro de salida para el ID del cliente
+        SqlParameter^ outputIdParam = gcnew SqlParameter("@ID", System::Data::SqlDbType::Int);
+        outputIdParam->Direction = System::Data::ParameterDirection::Output;
+        cmd->Parameters->Add(outputIdParam);
+
+        // Paso 4: Preparar la sentencia
+        cmd->Prepare();
+
+        // Paso 5: Asignar valores a los parámetros
+        cmd->Parameters["@CODIGO"]->Value = cliente->Codigo;
+        cmd->Parameters["@DNI"]->Value = cliente->Dni;
+        cmd->Parameters["@USERNAME"]->Value = cliente->Username;
+        cmd->Parameters["@PASSWORD"]->Value = cliente->Password;
+        cmd->Parameters["@NAME"]->Value = cliente->Name;
+        cmd->Parameters["@LASTNAME"]->Value = cliente->Lastname;
+        cmd->Parameters["@STATUS"]->Value = cliente->Status;
+        cmd->Parameters["@TELEFONO"]->Value = cliente->Contact;
+        cmd->Parameters["@ISCORP"]->Value = cliente->IsCorp ? "Y" : "N";
+        cmd->Parameters["@ISFREQUENT"]->Value = cliente->IsFrequent ? "Y" : "N";
+        cmd->Parameters["@CARRERA"]->Value = cliente->Carrera;
+        cmd->Parameters["@CURSO"]->Value = cliente->Curso;
+        if (cliente->Photo == nullptr)
             cmd->Parameters["@PHOTO"]->Value = DBNull::Value;
         else
             cmd->Parameters["@PHOTO"]->Value = cliente->Photo;
-        */
-        cmd-> Prepare();
-        cmd-> ExecuteNonQuery();
+        // Paso 6: Ejecutar la consulta
+        cmd->ExecuteNonQuery();
 
-        clienteId  = 1; // Asigna el ID del cliente insertado si es necesario
+        // Paso 7: Obtener el ID del cliente insertado
+        clienteId = Convert::ToInt32(cmd->Parameters["@ID"]->Value);
     }
     catch (Exception^ ex) {
         throw ex;
     }
     finally {
+        // Paso 8: Cerrar la conexión
         if (conn != nullptr) conn->Close();
     }
+
     return clienteId;
 }
 
-List<Client^>^ MecaTrafiSystemPersistance::Persistance::Queryallcliente()
+List<Client^>^ MecaTrafiSystemPersistance::Persistance::QueryAllCliente()
 {
-   
-    clientlistdatos = gcnew List<Client^>();
-    SqlConnection^ conn;
-    SqlDataReader^ reader;
-    try {
-        //OBTENER CONEXION
-        SqlConnection^ conn = GetConnection();
-
-        //PREPARA SQL
-        String^ sqlStr = "dbo.usp_QueryAllClientes";
-        SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
-        cmd->Prepare();
-
-        //EJECUTA SQL
-        reader = cmd->ExecuteReader();
-
-        //PROCESA DATO
-        while (reader->Read()) {
-
-            Client^ cliente = gcnew Client();
-            cliente->Id = Convert::ToInt32(reader["CODIGO"]->ToString());
-            cliente->Name = reader["NAME"]->ToString();
-            cliente->Carrera = reader["CARRERA"]->ToString();
-            cliente->Contact = Convert::ToInt32(reader["TELEFONO"]->ToString());
-            /*
-            if (!DBNull:: Value->Equals(reader["PHOTO"]))
-                cliente ->Photo = (array<Byte>^)reader["PHOTO"];
-           */
-            clientlistdatos->Add(cliente);
-        }
-
-    }catch(Exception^ex){
-        throw ex;
-    }
-    finally {
-
-
-
-        //CERRAR LOS OBJETOS A LA BD
-        if (reader != nullptr) reader->Close();
-        if (conn != nullptr) conn-> Close();
-
-    }
-    return clientlistdatos;
-  
-    
-}
-
-int MecaTrafiSystemPersistance::Persistance::UpdateClient(Client^ cliente)
-{
-    /*for (int i = 0; i < clientlistdatos->Count; i++) { //Buscar 
-        if (clientlistdatos[i]->Id == cliente->Id) {
-            clientlistdatos[i] = cliente; //Modifica el dato
-            //PersistBinaryFile(BIN_EMPLOYEE_FILE_NAME, clientlistdatos);// Metodo para Binario
-            PersistBinaryFile(BIN_CLIENT_FILE_NAME, clientlistdatos);
-            return cliente->Id;
-        }
-    }
-    return 0;
-    */
-    int clienteId = 0;
+    List<Client^>^ clientList = gcnew List<Client^>();
     SqlConnection^ conn = nullptr;
+    SqlDataReader^ reader = nullptr;
     try {
         // Obtener la conexión a la BD
         conn = GetConnection();
 
-        // Preparar la sentencia
-        String^ sqlStr = "dbo.usp_UpdateClientes";
+        // Preparar la consulta SQL
+        String^ sqlStr = "dbo.usp_QueryAllClientes"; // Nombre del procedimiento almacenado
         SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
         cmd->CommandType = System::Data::CommandType::StoredProcedure;
-        cmd->Parameters->Add("@NAME", System::Data::SqlDbType::VarChar, 200)->Value = cliente->Name;
-        cmd->Parameters->Add("@CARRERA", System::Data::SqlDbType::VarChar, 200)->Value = cliente->Carrera;
-        cmd->Parameters->Add("@TELEFONO", System::Data::SqlDbType::VarChar, 200)->Value = cliente->Contact;
-        cmd->Parameters->Add("@CODIGO", System::Data::SqlDbType::VarChar, 200)->Value = cliente->Id;
-        cmd->Parameters->Add("@PHOTO", System::Data::SqlDbType::Image)->Value = cliente->Name;
-        cmd->Prepare(); 
-        cmd->Parameters["@NAME"]->Value = cliente->Name;
-        cmd->Parameters["@CARRERA"]->Value = cliente->Carrera;
-        cmd->Parameters["@TELEFONO"]->Value = cliente->Contact;
-        cmd->Parameters["@CODIGO"]->Value = cliente->Id;
-        cmd->Parameters["@PHOTO"]->Value = cliente->Name;
-        /*if (cliente->Photo == nullptr)
-            cmd->Parameters["@PHOTO"]->Value = DBNull::Value;
-        else
-            cmd->Parameters["@PHOTO"]->Value = cliente->Photo;
-        */
-        //Paso 3: Se ejecuta las sentncia SQL
-        cmd->ExecuteNonQuery();
 
-        //Paso 4: Se procesan los resultados
-        //robotId = Convert::ToInt32(cmd->Parameters["@ID"]->Value);
+        // Ejecutar la consulta SQL
+        reader = cmd->ExecuteReader();
+
+        // Procesar los datos
+        while (reader->Read()) {
+            Client^ cliente = gcnew Client();
+            cliente->Id = Convert::ToInt32(reader["ID"]->ToString());
+            cliente->Codigo = Convert::ToInt32(reader["CODIGO"]->ToString()); // Ajustar según la columna de la tabla
+            cliente->Dni = Convert::ToInt32(reader["DNI"]->ToString()); // Ajustar según la columna de la tabla
+            cliente->Username = reader["USERNAME"]->ToString(); // Ajustar según la columna de la tabla
+            cliente->Password = reader["PASSWORD"]->ToString(); // Ajustar según la columna de la tabla
+            cliente->Name = reader["NAME"]->ToString(); // Ajustar según la columna de la tabla
+            cliente->Lastname = reader["LASTNAME"]->ToString(); // Ajustar según la columna de la tabla
+            cliente->Status = reader["STATUS"]->ToString(); // Ajustar según la columna de la tabla (char a string)
+            cliente->Contact = Convert::ToInt32(reader["TELEFONO"]->ToString()); // Ajustar según la columna de la tabla
+            cliente->Curso = reader["CURSO"]->ToString();
+            // Verificar si la columna PHOTO es NULL antes de asignarla
+            if (!DBNull::Value->Equals(reader["PHOTO"]))
+                cliente->Photo = (array<Byte>^)reader["PHOTO"];
+
+            // Ajustar según la columna de la tabla
+           // Asignar IsCorp y IsFrequent basado en los valores de la columna ISCORP e ISFREQUENT
+            String^ isCorpValue = reader["ISCORP"]->ToString();
+            if (isCorpValue == "Y")
+                cliente->IsCorp = true;
+            else//N
+                cliente->IsCorp = false;
+
+            String^ isFrequentValue = reader["ISFREQUENT"]->ToString();
+            if (isFrequentValue == "Y")
+                cliente->IsFrequent = true;
+            else //N
+                cliente->IsFrequent = false;
+
+            cliente->Carrera = reader["CARRERA"] != DBNull::Value ? reader["CARRERA"]->ToString() : nullptr;
+
+            clientList->Add(cliente);
+        }
     }
     catch (Exception^ ex) {
         throw ex;
     }
     finally {
+        // Cerrar objetos de base de datos
+        if (reader != nullptr) reader->Close();
         if (conn != nullptr) conn->Close();
     }
-    return 1;
+    return clientList;
+}
+int MecaTrafiSystemPersistance::Persistance::UpdateClient(Client^ cliente) {
+    SqlConnection^ conn;
 
+    try {
+        // Paso 1: Obtener la conexión a la BD
+        conn = GetConnection();
+        cliente->Status = "A";
+        cliente->IsCorp = "Y";
+        cliente->IsFrequent = "Y";
+        // Paso 2: Preparar la sentencia
+        String^ sqlStr = "dbo.usp_UpdateCliente";
+        SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
+        cmd->CommandType = System::Data::CommandType::StoredProcedure;
+
+        // Paso 3: Agregar parámetros
+        cmd->Parameters->Add("@ID", System::Data::SqlDbType::Int);
+        cmd->Parameters->Add("@CODIGO", System::Data::SqlDbType::Int);
+        cmd->Parameters->Add("@DNI", System::Data::SqlDbType::Int);
+        cmd->Parameters->Add("@USERNAME", System::Data::SqlDbType::VarChar, 100);
+        cmd->Parameters->Add("@PASSWORD", System::Data::SqlDbType::VarChar, 100);
+        cmd->Parameters->Add("@NAME", System::Data::SqlDbType::VarChar, 100);
+        cmd->Parameters->Add("@LASTNAME", System::Data::SqlDbType::VarChar, 100);
+        cmd->Parameters->Add("@STATUS", System::Data::SqlDbType::Char, 1);
+        cmd->Parameters->Add("@TELEFONO", System::Data::SqlDbType::Int);
+        cmd->Parameters->Add("@PHOTO", System::Data::SqlDbType::Image);
+        cmd->Parameters->Add("@ISCORP", System::Data::SqlDbType::Char, 1);
+        cmd->Parameters->Add("@ISFREQUENT", System::Data::SqlDbType::Char, 1);
+        cmd->Parameters->Add("@CARRERA", System::Data::SqlDbType::VarChar, 100);
+        cmd->Parameters->Add("@CURSO", System::Data::SqlDbType::VarChar, 50);
+
+        // Paso 4: Preparar la sentencia
+        cmd->Prepare();
+
+        // Paso 5: Asignar valores a los parámetros
+        cmd->Parameters["@ID"]->Value = cliente->Id;
+        cmd->Parameters["@CODIGO"]->Value = cliente->Codigo;
+        cmd->Parameters["@DNI"]->Value = cliente->Dni;
+        cmd->Parameters["@USERNAME"]->Value = cliente->Username;
+        cmd->Parameters["@PASSWORD"]->Value = cliente->Password;
+        cmd->Parameters["@NAME"]->Value = cliente->Name;
+        cmd->Parameters["@LASTNAME"]->Value = cliente->Lastname;
+        cmd->Parameters["@STATUS"]->Value = cliente->Status;
+        cmd->Parameters["@TELEFONO"]->Value = cliente->Contact;
+        cmd->Parameters["@ISCORP"]->Value = cliente->IsCorp ? "Y" : "N";
+        cmd->Parameters["@ISFREQUENT"]->Value = cliente->IsFrequent ? "Y" : "N";
+        cmd->Parameters["@CURSO"]->Value = cliente->Curso;
+        cmd->Parameters["@CARRERA"]->Value = cliente->Carrera;
+
+        if (cliente->Photo == nullptr)
+            cmd->Parameters["@PHOTO"]->Value = DBNull::Value;
+        else
+            cmd->Parameters["@PHOTO"]->Value = cliente->Photo;
+
+        // Paso 6: Ejecutar la sentencia SQL
+        cmd->ExecuteNonQuery();
+    }
+    catch (Exception^ ex) {
+        throw ex;
+    }
+    finally {
+        // Paso 7: Cerrar la conexión
+        if (conn != nullptr) conn->Close();
+    }
+
+    return 1; // Indicar éxito en la operación
 }
 
 int MecaTrafiSystemPersistance::Persistance::DeleteClient(int clienteId)
 {
- /*   for (int i = 0; i < clientlistdatos->Count; i++) {
-        if (clientlistdatos[i]->Id == clienteId) {
-            clientlistdatos->RemoveAt(i);
-            //PresistTextFile(TXT_EMPLOYEE_FILE_NAME, employeeListDB);
-           // PresistXMLFile(XML_EMPLOYEE_FILE_NAME, employeeListDB);
-            PersistBinaryFile(BIN_CLIENT_FILE_NAME, clientlistdatos);
-            return clienteId;
-        }
-    }
-    return 0;*/
-
-    SqlConnection^ conn; 
+    SqlConnection^ conn = nullptr;
     try {
-        //Paso 1: Obtener la conexión a la BD
-        SqlConnection^ conn = GetConnection(); 
+        // Obtener la conexión a la BD
+        conn = GetConnection();
 
-        //Paso 2: Se prepara la sentencia
-        String^ sqlStr = "dbo.usp_DeleteClientes";
-        SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn); 
-        cmd->CommandType = System::Data::CommandType::StoredProcedure; 
-        cmd->Parameters->Add("@ID", System::Data::SqlDbType::Int); 
-        cmd->Prepare(); 
-        cmd->Parameters["@ID"]->Value = clienteId; 
-
-        //Paso 3: Se ejecuta las sentncia SQL
-        cmd->ExecuteNonQuery();
-
-        //Paso 4: Se procesan los resultados
-        //robotId = Convert::ToInt32(cmd->Parameters["@ID"]->Value);
-    }
-    catch (Exception^ ex) {
-        throw ex;
-    }
-    finally {
-        if (conn != nullptr) conn->Close();
-    }
-    return 1;
-}
-
-
-
-Client^ MecaTrafiSystemPersistance::Persistance::Queryallclienteid(int clienteId)
-{
-   // clientlistdatos = (List<Client^>^)LoadBinaryFile(BIN_CLIENT_FILE_NAME);
-    //for (int i = 0; i < clientlistdatos->Count; i++) { //Cuenta
-    //    if (clientlistdatos[i]->Id == clienteId) { //Si lo encuentra lo retorna
-     //       return clientlistdatos[i];
-     //   }
-  //  }
-   // return nullptr;
-    Client^ cliente;
-    SqlConnection^ conn;
-    SqlDataReader^ reader;
-    try {
-        //OBTENER CONEXION
-        SqlConnection^ conn = GetConnection();
-
-        //PREPARA SQL
-        String^ sqlStr = "dbo.usp_QueryClientesId";
+        // Preparar la sentencia
+        String^ sqlStr = "dbo.usp_DeleteCliente"; // Nombre del procedimiento almacenado
         SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
         cmd->CommandType = System::Data::CommandType::StoredProcedure;
-        cmd->Parameters->Add("@ID", System::Data::SqlDbType::Int); 
-      
+
+        // Asignar parámetro
+        cmd->Parameters->Add("@ID", System::Data::SqlDbType::Int)->Value = clienteId;
+
+        // Ejecutar la consulta
+        cmd->ExecuteNonQuery();
+    }
+    catch (Exception^ ex) {
+        throw ex; // Relanzar la excepción para manejo externo
+    }
+    finally {
+        // Cerrar la conexión
+        if (conn != nullptr) conn->Close();
+    }
+    return 1; // Indicar éxito en la operación (puedes ajustar según lo necesario)
+}
+
+
+
+Client^ MecaTrafiSystemPersistance::Persistance::QueryAllClienteId(int clienteId)
+{
+    Client^ cliente = nullptr;
+    SqlConnection^ conn = nullptr;
+    SqlDataReader^ reader = nullptr;
+    try {
+        // Obtener la conexión a la BD
+        conn = GetConnection();
+
+        // Preparar la consulta SQL
+        String^ sqlStr = "dbo.usp_QueryClienteById"; // Nombre del procedimiento almacenado
+        SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
+        cmd->CommandType = System::Data::CommandType::StoredProcedure;
+
+        // Agregar parámetro
+        cmd->Parameters->Add("@ID", System::Data::SqlDbType::Int);
         cmd->Prepare();
-        cmd->Parameters["@ID"]->Value = clienteId; 
-      
-        //EJECUTA SQL
+        cmd->Parameters["@ID"]->Value = clienteId;
+
+        // Ejecutar la consulta
         reader = cmd->ExecuteReader();
 
-        //PROCESA DATO
+        // Procesar los datos
         if (reader->Read()) {
-            cliente = gcnew Client(); 
-           // Client^ cliente = gcnew Client();
-            cliente->Id = Convert::ToInt64(reader["CODIGO"]->ToString());
-            cliente->Name = reader["NAME"]->ToString();
-            cliente->Carrera = reader["CARRERA"]->ToString();
-            cliente->Contact = Convert::ToInt64(reader["TELEFONO"]->ToString());
-            /*if (!DBNull::Value->Equals(reader["PHOTO"]))
-                cliente->Photo = (array<Byte>^)reader["PHOTO"]; 
-                */
+            cliente = gcnew Client();
+            cliente->Codigo = Convert::ToInt32(reader["CODIGO"]->ToString()); // Ajustar según la columna de la tabla
+            cliente->Dni = Convert::ToInt32(reader["DNI"]->ToString()); // Ajustar según la columna de la tabla
+            cliente->Username = reader["USERNAME"]->ToString(); // Ajustar según la columna de la tabla
+            cliente->Password = reader["PASSWORD"]->ToString(); // Ajustar según la columna de la tabla
+            cliente->Name = reader["NAME"]->ToString(); // Ajustar según la columna de la tabla
+            cliente->Lastname = reader["LASTNAME"]->ToString(); // Ajustar según la columna de la tabla
+            cliente->Status = reader["STATUS"]->ToString(); // Ajustar según la columna de la tabla (char a string)
+            cliente->Contact = Convert::ToInt32(reader["TELEFONO"]->ToString()); // Ajustar según la columna de la tabla
+            cliente->Curso = reader["CURSO"]->ToString();
+            // Verificar si la columna PHOTO es NULL antes de asignarla
+            if (reader["PHOTO"] != DBNull::Value) {
+                cliente->Photo = safe_cast<array<Byte>^>(reader["PHOTO"]); // Ajustar según la columna de la tabla
+            }
+            cliente->IsCorp = reader["ISCORP"]->ToString() == "Y"; // Convertir CHAR(1) a bool
+            cliente->IsFrequent = reader["ISFREQUENT"]->ToString() == "Y"; // Convertir CHAR(1) a bool
+            cliente->Carrera = reader["CARRERA"] != DBNull::Value ? reader["CARRERA"]->ToString() : nullptr; // Ajustar según la columna de la tabla
         }
     }
     catch (Exception^ ex) {
-        throw ex ; 
+        throw ex; // Relanzar la excepción para manejo externo
     }
     finally {
-        //CERRAR LOS OBJETOS A LA BD
+        // Cerrar objetos de base de datos
         if (reader != nullptr) reader->Close();
         if (conn != nullptr) conn->Close();
-
     }
     return cliente;
-
 }
+
 
 int MecaTrafiSystemPersistance::Persistance::Addtornillo(MechanicComponent^ tornillo)
 {

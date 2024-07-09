@@ -19,8 +19,8 @@ namespace MecaTrafiSystemModel {
         property bool Active;
         property double Salary;
         Admin(){}
-        Admin(int id, String^ username, String^ password, String^ name, String^ lastname, String^ observation, bool active, double salary) :
-            User(id, username, password, name, lastname) {
+        Admin(int id, String^ username, String^ password, String^ name, String^ lastname, String^ observation, bool active, double salary, int dni, int codigo) :
+            User(id,dni,codigo, username, password, name, lastname) {
             Observation = observation;
             Active = active;
             Salary = salary;

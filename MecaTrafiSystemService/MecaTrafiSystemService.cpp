@@ -11,24 +11,12 @@ int MecaTrafiSystemService::Service::AddClient(Client^ client)
 
 int MecaTrafiSystemService::Service::UpdateClient(Client^ client)
 {
-    for (int i = 0; i < ClientsDB->Count; i++) {
-        if (ClientsDB[i]->Id == client->Id) {
-            ClientsDB[i] = client;
-            return client->Id;
-        }
-    }
-    return 0;
+    return Persistance::UpdateClient(client);
 }
 
 int MecaTrafiSystemService::Service::DeleteClient(int clientId)
 {
-    for (int i = 0; i < ClientsDB->Count; i++) {
-        if (ClientsDB[i]->Id == clientId) {
-            ClientsDB->RemoveAt(i);
-            return clientId;
-        }
-    }
-    return 0;
+    return Persistance::DeleteClient(clientId);
 }
 
 List<Client^>^ MecaTrafiSystemService::Service::QueryAllClients()
@@ -108,7 +96,7 @@ Employee^ MecaTrafiSystemService::Service::QueryEmployeeById(int employeeId)
 int MecaTrafiSystemService::Service::Addcliente(Client^ cliente)
 {
     //Clientdatos->Add(cliente);
-    Persistance::Addclient(cliente);
+    Persistance::AddClient(cliente);
     return cliente->Id;
 }
 
@@ -133,12 +121,12 @@ int MecaTrafiSystemService::Service::Deletecliente(int clienteid)
 List<Client^>^ MecaTrafiSystemService::Service::Queryallcliente()
 {
     // return Clientdatos; 
-    return Persistance::Queryallcliente();
+    return Persistance::QueryAllCliente();
 }
 
 Client^ MecaTrafiSystemService::Service::Queryallclienteid(int clienteid)
 {
-    return Persistance::Queryallclienteid(clienteid);
+    return Persistance::QueryAllClienteId(clienteid);
 }
 
 int MecaTrafiSystemService::Service::Addtornillos(MechanicComponent^ tornillo)

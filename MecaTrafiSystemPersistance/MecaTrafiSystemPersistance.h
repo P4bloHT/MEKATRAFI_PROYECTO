@@ -71,16 +71,18 @@ namespace MecaTrafiSystemPersistance {
 		static int UpdateEmployee(Employee^ employee);
 		static int DeleteEmployee(int employeeId);
 		static Employee^ QueryAllEmployeesById(int employeeId);
+		static Employee^ QueryAllEmployeesByName(String^ name);
+
 
 		// CRUD CLIENTE
 		static String^ TXT_CLIENT_FILE_NAME = "client.txt";
 		static String^ XML_CLIENT_FILE_NAME = "client.xml";
 		static String^ BIN_CLIENT_FILE_NAME = "client.bin";
-		static int Addclient(Client^ cliente);
-		static List<Client^>^ Queryallcliente();
+		static int AddClient(Client^ cliente);
+		static List<Client^>^ QueryAllCliente();
 		static int UpdateClient(Client^ cliente);
 		static int DeleteClient(int clienteId);
-		static Client^ Queryallclienteid(int clienteId);
+		static Client^ QueryAllClienteId(int clienteId);
 
 
 		//METODOS DE CRUD TORNILLO - STOCK
