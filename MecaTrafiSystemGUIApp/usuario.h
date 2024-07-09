@@ -704,6 +704,7 @@ namespace MecaTrafiSystemGUIApp {
 		}
 		Service::Addcliente(cliente);
 		showclient();
+		Clearcontrols();
 	}
 		   void showclient() {
 			   List <Client^>^ Clientxdatos = Service::Queryallcliente();
@@ -720,23 +721,6 @@ namespace MecaTrafiSystemGUIApp {
 		this->Close();
 	}
 	private: System::Void txteliminar_Click(System::Object^ sender, System::EventArgs^ e) {
-		if (validar_campos() == 0) {
-			return;
-		}
-		try {
-			// Intenta convertir el texto a Int64
-			//Int64 id = Convert::ToInt32(txtid->Text);
-
-			// Llama al método para eliminar el cliente
-			//Service::Deletecliente(id);
-
-			// Actualiza la vista de los clientes
-			showclient();
-		}
-		catch (FormatException^ ex) {
-			// Maneja la excepción de formato si ocurre
-			MessageBox::Show("El valor ingresado no es válido. Asegúrate de ingresar un número entero válido.", "Error de formato", MessageBoxButtons::OK, MessageBoxIcon::Error);
-		}
 	}
 	private: System::Void usuario_load(System::Object^ sender, System::EventArgs^ e) {
 		btn_detele->Enabled = false;

@@ -62,22 +62,12 @@ int MecaTrafiSystemService::Service::UpdateEmployee(Employee^ employee)
 
 int MecaTrafiSystemService::Service::DeleteEmployee(int employeeId)
 {
-    /* CUANDO NO SE USA BASE DE DATOS
-    for (int i = 0; i < EmployeeDB->Count; i++) {
-        if (EmployeeDB[i]->Id == employeeId) {
-            EmployeeDB->RemoveAt(i);
-            return employeeId;
-        }
-    }
-    return 0;
-    */
-    //USANDO BD
+
     return Persistance::DeleteEmployee(employeeId);
 }
 
 List<Employee^>^ MecaTrafiSystemService::Service::QueryAllEmployees()
 {
-    //return EmployeeDB;
     return Persistance::QueryAllEmployees();
 }
 

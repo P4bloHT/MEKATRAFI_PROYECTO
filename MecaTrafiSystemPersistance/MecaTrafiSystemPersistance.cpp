@@ -332,7 +332,7 @@ int MecaTrafiSystemPersistance::Persistance::AddEmployee(Employee^ employee)
 
 List<Employee^>^ MecaTrafiSystemPersistance::Persistance::QueryAllEmployees()
 {
-    List<Employee^>^ employees = gcnew List<Employee^>();
+    employeeListDB = gcnew List<Employee^>();
     SqlConnection^ conn = nullptr;
     SqlDataReader^ reader = nullptr;
     try {
@@ -357,21 +357,23 @@ List<Employee^>^ MecaTrafiSystemPersistance::Persistance::QueryAllEmployees()
             employee->Password = reader["PASSWORD"]->ToString();
             employee->Name = reader["NAME"]->ToString();
             employee->Lastname = reader["LASTNAME"]->ToString();
-            employee->Status = (reader["STATUS"]->ToString() == "Y"); // Convertir "Y" a true, "N" a false
+            employee->Status = reader["STATUS"]->ToString()->Equals("Y") ? true : false;
             employee->PhoneNumber = Convert::ToInt32(reader["TELEFONO"]->ToString());
+
             // Verificar si la columna PHOTO es NULL antes de asignarla
             if (!DBNull::Value->Equals(reader["PHOTO"]))
                 employee->Photo = (array<Byte>^)reader["PHOTO"];
-            employee->Quota = Convert::ToDouble(reader["QUOTA"]->ToString());
-            employee->Sales = Convert::ToInt32(reader["SALES"]->ToString());
-            employee->WorkHours = Convert::ToDouble(reader["WORKHOURS"]->ToString());
-            employee->Salary = Convert::ToDouble(reader["SALARY"]->ToString());
+
+            employee->Quota = reader["QUOTA"] != DBNull::Value ? Convert::ToDouble(reader["QUOTA"]->ToString()) : 0.0;
+            employee->Sales = reader["SALES"] != DBNull::Value ? Convert::ToDouble(reader["SALES"]->ToString()) : 0.0;
+            employee->WorkHours = reader["WORKHOURS"] != DBNull::Value ? Convert::ToDouble(reader["WORKHOURS"]->ToString()) : 0.0;
+            employee->Salary = reader["SALARY"] != DBNull::Value ? Convert::ToDouble(reader["SALARY"]->ToString()) : 0.0;
             employee->Warnings = reader["WARNINGS"]->ToString();
             employee->Turn = reader["TURNO"]->ToString();
-            employee->InicioContratoDate = Convert::ToDateTime(reader["I_CONTRATO"]->ToString());
-            employee->FinContratoDate = Convert::ToDateTime(reader["F_CONTRATO"]->ToString());
+            employee->InicioContratoDate = reader["I_CONTRATO"] != DBNull::Value ? Convert::ToDateTime(reader["I_CONTRATO"]->ToString()) : DateTime();
+            employee->FinContratoDate = reader["F_CONTRATO"] != DBNull::Value ? Convert::ToDateTime(reader["F_CONTRATO"]->ToString()) : DateTime();
 
-            employees->Add(employee);
+            employeeListDB->Add(employee);
         }
     }
     catch (Exception^ ex) {
@@ -382,8 +384,8 @@ List<Employee^>^ MecaTrafiSystemPersistance::Persistance::QueryAllEmployees()
         if (reader != nullptr) reader->Close();
         if (conn != nullptr) conn->Close();
     }
-    return employees;
-}
+    return employeeListDB;
+ }
 
 int MecaTrafiSystemPersistance::Persistance::UpdateEmployee(Employee^ employee)
 {
@@ -742,7 +744,7 @@ int MecaTrafiSystemPersistance::Persistance::UpdateClient(Client^ cliente) {
         cmd->CommandType = System::Data::CommandType::StoredProcedure;
 
         // Paso 3: Agregar parámetros
-        cmd->Parameters->Add("@ID", System::Data::SqlDbType::Int);
+        cmd->Parameters->Add("@ID", System::Data::SqlDbType::Int); 
         cmd->Parameters->Add("@CODIGO", System::Data::SqlDbType::Int);
         cmd->Parameters->Add("@DNI", System::Data::SqlDbType::Int);
         cmd->Parameters->Add("@USERNAME", System::Data::SqlDbType::VarChar, 100);
