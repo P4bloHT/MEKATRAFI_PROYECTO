@@ -3,10 +3,14 @@
 using namespace System;
 using namespace MecaTrafiSystemModel;
 using namespace System::Collections::Generic;
+using namespace System::Data::SqlClient;
+
 namespace MecaTrafiSystemPersistance {
 	public ref class Persistance
 	{
 	private:
+
+
 		//FUNCIONES DE CRUD
 		static void PersistTextFile(String^ fileName, Object^ persistObject);
 		static Object^ LoadTextFile(String^ fileName);
@@ -14,6 +18,13 @@ namespace MecaTrafiSystemPersistance {
 		static Object^ LoadXMLFile(String^ fileName);
 		static void PersistBinaryFile(String^ fileName, Object^ persistObject);
 		static Object^ LoadBinaryFile(String^ fileName);
+
+		//Conexion SQL
+		static SqlConnection^ GetConnection();
+		static List<User^>^ LoadUser();
+
+		//REGISTRO DE USUARIOS
+		static List<User^>^ UserList = gcnew List<User^>();
 
 		//BASE DATOS COMPONENTES - STOCK
 		static List <MechanicComponent^>^ motorACDB = gcnew List <MechanicComponent^>();
@@ -47,6 +58,8 @@ namespace MecaTrafiSystemPersistance {
 		static List<SaleOrder^>^ QueryAllOrders();
 
 		static String^ BIN_COMPRAORDERS_FILE_NAME = "CompraOrders.bin";
+		//REGISTRO DE USUARIOS
+		static User^ QueryUserByName(String^ name);
 
 		// CRUD empleados
 		static String^ TXT_EMPLOYEE_FILE_NAME = "EmployeesDB.txt";
@@ -58,16 +71,18 @@ namespace MecaTrafiSystemPersistance {
 		static int UpdateEmployee(Employee^ employee);
 		static int DeleteEmployee(int employeeId);
 		static Employee^ QueryAllEmployeesById(int employeeId);
+		static Employee^ QueryAllEmployeesByName(String^ name);
+
 
 		// CRUD CLIENTE
 		static String^ TXT_CLIENT_FILE_NAME = "client.txt";
 		static String^ XML_CLIENT_FILE_NAME = "client.xml";
 		static String^ BIN_CLIENT_FILE_NAME = "client.bin";
-		static int Addclient(Client^ cliente);
-		static List<Client^>^ Queryallcliente();
+		static int AddClient(Client^ cliente);
+		static List<Client^>^ QueryAllCliente();
 		static int UpdateClient(Client^ cliente);
 		static int DeleteClient(int clienteId);
-		static Client^ Queryallclienteid(int clienteId);
+		static Client^ QueryAllClienteId(int clienteId);
 
 
 		//METODOS DE CRUD TORNILLO - STOCK

@@ -13,6 +13,8 @@ namespace MecaTrafiSystemGUIApp {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace MecaTrafiSystemModel;
+	using namespace MecaTrafiSystemService;
 
 	/// <summary>
 	/// Resumen de AdminForm
@@ -26,6 +28,7 @@ namespace MecaTrafiSystemGUIApp {
 			//
 			//TODO: agregar código de constructor aquí
 			//
+			this->ControlBox = false;
 		}
 
 	protected:
@@ -42,7 +45,9 @@ namespace MecaTrafiSystemGUIApp {
 	private: System::Windows::Forms::FlowLayoutPanel^ SlideBarContainer;
 	protected:
 
-
+	private: User^ user;
+	private: Random^ rand = gcnew Random();
+	private: AdminForm^ adminform;
 	private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel3;
 	private: System::Windows::Forms::Panel^ SliderBar;
 	private: System::Windows::Forms::Button^ btnPrincipal;
@@ -251,7 +256,7 @@ namespace MecaTrafiSystemGUIApp {
 				static_cast<System::Byte>(0)));
 			this->label1->Location = System::Drawing::Point(70, 42);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(72, 32);
+			this->label1->Size = System::Drawing::Size(49, 21);
 			this->label1->TabIndex = 18;
 			this->label1->Text = L"Menu";
 			// 
@@ -341,7 +346,7 @@ namespace MecaTrafiSystemGUIApp {
 			this->flowLayoutPanel3->FlowDirection = System::Windows::Forms::FlowDirection::TopDown;
 			this->flowLayoutPanel3->Location = System::Drawing::Point(157, 0);
 			this->flowLayoutPanel3->Name = L"flowLayoutPanel3";
-			this->flowLayoutPanel3->Size = System::Drawing::Size(1100, 100);
+			this->flowLayoutPanel3->Size = System::Drawing::Size(1104, 100);
 			this->flowLayoutPanel3->TabIndex = 8;
 			this->flowLayoutPanel3->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &AdminForm::flowLayoutPanel3_Paint);
 			// 
@@ -352,12 +357,10 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// AdminForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(11, 20);
+			this->AutoScaleDimensions = System::Drawing::SizeF(7, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-
 			this->ClientSize = System::Drawing::Size(1261, 675);
 			this->Controls->Add(btn_GenerarCompra);
-
 			this->Controls->Add(BtnAgregarTask);
 			this->Controls->Add(btnComprarProductos);
 			this->Controls->Add(btnAgregarClientes);
@@ -382,88 +385,79 @@ namespace MecaTrafiSystemGUIApp {
 #pragma endregion
 
 
-private: System::Void flowLayoutPanel3_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
-}
-private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void button4_Click_1(System::Object^ sender, System::EventArgs^ e) {
-	StockForm^ AgregarStock = gcnew StockForm();
-	AgregarStock->Show();
-}
-private: System::Void AdminForm_Load(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void button7_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-
-
-	   static bool sidebarexpand= true;
-private: System::Void slidebarTimer_Tick(System::Object^ sender, System::EventArgs^ e) {
-	// Set the Minimum and maximun size of sideBar Panel
-	if (sidebarexpand) {
-		// if sidebar is expand, minimize 
-		SlideBarContainer->Width -= 10; // Nombre Panel lateral
-		if (SlideBarContainer->Width <= 36) {
-			sidebarexpand = true; // Nombre bandera
-			SliderbarTimer->Stop(); //Nombre Timer
-
-		}
+	private: System::Void flowLayoutPanel3_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+	}
+	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void button4_Click_1(System::Object^ sender, System::EventArgs^ e) {
+		StockForm^ AgregarStock = gcnew StockForm();
+		AgregarStock->ShowDialog();
+	}
+	private: System::Void AdminForm_Load(System::Object^ sender, System::EventArgs^ e) {
 
 	}
-	else {
-		SlideBarContainer->Width += 10;
-		if (SlideBarContainer->Width >= 158) {
-			sidebarexpand = false;
-			SliderbarTimer->Stop();
+	private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void button7_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+
+
+		   static bool sidebarexpand = true;
+	private: System::Void slidebarTimer_Tick(System::Object^ sender, System::EventArgs^ e) {
+		// Set the Minimum and maximun size of sideBar Panel
+		if (sidebarexpand) {
+			// if sidebar is expand, minimize 
+			SlideBarContainer->Width -= 10; // Nombre Panel lateral
+			if (SlideBarContainer->Width <= 36) {
+				sidebarexpand = true; // Nombre bandera
+				SliderbarTimer->Stop(); //Nombre Timer
+
+			}
 
 		}
+		else {
+			SlideBarContainer->Width += 10;
+			if (SlideBarContainer->Width >= 158) {
+				sidebarexpand = false;
+				SliderbarTimer->Stop();
+
+			}
+
+		}
+	}
+	private: System::Void SliderBar_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+	}
+	private: System::Void MenuBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+		// Ser timer internal to lowest to make it smoother
+		SliderbarTimer->Start();
+	}
+	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+		//Form^ agregarEmpleado = gcnew Form();
+		AgregarEmpleado^ agregarEmpleado = gcnew AgregarEmpleado();
+		agregarEmpleado->ShowDialog();
 
 	}
-}
-private: System::Void SliderBar_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
-}
-private: System::Void MenuBtn_Click(System::Object^ sender, System::EventArgs^ e) {
-	// Ser timer internal to lowest to make it smoother
-	SliderbarTimer->Start();
-}
-private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-	//Form^ agregarEmpleado = gcnew Form();
-	AgregarEmpleado^ agregarEmpleado = gcnew AgregarEmpleado();
-	agregarEmpleado->Show();
-}
-	   bool bandera = true;
-	   usuario^ agregarCliente = nullptr;
-private: System::Void btnAgregarClientes_Click(System::Object^ sender, System::EventArgs^ e) {
-	//usuario^ agregarCliente = gcnew usuario();
-	if (bandera) {
-		if (agregarCliente == nullptr || !agregarCliente->Visible) {
-			agregarCliente = gcnew usuario();
-			agregarCliente->Show();
-		}
-		bandera = false;
-	}
-}
-	   bool bandera2 = true;
-	   CompraStockForm^ agregarCompra = nullptr;
-private: System::Void btnComprarProductos_Click(System::Object^ sender, System::EventArgs^ e) {
-	//usuario^ agregarCliente = gcnew usuario();
-	if (bandera2) {
-		if (agregarCompra == nullptr || !agregarCompra->Visible) {
-			agregarCompra = gcnew CompraStockForm();
-			agregarCompra->Show();
-		}
-		bandera2 = false;
-	}
-}
-private: System::Void button1_Click_1(System::Object^ sender, System::EventArgs^ e) {
-	GeneratePurchase^ generatePurchaseForm = gcnew GeneratePurchase();
-	generatePurchaseForm->Show();
-}
-private: System::Void BtnAgregarTask_Click(System::Object^ sender, System::EventArgs^ e) {
-	ReportesCompraAdmin^ ReportesDeCompra = gcnew ReportesCompraAdmin();
-	ReportesDeCompra->Show();
-}
-};
-}
 
+	private: System::Void btnAgregarClientes_Click(System::Object^ sender, System::EventArgs^ e) {
+		usuario^ agregarCliente = nullptr;
+		agregarCliente = gcnew usuario();
+		agregarCliente->ShowDialog();
+
+	}
+
+	private: System::Void btnComprarProductos_Click(System::Object^ sender, System::EventArgs^ e) {
+
+		CompraStockForm^ agregarCompra = nullptr;
+		agregarCompra = gcnew CompraStockForm();
+		agregarCompra->ShowDialog();
+	}
+	private: System::Void button1_Click_1(System::Object^ sender, System::EventArgs^ e) {
+		GeneratePurchase^ generatePurchaseForm = gcnew GeneratePurchase();
+		generatePurchaseForm->ShowDialog();
+	}
+	private: System::Void BtnAgregarTask_Click(System::Object^ sender, System::EventArgs^ e) {
+		ReportesCompraAdmin^ ReportesDeCompra = gcnew ReportesCompraAdmin();
+		ReportesDeCompra->ShowDialog();
+	}
+	};
+}

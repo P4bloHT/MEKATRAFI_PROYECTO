@@ -10,6 +10,8 @@ namespace MecaTrafiSystemGUIApp {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace MecaTrafiSystemService;
+	using namespace MecaTrafiSystemModel;
 
 	/// <summary>
 	/// Resumen de Login
@@ -17,12 +19,13 @@ namespace MecaTrafiSystemGUIApp {
 	public ref class Login : public System::Windows::Forms::Form
 	{
 	public:
-		Login(void)
+		Login::Login(User^ usuario)
 		{
 			InitializeComponent();
-			//
-			//TODO: agregar código de constructor aquí
-			//
+			this->user = usuario;
+		}
+		Login::User^ GetUser() {
+			return user;
 		}
 
 	protected:
@@ -38,6 +41,8 @@ namespace MecaTrafiSystemGUIApp {
 		}
 	private: System::Windows::Forms::Panel^ panel1;
 	protected:
+	private: User^ user;
+	private: int isRegisterDone;
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Label^ label2;
 
@@ -58,7 +63,7 @@ namespace MecaTrafiSystemGUIApp {
 		/// <summary>
 		/// Variable del diseñador necesaria.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -177,7 +182,7 @@ namespace MecaTrafiSystemGUIApp {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->ClientSize = System::Drawing::Size(568, 362);
+			this->ClientSize = System::Drawing::Size(556, 355);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->panel1);
@@ -185,6 +190,7 @@ namespace MecaTrafiSystemGUIApp {
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->HelpButton = true;
 			this->Name = L"Login";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Login";
 			this->Load += gcnew System::EventHandler(this, &Login::Login_Load);
 			this->panel1->ResumeLayout(false);
@@ -199,24 +205,45 @@ namespace MecaTrafiSystemGUIApp {
 		//EmployeeForm^ employee = gcnew EmployeeForm();
 		//employee->Show();
 	}
-private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-if(txtcuenta-> Text=="Vicho"&&txtcontra->Text == "xd"){
-	EmployeeForm^ employee = gcnew EmployeeForm();
+	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+		SignIn();
+	}
+		   void SignIn() {
+			   User^ usercheck = Service::QueryUserByName(txtcuenta->Text);
 
-	employee->Show();
-}
-else if(txtcuenta->Text == "Carlos" && txtcontra->Text == "password"){
-	AdminForm^ admin = gcnew AdminForm();
+			   if ((txtcuenta->Text == "admin") && (txtcontra->Text == "admin")) {
+				   this->Hide();
+				   AdminForm^ obj = gcnew AdminForm();
+				   obj->ShowDialog();
 
-	admin-> Show();
-}
+				   this->Show();
 
-}
-private: System::Void button2_Click_1(System::Object^ sender, System::EventArgs^ e) {
-	Application::Exit();
-}
-private: System::Void Login_Load(System::Object^ sender, System::EventArgs^ e) {
+			   }
+			   else if (usercheck != nullptr) {
+				   if (txtcontra->Text == usercheck->Password) {
+					   MessageBox::Show("Bienvenido " + usercheck->Name);
+					   user = usercheck;
+					   this->Hide();
+				   }
+				   else {
+					   MessageBox::Show("Contraseña incorrecta para " + usercheck->Name + ". Ingrese los datos de nuevo.");
+					   this->txtcuenta->Text = L"Username";
+					   this->txtcontra->Text = L"Password";
+				   }
+			   }
+			   else {
+				   MessageBox::Show("Usuario o contraseña incorrectos. Ingrese los datos de nuevo.");
+				   this->txtcuenta->Text = L"Username";
+				   this->txtcontra->Text = L"Password";
 
-}
-};
+			   }
+		   }
+	private: System::Void button2_Click_1(System::Object^ sender, System::EventArgs^ e) {
+		MessageBox::Show("Gracias por utilizar MecaTrafi");
+		Application::Exit();
+	}
+	private: System::Void Login_Load(System::Object^ sender, System::EventArgs^ e) {
+
+	}
+	};
 }

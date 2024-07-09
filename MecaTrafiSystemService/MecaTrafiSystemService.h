@@ -12,7 +12,7 @@ namespace MecaTrafiSystemService {
 		static List<Client^>^ ClientsDB = gcnew List<Client^>();
 		// BASE DE DATOS DE CLIENTE
 		static List<Client^>^ Clientdatos = gcnew List <Client^>();
-		static Store^ GenericStore = gcnew Store(1,"Generica");
+		static Store^ GenericStore = gcnew Store(1, "Generica");
 		//Cliente anonimo
 		static Client^ AnnonymusClient = gcnew Client();
 
@@ -28,12 +28,17 @@ namespace MecaTrafiSystemService {
 		static List<Employee^>^ EmployeeDB = gcnew List<Employee^>();
 		static List<TornilloCliente^>^ TornilloDB = gcnew List<TornilloCliente^>();
 	public:
+		//REGISTRO DE USUARIO
+		static User^ QueryUserByName(String^ name);
+
 		// CRUD de empleados
 		static int AddEmployee(Employee^);
 		static int UpdateEmployee(Employee^);
 		static int DeleteEmployee(int clientId);
 		static List<Employee^>^ QueryAllEmployees();
 		static Employee^ QueryEmployeeById(int clientId);
+
+
 		// CRUD cliente
 		static int Addcliente(Client^);
 		static int Updatecliente(Client^);
@@ -102,7 +107,7 @@ namespace MecaTrafiSystemService {
 		static int RegisterOrder(SaleOrder^ order);
 		static List<SaleOrder^>^ QueryAllOrders();
 
-		
+
 
 
 
@@ -115,7 +120,7 @@ namespace MecaTrafiSystemService {
 		static MechanicComponent^ Queryallrodamientosid(int rodamientosid);
 
 		//CRUD COMPRA PRODUCTOS
-		
+
 		//METODOS DE CRUD TORNILLO - PURCHASE
 
 		static int AddTornilloPurchase(SupplyProduct^ tornilloPurchase);

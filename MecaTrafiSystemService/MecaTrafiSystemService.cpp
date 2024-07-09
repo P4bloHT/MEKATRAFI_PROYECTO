@@ -11,24 +11,12 @@ int MecaTrafiSystemService::Service::AddClient(Client^ client)
 
 int MecaTrafiSystemService::Service::UpdateClient(Client^ client)
 {
-    for (int i = 0; i < ClientsDB->Count; i++) {
-        if (ClientsDB[i]->Id == client->Id) {
-            ClientsDB[i] = client;
-            return client->Id;
-        }
-    }
-    return 0;
+    return Persistance::UpdateClient(client);
 }
 
 int MecaTrafiSystemService::Service::DeleteClient(int clientId)
 {
-    for (int i = 0; i < ClientsDB->Count; i++) {
-        if (ClientsDB[i]->Id == clientId) {
-            ClientsDB->RemoveAt(i);
-            return clientId;
-        }
-    }
-    return 0;
+    return Persistance::DeleteClient(clientId);
 }
 
 List<Client^>^ MecaTrafiSystemService::Service::QueryAllClients()
@@ -44,6 +32,11 @@ Client^ MecaTrafiSystemService::Service::QueryClientById(int clientId)
         }
     }
     return nullptr;
+}
+
+User^ MecaTrafiSystemService::Service::QueryUserByName(String^ name)
+{
+    return Persistance::QueryUserByName(name);
 }
 
 int MecaTrafiSystemService::Service::AddEmployee(Employee^ employee)
@@ -103,7 +96,7 @@ Employee^ MecaTrafiSystemService::Service::QueryEmployeeById(int employeeId)
 int MecaTrafiSystemService::Service::Addcliente(Client^ cliente)
 {
     //Clientdatos->Add(cliente);
-    Persistance::Addclient(cliente);
+    Persistance::AddClient(cliente);
     return cliente->Id;
 }
 
@@ -128,12 +121,12 @@ int MecaTrafiSystemService::Service::Deletecliente(int clienteid)
 List<Client^>^ MecaTrafiSystemService::Service::Queryallcliente()
 {
     // return Clientdatos; 
-    return Persistance::Queryallcliente();
+    return Persistance::QueryAllCliente();
 }
 
 Client^ MecaTrafiSystemService::Service::Queryallclienteid(int clienteid)
 {
-    return Persistance::Queryallclienteid(clienteid);
+    return Persistance::QueryAllClienteId(clienteid);
 }
 
 int MecaTrafiSystemService::Service::Addtornillos(MechanicComponent^ tornillo)
@@ -353,8 +346,8 @@ SupplyProduct^ MecaTrafiSystemService::Service::QueryAllTornilloPurchaseById(int
 //METODOS FAJA - COMPRA
 int MecaTrafiSystemService::Service::AddFajaPurchase(SupplyProduct^ fajaPurchase)
 {
-     Persistance::AddFajaPurchase(fajaPurchase);
-     return fajaPurchase->Id;
+    Persistance::AddFajaPurchase(fajaPurchase);
+    return fajaPurchase->Id;
 }
 List<SupplyProduct^>^ MecaTrafiSystemService::Service::QueryAllFajaPurchase()
 {
@@ -385,8 +378,8 @@ List<SupplyProduct^>^ MecaTrafiSystemService::Service::QueryFajaPruchaseByName(S
 //METODOS POLEA - COMPRA
 int MecaTrafiSystemService::Service::AddPoleaPurchase(SupplyProduct^ poleaPurchase)
 {
-     Persistance::AddPoleaPurchase(poleaPurchase);
-     return poleaPurchase->Id;
+    Persistance::AddPoleaPurchase(poleaPurchase);
+    return poleaPurchase->Id;
 }
 List<SupplyProduct^>^ MecaTrafiSystemService::Service::QueryAllPoleaPurchase()
 {
@@ -429,8 +422,8 @@ SupplyProduct^ MecaTrafiSystemService::Service::QueryAllRodamientoPurchaseById(i
 //METODOS MOTORAC - COMPRA
 int MecaTrafiSystemService::Service::AddMotorACPurchase(SupplyProduct^ motorACPurchase)
 {
-     Persistance::AddMotorACPurchase(motorACPurchase);
-     return motorACPurchase->Id;
+    Persistance::AddMotorACPurchase(motorACPurchase);
+    return motorACPurchase->Id;
 }
 List<SupplyProduct^>^ MecaTrafiSystemService::Service::QueryAllMotorACPurchase()
 {
@@ -451,8 +444,8 @@ SupplyProduct^ MecaTrafiSystemService::Service::QueryAllMotorACPurchaseById(int 
 //METODOS MOTORDC - COMPRA
 int MecaTrafiSystemService::Service::AddMotorDCPurchase(SupplyProduct^ motorDCPurchase)
 {
-     Persistance::AddMotorDCPurchase(motorDCPurchase);
-     return motorDCPurchase->Id;
+    Persistance::AddMotorDCPurchase(motorDCPurchase);
+    return motorDCPurchase->Id;
 }
 List<SupplyProduct^>^ MecaTrafiSystemService::Service::QueryAllMotorDCPurchase()
 {
@@ -534,4 +527,3 @@ MechanicComponent^ MecaTrafiSystemService::Service::QueryallMotorDCStockById(int
 {
     return Persistance::QueryallMotorDCStockById(motorDCId);
 }
-
