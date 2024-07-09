@@ -26,14 +26,14 @@ namespace MecaTrafiSystemModel {
 
         TornilloCliente() {}
         TornilloCliente(int id, String^ name, String^ description, double unitaryPrice, int stock, array<Byte>^ photo, String^ brand, String^ model,
-            String^ tipo, String^ rosca, String^ punta, String^ cabeza, double longitud, String^ material, String^ diametroRosca) :
-            MechanicComponent(id, Proveedor, name, description, unitaryPrice, stock, photo, brand,  model) {
+            String^ tipo, String^ rosca, String^ punta, String^ cabeza, double longitud, String^ material, String^ diametroRosca, String^ proveedor) :
+            MechanicComponent(id, proveedor, name, description, unitaryPrice, stock, photo, brand,  model) {
             Tipo = tipo;
             Rosca = rosca;
             Punta = punta;
             Cabeza = cabeza;
             Longitud = longitud;
-           
+         
             Material = material;
             DiametroRosca = diametroRosca;
         }

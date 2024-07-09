@@ -136,13 +136,13 @@ Client^ MecaTrafiSystemService::Service::Queryallclienteid(int clienteid)
     return Persistance::Queryallclienteid(clienteid);
 }
 
-int MecaTrafiSystemService::Service::Addtornillos(MechanicComponent^ tornillo)
+int MecaTrafiSystemService::Service::Addtornillos(TornilloCliente^ tornillo)
 {
     Persistance::Addtornillo(tornillo);
     return tornillo->Id;
 }
 
-int MecaTrafiSystemService::Service::Updatetornillos(MechanicComponent^ tornillo)
+int MecaTrafiSystemService::Service::Updatetornillos(TornilloCliente^ tornillo)
 {
     return Persistance::Updatetornillo(tornillo);
 }
@@ -152,23 +152,23 @@ int MecaTrafiSystemService::Service::Deletetornillos(int tornillosid)
     return Persistance::Deletetornillo(tornillosid);
 }
 
-List<MechanicComponent^>^ MecaTrafiSystemService::Service::Queryalltornillos()
+List<TornilloCliente^>^ MecaTrafiSystemService::Service::Queryalltornillos()
 {
-    return Persistance::Queryalltornillo();
+    return Persistance::Queryalltornillo(); 
 }
 
-MechanicComponent^ MecaTrafiSystemService::Service::Queryalltornillosid(int tornillosid)
+TornilloCliente^ MecaTrafiSystemService::Service::Queryalltornillosid(int tornillosid)
 {
     return Persistance::Queryalltornilloid(tornillosid);
 }
 
-int MecaTrafiSystemService::Service::Addfajas(MechanicComponent^ faja)
+int MecaTrafiSystemService::Service::Addfajas(FajasCliente^ faja)
 {
     Persistance::Addfaja(faja);
     return faja->Id;
 }
 
-int MecaTrafiSystemService::Service::Updatefajas(MechanicComponent^ faja)
+int MecaTrafiSystemService::Service::Updatefajas(FajasCliente^ faja)
 {
     return Persistance::Updatefaja(faja);
 }
@@ -178,23 +178,23 @@ int MecaTrafiSystemService::Service::Deletefajas(int fajasid)
     return Persistance::Deletefaja(fajasid);
 }
 
-List<MechanicComponent^>^ MecaTrafiSystemService::Service::Queryallfajas()
+List<FajasCliente^>^ MecaTrafiSystemService::Service::Queryallfajas()
 {
     return Persistance::Queryallfaja();
 }
 
-MechanicComponent^ MecaTrafiSystemService::Service::Queryallfajasid(int fajasid)
+FajasCliente^ MecaTrafiSystemService::Service::Queryallfajasid(int fajasid)
 {
     return Persistance::Queryallfajaid(fajasid);
 }
 
-int MecaTrafiSystemService::Service::Addpoleas(MechanicComponent^ polea)
+int MecaTrafiSystemService::Service::Addpoleas(PoleaCliente^ polea)
 {
     Persistance::Addpolea(polea);
     return polea->Id;
 }
 
-int MecaTrafiSystemService::Service::Updatepoleas(MechanicComponent^ polea)
+int MecaTrafiSystemService::Service::Updatepoleas(PoleaCliente^ polea)
 {
     return Persistance::Updatepolea(polea);
 }
@@ -204,21 +204,21 @@ int MecaTrafiSystemService::Service::Deletepoleas(int poleasid)
     return Persistance::Deletepolea(poleasid);
 }
 
-List<MechanicComponent^>^ MecaTrafiSystemService::Service::Queryallfpoleas()
+List<PoleaCliente^>^ MecaTrafiSystemService::Service::Queryallfpoleas()
 {
     return Persistance::Queryallpolea();
 }
 
-MechanicComponent^ MecaTrafiSystemService::Service::Queryallpoleasid(int poleasid)
+PoleaCliente^ MecaTrafiSystemService::Service::Queryallpoleasid(int poleasid)
 {
     return Persistance::Queryallpoleaid(poleasid);
 }
 
 
-List<MechanicComponent^>^ MecaTrafiSystemService::Service::QueryTornillosByName(String^ name)
+List<TornilloCliente^>^ MecaTrafiSystemService::Service::QueryTornillosByName(String^ name)
 {
-    List<MechanicComponent^>^ tornillosLista = Persistance::Queryalltornillo();
-    List<MechanicComponent^>^ listToReturn = gcnew List<MechanicComponent^>();
+    List<TornilloCliente^>^ tornillosLista = Persistance::Queryalltornillo();
+    List<TornilloCliente^>^ listToReturn = gcnew List<TornilloCliente^>();
     for (int i = 0; i < tornillosLista->Count; i++) {
         if (tornillosLista[i]->Name->Contains(name)) {
             listToReturn->Add(tornillosLista[i]);
@@ -241,13 +241,13 @@ List<SaleOrder^>^ MecaTrafiSystemService::Service::QueryAllOrders()
 {
     return Persistance::QueryAllOrders();
 }
-int MecaTrafiSystemService::Service::Addrodamientos(MechanicComponent^ roda)
+int MecaTrafiSystemService::Service::Addrodamientos(RodamientosCliente^ roda)
 {
     Persistance::Addrodamiento(roda);
     return roda->Id;
 }
 
-int MecaTrafiSystemService::Service::Updaterodamientos(MechanicComponent^ roda)
+int MecaTrafiSystemService::Service::Updaterodamientos(RodamientosCliente^ roda)
 {
     return Persistance::Updaterodamiento(roda);
 }
@@ -257,28 +257,28 @@ int MecaTrafiSystemService::Service::Deleterodamientos(int rodamientosid)
     return Persistance::Deleterodamiento(rodamientosid);
 }
 
-List<MechanicComponent^>^ MecaTrafiSystemService::Service::Queryallrodamientos()
+List<RodamientosCliente^>^ MecaTrafiSystemService::Service::Queryallrodamientos()
 {
     return Persistance::Queryallrodamiento();
 }
 
-MechanicComponent^ MecaTrafiSystemService::Service::Queryallrodamientosid(int rodamientosid)
+RodamientosCliente^ MecaTrafiSystemService::Service::Queryallrodamientosid(int rodamientosid)
 {
     return Persistance::Queryallrodamientoid(rodamientosid);
 }
 //CRUD MOTOR AC - STOCK
-int MecaTrafiSystemService::Service::AddMotorACStock(MechanicComponent^ motorAC)
+int MecaTrafiSystemService::Service::AddMotorACStock(MotoresACCliente^ motorAC)
 {
     Persistance::AddMotorACStock(motorAC);
     return motorAC->Id;
 }
 
-List<MechanicComponent^>^ MecaTrafiSystemService::Service::QueryallMotorACStock()
+List<MotoresACCliente^>^ MecaTrafiSystemService::Service::QueryallMotorACStock()
 {
     return Persistance::QueryallMotorACStock();
 }
 
-int MecaTrafiSystemService::Service::UpdateMotorACStock(MechanicComponent^ motorAC)
+int MecaTrafiSystemService::Service::UpdateMotorACStock(MotoresACCliente^ motorAC)
 {
     return Persistance::UpdateMotorACStock(motorAC);
 }
@@ -288,23 +288,23 @@ int MecaTrafiSystemService::Service::DeleteMotorACStock(int motorACId)
     return Persistance::DeleteMotorACStock(motorACId);
 }
 
-MechanicComponent^ MecaTrafiSystemService::Service::QueryallMotorACStockById(int motorACId)
+MotoresACCliente^ MecaTrafiSystemService::Service::QueryallMotorACStockById(int motorACId)
 {
     return Persistance::QueryallMotorACStockById(motorACId);
 }
 
-int MecaTrafiSystemService::Service::AddMotorDCStock(MechanicComponent^ motorDC)
+int MecaTrafiSystemService::Service::AddMotorDCStock(MotoresDCCliente^ motorDC)
 {
     Persistance::AddMotorDCStock(motorDC);
     return motorDC->Id;
 }
 
-List<MechanicComponent^>^ MecaTrafiSystemService::Service::QueryallMotorDCStock()
+List<MotoresDCCliente^>^ MecaTrafiSystemService::Service::QueryallMotorDCStock()
 {
     return Persistance::QueryallMotorDCStock();
 }
 
-int MecaTrafiSystemService::Service::UpdateMotorDCStock(MechanicComponent^ motorDC)
+int MecaTrafiSystemService::Service::UpdateMotorDCStock(MotoresDCCliente^ motorDC)
 {
     return Persistance::UpdateMotorDCStock(motorDC);
 }
@@ -314,7 +314,7 @@ int MecaTrafiSystemService::Service::DeleteMotorDCStock(int motorDCId)
     return Persistance::DeleteMotorDCStock(motorDCId);
 }
 
-MechanicComponent^ MecaTrafiSystemService::Service::QueryallMotorDCStockById(int motorDCId)
+MotoresDCCliente^ MecaTrafiSystemService::Service::QueryallMotorDCStockById(int motorDCId)
 {
     return Persistance::QueryallMotorDCStockById(motorDCId);
 }

@@ -22,8 +22,8 @@ namespace MecaTrafiSystemModel {
         property double AltoDeGoma;
         FajasCliente() {}
         FajasCliente(int id, String^ name, String^ description, double unitaryPrice, int stock, array<Byte>^ photo, String^ brand, String^ model,
-            String^ tipo, double diametroInter, double diametroExter, double altoDeGoma) :
-            MechanicComponent(id, name, Proveedor, description, unitaryPrice, stock, photo, brand, model) {
+            String^ tipo, double diametroInter, double diametroExter, double altoDeGoma, String^ proveedor) :
+            MechanicComponent(id, name, proveedor, description, unitaryPrice, stock, photo, brand, model) {
             Tipo = tipo;
             DiametroInter = diametroInter;
             DiametroExter = diametroExter;

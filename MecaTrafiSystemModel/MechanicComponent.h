@@ -22,6 +22,8 @@ namespace MecaTrafiSystemModel {
         property String^ Brand;
         property String^ Model;
         property String^ Proveedor;
+       // property String^ Tipoderosca;
+      //  property String^ Tipodepunta; 
         MechanicComponent();
         MechanicComponent(int id, String^ name, String^ proveedor, String^ description, double unitaryPrice, int stock, array<Byte>^ photo, String^ brand, String^ model);
     };

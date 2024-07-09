@@ -42,32 +42,7 @@ void MecaTrafiSystemPersistance::Persistance::PersistTextFile(String^ fileName, 
 
 Object^ MecaTrafiSystemPersistance::Persistance::LoadTextFile(String^ fileName)
 {
-    //Garantizar la persistencia de la base de datos
-    /*FileStream^ file;
-    StreamReader^ reader;
-    Object^ result;
-    if (File::Exists(fileName)) {
-        file = gcnew FileStream(fileName, FileMode::Open, FileAccess::Read);
-        reader = gcnew StreamReader(file);
-        if (fileName->Equals(TXT_EMPLOYEE_FILE_NAME)) {
-            result = gcnew List<Employee^>();
-            while (true) {
-                String^ line = reader->ReadLine();
-                if (line == nullptr) break;
-                array<String^>^ record = line->Split(',');
-                Employee^ employee = gcnew Employee();
-                employee->Id = Convert::ToInt32(record[0]);
-                employee->Name = record[1];
-                employee->Lastname = record[2];
-                employee->Salary = Convert::ToDouble(record[3]);
-                employee->WorkHours = Convert::ToDouble(record[4]);
-                ((List<Employee^>^)result)->Add(employee);//Casteo
-            }
-        }
-        if (reader != nullptr) reader->Close(); //Cerar tipo Reader
-        if (file != nullptr) file->Close(); //Cerar tipo File
-    }
-    return result;*/
+    
     FileStream^ file;
     StreamReader^ reader;
     Object^ result;
@@ -201,9 +176,7 @@ SqlConnection^ MecaTrafiSystemPersistance::Persistance::GetConnection()
 
 int MecaTrafiSystemPersistance::Persistance::AddEmployee(Employee^ employee)
 {
-  //  employeeListDB->Add(employee);
-    //  PresistTextFile(TXT_EMPLOYEE_FILE_NAME, employeeListDB); //Metodo para .txt
-    //  PresistXMLFile(XML_EMPLOYEE_FILE_NAME, employeeListDB); //Metodo para XML
+  
    PersistBinaryFile(BIN_EMPLOYEE_FILE_NAME, employeeListDB); //Metodo para Binario
    return 1;
     
@@ -211,8 +184,7 @@ int MecaTrafiSystemPersistance::Persistance::AddEmployee(Employee^ employee)
 
 List<Employee^>^ MecaTrafiSystemPersistance::Persistance::QueryAllEmployees()
 {
-    //employeeListDB = (List<Employee^>^)LoadTextFile(TXT_EMPLOYEE_FILE_NAME); //Casting Metodo para .txt
-   // employeeListDB = (List<Employee^>^)LoadXMLFile(XML_EMPLOYEE_FILE_NAME); //Casting Metodo para XML
+   
     employeeListDB = (List<Employee^>^)LoadBinaryFile(BIN_EMPLOYEE_FILE_NAME);// Metodo para Binario
     if (employeeListDB == nullptr) {
         employeeListDB = gcnew List<Employee^>(); // Este es el caso que si es un nullptr
@@ -225,8 +197,6 @@ int MecaTrafiSystemPersistance::Persistance::UpdateEmployee(Employee^ employee)
     for (int i = 0; i < employeeListDB->Count; i++) { //Buscar 
         if (employeeListDB[i]->Id == employee->Id) {
             employeeListDB[i] = employee; //Modifica el dato
-            // PresistTextFile(TXT_EMPLOYEE_FILE_NAME, employeeListDB);
-            // PresistXMLFile(XML_EMPLOYEE_FILE_NAME, employeeListDB);
             PersistBinaryFile(BIN_EMPLOYEE_FILE_NAME, employeeListDB);// Metodo para Binario
             return employee->Id;
         }
@@ -239,8 +209,6 @@ int MecaTrafiSystemPersistance::Persistance::DeleteEmployee(int employeeId)
     for (int i = 0; i < employeeListDB->Count; i++) {
         if (employeeListDB[i]->Id == employeeId) {
             employeeListDB->RemoveAt(i);
-            //PresistTextFile(TXT_EMPLOYEE_FILE_NAME, employeeListDB);
-           // PresistXMLFile(XML_EMPLOYEE_FILE_NAME, employeeListDB);
             PersistBinaryFile(BIN_EMPLOYEE_FILE_NAME, employeeListDB);// Metodo para Binario
             return employeeId;
         }
@@ -250,8 +218,7 @@ int MecaTrafiSystemPersistance::Persistance::DeleteEmployee(int employeeId)
 
 Employee^ MecaTrafiSystemPersistance::Persistance::QueryAllEmployeesById(int employeeId)
 {
-    // employeeListDB = (List<Employee^>^)LoadTextFile(TXT_EMPLOYEE_FILE_NAME); //Carga Archivo
-     //employeeListDB = (List<Employee^>^)LoadXMLFile(XML_EMPLOYEE_FILE_NAME); 
+  
     employeeListDB = (List<Employee^>^)LoadBinaryFile(BIN_EMPLOYEE_FILE_NAME);
 
     for (int i = 0; i < employeeListDB->Count; i++) { //Cuenta
@@ -264,10 +231,7 @@ Employee^ MecaTrafiSystemPersistance::Persistance::QueryAllEmployeesById(int emp
 
 int MecaTrafiSystemPersistance::Persistance::Addclient(Client^ cliente)
 {
- //   clientlistdatos->Add(cliente);
-    //PersistTextFile(TXT_CLIENT_FILE_NAME, clientlistdatos);
-    //PersistTextFile(XML_CLIENT_FILE_NAME, clientlistdatos);
-   // PersistBinaryFile(BIN_CLIENT_FILE_NAME, clientlistdatos);
+
 
     //return 1;
     int clienteId = 0;
@@ -354,16 +318,7 @@ List<Client^>^ MecaTrafiSystemPersistance::Persistance::Queryallcliente()
 
 int MecaTrafiSystemPersistance::Persistance::UpdateClient(Client^ cliente)
 {
-    /*for (int i = 0; i < clientlistdatos->Count; i++) { //Buscar 
-        if (clientlistdatos[i]->Id == cliente->Id) {
-            clientlistdatos[i] = cliente; //Modifica el dato
-            //PersistBinaryFile(BIN_EMPLOYEE_FILE_NAME, clientlistdatos);// Metodo para Binario
-            PersistBinaryFile(BIN_CLIENT_FILE_NAME, clientlistdatos);
-            return cliente->Id;
-        }
-    }
-    return 0;
-    */
+    
     int clienteId = 0;
     SqlConnection^ conn = nullptr;
     try {
@@ -408,16 +363,7 @@ int MecaTrafiSystemPersistance::Persistance::UpdateClient(Client^ cliente)
 
 int MecaTrafiSystemPersistance::Persistance::DeleteClient(int clienteId)
 {
- /*   for (int i = 0; i < clientlistdatos->Count; i++) {
-        if (clientlistdatos[i]->Id == clienteId) {
-            clientlistdatos->RemoveAt(i);
-            //PresistTextFile(TXT_EMPLOYEE_FILE_NAME, employeeListDB);
-           // PresistXMLFile(XML_EMPLOYEE_FILE_NAME, employeeListDB);
-            PersistBinaryFile(BIN_CLIENT_FILE_NAME, clientlistdatos);
-            return clienteId;
-        }
-    }
-    return 0;*/
+
 
     SqlConnection^ conn; 
     try {
@@ -451,13 +397,7 @@ int MecaTrafiSystemPersistance::Persistance::DeleteClient(int clienteId)
 
 Client^ MecaTrafiSystemPersistance::Persistance::Queryallclienteid(int clienteId)
 {
-   // clientlistdatos = (List<Client^>^)LoadBinaryFile(BIN_CLIENT_FILE_NAME);
-    //for (int i = 0; i < clientlistdatos->Count; i++) { //Cuenta
-    //    if (clientlistdatos[i]->Id == clienteId) { //Si lo encuentra lo retorna
-     //       return clientlistdatos[i];
-     //   }
-  //  }
-   // return nullptr;
+  
     Client^ cliente;
     SqlConnection^ conn;
     SqlDataReader^ reader;
@@ -502,32 +442,104 @@ Client^ MecaTrafiSystemPersistance::Persistance::Queryallclienteid(int clienteId
 
 }
 
-int MecaTrafiSystemPersistance::Persistance::Addtornillo(MechanicComponent^ tornillo)
+int MecaTrafiSystemPersistance::Persistance::Addtornillo(TornilloCliente ^ tornillo)
 {
-    tornillosDB->Add(tornillo);
+    int tornilloId ;
+    SqlConnection^ conn = nullptr;
+    try {
+        // Obtener la conexión a la BD
+        conn = GetConnection();
 
-    PersistBinaryFile(BIN_TORNILLO_FILE_NAME, tornillosDB);
+        // Preparar la sentencia
+        String^ sqlStr = "dbo.usp_AddTornillo_stock";
+        SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
+        cmd->CommandType = System::Data::CommandType::StoredProcedure;
 
-    return 1;
+        // Definir parámetros del procedimiento almacenado
+        cmd->Parameters->Add("@NAME", System::Data::SqlDbType::VarChar, 200)->Value = tornillo->Name;
+        cmd->Parameters->Add("@STOCK", System::Data::SqlDbType::Int)->Value = tornillo->Stock;
+        cmd->Parameters->Add("@MARCA", System::Data::SqlDbType::VarChar, 100)->Value = tornillo->Brand;
+        cmd->Parameters->Add("@UNITARYPRICE", System::Data::SqlDbType::Decimal)->Value = tornillo->UnitaryPrice;
+        cmd->Parameters->Add("@LONGITUD", System::Data::SqlDbType::Decimal)->Value = tornillo->Longitud;
+        cmd->Parameters->Add("@MATERIAL", System::Data::SqlDbType::VarChar, 50)->Value = tornillo->Material;
+        cmd->Parameters->Add("@ROSCA", System::Data::SqlDbType::VarChar, 50)->Value = tornillo->Rosca;
+        cmd->Parameters->Add("@TIPO", System::Data::SqlDbType::VarChar, 50)->Value = tornillo->Tipo;
+        cmd->Parameters->Add("@DESCRIPCION", System::Data::SqlDbType::VarChar, 200)->Value = tornillo->Description;
+        if (tornillo->Photo == nullptr)
+            cmd->Parameters->Add("@PHOTO", System::Data::SqlDbType::Image)->Value = DBNull::Value;
+        else
+            cmd->Parameters->Add("@PHOTO", System::Data::SqlDbType::Image)->Value = tornillo->Photo;
+
+        // Parámetro de salida para el ID
+        SqlParameter^ outputIdParam = gcnew SqlParameter("@ID", System::Data::SqlDbType::Int);
+        outputIdParam->Direction = System::Data::ParameterDirection::Output;
+        cmd->Parameters->Add(outputIdParam);
+
+        // Ejecutar el comando
+        cmd->Prepare();
+        cmd->ExecuteNonQuery();
+
+        // Obtener el ID generado para el tornillo insertado
+        tornilloId = Convert::ToInt32(cmd->Parameters["@ID"]->Value);
+    }
+    catch (Exception^ ex) {
+        throw ex;
+    }
+    finally {
+        if (conn != nullptr) conn->Close();
+    }
+    return tornilloId;
 }
 
-int MecaTrafiSystemPersistance::Persistance::Addfaja(MechanicComponent^ faja)
+int MecaTrafiSystemPersistance::Persistance::Addfaja(FajasCliente^ faja)
 {
-    fajasDB->Add(faja);
-    //PersistTextFile(TXT_CLIENT_FILE_NAME, clientlistdatos);
-    //PersistTextFile(XML_CLIENT_FILE_NAME, clientlistdatos);
-    PersistBinaryFile(BIN_FAJAS_FILE_NAME, fajasDB);
+    int fajaId = 0;
+    SqlConnection^ conn = nullptr;
+    try {
+        // Obtener la conexión a la BD
+        conn = GetConnection();
 
-    return 1;
+        // Preparar la sentencia
+        String^ sqlStr = "dbo.usp_AddFaja_stock ";
+        SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
+        cmd->CommandType = System::Data::CommandType::StoredProcedure;
+
+        // Agregar los parámetros
+        cmd->Parameters->Add("@NAME", System::Data::SqlDbType::VarChar, 200)->Value = faja->Name;
+        cmd->Parameters->Add("@STOCK", System::Data::SqlDbType::Int)->Value = faja->Stock;
+        cmd->Parameters->Add("@MARCA", System::Data::SqlDbType::VarChar, 100)->Value = faja->Brand;
+        cmd->Parameters->Add("@ALTO_GOMA", System::Data::SqlDbType::VarChar, 200)->Value = faja->AltoDeGoma;
+        cmd->Parameters->Add("@DIAMETRO_INTERNO", System::Data::SqlDbType::VarChar, 200)->Value = faja->DiametroInter;
+        cmd->Parameters->Add("@DIAMETRO_EXTERNO", System::Data::SqlDbType::VarChar, 200)->Value = faja->DiametroExter;
+        cmd->Parameters->Add("@PRECIO_UNITARIO", System::Data::SqlDbType::Decimal)->Value = faja->UnitaryPrice;
+        cmd->Parameters->Add("@TIPO", System::Data::SqlDbType::VarChar, 50)->Value = faja->Tipo;
+        cmd->Parameters->Add("@DESCRIPTION ", System::Data::SqlDbType::VarChar, 400)->Value = faja->Description;
+        cmd->Parameters->Add("@PHOTO", System::Data::SqlDbType::Image)->Value = faja->Name;
+        if (faja->Photo == nullptr)
+            cmd->Parameters["@PHOTO"]->Value = DBNull::Value;
+        else
+            cmd->Parameters["@PHOTO"]->Value = faja->Photo;
+
+        // Preparar y ejecutar la sentencia
+        cmd->Prepare();
+        cmd->ExecuteNonQuery();
+
+        fajaId = 1; // Asigna el ID del cliente insertado si es necesario
+    }
+    catch (Exception^ ex) {
+        throw ex;
+    }
+    finally {
+        if (conn != nullptr) conn->Close();
+    }
+    return fajaId;
 }
 
-List<MechanicComponent^>^ MecaTrafiSystemPersistance::Persistance::Queryallfaja()
+
+List<FajasCliente^>^ MecaTrafiSystemPersistance::Persistance::Queryallfaja()
 {
-    //fajasDB = (List<MechanicComponent^>^)LoadBinaryFile(BIN_FAJAS_FILE_NAME);
-   // if (fajasDB == nullptr)
-    //    fajasDB = gcnew List<MechanicComponent^>();
-   // return fajasDB;
-    fajasDB = gcnew List<MechanicComponent^>();
+    
+    fajasDB = gcnew List<FajasCliente^>();
     SqlConnection^ conn;
     SqlDataReader^ reader;
     try {
@@ -535,7 +547,7 @@ List<MechanicComponent^>^ MecaTrafiSystemPersistance::Persistance::Queryallfaja(
         SqlConnection^ conn = GetConnection();
 
         //PREPARA SQL
-        String^ sqlStr = "SELECT * FROM FAJA_STOCK";
+        String^ sqlStr = "dbo.usp_QueryAllFajas";
         SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
         cmd->Prepare();
 
@@ -545,13 +557,14 @@ List<MechanicComponent^>^ MecaTrafiSystemPersistance::Persistance::Queryallfaja(
         //PROCESA DATO
         while (reader->Read()) {
 
-            MechanicComponent^ faja = gcnew MechanicComponent();
+            FajasCliente^ faja = gcnew FajasCliente();
             faja->Id = Convert::ToInt32(reader["ID_FAJA"]->ToString());
             faja->Name = reader["NOMBRE_FAJA"]->ToString();
             faja->Proveedor = reader["PROVEEDOR_FAJA"]->ToString();
             faja->Stock = Convert::ToInt32(reader["CANTIDAD_FAJA"]->ToString());
             faja->UnitaryPrice = Convert::ToDouble(reader["PRECIO_UNIT_FAJA"]->ToString());
-
+            if (!DBNull::Value->Equals(reader["PHOTO"]))
+                faja->Photo = (array<Byte>^)reader["PHOTO"];
             fajasDB->Add(faja);
         }
 
@@ -569,20 +582,63 @@ List<MechanicComponent^>^ MecaTrafiSystemPersistance::Persistance::Queryallfaja(
 
     }
     return fajasDB;
-
+    /* */
 }
 
-int MecaTrafiSystemPersistance::Persistance::Updatefaja(MechanicComponent^ faja)
+int MecaTrafiSystemPersistance::Persistance::Updatefaja(FajasCliente^ faja)
 {
-    for (int i = 0; i < fajasDB->Count; i++) { //Buscar 
-        if (fajasDB[i]->Id == faja->Id) {
-            fajasDB[i] = faja; //Modifica el dato
-            //PersistBinaryFile(BIN_EMPLOYEE_FILE_NAME, clientlistdatos);// Metodo para Binario
-            PersistBinaryFile(BIN_FAJAS_FILE_NAME, fajasDB);
-            return faja->Id;
-        }
+    int fajaId = 0;
+    SqlConnection^ conn = nullptr;
+    try {
+        // Obtener la conexión a la BD
+        conn = GetConnection();
+
+        // Preparar la sentencia
+        String^ sqlStr = "dbo.usp_UpdateFaja_stock "; 
+        SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);  
+        cmd->CommandType = System::Data::CommandType::StoredProcedure; 
+
+        // Agregar los parámetros
+        cmd->Parameters->Add("@NAME", System::Data::SqlDbType::VarChar, 200)->Value = faja->Name;  
+        cmd->Parameters->Add("@STOCK", System::Data::SqlDbType::Int)->Value = faja->Stock; 
+        cmd->Parameters->Add("@MARCA", System::Data::SqlDbType::VarChar, 100)->Value = faja->Brand; 
+        cmd->Parameters->Add("@ALTO_GOMA", System::Data::SqlDbType::VarChar, 200)->Value = faja->AltoDeGoma; 
+        cmd->Parameters->Add("@DIAMETRO_INTERNO", System::Data::SqlDbType::VarChar, 200)->Value = faja->DiametroInter; 
+        cmd->Parameters->Add("@DIAMETRO_EXTERNO", System::Data::SqlDbType::VarChar, 200)->Value = faja->DiametroExter; 
+        cmd->Parameters->Add("@PRECIO_UNITARIO", System::Data::SqlDbType::Decimal)->Value = faja->UnitaryPrice; 
+        cmd->Parameters->Add("@TIPO", System::Data::SqlDbType::VarChar, 50)->Value = faja->Tipo;  
+        cmd->Parameters->Add("@DESCRIPTION", System::Data::SqlDbType::VarChar, 400)->Value = faja->Description; 
+        cmd->Parameters->Add("@PHOTO", System::Data::SqlDbType::Image)->Value = faja->Name;
+        cmd->Prepare();
+        cmd->Parameters["@NAME"]->Value = faja->Name;
+        cmd->Parameters["@STOCK"]->Value = faja->Stock;
+        cmd->Parameters["@MARCA"]->Value = faja->Brand;
+        cmd->Parameters["@ALTO_GOMA"]->Value = faja->AltoDeGoma;
+        cmd->Parameters["@DIAMETRO_INTERNO"]->Value = faja->DiametroInter;
+        cmd->Parameters["@DIAMETRO_EXTERNO"]->Value = faja->DiametroExter;
+        cmd->Parameters["@PRECIO_UNITARIO"]->Value = faja->UnitaryPrice;
+        cmd->Parameters["@TIPO"]->Value = faja->Tipo;
+        cmd->Parameters["@DESCRIPTION"]->Value = faja->Description;
+   
+        // PHOTO
+        if (faja->Photo == nullptr) 
+            cmd->Parameters["@PHOTO"]->Value = DBNull::Value; 
+        else
+            cmd->Parameters["@PHOTO"]->Value = faja->Photo;  
+
+        // Preparar y ejecutar la sentencia
+        cmd->Prepare();
+        cmd->ExecuteNonQuery();
+
+        fajaId = 1; // Éxito en la actualización (podrías asignar el ID de la faja actualizada si lo necesitas)
     }
-    return 0;
+    catch (Exception^ ex) {
+        throw ex; // Lanzar excepción en caso de error
+    }
+    finally {
+        if (conn != nullptr) conn->Close(); // Cerrar la conexión, si está abierta
+    }
+    return fajaId; // Devolver el resultado de la operación
 }
 
 int MecaTrafiSystemPersistance::Persistance::Deletefaja(int fajaId)
@@ -590,8 +646,7 @@ int MecaTrafiSystemPersistance::Persistance::Deletefaja(int fajaId)
     for (int i = 0; i < fajasDB->Count; i++) {
         if (fajasDB[i]->Id == fajaId) {
             fajasDB->RemoveAt(i);
-            //PresistTextFile(TXT_EMPLOYEE_FILE_NAME, employeeListDB);
-           // PresistXMLFile(XML_EMPLOYEE_FILE_NAME, employeeListDB);
+           
             PersistBinaryFile(BIN_FAJAS_FILE_NAME, fajasDB);
             return fajaId;
         }
@@ -599,16 +654,10 @@ int MecaTrafiSystemPersistance::Persistance::Deletefaja(int fajaId)
     return 0;
 }
 
-MechanicComponent^ MecaTrafiSystemPersistance::Persistance::Queryallfajaid(int fajaId)
+FajasCliente^ MecaTrafiSystemPersistance::Persistance::Queryallfajaid(int fajaId)
 {
-   // fajasDB = (List<MechanicComponent^>^)LoadBinaryFile(BIN_FAJAS_FILE_NAME);
-   // for (int i = 0; i < fajasDB->Count; i++) { //Cuenta
-    //    if (fajasDB[i]->Id == fajaId) { //Si lo encuentra lo retorna
-    //        return fajasDB[i];
-    //    }
-  //  }
-   // return nullptr;
-    MechanicComponent^ faja;
+   
+    FajasCliente^ faja;
     SqlConnection^ conn;
     SqlDataReader^ reader;
     try {
@@ -626,7 +675,7 @@ MechanicComponent^ MecaTrafiSystemPersistance::Persistance::Queryallfajaid(int f
         //PROCESA DATO
         if (reader->Read()) {
 
-            MechanicComponent^ faja = gcnew MechanicComponent();
+            FajasCliente^ faja = gcnew FajasCliente();
             faja->Id = Convert::ToInt32(reader["ID_FAJA"]->ToString());
             faja->Name = reader["NOMBRE_FAJA"]->ToString();
             faja->Proveedor = reader["PROVEEDOR_FAJA"]->ToString();
@@ -648,22 +697,58 @@ MechanicComponent^ MecaTrafiSystemPersistance::Persistance::Queryallfajaid(int f
     return faja;
 }
 
-int MecaTrafiSystemPersistance::Persistance::Addpolea(MechanicComponent^ polea)
+int MecaTrafiSystemPersistance::Persistance::Addpolea(PoleaCliente^ polea)
 {
-    poleaDB->Add(polea);
+   // poleaDB->Add(polea);
 
-    PersistBinaryFile(BIN_POLEAS_FILE_NAME, poleaDB);
+    //PersistBinaryFile(BIN_POLEAS_FILE_NAME, poleaDB);
 
-    return 1;
+  //  return 1;
+    int poleaId = 0;
+    SqlConnection^ conn = nullptr;
+    try {
+        // Obtener la conexión a la BD
+        conn = GetConnection();
+
+        // Preparar la sentencia
+        String^ sqlStr = "dbo.usp_AddPolea_stock ";
+        SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
+        cmd->CommandType = System::Data::CommandType::StoredProcedure;
+        cmd->Parameters->Add("@NAME", System::Data::SqlDbType::VarChar, 200)->Value = polea->Name;
+        cmd->Parameters->Add("@STOCK", System::Data::SqlDbType::Int)->Value = polea->Stock;
+        cmd->Parameters->Add("@MARCA", System::Data::SqlDbType::VarChar, 100)->Value = polea->Brand;
+        cmd->Parameters->Add("@PRECIO_UNITARIO", System::Data::SqlDbType::Decimal)->Value = polea->UnitaryPrice;
+        cmd->Parameters->Add("@TIPO", System::Data::SqlDbType::VarChar, 50)->Value = polea->Tipo; 
+        cmd->Parameters->Add("@DIAMETROEXTER", System::Data::SqlDbType::Decimal)->Value = polea->DiametroExter;
+        cmd->Parameters->Add("@MATERIAL", System::Data::SqlDbType::VarChar, 50)->Value = polea->Material; 
+        cmd->Parameters->Add("@DIAMETROEJE", System::Data::SqlDbType::Decimal)->Value = polea->DiametroEje;
+        cmd->Parameters->Add("@DESCRIPTION ", System::Data::SqlDbType::VarChar, 400)->Value = polea->Description;
+       //  cmd->Parameters->Add("@DIAMETRO_INTERNO", System::Data::SqlDbType::VarChar, 200)->Value = tornillo->Tipod erosca;
+        //cmd->Parameters->Add("@DIAMETRO_EXTERNO", System::Data::SqlDbType::VarChar, 200)->Value = tornillo->Tipoderosca;
+        cmd->Parameters->Add("@PHOTO", System::Data::SqlDbType::Image)->Value = polea->Name;
+        if (polea->Photo == nullptr)
+            cmd->Parameters["@PHOTO"]->Value = DBNull::Value;
+        else
+            cmd->Parameters["@PHOTO"]->Value = polea->Photo;
+        cmd->Prepare();
+        cmd->ExecuteNonQuery();
+
+        poleaId = 1; // Asigna el ID del cliente insertado si es necesario
+    }
+    catch (Exception^ ex) {
+        throw ex;
+    }
+    finally {
+        if (conn != nullptr) conn->Close();
+    }
+    return poleaId;
+
 }
 
-List<MechanicComponent^>^ MecaTrafiSystemPersistance::Persistance::Queryallpolea()
+List<PoleaCliente^>^ MecaTrafiSystemPersistance::Persistance::Queryallpolea()
 {
-   // poleaDB = (List<MechanicComponent^>^)LoadBinaryFile(BIN_POLEAS_FILE_NAME);
-    //if (poleaDB == nullptr)
-     //   poleaDB = gcnew List<MechanicComponent^>();
-  //  return poleaDB;
-    poleaDB = gcnew List<MechanicComponent^>();
+  
+    poleaDB = gcnew List<PoleaCliente^>();
     SqlConnection^ conn;
     SqlDataReader^ reader;
     try {
@@ -671,7 +756,7 @@ List<MechanicComponent^>^ MecaTrafiSystemPersistance::Persistance::Queryallpolea
         SqlConnection^ conn = GetConnection();
 
         //PREPARA SQL
-        String^ sqlStr = "SELECT * FROM POLEA_STOCK";
+        String^ sqlStr = "dbo.usp_QueryAllPoleas";
         SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
         cmd->Prepare();
 
@@ -681,13 +766,14 @@ List<MechanicComponent^>^ MecaTrafiSystemPersistance::Persistance::Queryallpolea
         //PROCESA DATO
         while (reader->Read()) {
 
-            MechanicComponent^ polea = gcnew MechanicComponent();
-            polea->Id = Convert::ToInt32(reader["ID_POLEA"]->ToString());
-            polea->Name = reader["NOMBRE_POLEA"]->ToString();
-            polea->Proveedor = reader["PROVEEDOR_POLEA"]->ToString();
-            polea->Stock = Convert::ToInt32(reader["CANTIDAD_POLEA"]->ToString());
-            polea->UnitaryPrice = Convert::ToDouble(reader["PRECIO_UNIT_POLEA"]->ToString());
-
+            PoleaCliente^ polea = gcnew PoleaCliente();
+            polea->Id = Convert::ToInt32(reader["ID"]->ToString());
+            polea->Name = reader["NAME"]->ToString();
+            polea->Proveedor = reader["PROVEEDOR"]->ToString();
+            polea->Stock = Convert::ToInt32(reader["CANTIDAD"]->ToString());
+           // faja->UnitaryPrice = Convert::ToDouble(reader["PRECIO_UNIT_FAJA"]->ToString());
+            if (!DBNull::Value->Equals(reader["PHOTO"]))
+                polea->Photo = (array<Byte>^)reader["PHOTO"];
             poleaDB->Add(polea);
         }
 
@@ -707,17 +793,59 @@ List<MechanicComponent^>^ MecaTrafiSystemPersistance::Persistance::Queryallpolea
     return poleaDB;
 }
 
-int MecaTrafiSystemPersistance::Persistance::Updatepolea(MechanicComponent^ polea)
+int MecaTrafiSystemPersistance::Persistance::Updatepolea(PoleaCliente^ polea)
 {
-    for (int i = 0; i < poleaDB->Count; i++) { //Buscar 
-        if (poleaDB[i]->Id == polea->Id) {
-            poleaDB[i] = polea; //Modifica el dato
-            //PersistBinaryFile(BIN_EMPLOYEE_FILE_NAME, clientlistdatos);// Metodo para Binario
-            PersistBinaryFile(BIN_POLEAS_FILE_NAME, poleaDB);
-            return polea->Id;
-        }
+    int poleaId = 0;
+    SqlConnection^ conn = nullptr;
+    try {
+        // Obtener la conexión a la BD
+        conn = GetConnection();
+
+        // Preparar la sentencia
+        String^ sqlStr = "dbo.usp_UpdatePolea_stock "; 
+        SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn); 
+        cmd->CommandType = System::Data::CommandType::StoredProcedure; 
+
+        // Agregar los parámetros
+        cmd->Parameters->Add("@NAME", System::Data::SqlDbType::VarChar, 200)->Value = polea->Name; 
+        cmd->Parameters->Add("@STOCK", System::Data::SqlDbType::Int)->Value = polea->Stock; 
+        cmd->Parameters->Add("@MARCA", System::Data::SqlDbType::VarChar, 100)->Value = polea->Brand; 
+        cmd->Parameters->Add("@PRECIO_UNITARIO", System::Data::SqlDbType::Decimal)->Value = polea->UnitaryPrice; 
+        cmd->Parameters->Add("@TIPO", System::Data::SqlDbType::VarChar, 50)->Value = polea->Tipo; 
+        cmd->Parameters->Add("@DIAMETROEXTER", System::Data::SqlDbType::Decimal)->Value = polea->DiametroExter; 
+        cmd->Parameters->Add("@MATERIAL", System::Data::SqlDbType::VarChar, 50)->Value = polea->Material; 
+        cmd->Parameters->Add("@DIAMETROEJE", System::Data::SqlDbType::Decimal)->Value = polea->DiametroEje; 
+        cmd->Parameters->Add("@DESCRIPTION", System::Data::SqlDbType::VarChar, 400)->Value = polea->Description;
+        cmd->Parameters->Add("@PHOTO", System::Data::SqlDbType::Image)->Value = polea->Name;
+        cmd->Prepare();
+        cmd->Parameters["@NAME"]->Value = polea->Name;
+        cmd->Parameters["@STOCK"]->Value = polea->Stock;
+        cmd->Parameters["@MARCA"]->Value = polea->Brand;
+        cmd->Parameters["@PRECIO_UNITARIO"]->Value = polea->UnitaryPrice;
+        cmd->Parameters["@TIPO"]->Value = polea->Tipo;
+        cmd->Parameters["@DIAMETROEXTER"]->Value = polea->DiametroExter;
+        cmd->Parameters["@MATERIAL"]->Value = polea->Material;
+        cmd->Parameters["@DIAMETROEJE"]->Value = polea->DiametroEje;
+        cmd->Parameters["@DESCRIPTION"]->Value = polea->Description;
+      
+        if (polea->Photo == nullptr)
+            cmd->Parameters["@PHOTO"]->Value = DBNull::Value;
+        else
+            cmd->Parameters["@PHOTO"]->Value = polea->Photo;
+
+        // Preparar y ejecutar la sentencia
+        cmd->Prepare();
+        cmd->ExecuteNonQuery();
+
+        poleaId = 1; // Éxito en la actualización (podrías asignar el ID de la polea actualizada si lo necesitas)
     }
-    return 0;
+    catch (Exception^ ex) {
+        throw ex; // Lanzar excepción en caso de error
+    }
+    finally {
+        if (conn != nullptr) conn->Close(); // Cerrar la conexión, si está abierta
+    }
+    return poleaId; // Devolver el resultado de la operación
 }
 
 int MecaTrafiSystemPersistance::Persistance::Deletepolea(int poleaId)
@@ -733,16 +861,10 @@ int MecaTrafiSystemPersistance::Persistance::Deletepolea(int poleaId)
     return 0;
 }
 
-MechanicComponent^ MecaTrafiSystemPersistance::Persistance::Queryallpoleaid(int poleaId)
+PoleaCliente^ MecaTrafiSystemPersistance::Persistance::Queryallpoleaid(int poleaId)
 {
-  //  poleaDB = (List<MechanicComponent^>^)LoadBinaryFile(BIN_POLEAS_FILE_NAME);
-   // for (int i = 0; i < poleaDB->Count; i++) { //Cuenta
-   //     if (poleaDB[i]->Id == poleaId) { //Si lo encuentra lo retorna
-      //      return poleaDB[i];
-    //    }
-  //  }
-   // return nullptr;
-    MechanicComponent^ polea;
+  
+    PoleaCliente^ polea;
     SqlConnection^ conn;
     SqlDataReader^ reader;
     try {
@@ -759,7 +881,7 @@ MechanicComponent^ MecaTrafiSystemPersistance::Persistance::Queryallpoleaid(int 
 
         //PROCESA DATO
         if (reader->Read()) {
-            MechanicComponent^ polea = gcnew MechanicComponent();
+            PoleaCliente^ polea = gcnew PoleaCliente();
             polea->Id = Convert::ToInt32(reader["ID_POLEA"]->ToString());
             polea->Name = reader["NOMBRE_POLEA"]->ToString();
             polea->Proveedor = reader["PROVEEDOR_POLEA"]->ToString();
@@ -804,22 +926,60 @@ List<SaleOrder^>^ MecaTrafiSystemPersistance::Persistance::QueryAllOrders()
     }
     return orderListDB;
 }
-int MecaTrafiSystemPersistance::Persistance::Addrodamiento(MechanicComponent^ rodamiento)
+int MecaTrafiSystemPersistance::Persistance::Addrodamiento(RodamientosCliente^ rodamiento)
 {
-    rodamientoDB->Add(rodamiento);
+  //  rodamientoDB->Add(rodamiento);
 
-    PersistBinaryFile(BIN_RODAMIENTO_FILE_NAME, rodamientoDB);
+  //  PersistBinaryFile(BIN_RODAMIENTO_FILE_NAME, rodamientoDB);
 
-    return 1;
+  //  return 1;
+    int rodamientoId = 0;
+    SqlConnection^ conn = nullptr;
+    try {
+        // Obtener la conexión a la BD
+        conn = GetConnection();
+
+        // Preparar la sentencia
+        String^ sqlStr = "dbo.usp_AddRodamiento_stock ";
+        SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
+        cmd->CommandType = System::Data::CommandType::StoredProcedure;
+        cmd->Parameters->Add("@NAME", System::Data::SqlDbType::VarChar, 200)->Value = rodamiento->Name;
+        cmd->Parameters->Add("@STOCK", System::Data::SqlDbType::Int)->Value = rodamiento->Stock;
+        cmd->Parameters->Add("@MARCA", System::Data::SqlDbType::VarChar, 100)->Value = rodamiento->Brand;
+        cmd->Parameters->Add("@TIPO", System::Data::SqlDbType::VarChar, 50)->Value = rodamiento->Tipo;
+        cmd->Parameters->Add("@PRECIO_UNITARIO", System::Data::SqlDbType::Decimal)->Value = rodamiento->UnitaryPrice; 
+        cmd->Parameters->Add("@DESCRIPTION ", System::Data::SqlDbType::VarChar, 400)->Value = rodamiento->Description; 
+        cmd->Parameters->Add("@DIAMETROINTER", System::Data::SqlDbType::Decimal)->Value = rodamiento->DiametroInter;
+        cmd->Parameters->Add("@DIAMETROEXTER", System::Data::SqlDbType::Decimal)->Value = rodamiento->DiametroExter;
+        cmd->Parameters->Add("@ANCHO", System::Data::SqlDbType::Decimal)->Value = rodamiento->Ancho;
+        //  cmd->Parameters->Add("@DIAMETRO", System::Data::SqlDbType::VarChar, 200)->Value = tornillo->Tipoderosca;
+         //cmd->Parameters->Add("@TIPO", System::Data::SqlDbType::VarChar, 200)->Value = tornillo->Tipoderosca;
+         //cmd->Parameters->Add("@PRECIO", System::Data::SqlDbType::VarChar, 200)->Value = tornillo->Tipoderosca;
+        
+        cmd->Parameters->Add("@PHOTO", System::Data::SqlDbType::Image)->Value = rodamiento->Name;
+        if (rodamiento->Photo == nullptr)
+            cmd->Parameters["@PHOTO"]->Value = DBNull::Value;
+        else
+            cmd->Parameters["@PHOTO"]->Value = rodamiento->Photo;
+        cmd->Prepare();
+        cmd->ExecuteNonQuery();
+
+        rodamientoId = 1; // Asigna el ID del cliente insertado si es necesario
+    }
+    catch (Exception^ ex) {
+        throw ex;
+    }
+    finally {
+        if (conn != nullptr) conn->Close();
+    }
+    return rodamientoId;
+
 }
 
-List<MechanicComponent^>^ MecaTrafiSystemPersistance::Persistance::Queryallrodamiento()
+List<RodamientosCliente^>^ MecaTrafiSystemPersistance::Persistance::Queryallrodamiento()
 {
-    //rodamientoDB = (List<MechanicComponent^>^)LoadBinaryFile(BIN_RODAMIENTO_FILE_NAME);
-   // if (rodamientoDB == nullptr)
-    //    rodamientoDB = gcnew List<MechanicComponent^>();
-   // return rodamientoDB;
-    rodamientoDB = gcnew List<MechanicComponent^>();
+    
+    rodamientoDB = gcnew List<RodamientosCliente^>();
     SqlConnection^ conn;
     SqlDataReader^ reader;
     try {
@@ -827,7 +987,7 @@ List<MechanicComponent^>^ MecaTrafiSystemPersistance::Persistance::Queryallrodam
         SqlConnection^ conn = GetConnection();
 
         //PREPARA SQL
-        String^ sqlStr = "SELECT * FROM RODAMIENTO_STOCK";
+        String^ sqlStr = "dbo.usp_QueryAllFajas";
         SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
         cmd->Prepare();
 
@@ -837,13 +997,14 @@ List<MechanicComponent^>^ MecaTrafiSystemPersistance::Persistance::Queryallrodam
         //PROCESA DATO
         while (reader->Read()) {
 
-            MechanicComponent^ rodamiento = gcnew MechanicComponent();
-            rodamiento->Id = Convert::ToInt32(reader["ID_RODAMIENTO"]->ToString());
-            rodamiento->Name = reader["NOMBRE_RODAMIENTO"]->ToString();
-            rodamiento->Proveedor = reader["PROVEEDOR_RODAMIENTO"]->ToString();
-            rodamiento->Stock = Convert::ToInt32(reader["CANTIDAD_RODAMIENTO"]->ToString());
-            rodamiento->UnitaryPrice = Convert::ToDouble(reader["PRECIO_UNIT_RODAMIENTO"]->ToString());
-
+            RodamientosCliente^ rodamiento = gcnew RodamientosCliente();
+            rodamiento->Id = Convert::ToInt32(reader["ID"]->ToString());
+            rodamiento->Name = reader["NAME"]->ToString();
+            rodamiento->Proveedor = reader["PROVEEDOR"]->ToString();
+            rodamiento->Stock = Convert::ToInt32(reader["CANTIDAD"]->ToString());
+           // rodamiento->UnitaryPrice = Convert::ToDouble(reader["PRECIO"]->ToString());
+            if (!DBNull::Value->Equals(reader["PHOTO"]))
+                rodamiento->Photo = (array<Byte>^)reader["PHOTO"];
             rodamientoDB->Add(rodamiento);
         }
 
@@ -864,17 +1025,58 @@ List<MechanicComponent^>^ MecaTrafiSystemPersistance::Persistance::Queryallrodam
 
 }
 
-int MecaTrafiSystemPersistance::Persistance::Updaterodamiento(MechanicComponent^ rodamiento)
+int MecaTrafiSystemPersistance::Persistance::Updaterodamiento(RodamientosCliente^ rodamiento)
 {
-    for (int i = 0; i < rodamientoDB->Count; i++) { //Buscar 
-        if (rodamientoDB[i]->Id == rodamiento->Id) {
-            rodamientoDB[i] = rodamiento; //Modifica el dato
+    int rodamientoId = 0;
+    SqlConnection^ conn = nullptr;
+    try {
+        // Obtener la conexión a la BD
+        conn = GetConnection();
 
-            PersistBinaryFile(BIN_RODAMIENTO_FILE_NAME, rodamientoDB);
-            return rodamiento->Id;
-        }
+        // Preparar la sentencia
+        String^ sqlStr = "dbo.usp_UpdateRodamiento_stock ";
+        SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
+        cmd->CommandType = System::Data::CommandType::StoredProcedure;
+
+        // Agregar los parámetros
+        cmd->Parameters->Add("@NAME", System::Data::SqlDbType::VarChar, 200)->Value = rodamiento->Name;
+        cmd->Parameters->Add("@STOCK", System::Data::SqlDbType::Int)->Value = rodamiento->Stock;
+        cmd->Parameters->Add("@MARCA", System::Data::SqlDbType::VarChar, 100)->Value = rodamiento->Brand;
+        cmd->Parameters->Add("@TIPO", System::Data::SqlDbType::VarChar, 50)->Value = rodamiento->Tipo;
+        cmd->Parameters->Add("@PRECIO_UNITARIO", System::Data::SqlDbType::Decimal)->Value = rodamiento->UnitaryPrice;
+        cmd->Parameters->Add("@DESCRIPTION", System::Data::SqlDbType::VarChar, 400)->Value = rodamiento->Description;
+        cmd->Parameters->Add("@DIAMETROINTER", System::Data::SqlDbType::Decimal)->Value = rodamiento->DiametroInter;
+        cmd->Parameters->Add("@DIAMETROEXTER", System::Data::SqlDbType::Decimal)->Value = rodamiento->DiametroExter;
+        cmd->Parameters->Add("@ANCHO", System::Data::SqlDbType::Decimal)->Value = rodamiento->Ancho;
+        cmd->Parameters->Add("@PHOTO", System::Data::SqlDbType::Image)->Value = rodamiento->Name;
+        cmd->Prepare();
+        cmd->Parameters["@NAME"]->Value = rodamiento->Name;
+        cmd->Parameters["@STOCK"]->Value = rodamiento->Stock;
+        cmd->Parameters["@MARCA"]->Value = rodamiento->Brand;
+        cmd->Parameters["@TIPO"]->Value = rodamiento->Tipo;
+        cmd->Parameters["@PRECIO_UNITARIO"]->Value = rodamiento->UnitaryPrice;
+        cmd->Parameters["@DESCRIPTION"]->Value = rodamiento->Description;
+        cmd->Parameters["@DIAMETROINTER"]->Value = rodamiento->DiametroInter;
+        cmd->Parameters["@ANCHO"]->Value = rodamiento->Id;
+   
+        if (rodamiento->Photo == nullptr)
+            cmd->Parameters["@PHOTO"]->Value = DBNull::Value;
+        else
+            cmd->Parameters["@PHOTO"]->Value = rodamiento->Photo;
+
+        // Preparar y ejecutar la sentencia
+        cmd->Prepare();
+        cmd->ExecuteNonQuery();
+
+        rodamientoId = 1; // Éxito en la actualización (podrías asignar el ID del rodamiento actualizado si lo necesitas)
     }
-    return 0;
+    catch (Exception^ ex) {
+        throw ex; // Lanzar excepción en caso de error
+    }
+    finally {
+        if (conn != nullptr) conn->Close(); // Cerrar la conexión, si está abierta
+    }
+    return rodamientoId; // Devolver el resultado de la operación
 }
 
 int MecaTrafiSystemPersistance::Persistance::Deleterodamiento(int rodamientoId)
@@ -890,16 +1092,10 @@ int MecaTrafiSystemPersistance::Persistance::Deleterodamiento(int rodamientoId)
     return 0;
 }
 
-MechanicComponent^ MecaTrafiSystemPersistance::Persistance::Queryallrodamientoid(int rodamientoId)
+RodamientosCliente^ MecaTrafiSystemPersistance::Persistance::Queryallrodamientoid(int rodamientoId)
 {
-   // rodamientoDB = (List<MechanicComponent^>^)LoadBinaryFile(BIN_RODAMIENTO_FILE_NAME);
-   // for (int i = 0; i < rodamientoDB->Count; i++) { //Cuenta
-   //     if (rodamientoDB[i]->Id == rodamientoId) { //Si lo encuentra lo retorna
-    //        return rodamientoDB[i];
-    //    }
-   // }
-   // return nullptr;
-    MechanicComponent^ rodamiento;
+  
+    RodamientosCliente^ rodamiento;
     SqlConnection^ conn;
     SqlDataReader^ reader;
     try {
@@ -917,7 +1113,7 @@ MechanicComponent^ MecaTrafiSystemPersistance::Persistance::Queryallrodamientoid
         //PROCESA DATO
         if (reader->Read()) {
 
-            MechanicComponent^ rodamiento = gcnew MechanicComponent();
+            RodamientosCliente^ rodamiento = gcnew RodamientosCliente();
             rodamiento->Id = Convert::ToInt32(reader["ID_RODAMIENTO"]->ToString());
             rodamiento->Name = reader["NOMBRE_RODAMIENTO"]->ToString();
             rodamiento->Proveedor = reader["PROVEEDOR_RODAMIENTO"]->ToString();
@@ -946,13 +1142,10 @@ MechanicComponent^ MecaTrafiSystemPersistance::Persistance::Queryallrodamientoid
 
 }
 
-List<MechanicComponent^>^ MecaTrafiSystemPersistance::Persistance::Queryalltornillo()
+List<TornilloCliente^>^ MecaTrafiSystemPersistance::Persistance::Queryalltornillo()
 {
-    //tornillosDB = (List<MechanicComponent^>^)LoadBinaryFile(BIN_TORNILLO_FILE_NAME);
-  //  if (tornillosDB == nullptr)
-     //   tornillosDB = gcnew List<MechanicComponent^>();
-   // return tornillosDB;
-    tornillosDB = gcnew List<MechanicComponent^>();
+   
+    tornillosDB = gcnew List<TornilloCliente^>();
     SqlConnection^ conn;
     SqlDataReader^ reader;
     try {
@@ -960,7 +1153,7 @@ List<MechanicComponent^>^ MecaTrafiSystemPersistance::Persistance::Queryalltorni
         SqlConnection^ conn = GetConnection();
 
         //PREPARA SQL
-        String^ sqlStr = "SELECT * FROM TORNILLO_STOCK";
+        String^ sqlStr = "dbo.usp_QueryAllTornillo_stock";
         SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
         cmd->Prepare();
 
@@ -970,13 +1163,28 @@ List<MechanicComponent^>^ MecaTrafiSystemPersistance::Persistance::Queryalltorni
         //PROCESA DATO
         while (reader->Read()) {
 
-            MechanicComponent^ tornillo = gcnew MechanicComponent();
-            tornillo->Id = Convert::ToInt32(reader["ID_TORNILLO"]->ToString());
-            tornillo->Name = reader["NOMBRE_TORNILLO"]->ToString();
-            tornillo->Proveedor = reader["PROVEEDOR_TORNILLO"]->ToString();
-            tornillo->Stock = Convert::ToInt32(reader["CANTIDAD_TORNILLO"]->ToString());
-            tornillo->UnitaryPrice = Convert::ToDouble(reader["PRECIO_UNIT_TORNILLO"]->ToString());
+            TornilloCliente^ tornillo = gcnew TornilloCliente();
+            tornillo = gcnew TornilloCliente();  // Crear una instancia de la clase Tornillo
 
+           // tornillo->Id = Convert::ToInt32(reader["ID"]->ToString()); 
+            tornillo->Brand = reader["MARCA"]->ToString();
+            tornillo->Description = reader["DESCRIPCION"]->ToString();
+            tornillo->Name = reader["NAME"]->ToString();
+            tornillo->Tipo = reader["TIPO"]->ToString();
+            tornillo->Material = reader["MATERIAL"]->ToString();
+            tornillo->Rosca = reader["ROSCA"]->ToString();
+            tornillo->Longitud = Convert::ToDouble(reader["LONGITUD"]->ToString());
+            tornillo->UnitaryPrice = Convert::ToDouble(reader["UNITARYPRICE"]->ToString());
+            tornillo->Stock = Convert::ToInt32(reader["STOCK"]->ToString());
+            if (!DBNull::Value->Equals(reader["PHOTO"]))
+                tornillo->Photo = (array<Byte>^)reader["PHOTO"];
+            tornillo->Id = Convert::ToInt32(reader["ID"]->ToString());
+            tornillo->Name = reader["NAME"]->ToString();
+           // tornillo->Proveedor = reader["PROVEEDOR"]->ToString();
+            tornillo->Stock = Convert::ToInt32(reader["STOCK"]->ToString());
+           // tornillo->UnitaryPrice = Convert::ToDouble(reader["PRECIO"]->ToString());
+            if (!DBNull::Value->Equals(reader["PHOTO"]))
+                tornillo->Photo = (array<Byte>^)reader["PHOTO"];
             tornillosDB->Add(tornillo);
         }
 
@@ -996,17 +1204,57 @@ List<MechanicComponent^>^ MecaTrafiSystemPersistance::Persistance::Queryalltorni
     return tornillosDB;
 }
 
-int MecaTrafiSystemPersistance::Persistance::Updatetornillo(MechanicComponent^ tornillo)
+int MecaTrafiSystemPersistance::Persistance::Updatetornillo(TornilloCliente^ tornillo)
 {
-    for (int i = 0; i < tornillosDB->Count; i++) { //Buscar 
-        if (tornillosDB[i]->Id == tornillo->Id) {
-            tornillosDB[i] = tornillo; //Modifica el dato
-            //PersistBinaryFile(BIN_EMPLOYEE_FILE_NAME, clientlistdatos);// Metodo para Binario
-            PersistBinaryFile(BIN_TORNILLO_FILE_NAME, tornillosDB);
-            return tornillo->Id;
-        }
+    int tornilloId = 0;
+    SqlConnection^ conn = nullptr; 
+    try {
+        // Obtener la conexión a la BD
+        conn = GetConnection(); 
+
+        // Preparar la sentencia
+        String^ sqlStr = "dbo.usp_UpdateTornillo_stock "; 
+        SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn); 
+        cmd->CommandType = System::Data::CommandType::StoredProcedure; 
+        cmd->Parameters->Add("@NAME", System::Data::SqlDbType::VarChar, 200)->Value = tornillo->Name; 
+        cmd->Parameters->Add("@STOCK", System::Data::SqlDbType::Int)->Value = tornillo->Stock;
+        cmd->Parameters->Add("@MARCA", System::Data::SqlDbType::VarChar, 100)->Value = tornillo->Brand;
+        cmd->Parameters->Add("@UNITARYPRICE", System::Data::SqlDbType::Decimal)->Value = tornillo->UnitaryPrice;
+        cmd->Parameters->Add("@LONGITUD", System::Data::SqlDbType::Decimal)->Value = tornillo->Longitud;
+        cmd->Parameters->Add("@MATERIAL", System::Data::SqlDbType::VarChar, 50)->Value = tornillo->Material;
+        cmd->Parameters->Add("@ROSCA", System::Data::SqlDbType::VarChar, 50)->Value = tornillo->Rosca;
+        cmd->Parameters->Add("@TIPO", System::Data::SqlDbType::VarChar, 50)->Value = tornillo->Tipo;
+        cmd->Parameters->Add("@DESCRIPCION", System::Data::SqlDbType::VarChar, 200)->Value = tornillo->Description;
+        cmd->Parameters->Add("@PHOTO", System::Data::SqlDbType::Image)->Value = tornillo->Name;
+        cmd->Prepare(); 
+        cmd->Parameters["@NAME"]->Value = tornillo->Name;
+        cmd->Parameters["@STOCK"]->Value = tornillo->Stock;
+        cmd->Parameters["@MARCA"]->Value = tornillo->Brand;
+        cmd->Parameters["@UNITARYPRICE"]->Value = tornillo->UnitaryPrice;
+        cmd->Parameters["@LONGITUD"]->Value = tornillo->Longitud;
+        cmd->Parameters["@MATERIAL"]->Value = tornillo->Material;
+        cmd->Parameters["@ROSCA"]->Value = tornillo->Rosca;
+        cmd->Parameters["@TIPO"]->Value = tornillo->Tipo;
+        cmd->Parameters["@DESCRIPCION"]->Value = tornillo->Description;
+        cmd->Parameters["@PHOTO"]->Value = tornillo->Name;
+     
+        if (tornillo->Photo == nullptr)
+            cmd->Parameters["@PHOTO"]->Value = DBNull::Value;
+        else
+            cmd->Parameters["@PHOTO"]->Value = tornillo->Photo;
+
+        cmd->Prepare();
+        cmd->ExecuteNonQuery();
+
+        tornilloId = 1; // Éxito en la actualización (podrías asignar el ID del tornillo actualizado si lo necesitas)
     }
-    return 0;
+    catch (Exception^ ex) {
+        throw ex;
+    }
+    finally {
+        if (conn != nullptr) conn->Close();
+    }
+    return tornilloId = 1;
 }
 
 int MecaTrafiSystemPersistance::Persistance::Deletetornillo(int tornilloId)
@@ -1023,79 +1271,112 @@ int MecaTrafiSystemPersistance::Persistance::Deletetornillo(int tornilloId)
     return 0;
 }
 
-MechanicComponent^ MecaTrafiSystemPersistance::Persistance::Queryalltornilloid(int tornilloId)
+TornilloCliente^ MecaTrafiSystemPersistance::Persistance::Queryalltornilloid(int tornilloId)
 {
-   // tornillosDB = (List<MechanicComponent^>^)LoadBinaryFile(BIN_TORNILLO_FILE_NAME);
-   // for (int i = 0; i < tornillosDB->Count; i++) { //Cuenta
-    //    if (tornillosDB[i]->Id == tornilloId) { //Si lo encuentra lo retorna
-    //        return tornillosDB[i];
-     //   }
-  //  }
-  //  return nullptr;
+  
 
-    MechanicComponent^ tornillo;
+    TornilloCliente^ tornillo;
     SqlConnection^ conn;
     SqlDataReader^ reader;
     try {
-        //OBTENER CONEXION
-        SqlConnection^ conn = GetConnection();
+        // Paso 1: Obtener la conexión a la base de datos
+        conn = GetConnection();
 
-        //PREPARA SQL
-        String^ sqlStr = "SELECT * FROM TORNILLO_STOCK WHERE ID= " + tornilloId;
+        // Paso 2: Preparar la sentencia SQL
+        String^ sqlStr = "dbo.usp_QueryTornilloById_stock ";  // Nombre del procedimiento almacenado a utilizar
         SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
-        cmd->Prepare();
-
-        //EJECUTA SQL
+        cmd->CommandType = System::Data::CommandType::StoredProcedure; 
+        cmd->Parameters->Add("@ID", System::Data::SqlDbType::Int); 
+        cmd->Prepare(); 
+        cmd->Parameters["@ID"]->Value = tornilloId;
+         
+        // Paso 3: Ejecutar la sentencia SQL
         reader = cmd->ExecuteReader();
 
-        //PROCESA DATO
+        // Paso 4: Procesar los resultados
         if (reader->Read()) {
-
-            MechanicComponent^ tornillo = gcnew MechanicComponent();
-            tornillo->Id = Convert::ToInt32(reader["ID_TORNILLO"]->ToString());
-            tornillo->Name = reader["NOMBRE_TORNILLO"]->ToString();
-            tornillo->Proveedor = reader["PROVEEDOR_TORNILLO"]->ToString();
-            tornillo->Stock = Convert::ToInt32(reader["CANTIDAD_TORNILLO"]->ToString());
-            tornillo->UnitaryPrice = Convert::ToDouble(reader["PRECIO_UNIT_TORNILLO"]->ToString());
+            tornillo = gcnew TornilloCliente();  // Crear una instancia de la clase Tornillo
+           
+            //tornillo->Id = Convert::ToInt32(reader["ID"]->ToString());
+            tornillo->Brand = reader["MARCA"]->ToString();
+            tornillo->Description = reader["DESCRIPCION"]->ToString();
+            tornillo->Name = reader["NAME"]->ToString(); 
+            tornillo->Tipo = reader["TIPO"]->ToString(); 
+            tornillo->Material = reader["MATERIAL"]->ToString();
+            tornillo->Rosca = reader["ROSCA"]->ToString();
+            tornillo->Longitud = Convert::ToDouble(reader["LONGITUD"]->ToString());
+            tornillo->UnitaryPrice = Convert::ToDouble(reader["UNITARYPRICE"]->ToString());
+            tornillo->Stock = Convert::ToInt32(reader["STOCK"]->ToString());
+            if (!DBNull::Value->Equals(reader["PHOTO"]))
+                tornillo->Photo = (array<Byte>^)reader["PHOTO"];
+            // Asegúrate de ajustar los nombres de las columnas según la estructura de tu tabla y el procedimiento almacenado
         }
-
-
-
-
-
     }
     catch (Exception^ ex) {
         throw ex;
     }
     finally {
-
-
-
-        //CERRAR LOS OBJETOS A LA BD
+        // Paso 5: Cerrar los objetos de conexión y lectura
         if (reader != nullptr) reader->Close();
         if (conn != nullptr) conn->Close();
-
     }
+
     return tornillo;
 
 }
 //METODOS PARA MOTOR AC - STOCK
-int MecaTrafiSystemPersistance::Persistance::AddMotorACStock(MechanicComponent^ motorAC)
+int MecaTrafiSystemPersistance::Persistance::AddMotorACStock(MotoresACCliente^ motorAC)
 {
-    motorACDB->Add(motorAC);
+  //  motorACDB->Add(motorAC);
 
-    PersistBinaryFile(BIN_MOTORAC_FILE_NAME, motorACDB);
+  //  PersistBinaryFile(BIN_MOTORAC_FILE_NAME, motorACDB);
 
-    return 1;
+  //  return 1;
+    int motorACId = 0;
+    SqlConnection^ conn = nullptr;
+    try {
+        // Obtener la conexión a la BD
+        conn = GetConnection();
+
+        // Preparar la sentencia
+        String^ sqlStr = "dbo.usp_AddMotorAC_stock ";
+        SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
+        cmd->CommandType = System::Data::CommandType::StoredProcedure;
+        cmd->Parameters->Add("@NAME", System::Data::SqlDbType::VarChar, 200)->Value = motorAC->Name;
+        cmd->Parameters->Add("@STOCK", System::Data::SqlDbType::Int)->Value = motorAC->Stock;
+        cmd->Parameters->Add("@MARCA", System::Data::SqlDbType::VarChar, 50)->Value = motorAC->Brand;
+        cmd->Parameters->Add("@FRAME", System::Data::SqlDbType::VarChar, 50)->Value = motorAC->Frame;
+        cmd->Parameters->Add("@POTENCIA", System::Data::SqlDbType::Decimal)->Value = motorAC->Potencia;
+        cmd->Parameters->Add("@CLASEPROTECCION", System::Data::SqlDbType::VarChar, 50)->Value = motorAC->ClaseProteccion;
+        cmd->Parameters->Add("@FASES", System::Data::SqlDbType::VarChar, 50)->Value = motorAC->Fases;
+        cmd->Parameters->Add("@DESCRIPTION", System::Data::SqlDbType::VarChar, 400)->Value = motorAC->Description;
+        //  cmd->Parameters->Add("@FRAME", System::Data::SqlDbType::VarChar, 200)->Value = tornillo->Tipoderosca;
+         //cmd->Parameters->Add("@POTENCIA", System::Data::SqlDbType::VarChar, 200)->Value = tornillo->Tipoderosca;
+         //cmd->Parameters->Add("@FASES", System::Data::SqlDbType::VarChar, 200)->Value = tornillo->Tipoderosca;
+       
+        cmd->Parameters->Add("@PHOTO", System::Data::SqlDbType::Image)->Value = motorAC->Name;
+        if (motorAC->Photo == nullptr)
+            cmd->Parameters["@PHOTO"]->Value = DBNull::Value;
+        else
+            cmd->Parameters["@PHOTO"]->Value = motorAC->Photo;
+        cmd->Prepare();
+        cmd->ExecuteNonQuery();
+
+        motorACId = 1; // Asigna el ID del cliente insertado si es necesario
+    }
+    catch (Exception^ ex) {
+        throw ex;
+    }
+    finally {
+        if (conn != nullptr) conn->Close();
+    }
+    return motorACId;
 }
 
-List<MechanicComponent^>^ MecaTrafiSystemPersistance::Persistance::QueryallMotorACStock()
+List<MotoresACCliente^>^ MecaTrafiSystemPersistance::Persistance::QueryallMotorACStock()
 {
-   // motorACDB = (List<MechanicComponent^>^)LoadBinaryFile(BIN_MOTORAC_FILE_NAME);
-  //  if (motorACDB == nullptr)
-    //    motorACDB = gcnew List<MechanicComponent^>();
-  //  return motorACDB;
-    motorACDB = gcnew List<MechanicComponent^>();
+  
+    motorACDB = gcnew List<MotoresACCliente^>();
     SqlConnection^ conn;
     SqlDataReader^ reader;
     try {
@@ -1103,7 +1384,7 @@ List<MechanicComponent^>^ MecaTrafiSystemPersistance::Persistance::QueryallMotor
         SqlConnection^ conn = GetConnection();
 
         //PREPARA SQL
-        String^ sqlStr = "SELECT * FROM MOTORESAC_STOCK";
+        String^ sqlStr = "dbo.usp_QueryAllMotoresAC";
         SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
         cmd->Prepare();
 
@@ -1113,14 +1394,15 @@ List<MechanicComponent^>^ MecaTrafiSystemPersistance::Persistance::QueryallMotor
         //PROCESA DATO
         while (reader->Read()) {
 
-            MechanicComponent^ motorac = gcnew MechanicComponent();
-            motorac->Id = Convert::ToInt32(reader["ID_MOTORESAC"]->ToString());
-            motorac->Name = reader["NOMBRE_MOTORESAC"]->ToString();
-            motorac->Proveedor = reader["PROVEEDOR_MOTORESAC"]->ToString();
-            motorac->Stock = Convert::ToInt32(reader["CANTIDAD_MOTORESAC"]->ToString());
-            motorac->UnitaryPrice = Convert::ToDouble(reader["PRECIO_UNIT_MOTORESAC"]->ToString());
-
-            motorACDB->Add(motorac);
+            MotoresACCliente^ motorAc = gcnew MotoresACCliente();
+            motorAc->Id = Convert::ToInt32(reader["ID"]->ToString());
+            motorAc->Name = reader["NAME"]->ToString();
+            motorAc->Proveedor = reader["PROVEEDOR"]->ToString();
+            motorAc->Stock = Convert::ToInt32(reader["CANTIDAD"]->ToString());
+            // tornillo->UnitaryPrice = Convert::ToDouble(reader["PRECIO"]->ToString());
+            if (!DBNull::Value->Equals(reader["PHOTO"]))
+                motorAc->Photo = (array<Byte>^)reader["PHOTO"];
+            motorACDB->Add(motorAc);
         }
 
     }
@@ -1139,16 +1421,56 @@ List<MechanicComponent^>^ MecaTrafiSystemPersistance::Persistance::QueryallMotor
     return motorACDB;
 }
 
-int MecaTrafiSystemPersistance::Persistance::UpdateMotorACStock(MechanicComponent^ motorAC)
+int MecaTrafiSystemPersistance::Persistance::UpdateMotorACStock(MotoresACCliente^ motorAC)
 {
-    for (int i = 0; i < motorACDB->Count; i++) {
-        if (motorACDB[i]->Id == motorAC->Id) {
-            motorACDB[i] = motorAC;
-            PersistBinaryFile(BIN_MOTORAC_FILE_NAME, motorACDB);
-            return motorAC->Id;
-        }
+    int motorACId = 0; 
+    SqlConnection^ conn = nullptr; 
+    try {
+        // Obtener la conexión a la BD
+        conn = GetConnection();
+
+        // Preparar la sentencia
+        String^ sqlStr = "dbo.usp_UpdateMotorAC_stock ";
+        SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
+        cmd->CommandType = System::Data::CommandType::StoredProcedure;
+
+        // Agregar los parámetros
+        cmd->Parameters->Add("@NAME", System::Data::SqlDbType::VarChar, 200)->Value = motorAC->Name; 
+        cmd->Parameters->Add("@STOCK", System::Data::SqlDbType::Int)->Value = motorAC->Stock; 
+        cmd->Parameters->Add("@MARCA", System::Data::SqlDbType::VarChar, 50)->Value = motorAC->Brand; 
+        cmd->Parameters->Add("@FRAME", System::Data::SqlDbType::VarChar, 50)->Value = motorAC->Frame; 
+        cmd->Parameters->Add("@POTENCIA", System::Data::SqlDbType::Decimal)->Value = motorAC->Potencia; 
+        cmd->Parameters->Add("@CLASEPROTECCION", System::Data::SqlDbType::VarChar, 50)->Value = motorAC->ClaseProteccion; 
+        cmd->Parameters->Add("@FASES", System::Data::SqlDbType::VarChar, 50)->Value = motorAC->Fases;
+        cmd->Parameters->Add("@DESCRIPTION", System::Data::SqlDbType::VarChar, 400)->Value = motorAC->Description;  
+        cmd->Parameters->Add("@PHOTO", System::Data::SqlDbType::Image)->Value = motorAC->Name; 
+        cmd->Prepare();
+        cmd->Parameters["@NAME"]->Value = motorAC->Name;
+        cmd->Parameters["@STOCK"]->Value = motorAC->Stock;
+        cmd->Parameters["@MARCA"]->Value = motorAC->Brand;
+        cmd->Parameters["@FRAME"]->Value = motorAC->Frame;
+        cmd->Parameters["@POTENCIA"]->Value = motorAC->Potencia;
+        cmd->Parameters["@CLASEPROTECCION"]->Value = motorAC->ClaseProteccion;
+        cmd->Parameters["@FASES"]->Value = motorAC->Fases;
+        cmd->Parameters["@DESCRIPTION"]->Value = motorAC->Description;
+        if (motorAC->Photo == nullptr)
+            cmd->Parameters["@PHOTO"]->Value = DBNull::Value;
+        else
+            cmd->Parameters["@PHOTO"]->Value = motorAC->Photo;
+
+        // Preparar y ejecutar la sentencia
+        cmd->Prepare();
+        cmd->ExecuteNonQuery();
+
+        motorACId = 1; // Éxito en la actualización (podrías asignar el ID del motor AC actualizado si lo necesitas)
     }
-    return 0;
+    catch (Exception^ ex) {
+        throw ex; // Lanzar excepción en caso de error
+    }
+    finally {
+        if (conn != nullptr) conn->Close(); // Cerrar la conexión, si está abierta
+    }
+    return motorACId; // Devolver el resultado de la operación
 }
 
 int MecaTrafiSystemPersistance::Persistance::DeleteMotorACStock(int motorACId)
@@ -1163,17 +1485,11 @@ int MecaTrafiSystemPersistance::Persistance::DeleteMotorACStock(int motorACId)
     return 0;
 }
 
-MechanicComponent^ MecaTrafiSystemPersistance::Persistance::QueryallMotorACStockById(int motorACId)
+MotoresACCliente^ MecaTrafiSystemPersistance::Persistance::QueryallMotorACStockById(int motorACId)
 {
-   // motorACDB = (List<MechanicComponent^>^)LoadBinaryFile(BIN_MOTORAC_FILE_NAME);
-   // for (int i = 0; i < motorACDB->Count; i++) { //Cuenta
-    //    if (motorACDB[i]->Id == motorACId) { //Si lo encuentra lo retorna
-    //        return motorACDB[i];
-     //   }
-  //  }
-   // return nullptr;
+  
 
-    MechanicComponent^ motorac;
+    MotoresACCliente^ motorac;
     SqlConnection^ conn;
     SqlDataReader^ reader;
     try {
@@ -1191,7 +1507,7 @@ MechanicComponent^ MecaTrafiSystemPersistance::Persistance::QueryallMotorACStock
         //PROCESA DATO
         if (reader->Read()) {
 
-            MechanicComponent^ motorac = gcnew MechanicComponent();
+            MotoresACCliente^ motorac = gcnew MotoresACCliente();
             motorac->Id = Convert::ToInt32(reader["ID_MOTORESAC"]->ToString());
             motorac->Name = reader["NOMBRE_MOTORESAC"]->ToString();
             motorac->Proveedor = reader["PROVEEDOR_MOTORESAC"]->ToString();
@@ -1217,22 +1533,59 @@ MechanicComponent^ MecaTrafiSystemPersistance::Persistance::QueryallMotorACStock
 }
 
 //METODOS PARA MOTOR DC - STOCK
-int MecaTrafiSystemPersistance::Persistance::AddMotorDCStock(MechanicComponent^ motorDC)
+int MecaTrafiSystemPersistance::Persistance::AddMotorDCStock(MotoresDCCliente^ motorDC)
 {
-    motorDCDB->Add(motorDC);
+   // motorDCDB->Add(motorDC);
 
-    PersistBinaryFile(BIN_MOTORDC_FILE_NAME, motorDCDB);
+   // PersistBinaryFile(BIN_MOTORDC_FILE_NAME, motorDCDB);
 
-    return 1;
+   // return 1;
+    int motorDCId = 0;
+    SqlConnection^ conn = nullptr;
+    try {
+        // Obtener la conexión a la BD
+        conn = GetConnection();
+
+        // Preparar la sentencia
+        String^ sqlStr = "dbo.usp_AddMotorDC_stock ";
+        SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
+        cmd->CommandType = System::Data::CommandType::StoredProcedure;
+        cmd->Parameters->Add("@NAME", System::Data::SqlDbType::VarChar, 200)->Value = motorDC->Name;
+        cmd->Parameters->Add("@CANTIDAD", System::Data::SqlDbType::Int)->Value = motorDC->Stock;
+        cmd->Parameters->Add("@MARCA", System::Data::SqlDbType::VarChar, 100)->Value = motorDC->Brand;
+        cmd->Parameters->Add("@POTENCIA", System::Data::SqlDbType::Decimal)->Value = motorDC->Potencia;
+        cmd->Parameters->Add("@VELOCIDAD", System::Data::SqlDbType::Int)->Value = motorDC->Velocidad;
+        cmd->Parameters->Add("@VOLTAJE", System::Data::SqlDbType::Int)->Value = motorDC->Voltaje;
+        cmd->Parameters->Add("@MONTAJE", System::Data::SqlDbType::VarChar, 50)->Value = motorDC->Montaje;
+        cmd->Parameters->Add("@DESCRIPTION", System::Data::SqlDbType::VarChar, 400)->Value = motorDC->Description;
+
+        //  cmd->Parameters->Add("@VOLTAJE", System::Data::SqlDbType::VarChar, 200)->Value = tornillo->Tipoderosca;
+         //cmd->Parameters->Add("@POTENCIA", System::Data::SqlDbType::VarChar, 200)->Value = tornillo->Tipoderosca;
+         //cmd->Parameters->Add("@VELOCIDAD", System::Data::SqlDbType::VarChar, 200)->Value = tornillo->Tipoderosca;
+       
+        cmd->Parameters->Add("@PHOTO", System::Data::SqlDbType::Image)->Value = motorDC->Name;
+        if (motorDC->Photo == nullptr)
+            cmd->Parameters["@PHOTO"]->Value = DBNull::Value;
+        else
+            cmd->Parameters["@PHOTO"]->Value = motorDC->Photo;
+        cmd->Prepare();
+        cmd->ExecuteNonQuery();
+
+        motorDCId = 1; // Asigna el ID del cliente insertado si es necesario
+    }
+    catch (Exception^ ex) {
+        throw ex;
+    }
+    finally {
+        if (conn != nullptr) conn->Close();
+    }
+    return motorDCId;
 }
 
-List<MechanicComponent^>^ MecaTrafiSystemPersistance::Persistance::QueryallMotorDCStock()
+List<MotoresDCCliente^>^ MecaTrafiSystemPersistance::Persistance::QueryallMotorDCStock()
 {
-   // motorDCDB = (List<MechanicComponent^>^)LoadBinaryFile(BIN_MOTORDC_FILE_NAME);
-   // if (motorDCDB == nullptr)
-      //  motorDCDB = gcnew List<MechanicComponent^>();
-   // return motorDCDB;
-    motorDCDB = gcnew List<MechanicComponent^>();
+  
+    motorDCDB = gcnew List<MotoresDCCliente^>();
     SqlConnection^ conn;
     SqlDataReader^ reader;
     try {
@@ -1240,7 +1593,7 @@ List<MechanicComponent^>^ MecaTrafiSystemPersistance::Persistance::QueryallMotor
         SqlConnection^ conn = GetConnection();
 
         //PREPARA SQL
-        String^ sqlStr = "SELECT * FROM MOTORESDC_STOCK";
+        String^ sqlStr = "dbo.usp_QueryAllMotoresDC";
         SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
         cmd->Prepare();
 
@@ -1250,14 +1603,15 @@ List<MechanicComponent^>^ MecaTrafiSystemPersistance::Persistance::QueryallMotor
         //PROCESA DATO
         while (reader->Read()) {
 
-            MechanicComponent^ motordc = gcnew MechanicComponent();
-            motordc->Id = Convert::ToInt32(reader["ID_MOTORESDC"]->ToString());
-            motordc->Name = reader["NOMBRE_MOTORESDC"]->ToString();
-            motordc->Proveedor = reader["PROVEEDOR_MOTORESDC"]->ToString();
-            motordc->Stock = Convert::ToInt32(reader["CANTIDAD_MOTORESDC"]->ToString());
-            motordc->UnitaryPrice = Convert::ToDouble(reader["PRECIO_UNIT_MOTORESDC"]->ToString());
-
-            motorDCDB->Add(motordc);
+            MotoresDCCliente^ motorDc = gcnew MotoresDCCliente();
+            motorDc->Id = Convert::ToInt32(reader["ID"]->ToString());
+            motorDc->Name = reader["NAME"]->ToString();
+            motorDc->Proveedor = reader["PROVEEDOR"]->ToString();
+            motorDc->Stock = Convert::ToInt32(reader["CANTIDAD"]->ToString());
+            // tornillo->UnitaryPrice = Convert::ToDouble(reader["PRECIO"]->ToString());
+            if (!DBNull::Value->Equals(reader["PHOTO"]))
+                motorDc->Photo = (array<Byte>^)reader["PHOTO"];
+            motorDCDB->Add(motorDc);
         }
 
     }
@@ -1276,16 +1630,57 @@ List<MechanicComponent^>^ MecaTrafiSystemPersistance::Persistance::QueryallMotor
     return motorDCDB;
 }
 
-int MecaTrafiSystemPersistance::Persistance::UpdateMotorDCStock(MechanicComponent^ motorDC)
+int MecaTrafiSystemPersistance::Persistance::UpdateMotorDCStock(MotoresDCCliente^ motorDC)
 {
-    for (int i = 0; i < motorDCDB->Count; i++) {
-        if (motorDCDB[i]->Id == motorDC->Id) {
-            motorDCDB[i] = motorDC;
-            PersistBinaryFile(BIN_MOTORDC_FILE_NAME, motorDCDB);
-            return motorDC->Id;
-        }
+    int motorDCId = 0;
+    SqlConnection^ conn = nullptr;
+    try {
+        // Obtener la conexión a la BD
+        conn = GetConnection(); 
+
+        // Preparar la sentencia
+        String^ sqlStr = "dbo.usp_UpdateMotorDC_stock ";
+        SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn); 
+        cmd->CommandType = System::Data::CommandType::StoredProcedure; 
+
+        // Agregar los parámetros
+        cmd->Parameters->Add("@ID", System::Data::SqlDbType::Int)->Value = motorDC->Id;  
+        cmd->Parameters->Add("@NAME", System::Data::SqlDbType::VarChar, 200)->Value = motorDC->Name; 
+        cmd->Parameters->Add("@STOCK", System::Data::SqlDbType::Int)->Value = motorDC->Stock; 
+        cmd->Parameters->Add("@MARCA", System::Data::SqlDbType::VarChar, 100)->Value = motorDC->Brand; 
+        cmd->Parameters->Add("@POTENCIA", System::Data::SqlDbType::Decimal)->Value = motorDC->Potencia; 
+        cmd->Parameters->Add("@VELOCIDAD", System::Data::SqlDbType::Int)->Value = motorDC->Velocidad; 
+        cmd->Parameters->Add("@VOLTAJE", System::Data::SqlDbType::Int)->Value = motorDC->Voltaje; 
+        cmd->Parameters->Add("@MONTAJE", System::Data::SqlDbType::VarChar, 50)->Value = motorDC->Montaje; 
+        cmd->Parameters->Add("@DESCRIPTION", System::Data::SqlDbType::VarChar, 400)->Value = motorDC->Description; 
+        cmd->Parameters->Add("@PHOTO", System::Data::SqlDbType::Image)->Value = motorDC->Name; 
+        cmd->Prepare();
+        cmd->Parameters["@NAME"]->Value = motorDC->Name;
+        cmd->Parameters["@STOCK"]->Value = motorDC->Stock;
+        cmd->Parameters["@MARCA"]->Value = motorDC->Brand;
+        cmd->Parameters["@VELOCIDAD"]->Value = motorDC->Velocidad;
+        cmd->Parameters["@POTENCIA"]->Value = motorDC->Potencia;
+        cmd->Parameters["@VOLTAJE"]->Value = motorDC->Voltaje;
+        cmd->Parameters["@MONTAJE"]->Value = motorDC->Montaje;
+        cmd->Parameters["@DESCRIPTION"]->Value = motorDC->Description;
+        if (motorDC->Photo == nullptr)
+            cmd->Parameters["@PHOTO"]->Value = DBNull::Value; 
+        else
+            cmd->Parameters["@PHOTO"]->Value = motorDC->Photo;
+
+        // Preparar y ejecutar la sentencia
+        cmd->Prepare();
+        cmd->ExecuteNonQuery();
+
+        motorDCId = 1; // Éxito en la actualización
     }
-    return 0;
+    catch (Exception^ ex) {
+        throw ex; // Lanzar excepción en caso de error
+    }
+    finally {
+        if (conn != nullptr) conn->Close(); // Cerrar la conexión, si está abierta
+    }
+    return motorDCId; // Devolver el resultado de la operación
 }
 
 int MecaTrafiSystemPersistance::Persistance::DeleteMotorDCStock(int motorDCId)
@@ -1300,17 +1695,11 @@ int MecaTrafiSystemPersistance::Persistance::DeleteMotorDCStock(int motorDCId)
     return 0;
 }
 
-MechanicComponent^ MecaTrafiSystemPersistance::Persistance::QueryallMotorDCStockById(int motorDCId)
+MotoresDCCliente^ MecaTrafiSystemPersistance::Persistance::QueryallMotorDCStockById(int motorDCId)
 {
-   // motorDCDB = (List<MechanicComponent^>^)LoadBinaryFile(BIN_MOTORDC_FILE_NAME);
-    //for (int i = 0; i < motorDCDB->Count; i++) { //Cuenta
-    //    if (motorDCDB[i]->Id == motorDCId) { //Si lo encuentra lo retorna
-      //      return motorDCDB[i];
-      //  }
-  //  }
-   // return nullptr;
+  
 
-    MechanicComponent^ motordc;
+    MotoresDCCliente^ motordc;
     SqlConnection^ conn;
     SqlDataReader^ reader;
     try {
@@ -1328,7 +1717,7 @@ MechanicComponent^ MecaTrafiSystemPersistance::Persistance::QueryallMotorDCStock
         //PROCESA DATO
         if (reader->Read()) {
 
-            MechanicComponent^ motordc = gcnew MechanicComponent();
+            MotoresDCCliente^ motordc = gcnew MotoresDCCliente();
             motordc->Id = Convert::ToInt32(reader["ID_MOTORESDC"]->ToString());
             motordc->Name = reader["NOMBRE_MOTORESDC"]->ToString();
             motordc->Proveedor = reader["PROVEEDOR_MOTORESDC"]->ToString();
@@ -1353,18 +1742,18 @@ MechanicComponent^ MecaTrafiSystemPersistance::Persistance::QueryallMotorDCStock
     return motordc;
 }
 
-int MecaTrafiSystemPersistance::Persistance::AddTornilloPurchase(MechanicComponent^ tornilloPurchase)
+int MecaTrafiSystemPersistance::Persistance::AddTornilloPurchase(TornilloCliente^ tornilloPurchase)
 {
     return 0;
 }
 
-List<MechanicComponent^>^ MecaTrafiSystemPersistance::Persistance::QueryAllTornilloPurchase()
+List<TornilloCliente^>^ MecaTrafiSystemPersistance::Persistance::QueryAllTornilloPurchase()
 {
     throw gcnew System::NotImplementedException();
     // TODO: Insertar una instrucción "return" aquí
 }
 
-int MecaTrafiSystemPersistance::Persistance::UpdateTornilloPurchase(MechanicComponent^ tornilloPurchase)
+int MecaTrafiSystemPersistance::Persistance::UpdateTornilloPurchase(TornilloCliente^ tornilloPurchase)
 {
     return 0;
 }
@@ -1374,24 +1763,24 @@ int MecaTrafiSystemPersistance::Persistance::DeleteTornilloPurchase(int tornillo
     return 0;
 }
 
-MechanicComponent^ MecaTrafiSystemPersistance::Persistance::QueryAllTornilloPurchaseById(int tornilloPurchaseId)
+TornilloCliente^ MecaTrafiSystemPersistance::Persistance::QueryAllTornilloPurchaseById(int tornilloPurchaseId)
 {
     throw gcnew System::NotImplementedException();
     // TODO: Insertar una instrucción "return" aquí
 }
 
-int MecaTrafiSystemPersistance::Persistance::AddFajaPurchase(MechanicComponent^ fajaPurchase)
+int MecaTrafiSystemPersistance::Persistance::AddFajaPurchase(FajasCliente^ fajaPurchase)
 {
     return 0;
 }
 
-List<MechanicComponent^>^ MecaTrafiSystemPersistance::Persistance::QueryAllFajaPurchase()
+List<FajasCliente^>^ MecaTrafiSystemPersistance::Persistance::QueryAllFajaPurchase()
 {
     throw gcnew System::NotImplementedException();
     // TODO: Insertar una instrucción "return" aquí
 }
 
-int MecaTrafiSystemPersistance::Persistance::UpdateFajaPurchase(MechanicComponent^ fajaPurchase)
+int MecaTrafiSystemPersistance::Persistance::UpdateFajaPurchase(FajasCliente^ fajaPurchase)
 {
     return 0;
 }
@@ -1401,24 +1790,24 @@ int MecaTrafiSystemPersistance::Persistance::DeleteFajaPurchase(int fajaPurchase
     return 0;
 }
 
-MechanicComponent^ MecaTrafiSystemPersistance::Persistance::QueryAllFajaPurchaseById(int fajaPurchaseId)
+FajasCliente^ MecaTrafiSystemPersistance::Persistance::QueryAllFajaPurchaseById(int fajaPurchaseId)
 {
     throw gcnew System::NotImplementedException();
     // TODO: Insertar una instrucción "return" aquí
 }
 
-int MecaTrafiSystemPersistance::Persistance::AddPoleaPurchase(MechanicComponent^ poleaPurchase)
+int MecaTrafiSystemPersistance::Persistance::AddPoleaPurchase(PoleaCliente^ poleaPurchase)
 {
     return 0;
 }
 
-List<MechanicComponent^>^ MecaTrafiSystemPersistance::Persistance::QueryAllPoleaPurchase()
+List<PoleaCliente^>^ MecaTrafiSystemPersistance::Persistance::QueryAllPoleaPurchase()
 {
     throw gcnew System::NotImplementedException();
     // TODO: Insertar una instrucción "return" aquí
 }
 
-int MecaTrafiSystemPersistance::Persistance::UpdatePoleaPurchase(MechanicComponent^ poleaPurchase)
+int MecaTrafiSystemPersistance::Persistance::UpdatePoleaPurchase(PoleaCliente^ poleaPurchase)
 {
     return 0;
 }
@@ -1428,24 +1817,24 @@ int MecaTrafiSystemPersistance::Persistance::DeletePoleaPurchase(int poleaPurcha
     return 0;
 }
 
-MechanicComponent^ MecaTrafiSystemPersistance::Persistance::QueryAllPoleaIdPurchase(int poleaPurchaseId)
+PoleaCliente^ MecaTrafiSystemPersistance::Persistance::QueryAllPoleaIdPurchase(int poleaPurchaseId)
 {
     throw gcnew System::NotImplementedException();
     // TODO: Insertar una instrucción "return" aquí
 }
 
-int MecaTrafiSystemPersistance::Persistance::AddRodamientoPurchase(MechanicComponent^ rodamientoPurchase)
+int MecaTrafiSystemPersistance::Persistance::AddRodamientoPurchase(RodamientosCliente^ rodamientoPurchase)
 {
     return 0;
 }
 
-List<MechanicComponent^>^ MecaTrafiSystemPersistance::Persistance::QueryAllRodamientoPurchase()
+List<RodamientosCliente^>^ MecaTrafiSystemPersistance::Persistance::QueryAllRodamientoPurchase()
 {
     throw gcnew System::NotImplementedException();
     // TODO: Insertar una instrucción "return" aquí
 }
 
-int MecaTrafiSystemPersistance::Persistance::UpdateRodamientoPurchase(MechanicComponent^ rodamientoPurchase)
+int MecaTrafiSystemPersistance::Persistance::UpdateRodamientoPurchase(RodamientosCliente^ rodamientoPurchase)
 {
     return 0;
 }
@@ -1455,24 +1844,24 @@ int MecaTrafiSystemPersistance::Persistance::DeleteRodamientoPurchase(int rodami
     return 0;
 }
 
-MechanicComponent^ MecaTrafiSystemPersistance::Persistance::QueryAllRodamientoPurchaseById(int rodamientoPurchaseId)
+RodamientosCliente^ MecaTrafiSystemPersistance::Persistance::QueryAllRodamientoPurchaseById(int rodamientoPurchaseId)
 {
     throw gcnew System::NotImplementedException();
     // TODO: Insertar una instrucción "return" aquí
 }
 
-int MecaTrafiSystemPersistance::Persistance::AddMotorACPurchase(MechanicComponent^ motorACPurchase)
+int MecaTrafiSystemPersistance::Persistance::AddMotorACPurchase(MotoresACCliente^ motorACPurchase)
 {
     return 0;
 }
 
-List<MechanicComponent^>^ MecaTrafiSystemPersistance::Persistance::QueryAllMotorACPurchase()
+List<MotoresACCliente^>^ MecaTrafiSystemPersistance::Persistance::QueryAllMotorACPurchase()
 {
     throw gcnew System::NotImplementedException();
     // TODO: Insertar una instrucción "return" aquí
 }
 
-int MecaTrafiSystemPersistance::Persistance::UpdateMotorACPurchase(MechanicComponent^ motorACPurchase)
+int MecaTrafiSystemPersistance::Persistance::UpdateMotorACPurchase(MotoresACCliente^ motorACPurchase)
 {
     return 0;
 }
@@ -1482,24 +1871,24 @@ int MecaTrafiSystemPersistance::Persistance::DeleteMotorACPurchase(int motorACPu
     return 0;
 }
 
-MechanicComponent^ MecaTrafiSystemPersistance::Persistance::QueryallMotorACPurchaseById(int motorACPurchaseId)
+MotoresACCliente^ MecaTrafiSystemPersistance::Persistance::QueryallMotorACPurchaseById(int motorACPurchaseId)
 {
     throw gcnew System::NotImplementedException();
     // TODO: Insertar una instrucción "return" aquí
 }
 
-int MecaTrafiSystemPersistance::Persistance::AddMotorDCPurchase(MechanicComponent^ motorDCPurchase)
+int MecaTrafiSystemPersistance::Persistance::AddMotorDCPurchase(MotoresDCCliente^ motorDCPurchase)
 {
     return 0;
 }
 
-List<MechanicComponent^>^ MecaTrafiSystemPersistance::Persistance::QueryAllMotorDCPurchase()
+List<MotoresDCCliente^>^ MecaTrafiSystemPersistance::Persistance::QueryAllMotorDCPurchase()
 {
     throw gcnew System::NotImplementedException();
     // TODO: Insertar una instrucción "return" aquí
 }
 
-int MecaTrafiSystemPersistance::Persistance::UpdateMotorDCPurchase(MechanicComponent^ motorDCPurchase)
+int MecaTrafiSystemPersistance::Persistance::UpdateMotorDCPurchase(MotoresDCCliente^ motorDCPurchase)
 {
     return 0;
 }
@@ -1509,7 +1898,7 @@ int MecaTrafiSystemPersistance::Persistance::DeleteMotorDCPurchase(int motorDCPu
     return 0;
 }
 
-MechanicComponent^ MecaTrafiSystemPersistance::Persistance::QueryallMotorDCPurchaseById(int motorDCPurchaseId)
+MotoresDCCliente^ MecaTrafiSystemPersistance::Persistance::QueryallMotorDCPurchaseById(int motorDCPurchaseId)
 {
     throw gcnew System::NotImplementedException();
     // TODO: Insertar una instrucción "return" aquí
