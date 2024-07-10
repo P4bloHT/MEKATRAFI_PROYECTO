@@ -132,7 +132,6 @@
     <ClCompile Include="VerMotores.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-
     <ClCompile Include="GeneratePurchase.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
@@ -143,6 +142,9 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="ReportePedidos.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="MainFormManager.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
@@ -261,7 +263,6 @@
     <ClInclude Include="VerMotores.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-
     <ClInclude Include="GeneratePurchase.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
@@ -272,6 +273,9 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="ReportePedidos.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="MainFormManager.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

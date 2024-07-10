@@ -145,6 +145,7 @@
     <ClCompile Include="GeneratePurchase.cpp" />
     <ClCompile Include="InterfazCliente.cpp" />
     <ClCompile Include="Login.cpp" />
+    <ClCompile Include="MainFormManager.cpp" />
     <ClCompile Include="MecaTrafiSystemMainForm.cpp" />
     <ClCompile Include="Monofásico.cpp" />
     <ClCompile Include="Poleaconpiñon.cpp" />
@@ -219,6 +220,7 @@
     <ClInclude Include="Login.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="MainFormManager.h" />
     <ClInclude Include="Monofásico.h">
       <FileType>CppForm</FileType>
     </ClInclude>

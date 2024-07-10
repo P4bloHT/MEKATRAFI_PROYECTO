@@ -256,6 +256,7 @@ int MecaTrafiSystemPersistance::Persistance::AddEmployee(Employee^ employee)
         SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
         cmd->CommandType = System::Data::CommandType::StoredProcedure;
 
+
         // Paso 3: Definir los parámetros del procedimiento almacenado
         cmd->Parameters->Add("@CODIGO", System::Data::SqlDbType::Int);
         cmd->Parameters->Add("@DNI", System::Data::SqlDbType::Int);
@@ -280,8 +281,8 @@ int MecaTrafiSystemPersistance::Persistance::AddEmployee(Employee^ employee)
         cmd->Parameters["@SALARY"]->Scale = 2;
         cmd->Parameters->Add("@WARNINGS", System::Data::SqlDbType::VarChar, 300);
         cmd->Parameters->Add("@TURNO", System::Data::SqlDbType::VarChar, 50);
-        cmd->Parameters->Add("@I_CONTRATO", System::Data::SqlDbType::Date);
-        cmd->Parameters->Add("@F_CONTRATO", System::Data::SqlDbType::Date);
+        cmd->Parameters->Add("@I_CONTRATO", System::Data::SqlDbType::DateTime);
+        cmd->Parameters->Add("@F_CONTRATO", System::Data::SqlDbType::DateTime);
 
         // Parámetro de salida para el ID del empleado
         SqlParameter^ outputIdParam = gcnew SqlParameter("@ID", System::Data::SqlDbType::Int);
@@ -290,7 +291,9 @@ int MecaTrafiSystemPersistance::Persistance::AddEmployee(Employee^ employee)
 
         // Paso 4: Preparar la sentencia
         cmd->Prepare();
-
+        employee->Status = "A";
+        employee->Quota = 1000;
+        employee->Warnings = "Ninguna";
         // Paso 5: Asignar valores a los parámetros
         cmd->Parameters["@CODIGO"]->Value = employee->Codigo;
         cmd->Parameters["@DNI"]->Value = employee->Dni;
@@ -298,7 +301,7 @@ int MecaTrafiSystemPersistance::Persistance::AddEmployee(Employee^ employee)
         cmd->Parameters["@PASSWORD"]->Value = employee->Password;
         cmd->Parameters["@NAME"]->Value = employee->Name;
         cmd->Parameters["@LASTNAME"]->Value = employee->Lastname;
-        cmd->Parameters["@STATUS"]->Value = employee->Status ? "Y" : "N";
+        cmd->Parameters["@STATUS"]->Value = employee->Status;
         cmd->Parameters["@TELEFONO"]->Value = employee->PhoneNumber;
         cmd->Parameters["@QUOTA"]->Value = employee->Quota;
         cmd->Parameters["@SALES"]->Value = employee->Sales;
@@ -401,6 +404,7 @@ int MecaTrafiSystemPersistance::Persistance::UpdateEmployee(Employee^ employee)
         cmd->CommandType = System::Data::CommandType::StoredProcedure;
 
         // Paso 3: Definir los parámetros del procedimiento almacenado
+
         cmd->Parameters->Add("@ID", System::Data::SqlDbType::Int);
         cmd->Parameters->Add("@CODIGO", System::Data::SqlDbType::Int);
         cmd->Parameters->Add("@DNI", System::Data::SqlDbType::Int);
@@ -430,7 +434,9 @@ int MecaTrafiSystemPersistance::Persistance::UpdateEmployee(Employee^ employee)
 
         // Paso 4: Preparar la sentencia
         cmd->Prepare();
-
+        employee->Status = "A";
+        employee->Quota = 1000;
+        employee->Warnings = "Ninguna";
         // Paso 5: Asignar valores a los parámetros
         cmd->Parameters["@ID"]->Value = employee->Id;
         cmd->Parameters["@CODIGO"]->Value = employee->Codigo;
@@ -470,7 +476,30 @@ int MecaTrafiSystemPersistance::Persistance::UpdateEmployee(Employee^ employee)
 
 int MecaTrafiSystemPersistance::Persistance::DeleteEmployee(int employeeId)
 {
-    return 0;
+    SqlConnection^ conn = nullptr;
+    try {
+        // Obtener la conexión a la BD
+        conn = GetConnection();
+
+        // Preparar la sentencia
+        String^ sqlStr = "dbo.usp_DeleteEmpleado"; // Nombre del procedimiento almacenado
+        SqlCommand^ cmd = gcnew SqlCommand(sqlStr, conn);
+        cmd->CommandType = System::Data::CommandType::StoredProcedure;
+
+        // Asignar parámetro
+        cmd->Parameters->Add("@ID", System::Data::SqlDbType::Int)->Value = employeeId;
+
+        // Ejecutar la consulta
+        cmd->ExecuteNonQuery();
+    }
+    catch (Exception^ ex) {
+        throw ex; // Relanzar la excepción para manejo externo
+    }
+    finally {
+        // Cerrar la conexión
+        if (conn != nullptr) conn->Close();
+    }
+    return 1; // Indicar éxito en la operación (puedes ajustar según lo necesario)
 }
 
 Employee^ MecaTrafiSystemPersistance::Persistance::QueryAllEmployeesById(int employeeId)
@@ -641,8 +670,8 @@ int MecaTrafiSystemPersistance::Persistance::AddClient(Client^ cliente)
         cmd->Parameters["@LASTNAME"]->Value = cliente->Lastname;
         cmd->Parameters["@STATUS"]->Value = cliente->Status;
         cmd->Parameters["@TELEFONO"]->Value = cliente->Contact;
-        cmd->Parameters["@ISCORP"]->Value = cliente->IsCorp ? "Y" : "N";
-        cmd->Parameters["@ISFREQUENT"]->Value = cliente->IsFrequent ? "Y" : "N";
+        cmd->Parameters["@ISCORP"]->Value = cliente->IsCorp;
+        cmd->Parameters["@ISFREQUENT"]->Value = cliente->IsFrequent;
         cmd->Parameters["@CARRERA"]->Value = cliente->Carrera;
         cmd->Parameters["@CURSO"]->Value = cliente->Curso;
         if (cliente->Photo == nullptr)

@@ -92,7 +92,7 @@ namespace MecaTrafiSystemGUIApp {
 			this->panel1->Controls->Add(this->txtcuenta);
 			this->panel1->Controls->Add(this->label3);
 			this->panel1->Controls->Add(this->label2);
-			this->panel1->Location = System::Drawing::Point(12, 189);
+			this->panel1->Location = System::Drawing::Point(173, 132);
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(182, 105);
 			this->panel1->TabIndex = 0;
@@ -143,7 +143,7 @@ namespace MecaTrafiSystemGUIApp {
 			this->button1->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button1->ForeColor = System::Drawing::Color::White;
-			this->button1->Location = System::Drawing::Point(40, 300);
+			this->button1->Location = System::Drawing::Point(173, 243);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(86, 31);
 			this->button1->TabIndex = 6;
@@ -158,7 +158,7 @@ namespace MecaTrafiSystemGUIApp {
 			this->button2->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button2->ForeColor = System::Drawing::Color::White;
-			this->button2->Location = System::Drawing::Point(165, 300);
+			this->button2->Location = System::Drawing::Point(278, 243);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(73, 31);
 			this->button2->TabIndex = 7;
@@ -169,7 +169,7 @@ namespace MecaTrafiSystemGUIApp {
 			// pictureBox1
 			// 
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(0, -3);
+			this->pictureBox1->Location = System::Drawing::Point(32, 2);
 			this->pictureBox1->Name = L"pictureBox1";
 			this->pictureBox1->Size = System::Drawing::Size(512, 341);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
@@ -216,7 +216,7 @@ namespace MecaTrafiSystemGUIApp {
 				   AdminForm^ obj = gcnew AdminForm();
 				   obj->ShowDialog();
 
-				   this->Show();
+					//this->Show();
 
 			   }
 			   else if (usercheck != nullptr) {

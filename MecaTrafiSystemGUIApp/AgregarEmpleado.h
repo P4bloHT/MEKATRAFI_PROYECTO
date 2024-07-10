@@ -601,9 +601,10 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// txtId
 			// 
+			this->txtId->Enabled = false;
 			this->txtId->Location = System::Drawing::Point(279, 12);
 			this->txtId->Name = L"txtId";
-			this->txtId->Size = System::Drawing::Size(100, 20);
+			this->txtId->Size = System::Drawing::Size(28, 20);
 			this->txtId->TabIndex = 64;
 			// 
 			// btnClear
@@ -679,16 +680,13 @@ namespace MecaTrafiSystemGUIApp {
 	}
 		   int validar_campos() {
 			   // Verificar que los cuadros de texto estén completos
-			   if (String::IsNullOrWhiteSpace(txtId->Text) ||
-				   String::IsNullOrWhiteSpace(txtname->Text) ||
+			   if (String::IsNullOrWhiteSpace(txtname->Text) ||
 				   String::IsNullOrWhiteSpace(txtApellido->Text) ||
 				   String::IsNullOrWhiteSpace(txtHoras->Text) ||
 				   String::IsNullOrWhiteSpace(txtSalario->Text) ||
 				   String::IsNullOrWhiteSpace(txtEmpPhoneNumber->Text) ||
 				   String::IsNullOrWhiteSpace(txtDNI->Text) ||
 				   String::IsNullOrWhiteSpace(txtCodigo->Text) ||
-				   String::IsNullOrWhiteSpace(txtUsername->Text) ||
-				   String::IsNullOrWhiteSpace(txtPassword->Text) ||
 				   pbEmpPhoto->Image == nullptr) {
 
 				   // Mostrar cuadro de mensaje
@@ -726,11 +724,6 @@ namespace MecaTrafiSystemGUIApp {
 			   return username;
 		   }
 	private: System::Void btnagregar_Click(System::Object^ sender, System::EventArgs^ e) {
-		// Verificar que los cuadros de texto estén completos
-		if (validar_campos() == 1) {
-			return;
-		}
-
 		// Convertir y asignar valores de los cuadros de texto a variables locales
 		Int32 codigo = Convert::ToInt32(txtCodigo->Text);
 		Int32 dni = Convert::ToInt32(txtDNI->Text);
@@ -751,7 +744,8 @@ namespace MecaTrafiSystemGUIApp {
 		empleado->WorkHours = horas;
 		empleado->Salary = salario;
 		empleado->PhoneNumber = telefono;
-
+		empleado->InicioContratoDate = dtp_InicioContrato->Value;
+		empleado->FinContratoDate = dtp_FinContrato->Value;
 		// Asignar Username y Password
 		if (!(chBoxEditar->Checked)) {
 			empleado->Username = CreateUsername(name, apellido);
@@ -791,6 +785,9 @@ namespace MecaTrafiSystemGUIApp {
 		// Mostrar los empleados actualizados
 		ShowEmpleado();
 		ClearControls();
+		if (validar_campos() == 1) {
+			return;
+		}
 		
 	}
 		   void ShowEmpleado() {
@@ -798,7 +795,7 @@ namespace MecaTrafiSystemGUIApp {
 			   dgvEmpleados->Rows->Clear();
 			   if (EmployeeList != nullptr) {
 				   for (int i = 0; i < EmployeeList->Count; i++) {
-					   dgvEmpleados->Rows->Add(gcnew array<String^>{"" + EmployeeList[i]->Id, EmployeeList[i]->Name, EmployeeList[i]->Lastname, "" + EmployeeList[i]->WorkHours, "" + EmployeeList[i]->Salary});
+					   dgvEmpleados->Rows->Add(gcnew array<String^>{"" + EmployeeList[i]->Id, EmployeeList[i]->Name, EmployeeList[i]->Lastname, "" + EmployeeList[i]->Salary, "" + EmployeeList[i]->WorkHours});
 				   }
 			   }
 		   }
@@ -820,19 +817,85 @@ namespace MecaTrafiSystemGUIApp {
 	private: System::Void AgregarEmpleado_Load(System::Object^ sender, System::EventArgs^ e) {
 		btnEliminar->Enabled = false;
 		btnEditar->Enabled = false;
+		txtPassword->Enabled = false;
+		txtUsername->Enabled = false;
 		ShowEmpleado();
 		myThread = gcnew Thread(gcnew ThreadStart(this, &AgregarEmpleado::MyRun));
 		myThread->Start();
 	
 	}
 	private: System::Void btnEditar_Click(System::Object^ sender, System::EventArgs^ e) {
+		
+
+		// Convertir y asignar valores de los cuadros de texto a variables locales
+		Int32 id = Convert::ToInt32(txtId->Text);
+		String^ name = txtname->Text;
+		String^ lastname = txtApellido->Text;
+		double horas = Convert::ToDouble(txtHoras->Text);
+		double salario = Convert::ToDouble(txtSalario->Text);
+		Int32 telefono = Convert::ToInt32(txtEmpPhoneNumber->Text);
+		Int32 codigo = Convert::ToInt32(txtCodigo->Text);
+		Int32 dni = Convert::ToInt32(txtDNI->Text);
+		String^ username = txtUsername->Text;
+		String^ password = txtPassword->Text;
+
+		// Crear un nuevo objeto Employee y asignar valores
+		Employee^ empleado = gcnew Employee();
+		empleado->Id = id;
+		empleado->Name = name;
+		empleado->Lastname = lastname;
+		empleado->WorkHours = horas;
+		empleado->Salary = salario;
+		empleado->PhoneNumber = telefono;
+		empleado->Codigo = codigo;
+		empleado->Dni = dni;
+		empleado->InicioContratoDate = dtp_InicioContrato->Value;
+		empleado->FinContratoDate = dtp_FinContrato->Value;
+
+		// Asignar Username y Password
+		if (!(chBoxEditar->Checked)) {
+			empleado->Username = CreateUsername(name, lastname);
+			empleado->Password = dni.ToString(); // Contraseña es el DNI
+		}
+		else {
+			empleado->Username = username;
+			empleado->Password = password;
+		}
+
+		// Asignar el código si el empleado es alumno
+		if (!(chbx_NoAlumno->Checked)) {
+			empleado->Codigo = codigo;
+		}
+		else {
+			empleado->Codigo = 00000000; // Código para empleados que no son alumnos
+		}
+
+		// Asignar la foto si está presente
+		if (pbEmpPhoto != nullptr && pbEmpPhoto->Image != nullptr) {
+			System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream();
+			pbEmpPhoto->Image->Save(ms, System::Drawing::Imaging::ImageFormat::Jpeg);
+			empleado->Photo = ms->ToArray();
+		}
+
+		// Asignar el turno basado en los checkboxes
+		if (TurnoDia->Checked) {
+			empleado->Turn = "Dia";
+		}
+		else if (TurnoTarde->Checked) {
+			empleado->Turn = "Tarde";
+		}
+
+		// Llamar al servicio para actualizar el empleado
+		Service::UpdateEmployee(empleado);
+
+		// Mostrar los empleados actualizados
+		ShowEmpleado();
+
+		// Mostrar mensaje de éxito
+		MessageBox::Show("Empleado editado exitosamente", "Edición Exitosa", MessageBoxButtons::OK, MessageBoxIcon::Information);
 		if (validar_campos() == 1) {
 			return;
 		}
-
-
-
-
 	}
 	private: System::Void btnEmpUpdatePhoto_Click(System::Object^ sender, System::EventArgs^ e) {
 		OpenFileDialog^ ofd = gcnew OpenFileDialog();
@@ -843,7 +906,9 @@ namespace MecaTrafiSystemGUIApp {
 	}
 
 	private: System::Void dgvEmpleados_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-
+		btnagregar->Enabled = false;
+		btnEliminar->Enabled = true;
+		btnEditar->Enabled = true;
 		int employeId = Int32::Parse(dgvEmpleados->Rows[dgvEmpleados->SelectedCells[0]->RowIndex]->Cells[0]->Value->ToString());
 		Employee^ employee = Service::QueryEmployeeById(employeId);
 		if (employee != nullptr) {
@@ -853,6 +918,12 @@ namespace MecaTrafiSystemGUIApp {
 			txtHoras->Text = Convert::ToString(employee->WorkHours);
 			txtSalario->Text = Convert::ToString(employee->Salary);
 			txtEmpPhoneNumber->Text = Convert::ToString(employee->PhoneNumber);
+			txtUsername->Text = employee->Username;
+			txtPassword->Text = employee->Password;
+			txtCodigo->Text = Convert::ToString(employee->Codigo);
+			txtDNI->Text = Convert::ToString(employee->Dni);
+			dtp_InicioContrato->Value = Convert::ToDateTime(employee->InicioContratoDate);
+			dtp_FinContrato->Value = Convert::ToDateTime(employee->FinContratoDate);
 			//Cargar Imagen
 			if (employee->Photo != nullptr) {
 				System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream(employee->Photo);
@@ -866,15 +937,9 @@ namespace MecaTrafiSystemGUIApp {
 		}
 	}
 	private: System::Void btnEmpDelete(System::Object^ sender, System::EventArgs^ e) {
-		if (!String::IsNullOrEmpty(txtId->Text)) {
-			int id = Convert::ToInt32(txtId->Text);
-			Service::DeleteEmployee(id);
-			ShowEmpleado();
-		}
-		else {
-			MessageBox::Show("Seleccione un usuario a Eliminar", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
-			return;
-		}
+		int id = Convert::ToInt32(txtId->Text);
+		Service::DeleteEmployee(id);
+		ShowEmpleado();
 	}
 	private: System::Void txtid_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 
@@ -922,6 +987,7 @@ private: System::Void chbx_NoAlumno_CheckedChanged(System::Object^ sender, Syste
 		txtCodigo->Enabled = true;
 	else
 		txtCodigo->Enabled = false;
+	txtCodigo->Text = "0";
 }
 };
 }

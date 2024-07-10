@@ -791,7 +791,7 @@ namespace MecaTrafiSystemGUIApp {
 	}
 	private: System::Void btn_detele_Click(System::Object^ sender, System::EventArgs^ e) {
 		int id = Convert::ToInt32(txtId->Text);
-		Service::DeleteClient(id);
+		Service::Deletecliente(id);
 		showclient();
 	}
 	private: System::Void btnLimpiar_Click(System::Object^ sender, System::EventArgs^ e) {

@@ -97,6 +97,7 @@ namespace MecaTrafiSystemGUIApp {
 			System::Windows::Forms::Button^ btnComprarProductos;
 			System::Windows::Forms::Button^ BtnAgregarTask;
 			System::Windows::Forms::Button^ btn_GenerarCompra;
+			System::Windows::Forms::Button^ btn_Salir;
 			this->SlideBarContainer = (gcnew System::Windows::Forms::FlowLayoutPanel());
 			this->SliderBar = (gcnew System::Windows::Forms::Panel());
 			this->label1 = (gcnew System::Windows::Forms::Label());
@@ -112,6 +113,7 @@ namespace MecaTrafiSystemGUIApp {
 			btnComprarProductos = (gcnew System::Windows::Forms::Button());
 			BtnAgregarTask = (gcnew System::Windows::Forms::Button());
 			btn_GenerarCompra = (gcnew System::Windows::Forms::Button());
+			btn_Salir = (gcnew System::Windows::Forms::Button());
 			this->SlideBarContainer->SuspendLayout();
 			this->SliderBar->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->MenuBtn))->BeginInit();
@@ -221,6 +223,26 @@ namespace MecaTrafiSystemGUIApp {
 			btn_GenerarCompra->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			btn_GenerarCompra->UseVisualStyleBackColor = false;
 			btn_GenerarCompra->Click += gcnew System::EventHandler(this, &AdminForm::button1_Click_1);
+			// 
+			// btn_Salir
+			// 
+			btn_Salir->AccessibleRole = System::Windows::Forms::AccessibleRole::None;
+			btn_Salir->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(242)), static_cast<System::Int32>(static_cast<System::Byte>(161)),
+				static_cast<System::Int32>(static_cast<System::Byte>(84)));
+			btn_Salir->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
+			btn_Salir->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+			btn_Salir->Font = (gcnew System::Drawing::Font(L"Yu Gothic", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			btn_Salir->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
+			btn_Salir->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			btn_Salir->Location = System::Drawing::Point(1180, 672);
+			btn_Salir->Name = L"btn_Salir";
+			btn_Salir->Size = System::Drawing::Size(69, 30);
+			btn_Salir->TabIndex = 19;
+			btn_Salir->Text = L"SALIR";
+			btn_Salir->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
+			btn_Salir->UseVisualStyleBackColor = false;
+			btn_Salir->Click += gcnew System::EventHandler(this, &AdminForm::btn_Salir_Click);
 			// 
 			// SlideBarContainer
 			// 
@@ -359,7 +381,8 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(7, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1261, 675);
+			this->ClientSize = System::Drawing::Size(1261, 714);
+			this->Controls->Add(btn_Salir);
 			this->Controls->Add(btn_GenerarCompra);
 			this->Controls->Add(BtnAgregarTask);
 			this->Controls->Add(btnComprarProductos);
@@ -369,10 +392,11 @@ namespace MecaTrafiSystemGUIApp {
 			this->Controls->Add(this->SlideBarContainer);
 			this->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->MaximumSize = System::Drawing::Size(1279, 722);
 			this->Name = L"AdminForm";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"AdminForm";
 			this->Load += gcnew System::EventHandler(this, &AdminForm::AdminForm_Load);
 			this->SlideBarContainer->ResumeLayout(false);
@@ -459,5 +483,6 @@ namespace MecaTrafiSystemGUIApp {
 		ReportesCompraAdmin^ ReportesDeCompra = gcnew ReportesCompraAdmin();
 		ReportesDeCompra->ShowDialog();
 	}
-	};
+	private: System::Void btn_Salir_Click(System::Object^ sender, System::EventArgs^ e){}
+};
 }
