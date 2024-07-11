@@ -72,24 +72,24 @@ namespace MecaTrafiSystemGUIApp {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea7 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend7 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series7 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea8 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend8 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series8 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea9 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend9 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series9 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea10 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend10 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series10 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea11 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend11 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series11 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea12 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend12 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
-			System::Windows::Forms::DataVisualization::Charting::Series^ series12 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea2 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea3 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series3 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea4 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend4 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series4 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea5 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend5 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series5 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea6 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend6 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series6 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
@@ -190,108 +190,108 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// chartTornillo
 			// 
-			chartArea7->Name = L"ChartArea1";
-			this->chartTornillo->ChartAreas->Add(chartArea7);
-			legend7->Name = L"Legend1";
-			this->chartTornillo->Legends->Add(legend7);
+			chartArea1->Name = L"ChartArea1";
+			this->chartTornillo->ChartAreas->Add(chartArea1);
+			legend1->Name = L"Legend1";
+			this->chartTornillo->Legends->Add(legend1);
 			this->chartTornillo->Location = System::Drawing::Point(37, 206);
 			this->chartTornillo->Name = L"chartTornillo";
 			this->chartTornillo->Palette = System::Windows::Forms::DataVisualization::Charting::ChartColorPalette::SeaGreen;
-			series7->ChartArea = L"ChartArea1";
-			series7->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Pie;
-			series7->Legend = L"Legend1";
-			series7->Name = L"Tornillos";
-			this->chartTornillo->Series->Add(series7);
+			series1->ChartArea = L"ChartArea1";
+			series1->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Pie;
+			series1->Legend = L"Legend1";
+			series1->Name = L"Tornillos";
+			this->chartTornillo->Series->Add(series1);
 			this->chartTornillo->Size = System::Drawing::Size(300, 235);
 			this->chartTornillo->TabIndex = 30;
 			this->chartTornillo->Text = L"chartTornillo";
 			// 
 			// chartRodamiento
 			// 
-			chartArea8->Name = L"ChartArea1";
-			this->chartRodamiento->ChartAreas->Add(chartArea8);
-			legend8->Name = L"Legend1";
-			this->chartRodamiento->Legends->Add(legend8);
+			chartArea2->Name = L"ChartArea1";
+			this->chartRodamiento->ChartAreas->Add(chartArea2);
+			legend2->Name = L"Legend1";
+			this->chartRodamiento->Legends->Add(legend2);
 			this->chartRodamiento->Location = System::Drawing::Point(632, 206);
 			this->chartRodamiento->Name = L"chartRodamiento";
 			this->chartRodamiento->Palette = System::Windows::Forms::DataVisualization::Charting::ChartColorPalette::SeaGreen;
-			series8->ChartArea = L"ChartArea1";
-			series8->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Pie;
-			series8->Legend = L"Legend1";
-			series8->Name = L"Rodamiento";
-			this->chartRodamiento->Series->Add(series8);
+			series2->ChartArea = L"ChartArea1";
+			series2->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Pie;
+			series2->Legend = L"Legend1";
+			series2->Name = L"Rodamiento";
+			this->chartRodamiento->Series->Add(series2);
 			this->chartRodamiento->Size = System::Drawing::Size(300, 235);
 			this->chartRodamiento->TabIndex = 31;
 			this->chartRodamiento->Text = L"chartRodamiento";
 			// 
 			// chartMotorAC
 			// 
-			chartArea9->Name = L"ChartArea1";
-			this->chartMotorAC->ChartAreas->Add(chartArea9);
-			legend9->Name = L"Legend1";
-			this->chartMotorAC->Legends->Add(legend9);
+			chartArea3->Name = L"ChartArea1";
+			this->chartMotorAC->ChartAreas->Add(chartArea3);
+			legend3->Name = L"Legend1";
+			this->chartMotorAC->Legends->Add(legend3);
 			this->chartMotorAC->Location = System::Drawing::Point(1225, 206);
 			this->chartMotorAC->Name = L"chartMotorAC";
 			this->chartMotorAC->Palette = System::Windows::Forms::DataVisualization::Charting::ChartColorPalette::SeaGreen;
-			series9->ChartArea = L"ChartArea1";
-			series9->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Pie;
-			series9->Legend = L"Legend1";
-			series9->Name = L"MotorAC";
-			this->chartMotorAC->Series->Add(series9);
+			series3->ChartArea = L"ChartArea1";
+			series3->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Pie;
+			series3->Legend = L"Legend1";
+			series3->Name = L"MotorAC";
+			this->chartMotorAC->Series->Add(series3);
 			this->chartMotorAC->Size = System::Drawing::Size(300, 235);
 			this->chartMotorAC->TabIndex = 32;
 			this->chartMotorAC->Text = L"chartMotorAC";
 			// 
 			// chartPoleas
 			// 
-			chartArea10->Name = L"ChartArea1";
-			this->chartPoleas->ChartAreas->Add(chartArea10);
-			legend10->Name = L"Legend1";
-			this->chartPoleas->Legends->Add(legend10);
+			chartArea4->Name = L"ChartArea1";
+			this->chartPoleas->ChartAreas->Add(chartArea4);
+			legend4->Name = L"Legend1";
+			this->chartPoleas->Legends->Add(legend4);
 			this->chartPoleas->Location = System::Drawing::Point(37, 535);
 			this->chartPoleas->Name = L"chartPoleas";
 			this->chartPoleas->Palette = System::Windows::Forms::DataVisualization::Charting::ChartColorPalette::SeaGreen;
-			series10->ChartArea = L"ChartArea1";
-			series10->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Pie;
-			series10->Legend = L"Legend1";
-			series10->Name = L"Poleas";
-			this->chartPoleas->Series->Add(series10);
+			series4->ChartArea = L"ChartArea1";
+			series4->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Pie;
+			series4->Legend = L"Legend1";
+			series4->Name = L"Poleas";
+			this->chartPoleas->Series->Add(series4);
 			this->chartPoleas->Size = System::Drawing::Size(300, 235);
 			this->chartPoleas->TabIndex = 33;
 			this->chartPoleas->Text = L"chartPoleas";
 			// 
 			// chartFaja
 			// 
-			chartArea11->Name = L"ChartArea1";
-			this->chartFaja->ChartAreas->Add(chartArea11);
-			legend11->Name = L"Legend1";
-			this->chartFaja->Legends->Add(legend11);
+			chartArea5->Name = L"ChartArea1";
+			this->chartFaja->ChartAreas->Add(chartArea5);
+			legend5->Name = L"Legend1";
+			this->chartFaja->Legends->Add(legend5);
 			this->chartFaja->Location = System::Drawing::Point(632, 535);
 			this->chartFaja->Name = L"chartFaja";
 			this->chartFaja->Palette = System::Windows::Forms::DataVisualization::Charting::ChartColorPalette::SeaGreen;
-			series11->ChartArea = L"ChartArea1";
-			series11->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Pie;
-			series11->Legend = L"Legend1";
-			series11->Name = L"Faja";
-			this->chartFaja->Series->Add(series11);
+			series5->ChartArea = L"ChartArea1";
+			series5->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Pie;
+			series5->Legend = L"Legend1";
+			series5->Name = L"Faja";
+			this->chartFaja->Series->Add(series5);
 			this->chartFaja->Size = System::Drawing::Size(300, 235);
 			this->chartFaja->TabIndex = 34;
 			this->chartFaja->Text = L"chartFaja";
 			// 
 			// chartMotorDC
 			// 
-			chartArea12->Name = L"ChartArea1";
-			this->chartMotorDC->ChartAreas->Add(chartArea12);
-			legend12->Name = L"Legend1";
-			this->chartMotorDC->Legends->Add(legend12);
+			chartArea6->Name = L"ChartArea1";
+			this->chartMotorDC->ChartAreas->Add(chartArea6);
+			legend6->Name = L"Legend1";
+			this->chartMotorDC->Legends->Add(legend6);
 			this->chartMotorDC->Location = System::Drawing::Point(1225, 535);
 			this->chartMotorDC->Name = L"chartMotorDC";
 			this->chartMotorDC->Palette = System::Windows::Forms::DataVisualization::Charting::ChartColorPalette::SeaGreen;
-			series12->ChartArea = L"ChartArea1";
-			series12->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Pie;
-			series12->Legend = L"Legend1";
-			series12->Name = L"MotorDC";
-			this->chartMotorDC->Series->Add(series12);
+			series6->ChartArea = L"ChartArea1";
+			series6->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Pie;
+			series6->Legend = L"Legend1";
+			series6->Name = L"MotorDC";
+			this->chartMotorDC->Series->Add(series6);
 			this->chartMotorDC->Size = System::Drawing::Size(300, 235);
 			this->chartMotorDC->TabIndex = 35;
 			this->chartMotorDC->Text = L"chartMotorDC";
@@ -315,8 +315,8 @@ namespace MecaTrafiSystemGUIApp {
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedToolWindow;
 			this->Name = L"StockDisponible";
-			this->Text = L"StockDisponible";
 			this->Load += gcnew System::EventHandler(this, &StockDisponible::StockDisponible_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chartTornillo))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chartRodamiento))->EndInit();

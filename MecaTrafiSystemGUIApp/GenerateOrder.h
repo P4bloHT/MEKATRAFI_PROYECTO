@@ -247,9 +247,9 @@ namespace MecaTrafiSystemGUIApp {
 			this->btnGenerarPedido->Font = (gcnew System::Drawing::Font(L"Gadugi", 14, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnGenerarPedido->ForeColor = System::Drawing::SystemColors::Control;
-			this->btnGenerarPedido->Location = System::Drawing::Point(189, 641);
+			this->btnGenerarPedido->Location = System::Drawing::Point(129, 647);
 			this->btnGenerarPedido->Name = L"btnGenerarPedido";
-			this->btnGenerarPedido->Size = System::Drawing::Size(267, 82);
+			this->btnGenerarPedido->Size = System::Drawing::Size(267, 68);
 			this->btnGenerarPedido->TabIndex = 13;
 			this->btnGenerarPedido->Text = L"Generar pedido";
 			this->btnGenerarPedido->UseVisualStyleBackColor = false;
@@ -315,7 +315,7 @@ namespace MecaTrafiSystemGUIApp {
 			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::LightGray;
-			this->ClientSize = System::Drawing::Size(1292, 759);
+			this->ClientSize = System::Drawing::Size(1270, 759);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);

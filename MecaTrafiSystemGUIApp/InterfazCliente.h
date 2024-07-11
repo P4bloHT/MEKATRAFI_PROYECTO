@@ -257,7 +257,7 @@ namespace MecaTrafiSystemGUIApp {
 			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::LightGray;
-			this->ClientSize = System::Drawing::Size(1632, 983);
+			this->ClientSize = System::Drawing::Size(1632, 776);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->pictureBox3);
 			this->Controls->Add(this->btnVerCatalogo);

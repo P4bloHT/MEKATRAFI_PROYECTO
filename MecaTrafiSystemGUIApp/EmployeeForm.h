@@ -271,7 +271,7 @@ private: System::Windows::Forms::Button^ button5;
 			// 
 			// btnham
 			// 
-			this->btnham->Location = System::Drawing::Point(18, 5);
+			this->btnham->Location = System::Drawing::Point(13, 9);
 			this->btnham->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->btnham->Name = L"btnham";
 			this->btnham->Size = System::Drawing::Size(52, 32);
@@ -291,7 +291,7 @@ private: System::Windows::Forms::Button^ button5;
 			this->sidebar->Location = System::Drawing::Point(0, 82);
 			this->sidebar->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->sidebar->Name = L"sidebar";
-			this->sidebar->Size = System::Drawing::Size(303, 575);
+			this->sidebar->Size = System::Drawing::Size(257, 575);
 			this->sidebar->TabIndex = 9;
 			this->sidebar->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &EmployeeForm::sidebar_Paint);
 			// 
@@ -518,24 +518,25 @@ private: System::Windows::Forms::Button^ button5;
 			// btnCliente
 			// 
 			this->btnCliente->BackColor = System::Drawing::Color::SandyBrown;
-			this->btnCliente->Font = (gcnew System::Drawing::Font(L"MV Boli", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->btnCliente->Font = (gcnew System::Drawing::Font(L"Gadugi", 14, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnCliente->Location = System::Drawing::Point(720, 346);
+			this->btnCliente->ForeColor = System::Drawing::SystemColors::Control;
+			this->btnCliente->Location = System::Drawing::Point(815, 512);
 			this->btnCliente->Name = L"btnCliente";
-			this->btnCliente->Size = System::Drawing::Size(441, 302);
+			this->btnCliente->Size = System::Drawing::Size(279, 75);
 			this->btnCliente->TabIndex = 11;
-			this->btnCliente->Text = L"Cliente";
+			this->btnCliente->Text = L"Mostrar cliente";
 			this->btnCliente->UseVisualStyleBackColor = false;
 			this->btnCliente->Click += gcnew System::EventHandler(this, &EmployeeForm::btnCliente_Click);
 			// 
 			// button2
 			// 
-			this->button2->Font = (gcnew System::Drawing::Font(L"MV Boli", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->button2->Font = (gcnew System::Drawing::Font(L"Gadugi", 14, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button2->Location = System::Drawing::Point(369, 129);
+			this->button2->Location = System::Drawing::Point(355, 106);
 			this->button2->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(328, 377);
+			this->button2->Size = System::Drawing::Size(279, 75);
 			this->button2->TabIndex = 13;
 			this->button2->Text = L"Stock";
 			this->button2->UseVisualStyleBackColor = true;
@@ -543,11 +544,11 @@ private: System::Windows::Forms::Button^ button5;
 			// 
 			// btnGeneraPedido
 			// 
-			this->btnGeneraPedido->Font = (gcnew System::Drawing::Font(L"MV Boli", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->btnGeneraPedido->Font = (gcnew System::Drawing::Font(L"Gadugi", 14, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnGeneraPedido->Location = System::Drawing::Point(720, 129);
+			this->btnGeneraPedido->Location = System::Drawing::Point(776, 130);
 			this->btnGeneraPedido->Name = L"btnGeneraPedido";
-			this->btnGeneraPedido->Size = System::Drawing::Size(441, 166);
+			this->btnGeneraPedido->Size = System::Drawing::Size(359, 75);
 			this->btnGeneraPedido->TabIndex = 15;
 			this->btnGeneraPedido->Text = L"Generar pedido";
 			this->btnGeneraPedido->UseVisualStyleBackColor = true;
@@ -555,11 +556,11 @@ private: System::Windows::Forms::Button^ button5;
 			// 
 			// button5
 			// 
-			this->button5->Font = (gcnew System::Drawing::Font(L"MV Boli", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->button5->Font = (gcnew System::Drawing::Font(L"Gadugi", 14, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button5->Location = System::Drawing::Point(369, 531);
+			this->button5->Location = System::Drawing::Point(366, 512);
 			this->button5->Name = L"button5";
-			this->button5->Size = System::Drawing::Size(328, 109);
+			this->button5->Size = System::Drawing::Size(279, 75);
 			this->button5->TabIndex = 17;
 			this->button5->Text = L"Reporte";
 			this->button5->UseVisualStyleBackColor = true;
@@ -572,11 +573,11 @@ private: System::Windows::Forms::Button^ button5;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
 				static_cast<System::Int32>(static_cast<System::Byte>(224)));
 			this->ClientSize = System::Drawing::Size(1206, 657);
+			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button5);
 			this->Controls->Add(this->sidebar);
 			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->menuStrip1);
-			this->Controls->Add(this->button2);
 			this->Controls->Add(this->btnCliente);
 			this->Controls->Add(this->btnGeneraPedido);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
