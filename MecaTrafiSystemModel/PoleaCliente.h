@@ -23,9 +23,9 @@ namespace MecaTrafiSystemModel {
         property  double DiametroEje;
         property double AnchoPaso;
         PoleaCliente() {}
-        PoleaCliente(int id, String^ name, String^ description, double unitaryPrice, int stock, array<Byte>^ photo, String^ brand, String^ model,
+        PoleaCliente(int id, String^ name, String^ description, double unitaryPrice, int stock, array<Byte>^ photo, String^ brand, String^ model, String^ proveedor,
             String^ tipo, double diametroExter, double diametroExterUtil, String^ material, double diametroEje, double anchoPaso) :
-            MechanicComponent(id, name, Proveedor, description, unitaryPrice, stock, photo, brand, model) {
+            MechanicComponent(id, name, proveedor, description, unitaryPrice, stock, photo, brand, model) {
             Tipo = tipo;
             DiametroExter = diametroExter;
             DiametroExterUtil = diametroExterUtil;
