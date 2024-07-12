@@ -521,7 +521,7 @@ private: System::Windows::Forms::Button^ button5;
 			this->btnCliente->Font = (gcnew System::Drawing::Font(L"Gadugi", 14, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnCliente->ForeColor = System::Drawing::SystemColors::Control;
-			this->btnCliente->Location = System::Drawing::Point(815, 512);
+			this->btnCliente->Location = System::Drawing::Point(362, 492);
 			this->btnCliente->Name = L"btnCliente";
 			this->btnCliente->Size = System::Drawing::Size(279, 75);
 			this->btnCliente->TabIndex = 11;
@@ -533,7 +533,7 @@ private: System::Windows::Forms::Button^ button5;
 			// 
 			this->button2->Font = (gcnew System::Drawing::Font(L"Gadugi", 14, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button2->Location = System::Drawing::Point(355, 106);
+			this->button2->Location = System::Drawing::Point(362, 117);
 			this->button2->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(279, 75);
@@ -546,9 +546,9 @@ private: System::Windows::Forms::Button^ button5;
 			// 
 			this->btnGeneraPedido->Font = (gcnew System::Drawing::Font(L"Gadugi", 14, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnGeneraPedido->Location = System::Drawing::Point(776, 130);
+			this->btnGeneraPedido->Location = System::Drawing::Point(362, 237);
 			this->btnGeneraPedido->Name = L"btnGeneraPedido";
-			this->btnGeneraPedido->Size = System::Drawing::Size(359, 75);
+			this->btnGeneraPedido->Size = System::Drawing::Size(279, 75);
 			this->btnGeneraPedido->TabIndex = 15;
 			this->btnGeneraPedido->Text = L"Generar pedido";
 			this->btnGeneraPedido->UseVisualStyleBackColor = true;
@@ -558,7 +558,7 @@ private: System::Windows::Forms::Button^ button5;
 			// 
 			this->button5->Font = (gcnew System::Drawing::Font(L"Gadugi", 14, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button5->Location = System::Drawing::Point(366, 512);
+			this->button5->Location = System::Drawing::Point(362, 365);
 			this->button5->Name = L"button5";
 			this->button5->Size = System::Drawing::Size(279, 75);
 			this->button5->TabIndex = 17;
