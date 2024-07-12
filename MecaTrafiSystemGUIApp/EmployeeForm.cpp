@@ -23,8 +23,6 @@ System::Void MecaTrafiSystemGUIApp::EmployeeForm::EmployeeForm_Load(System::Obje
 System::Void MecaTrafiSystemGUIApp::EmployeeForm::button4_Click(System::Object^ sender, System::EventArgs^ e)
 {
     this->Hide();
-    Login^ loginform = gcnew Login(user);
-    loginform->ControlBox = false;
-    loginform->ShowDialog();
-    user = loginform->GetUser();
+    employeeForm = gcnew EmployeeForm();
+    employeeForm->Show();
 }

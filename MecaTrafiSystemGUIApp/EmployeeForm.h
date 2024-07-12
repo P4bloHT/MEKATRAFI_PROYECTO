@@ -52,6 +52,7 @@ namespace MecaTrafiSystemGUIApp {
 			//
 			//TODO: agregar código de constructor aquí
 			//
+			this->employeeForm;
 		}
 
 	protected:

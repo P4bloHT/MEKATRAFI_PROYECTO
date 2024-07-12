@@ -8,6 +8,7 @@ using namespace System::Windows::Forms;
 int Main(array<String^>^ args) {
 
 	Application::EnableVisualStyles();
+	Application::SetCompatibleTextRenderingDefault(false);
 	MecaTrafiSystemGUIApp::EmployeeForm form;
 	Application::Run(% form);
 
