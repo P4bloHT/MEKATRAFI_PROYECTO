@@ -67,6 +67,7 @@ namespace MecaTrafiSystemGUIApp {
 		}
 	private: User^ user;
 	private: Random^ rand = gcnew Random();
+	private: EmployeeForm^ employeeForm;
 	private: System::Windows::Forms::ToolStripMenuItem^ chatDeAyudaToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ contactoToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ ayudaToolStripMenuItem;
@@ -155,6 +156,8 @@ namespace MecaTrafiSystemGUIApp {
 			this->ayudaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->txtNombre = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->btnham = (gcnew System::Windows::Forms::PictureBox());
 			this->sidebar = (gcnew System::Windows::Forms::FlowLayoutPanel());
@@ -177,8 +180,6 @@ namespace MecaTrafiSystemGUIApp {
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->btnGeneraPedido = (gcnew System::Windows::Forms::Button());
 			this->button5 = (gcnew System::Windows::Forms::Button());
-			this->txtNombre = (gcnew System::Windows::Forms::Label());
-			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->menuStrip1->SuspendLayout();
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->btnham))->BeginInit();
@@ -231,6 +232,28 @@ namespace MecaTrafiSystemGUIApp {
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(1055, 30);
 			this->panel1->TabIndex = 8;
+			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label2->Location = System::Drawing::Point(866, 11);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(58, 13);
+			this->label2->TabIndex = 12;
+			this->label2->Text = L"(Nombre)";
+			// 
+			// txtNombre
+			// 
+			this->txtNombre->AutoSize = true;
+			this->txtNombre->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->txtNombre->Location = System::Drawing::Point(782, 11);
+			this->txtNombre->Name = L"txtNombre";
+			this->txtNombre->Size = System::Drawing::Size(78, 13);
+			this->txtNombre->TabIndex = 11;
+			this->txtNombre->Text = L"Bienvenido: ";
 			// 
 			// label1
 			// 
@@ -534,28 +557,6 @@ namespace MecaTrafiSystemGUIApp {
 			this->button5->UseVisualStyleBackColor = true;
 			this->button5->Click += gcnew System::EventHandler(this, &EmployeeForm::button5_Click);
 			// 
-			// txtNombre
-			// 
-			this->txtNombre->AutoSize = true;
-			this->txtNombre->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->txtNombre->Location = System::Drawing::Point(782, 11);
-			this->txtNombre->Name = L"txtNombre";
-			this->txtNombre->Size = System::Drawing::Size(78, 13);
-			this->txtNombre->TabIndex = 11;
-			this->txtNombre->Text = L"Bienvenido: ";
-			// 
-			// label2
-			// 
-			this->label2->AutoSize = true;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label2->Location = System::Drawing::Point(866, 11);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(58, 13);
-			this->label2->TabIndex = 12;
-			this->label2->Text = L"(Nombre)";
-			// 
 			// EmployeeForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -772,11 +773,7 @@ namespace MecaTrafiSystemGUIApp {
 		//perfil->MdiParent = this;
 		perfil->Show();
 	}
-	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
-		ConfirmarsSalida^ ConfirmarSalida = gcnew ConfirmarsSalida();
-		//ConfirmarSalida->MdiParent = this;
-		ConfirmarSalida->Show();
-	}
+	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e);
 		   //click en motor
 	private: System::Void button10_Click(System::Object^ sender, System::EventArgs^ e) {
 

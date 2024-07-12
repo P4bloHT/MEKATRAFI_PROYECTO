@@ -483,6 +483,8 @@ namespace MecaTrafiSystemGUIApp {
 		ReportesCompraAdmin^ ReportesDeCompra = gcnew ReportesCompraAdmin();
 		ReportesDeCompra->ShowDialog();
 	}
-	private: System::Void btn_Salir_Click(System::Object^ sender, System::EventArgs^ e){}
+	private: System::Void btn_Salir_Click(System::Object^ sender, System::EventArgs^ e){
+		this->Close();
+	}
 };
 }

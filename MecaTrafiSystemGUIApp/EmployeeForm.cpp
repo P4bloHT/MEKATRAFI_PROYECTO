@@ -4,6 +4,7 @@ using namespace MecaTrafiSystemGUIApp;
 
 System::Void MecaTrafiSystemGUIApp::EmployeeForm::EmployeeForm_Load(System::Object^ sender, System::EventArgs^ e)
 {
+    this->Hide();
     Login^ loginform = gcnew Login(user);
 
     loginform->ControlBox = false;
@@ -17,4 +18,13 @@ System::Void MecaTrafiSystemGUIApp::EmployeeForm::EmployeeForm_Load(System::Obje
     else {
         MessageBox::Show("Usuario obtenido correctamente.", "Info", MessageBoxButtons::OK, MessageBoxIcon::Information);
     }
+}
+
+System::Void MecaTrafiSystemGUIApp::EmployeeForm::button4_Click(System::Object^ sender, System::EventArgs^ e)
+{
+    this->Hide();
+    Login^ loginform = gcnew Login(user);
+    loginform->ControlBox = false;
+    loginform->ShowDialog();
+    user = loginform->GetUser();
 }

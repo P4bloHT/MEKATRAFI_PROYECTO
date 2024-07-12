@@ -57,6 +57,9 @@ namespace MecaTrafiSystemGUIApp {
 
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
+	private: System::Windows::Forms::PictureBox^ pictureBox3;
+	private: System::Windows::Forms::Label^ label4;
+	private: System::Windows::Forms::CheckBox^ CBMostrarContrasena;
 
 
 	private:
@@ -67,13 +70,13 @@ namespace MecaTrafiSystemGUIApp {
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// Método necesario para admitir el Diseñador. No se puede modificar
-		/// el contenido de este método con el editor de código.
-		/// </summary>
+			/// Método necesario para admitir el Diseñador. No se puede modificar
+			/// el contenido de este método con el editor de código.
+			/// </summary>
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Login::typeid));
-			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->CBMostrarContrasena = (gcnew System::Windows::Forms::CheckBox());
 			this->txtcontra = (gcnew System::Windows::Forms::TextBox());
 			this->txtcuenta = (gcnew System::Windows::Forms::TextBox());
 			this->label3 = (gcnew System::Windows::Forms::Label());
@@ -81,71 +84,83 @@ namespace MecaTrafiSystemGUIApp {
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
-			this->panel1->SuspendLayout();
+			this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
+			this->label4 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
 			this->SuspendLayout();
 			// 
-			// panel1
+			// CBMostrarContrasena
 			// 
-			this->panel1->BackColor = System::Drawing::Color::Transparent;
-			this->panel1->Controls->Add(this->txtcontra);
-			this->panel1->Controls->Add(this->txtcuenta);
-			this->panel1->Controls->Add(this->label3);
-			this->panel1->Controls->Add(this->label2);
-			this->panel1->Location = System::Drawing::Point(173, 132);
-			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(182, 105);
-			this->panel1->TabIndex = 0;
+			this->CBMostrarContrasena->AutoSize = true;
+			this->CBMostrarContrasena->Font = (gcnew System::Drawing::Font(L"Gadugi", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->CBMostrarContrasena->Location = System::Drawing::Point(232, 454);
+			this->CBMostrarContrasena->Name = L"CBMostrarContrasena";
+			this->CBMostrarContrasena->Size = System::Drawing::Size(243, 32);
+			this->CBMostrarContrasena->TabIndex = 5;
+			this->CBMostrarContrasena->Text = L"Mostrar contraseña";
+			this->CBMostrarContrasena->UseVisualStyleBackColor = true;
+			this->CBMostrarContrasena->CheckedChanged += gcnew System::EventHandler(this, &Login::CBMostrarContrasena_CheckedChanged);
 			// 
 			// txtcontra
 			// 
-			this->txtcontra->Location = System::Drawing::Point(15, 77);
+			this->txtcontra->Font = (gcnew System::Drawing::Font(L"Century", 16, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->txtcontra->Location = System::Drawing::Point(232, 400);
+			this->txtcontra->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->txtcontra->Name = L"txtcontra";
-			this->txtcontra->Size = System::Drawing::Size(163, 20);
+			this->txtcontra->Size = System::Drawing::Size(242, 46);
 			this->txtcontra->TabIndex = 4;
 			this->txtcontra->UseSystemPasswordChar = true;
 			// 
 			// txtcuenta
 			// 
-			this->txtcuenta->Location = System::Drawing::Point(15, 36);
+			this->txtcuenta->Font = (gcnew System::Drawing::Font(L"Century", 16, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->txtcuenta->Location = System::Drawing::Point(232, 254);
+			this->txtcuenta->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->txtcuenta->Name = L"txtcuenta";
-			this->txtcuenta->Size = System::Drawing::Size(163, 20);
+			this->txtcuenta->Size = System::Drawing::Size(242, 46);
 			this->txtcuenta->TabIndex = 3;
 			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label3->Font = (gcnew System::Drawing::Font(L"Gadugi", 14, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label3->ForeColor = System::Drawing::SystemColors::Control;
-			this->label3->Location = System::Drawing::Point(12, 18);
+			this->label3->ForeColor = System::Drawing::SystemColors::Desktop;
+			this->label3->Location = System::Drawing::Point(227, 206);
+			this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(70, 15);
+			this->label3->Size = System::Drawing::Size(115, 34);
 			this->label3->TabIndex = 2;
-			this->label3->Text = L"User Name";
+			this->label3->Text = L"Usuario";
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label2->ForeColor = System::Drawing::SystemColors::Control;
-			this->label2->Location = System::Drawing::Point(12, 59);
+			this->label2->Font = (gcnew System::Drawing::Font(L"Gadugi", 14, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->label2->ForeColor = System::Drawing::SystemColors::Desktop;
+			this->label2->Location = System::Drawing::Point(227, 361);
+			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(61, 15);
+			this->label2->Size = System::Drawing::Size(162, 34);
 			this->label2->TabIndex = 1;
-			this->label2->Text = L"Password";
+			this->label2->Text = L"Contraseña";
 			// 
 			// button1
 			// 
-			this->button1->BackColor = System::Drawing::Color::Black;
+			this->button1->BackColor = System::Drawing::Color::SandyBrown;
 			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button1->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->button1->Font = (gcnew System::Drawing::Font(L"Gadugi", 14, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button1->ForeColor = System::Drawing::Color::White;
-			this->button1->Location = System::Drawing::Point(173, 243);
+			this->button1->Location = System::Drawing::Point(178, 586);
+			this->button1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(86, 31);
+			this->button1->Size = System::Drawing::Size(149, 62);
 			this->button1->TabIndex = 6;
 			this->button1->Text = L"Ingresar";
 			this->button1->UseVisualStyleBackColor = false;
@@ -153,14 +168,15 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// button2
 			// 
-			this->button2->BackColor = System::Drawing::Color::Black;
+			this->button2->BackColor = System::Drawing::Color::DarkSlateGray;
 			this->button2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button2->Font = (gcnew System::Drawing::Font(L"Palatino Linotype", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->button2->Font = (gcnew System::Drawing::Font(L"Gadugi", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button2->ForeColor = System::Drawing::Color::White;
-			this->button2->Location = System::Drawing::Point(278, 243);
+			this->button2->Location = System::Drawing::Point(487, 586);
+			this->button2->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(73, 31);
+			this->button2->Size = System::Drawing::Size(136, 62);
 			this->button2->TabIndex = 7;
 			this->button2->Text = L"Salir";
 			this->button2->UseVisualStyleBackColor = false;
@@ -168,34 +184,61 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// pictureBox1
 			// 
+			this->pictureBox1->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(32, 2);
+			this->pictureBox1->Location = System::Drawing::Point(0, 0);
+			this->pictureBox1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(512, 341);
-			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
+			this->pictureBox1->Size = System::Drawing::Size(1342, 772);
 			this->pictureBox1->TabIndex = 8;
 			this->pictureBox1->TabStop = false;
 			// 
+			// pictureBox3
+			// 
+			this->pictureBox3->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox3.Image")));
+			this->pictureBox3->Location = System::Drawing::Point(12, 12);
+			this->pictureBox3->Name = L"pictureBox3";
+			this->pictureBox3->Size = System::Drawing::Size(62, 58);
+			this->pictureBox3->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->pictureBox3->TabIndex = 28;
+			this->pictureBox3->TabStop = false;
+			// 
+			// label4
+			// 
+			this->label4->AutoSize = true;
+			this->label4->Font = (gcnew System::Drawing::Font(L"Constantia", 14, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label4->Location = System::Drawing::Point(80, 26);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(148, 35);
+			this->label4->TabIndex = 29;
+			this->label4->Text = L"MekaTrafi";
+			// 
 			// Login
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->ClientSize = System::Drawing::Size(556, 355);
+			this->ClientSize = System::Drawing::Size(1342, 772);
+			this->Controls->Add(this->label3);
+			this->Controls->Add(this->txtcuenta);
+			this->Controls->Add(this->txtcontra);
+			this->Controls->Add(this->CBMostrarContrasena);
+			this->Controls->Add(this->label2);
+			this->Controls->Add(this->label4);
+			this->Controls->Add(this->pictureBox3);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->button2);
-			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->pictureBox1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->HelpButton = true;
+			this->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Name = L"Login";
-			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Login";
 			this->Load += gcnew System::EventHandler(this, &Login::Login_Load);
-			this->panel1->ResumeLayout(false);
-			this->panel1->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -245,5 +288,13 @@ namespace MecaTrafiSystemGUIApp {
 	private: System::Void Login_Load(System::Object^ sender, System::EventArgs^ e) {
 
 	}
+	private: System::Void CBMostrarContrasena_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+			   if (CBMostrarContrasena->Checked == true) {
+				   txtcontra->UseSystemPasswordChar = false;
+			   }
+			   else {
+				   txtcontra->UseSystemPasswordChar = true;
+			   }
+		   }
 	};
 }

@@ -46,8 +46,8 @@ namespace MecaTrafiSystemGUIApp {
 	protected:
 
 	protected:
-	private: System::Windows::Forms::Label^ label1;
-	private: System::Windows::Forms::Label^ Nombre;
+
+
 	private: System::Windows::Forms::TextBox^ txtID;
 
 
@@ -57,6 +57,8 @@ namespace MecaTrafiSystemGUIApp {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ ComponentId;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ ComponentName;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ ComponentPrice;
+	private: System::Windows::Forms::Label^ label5;
+	private: System::Windows::Forms::Label^ label1;
 
 
 
@@ -71,7 +73,7 @@ namespace MecaTrafiSystemGUIApp {
 		/// <summary>
 		/// Variable del diseñador necesaria.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -81,15 +83,15 @@ namespace MecaTrafiSystemGUIApp {
 		void InitializeComponent(void)
 		{
 			this->dgvComponentes = (gcnew System::Windows::Forms::DataGridView());
-			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->Nombre = (gcnew System::Windows::Forms::Label());
+			this->ComponentId = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->ComponentName = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->ComponentPrice = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->txtID = (gcnew System::Windows::Forms::TextBox());
 			this->txtNombre = (gcnew System::Windows::Forms::TextBox());
 			this->btnBuscar = (gcnew System::Windows::Forms::Button());
 			this->btnCancelar = (gcnew System::Windows::Forms::Button());
-			this->ComponentId = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->ComponentName = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->ComponentPrice = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->label1 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvComponentes))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -109,58 +111,6 @@ namespace MecaTrafiSystemGUIApp {
 			this->dgvComponentes->Size = System::Drawing::Size(834, 271);
 			this->dgvComponentes->TabIndex = 0;
 			this->dgvComponentes->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &BuscarComponente::dgvComponentes_CellClick);
-			// 
-			// label1
-			// 
-			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(294, 67);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(23, 20);
-			this->label1->TabIndex = 1;
-			this->label1->Text = L"Id";
-			// 
-			// Nombre
-			// 
-			this->Nombre->AutoSize = true;
-			this->Nombre->Location = System::Drawing::Point(294, 149);
-			this->Nombre->Name = L"Nombre";
-			this->Nombre->Size = System::Drawing::Size(65, 20);
-			this->Nombre->TabIndex = 2;
-			this->Nombre->Text = L"Nombre";
-			// 
-			// txtID
-			// 
-			this->txtID->Location = System::Drawing::Point(456, 64);
-			this->txtID->Name = L"txtID";
-			this->txtID->Size = System::Drawing::Size(331, 26);
-			this->txtID->TabIndex = 3;
-			// 
-			// txtNombre
-			// 
-			this->txtNombre->Location = System::Drawing::Point(456, 146);
-			this->txtNombre->Name = L"txtNombre";
-			this->txtNombre->Size = System::Drawing::Size(331, 26);
-			this->txtNombre->TabIndex = 4;
-			// 
-			// btnBuscar
-			// 
-			this->btnBuscar->Location = System::Drawing::Point(315, 225);
-			this->btnBuscar->Name = L"btnBuscar";
-			this->btnBuscar->Size = System::Drawing::Size(128, 40);
-			this->btnBuscar->TabIndex = 5;
-			this->btnBuscar->Text = L"Buscar";
-			this->btnBuscar->UseVisualStyleBackColor = true;
-			this->btnBuscar->Click += gcnew System::EventHandler(this, &BuscarComponente::btnBuscar_Click);
-			// 
-			// btnCancelar
-			// 
-			this->btnCancelar->Location = System::Drawing::Point(620, 225);
-			this->btnCancelar->Name = L"btnCancelar";
-			this->btnCancelar->Size = System::Drawing::Size(128, 40);
-			this->btnCancelar->TabIndex = 6;
-			this->btnCancelar->Text = L"Cancelar";
-			this->btnCancelar->UseVisualStyleBackColor = true;
-			this->btnCancelar->Click += gcnew System::EventHandler(this, &BuscarComponente::btnCancelar_Click);
 			// 
 			// ComponentId
 			// 
@@ -183,21 +133,84 @@ namespace MecaTrafiSystemGUIApp {
 			this->ComponentPrice->Name = L"ComponentPrice";
 			this->ComponentPrice->Width = 200;
 			// 
+			// txtID
+			// 
+			this->txtID->Location = System::Drawing::Point(456, 64);
+			this->txtID->Name = L"txtID";
+			this->txtID->Size = System::Drawing::Size(331, 26);
+			this->txtID->TabIndex = 3;
+			// 
+			// txtNombre
+			// 
+			this->txtNombre->Location = System::Drawing::Point(456, 146);
+			this->txtNombre->Name = L"txtNombre";
+			this->txtNombre->Size = System::Drawing::Size(331, 26);
+			this->txtNombre->TabIndex = 4;
+			// 
+			// btnBuscar
+			// 
+			this->btnBuscar->BackColor = System::Drawing::Color::SandyBrown;
+			this->btnBuscar->Font = (gcnew System::Drawing::Font(L"Gadugi", 10, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnBuscar->ForeColor = System::Drawing::SystemColors::Control;
+			this->btnBuscar->Location = System::Drawing::Point(315, 225);
+			this->btnBuscar->Name = L"btnBuscar";
+			this->btnBuscar->Size = System::Drawing::Size(146, 55);
+			this->btnBuscar->TabIndex = 5;
+			this->btnBuscar->Text = L"Buscar";
+			this->btnBuscar->UseVisualStyleBackColor = false;
+			this->btnBuscar->Click += gcnew System::EventHandler(this, &BuscarComponente::btnBuscar_Click);
+			// 
+			// btnCancelar
+			// 
+			this->btnCancelar->BackColor = System::Drawing::Color::DarkSlateGray;
+			this->btnCancelar->Font = (gcnew System::Drawing::Font(L"Gadugi", 10, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnCancelar->ForeColor = System::Drawing::SystemColors::Control;
+			this->btnCancelar->Location = System::Drawing::Point(617, 225);
+			this->btnCancelar->Name = L"btnCancelar";
+			this->btnCancelar->Size = System::Drawing::Size(151, 55);
+			this->btnCancelar->TabIndex = 6;
+			this->btnCancelar->Text = L"Cancelar";
+			this->btnCancelar->UseVisualStyleBackColor = false;
+			this->btnCancelar->Click += gcnew System::EventHandler(this, &BuscarComponente::btnCancelar_Click);
+			// 
+			// label5
+			// 
+			this->label5->AutoSize = true;
+			this->label5->Font = (gcnew System::Drawing::Font(L"Century", 10, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label5->Location = System::Drawing::Point(276, 64);
+			this->label5->Name = L"label5";
+			this->label5->Size = System::Drawing::Size(36, 23);
+			this->label5->TabIndex = 25;
+			this->label5->Text = L"ID";
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Century", 10, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label1->Location = System::Drawing::Point(276, 149);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(90, 23);
+			this->label1->TabIndex = 26;
+			this->label1->Text = L"Nombre";
+			// 
 			// BuscarComponente
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1103, 634);
+			this->Controls->Add(this->label1);
+			this->Controls->Add(this->label5);
 			this->Controls->Add(this->btnCancelar);
 			this->Controls->Add(this->btnBuscar);
 			this->Controls->Add(this->txtNombre);
 			this->Controls->Add(this->txtID);
-			this->Controls->Add(this->Nombre);
-			this->Controls->Add(this->label1);
 			this->Controls->Add(this->dgvComponentes);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::SizableToolWindow;
 			this->Name = L"BuscarComponente";
-			this->Text = L"BuscarComponente";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvComponentes))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -213,48 +226,48 @@ namespace MecaTrafiSystemGUIApp {
 		   }
 
 
-private: System::Void btnBuscar_Click(System::Object^ sender, System::EventArgs^ e) {
-	dgvComponentes->Rows->Clear();
+	private: System::Void btnBuscar_Click(System::Object^ sender, System::EventArgs^ e) {
+		dgvComponentes->Rows->Clear();
 
-	if (txtID->Text->Trim()->Equals("")) {
-		List<MechanicComponent^>^ fajalist = Service::QueryfajasByName(txtNombre->Text->Trim());
-		for (int i = 0; i < fajalist->Count; i++)
-			AddComponentToGrid(fajalist[i]);
+		if (txtID->Text->Trim()->Equals("")) {
+			List<MechanicComponent^>^ fajalist = Service::QueryfajasByName(txtNombre->Text->Trim());
+			for (int i = 0; i < fajalist->Count; i++)
+				AddComponentToGrid(fajalist[i]);
 
-		List<MechanicComponent^>^ tornillolist = Service::QueryTornillosByName(txtNombre->Text->Trim());
-		for (int i = 0; i < tornillolist->Count; i++)
-			AddComponentToGrid(tornillolist[i]);
+			List<MechanicComponent^>^ tornillolist = Service::QueryTornillosByName(txtNombre->Text->Trim());
+			for (int i = 0; i < tornillolist->Count; i++)
+				AddComponentToGrid(tornillolist[i]);
 
-		List<MechanicComponent^>^ rodamientolist = Service::QueryRodamientosByName(txtNombre->Text->Trim());
-		for (int i = 0; i < rodamientolist->Count; i++)
-			AddComponentToGrid(rodamientolist[i]);
+			List<MechanicComponent^>^ rodamientolist = Service::QueryRodamientosByName(txtNombre->Text->Trim());
+			for (int i = 0; i < rodamientolist->Count; i++)
+				AddComponentToGrid(rodamientolist[i]);
 
-		List<MechanicComponent^>^ polealist = Service::QueryPoleasByName(txtNombre->Text->Trim());
-		for (int i = 0; i < polealist->Count; i++)
-			AddComponentToGrid(polealist[i]);
+			List<MechanicComponent^>^ polealist = Service::QueryPoleasByName(txtNombre->Text->Trim());
+			for (int i = 0; i < polealist->Count; i++)
+				AddComponentToGrid(polealist[i]);
+		}
+		else {
+			MechanicComponent^ faja = Service::Queryallfajasid(Convert::ToInt32(txtID->Text));
+			AddComponentToGrid(faja);
+
+			MechanicComponent^ tornilllo = Service::Queryalltornillosid(Convert::ToInt32(txtID->Text));
+			AddComponentToGrid(tornilllo);
+
+			MechanicComponent^ rodamiento = Service::Queryallrodamientosid(Convert::ToInt32(txtID->Text));
+			AddComponentToGrid(rodamiento);
+
+			MechanicComponent^ polea = Service::Queryallpoleasid(Convert::ToInt32(txtID->Text));
+			AddComponentToGrid(polea);
+
+			MechanicComponent^ motorAC = Service::QueryallMotorACStockById(Convert::ToInt32(txtID->Text));
+			AddComponentToGrid(motorAC);
+
+			MechanicComponent^ motorDC = Service::QueryallMotorDCStockById(Convert::ToInt32(txtID->Text));
+			AddComponentToGrid(motorDC);
+
+		}
+
 	}
-	else {
-		MechanicComponent^ faja = Service::Queryallfajasid(Convert::ToInt32(txtID->Text));
-		AddComponentToGrid(faja);
-
-		MechanicComponent^ tornilllo = Service::Queryalltornillosid(Convert::ToInt32(txtID->Text));
-		AddComponentToGrid(tornilllo);
-
-		MechanicComponent^ rodamiento = Service::Queryallrodamientosid(Convert::ToInt32(txtID->Text));
-		AddComponentToGrid(rodamiento);
-
-		MechanicComponent^ polea = Service::Queryallpoleasid(Convert::ToInt32(txtID->Text));
-		AddComponentToGrid(polea);
-
-		MechanicComponent^ motorAC = Service::QueryallMotorACStockById(Convert::ToInt32(txtID->Text));
-		AddComponentToGrid(motorAC);
-
-		MechanicComponent^ motorDC = Service::QueryallMotorDCStockById(Convert::ToInt32(txtID->Text));
-		AddComponentToGrid(motorDC);
-	
-	}
-	
-}
-private: System::Void dgvComponentes_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e);
-};
+	private: System::Void dgvComponentes_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e);
+	};
 }
