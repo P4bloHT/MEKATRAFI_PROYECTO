@@ -145,6 +145,7 @@ namespace MecaTrafiSystemGUIApp {
 	private: System::Windows::Forms::Button^ button2;
 private: System::Windows::Forms::Button^ btnGeneraPedido;
 private: System::Windows::Forms::Button^ button5;
+private: System::Windows::Forms::PictureBox^ pictureBox1;
 
 
 
@@ -204,6 +205,7 @@ private: System::Windows::Forms::Button^ button5;
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->btnGeneraPedido = (gcnew System::Windows::Forms::Button());
 			this->button5 = (gcnew System::Windows::Forms::Button());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->menuStrip1->SuspendLayout();
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->btnham))->BeginInit();
@@ -212,6 +214,7 @@ private: System::Windows::Forms::Button^ button5;
 			this->panel2->SuspendLayout();
 			this->panel4->SuspendLayout();
 			this->panel5->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// chatDeAyudaToolStripMenuItem
@@ -231,7 +234,7 @@ private: System::Windows::Forms::Button^ button5;
 			// ayudaToolStripMenuItem
 			// 
 			this->ayudaToolStripMenuItem->Name = L"ayudaToolStripMenuItem";
-			this->ayudaToolStripMenuItem->Size = System::Drawing::Size(16, 32);
+			this->ayudaToolStripMenuItem->Size = System::Drawing::Size(16, 20);
 			// 
 			// menuStrip1
 			// 
@@ -240,17 +243,18 @@ private: System::Windows::Forms::Button^ button5;
 			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->ayudaToolStripMenuItem });
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(1206, 36);
+			this->menuStrip1->Size = System::Drawing::Size(1206, 24);
 			this->menuStrip1->TabIndex = 6;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
 			// panel1
 			// 
 			this->panel1->BackColor = System::Drawing::Color::DarkGray;
+			this->panel1->Controls->Add(this->pictureBox1);
 			this->panel1->Controls->Add(this->label1);
 			this->panel1->Controls->Add(this->btnham);
 			this->panel1->Dock = System::Windows::Forms::DockStyle::Top;
-			this->panel1->Location = System::Drawing::Point(0, 36);
+			this->panel1->Location = System::Drawing::Point(0, 24);
 			this->panel1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(1206, 46);
@@ -271,6 +275,7 @@ private: System::Windows::Forms::Button^ button5;
 			// 
 			// btnham
 			// 
+			this->btnham->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnham.Image")));
 			this->btnham->Location = System::Drawing::Point(13, 9);
 			this->btnham->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->btnham->Name = L"btnham";
@@ -288,10 +293,10 @@ private: System::Windows::Forms::Button^ button5;
 			this->sidebar->Controls->Add(this->panel4);
 			this->sidebar->Controls->Add(this->panel5);
 			this->sidebar->Dock = System::Windows::Forms::DockStyle::Left;
-			this->sidebar->Location = System::Drawing::Point(0, 82);
+			this->sidebar->Location = System::Drawing::Point(0, 70);
 			this->sidebar->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->sidebar->Name = L"sidebar";
-			this->sidebar->Size = System::Drawing::Size(257, 575);
+			this->sidebar->Size = System::Drawing::Size(257, 587);
 			this->sidebar->TabIndex = 9;
 			this->sidebar->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &EmployeeForm::sidebar_Paint);
 			// 
@@ -308,24 +313,24 @@ private: System::Windows::Forms::Button^ button5;
 			this->flowLayoutPanel2->Location = System::Drawing::Point(0, 0);
 			this->flowLayoutPanel2->Margin = System::Windows::Forms::Padding(0);
 			this->flowLayoutPanel2->Name = L"flowLayoutPanel2";
-			this->flowLayoutPanel2->Size = System::Drawing::Size(212, 68);
+			this->flowLayoutPanel2->Size = System::Drawing::Size(204, 60);
 			this->flowLayoutPanel2->TabIndex = 15;
 			this->flowLayoutPanel2->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &EmployeeForm::flowLayoutPanel2_Paint);
 			// 
 			// btnproducto
 			// 
-			this->btnproducto->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->btnproducto->BackColor = System::Drawing::Color::Teal;
 			this->btnproducto->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->btnproducto->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->btnproducto->Font = (gcnew System::Drawing::Font(L"Segoe UI", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->btnproducto->Font = (gcnew System::Drawing::Font(L"Gadugi", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnproducto->ForeColor = System::Drawing::Color::White;
 			this->btnproducto->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->btnproducto->ImageKey = L"(ninguno)";
-			this->btnproducto->Location = System::Drawing::Point(8, 0);
+			this->btnproducto->Location = System::Drawing::Point(4, 0);
 			this->btnproducto->Margin = System::Windows::Forms::Padding(0);
 			this->btnproducto->Name = L"btnproducto";
-			this->btnproducto->Size = System::Drawing::Size(204, 60);
+			this->btnproducto->Size = System::Drawing::Size(200, 60);
 			this->btnproducto->TabIndex = 21;
 			this->btnproducto->Text = L"Productos";
 			this->btnproducto->UseVisualStyleBackColor = false;
@@ -333,17 +338,17 @@ private: System::Windows::Forms::Button^ button5;
 			// 
 			// button11
 			// 
-			this->button11->BackColor = System::Drawing::Color::DarkGray;
+			this->button11->BackColor = System::Drawing::Color::White;
 			this->button11->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button11->Font = (gcnew System::Drawing::Font(L"Segoe UI", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->button11->Font = (gcnew System::Drawing::Font(L"Gadugi", 10, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button11->ForeColor = System::Drawing::Color::Transparent;
+			this->button11->ForeColor = System::Drawing::Color::Black;
 			this->button11->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->button11->ImageKey = L"(ninguno)";
-			this->button11->Location = System::Drawing::Point(0, 60);
+			this->button11->Location = System::Drawing::Point(-5, 60);
 			this->button11->Margin = System::Windows::Forms::Padding(0);
 			this->button11->Name = L"button11";
-			this->button11->Size = System::Drawing::Size(212, 51);
+			this->button11->Size = System::Drawing::Size(209, 51);
 			this->button11->TabIndex = 21;
 			this->button11->Text = L"Poleas";
 			this->button11->UseVisualStyleBackColor = false;
@@ -351,17 +356,17 @@ private: System::Windows::Forms::Button^ button5;
 			// 
 			// button9
 			// 
-			this->button9->BackColor = System::Drawing::Color::DarkGray;
+			this->button9->BackColor = System::Drawing::Color::White;
 			this->button9->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button9->Font = (gcnew System::Drawing::Font(L"Segoe UI", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->button9->Font = (gcnew System::Drawing::Font(L"Gadugi", 10, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button9->ForeColor = System::Drawing::Color::Transparent;
+			this->button9->ForeColor = System::Drawing::Color::Black;
 			this->button9->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->button9->ImageKey = L"(ninguno)";
-			this->button9->Location = System::Drawing::Point(0, 111);
+			this->button9->Location = System::Drawing::Point(-5, 111);
 			this->button9->Margin = System::Windows::Forms::Padding(0);
 			this->button9->Name = L"button9";
-			this->button9->Size = System::Drawing::Size(212, 51);
+			this->button9->Size = System::Drawing::Size(209, 51);
 			this->button9->TabIndex = 10;
 			this->button9->Text = L"Fajas";
 			this->button9->UseVisualStyleBackColor = false;
@@ -369,17 +374,17 @@ private: System::Windows::Forms::Button^ button5;
 			// 
 			// button13
 			// 
-			this->button13->BackColor = System::Drawing::SystemColors::ControlDark;
+			this->button13->BackColor = System::Drawing::Color::White;
 			this->button13->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button13->Font = (gcnew System::Drawing::Font(L"Segoe UI", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->button13->Font = (gcnew System::Drawing::Font(L"Gadugi", 10, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button13->ForeColor = System::Drawing::Color::Transparent;
+			this->button13->ForeColor = System::Drawing::Color::Black;
 			this->button13->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->button13->ImageKey = L"(ninguno)";
-			this->button13->Location = System::Drawing::Point(0, 162);
+			this->button13->Location = System::Drawing::Point(-1, 162);
 			this->button13->Margin = System::Windows::Forms::Padding(0);
 			this->button13->Name = L"button13";
-			this->button13->Size = System::Drawing::Size(212, 51);
+			this->button13->Size = System::Drawing::Size(205, 51);
 			this->button13->TabIndex = 21;
 			this->button13->Text = L"Tornillos";
 			this->button13->UseVisualStyleBackColor = false;
@@ -387,17 +392,17 @@ private: System::Windows::Forms::Button^ button5;
 			// 
 			// button10
 			// 
-			this->button10->BackColor = System::Drawing::Color::DarkGray;
+			this->button10->BackColor = System::Drawing::Color::White;
 			this->button10->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button10->Font = (gcnew System::Drawing::Font(L"Segoe UI", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->button10->Font = (gcnew System::Drawing::Font(L"Gadugi", 10, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button10->ForeColor = System::Drawing::Color::Transparent;
+			this->button10->ForeColor = System::Drawing::Color::Black;
 			this->button10->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->button10->ImageKey = L"(ninguno)";
-			this->button10->Location = System::Drawing::Point(0, 213);
+			this->button10->Location = System::Drawing::Point(-1, 213);
 			this->button10->Margin = System::Windows::Forms::Padding(0);
 			this->button10->Name = L"button10";
-			this->button10->Size = System::Drawing::Size(212, 51);
+			this->button10->Size = System::Drawing::Size(205, 51);
 			this->button10->TabIndex = 11;
 			this->button10->Text = L"Motores";
 			this->button10->UseVisualStyleBackColor = false;
@@ -405,17 +410,17 @@ private: System::Windows::Forms::Button^ button5;
 			// 
 			// button12
 			// 
-			this->button12->BackColor = System::Drawing::Color::DarkGray;
+			this->button12->BackColor = System::Drawing::Color::White;
 			this->button12->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button12->Font = (gcnew System::Drawing::Font(L"Segoe UI", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->button12->Font = (gcnew System::Drawing::Font(L"Gadugi", 10, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button12->ForeColor = System::Drawing::Color::Transparent;
+			this->button12->ForeColor = System::Drawing::Color::Black;
 			this->button12->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->button12->ImageKey = L"(ninguno)";
-			this->button12->Location = System::Drawing::Point(0, 264);
+			this->button12->Location = System::Drawing::Point(-1, 264);
 			this->button12->Margin = System::Windows::Forms::Padding(0);
 			this->button12->Name = L"button12";
-			this->button12->Size = System::Drawing::Size(212, 51);
+			this->button12->Size = System::Drawing::Size(205, 51);
 			this->button12->TabIndex = 22;
 			this->button12->Text = L"Rodamientos";
 			this->button12->UseVisualStyleBackColor = false;
@@ -425,25 +430,25 @@ private: System::Windows::Forms::Button^ button5;
 			// 
 			this->panel2->BackColor = System::Drawing::SystemColors::Control;
 			this->panel2->Controls->Add(this->button1);
-			this->panel2->Location = System::Drawing::Point(4, 73);
+			this->panel2->Location = System::Drawing::Point(4, 65);
 			this->panel2->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->panel2->Name = L"panel2";
-			this->panel2->Size = System::Drawing::Size(200, 38);
+			this->panel2->Size = System::Drawing::Size(200, 60);
 			this->panel2->TabIndex = 17;
 			// 
 			// button1
 			// 
-			this->button1->BackColor = System::Drawing::Color::DarkGray;
+			this->button1->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->button1->BackColor = System::Drawing::Color::Teal;
 			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button1->Font = (gcnew System::Drawing::Font(L"Segoe UI", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->button1->Font = (gcnew System::Drawing::Font(L"Gadugi", 10, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button1->ForeColor = System::Drawing::Color::White;
-			this->button1->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->button1->ImageKey = L"(ninguno)";
-			this->button1->Location = System::Drawing::Point(-4, -48);
+			this->button1->Location = System::Drawing::Point(0, 0);
 			this->button1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(254, 122);
+			this->button1->Size = System::Drawing::Size(200, 60);
 			this->button1->TabIndex = 18;
 			this->button1->Text = L"Agregar Cliente";
 			this->button1->UseVisualStyleBackColor = false;
@@ -453,25 +458,25 @@ private: System::Windows::Forms::Button^ button5;
 			// 
 			this->panel4->BackColor = System::Drawing::SystemColors::Control;
 			this->panel4->Controls->Add(this->button3);
-			this->panel4->Location = System::Drawing::Point(4, 121);
+			this->panel4->Location = System::Drawing::Point(4, 135);
 			this->panel4->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->panel4->Name = L"panel4";
-			this->panel4->Size = System::Drawing::Size(200, 46);
+			this->panel4->Size = System::Drawing::Size(200, 60);
 			this->panel4->TabIndex = 13;
 			// 
 			// button3
 			// 
-			this->button3->BackColor = System::Drawing::Color::DarkGray;
+			this->button3->BackColor = System::Drawing::Color::Teal;
 			this->button3->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button3->Font = (gcnew System::Drawing::Font(L"Segoe UI", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->button3->Font = (gcnew System::Drawing::Font(L"Gadugi", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button3->ForeColor = System::Drawing::Color::White;
 			this->button3->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->button3->ImageKey = L"(ninguno)";
-			this->button3->Location = System::Drawing::Point(-34, -38);
+			this->button3->Location = System::Drawing::Point(0, 0);
 			this->button3->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(284, 122);
+			this->button3->Size = System::Drawing::Size(200, 60);
 			this->button3->TabIndex = 10;
 			this->button3->Text = L"Reportes";
 			this->button3->UseVisualStyleBackColor = false;
@@ -481,25 +486,25 @@ private: System::Windows::Forms::Button^ button5;
 			// 
 			this->panel5->Controls->Add(this->button4);
 			this->panel5->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->panel5->Location = System::Drawing::Point(4, 177);
+			this->panel5->Location = System::Drawing::Point(4, 205);
 			this->panel5->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->panel5->Name = L"panel5";
-			this->panel5->Size = System::Drawing::Size(200, 45);
+			this->panel5->Size = System::Drawing::Size(200, 62);
 			this->panel5->TabIndex = 14;
 			// 
 			// button4
 			// 
-			this->button4->BackColor = System::Drawing::Color::DarkGray;
+			this->button4->BackColor = System::Drawing::Color::SlateGray;
 			this->button4->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button4->Font = (gcnew System::Drawing::Font(L"Segoe UI", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->button4->Font = (gcnew System::Drawing::Font(L"Gadugi", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button4->ForeColor = System::Drawing::Color::White;
 			this->button4->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->button4->ImageKey = L"(ninguno)";
-			this->button4->Location = System::Drawing::Point(-26, -20);
+			this->button4->Location = System::Drawing::Point(0, 0);
 			this->button4->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(228, 85);
+			this->button4->Size = System::Drawing::Size(200, 60);
 			this->button4->TabIndex = 10;
 			this->button4->Text = L"Log Out";
 			this->button4->UseVisualStyleBackColor = false;
@@ -521,11 +526,14 @@ private: System::Windows::Forms::Button^ button5;
 			this->btnCliente->Font = (gcnew System::Drawing::Font(L"Gadugi", 14, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnCliente->ForeColor = System::Drawing::SystemColors::Control;
-			this->btnCliente->Location = System::Drawing::Point(362, 492);
+			this->btnCliente->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnCliente.Image")));
+			this->btnCliente->ImageAlign = System::Drawing::ContentAlignment::BottomCenter;
+			this->btnCliente->Location = System::Drawing::Point(806, 378);
 			this->btnCliente->Name = L"btnCliente";
-			this->btnCliente->Size = System::Drawing::Size(279, 75);
+			this->btnCliente->Size = System::Drawing::Size(279, 227);
 			this->btnCliente->TabIndex = 11;
 			this->btnCliente->Text = L"Mostrar cliente";
+			this->btnCliente->TextAlign = System::Drawing::ContentAlignment::TopCenter;
 			this->btnCliente->UseVisualStyleBackColor = false;
 			this->btnCliente->Click += gcnew System::EventHandler(this, &EmployeeForm::btnCliente_Click);
 			// 
@@ -533,12 +541,15 @@ private: System::Windows::Forms::Button^ button5;
 			// 
 			this->button2->Font = (gcnew System::Drawing::Font(L"Gadugi", 14, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button2->Location = System::Drawing::Point(362, 117);
+			this->button2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button2.Image")));
+			this->button2->ImageAlign = System::Drawing::ContentAlignment::TopCenter;
+			this->button2->Location = System::Drawing::Point(429, 107);
 			this->button2->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(279, 75);
+			this->button2->Size = System::Drawing::Size(279, 227);
 			this->button2->TabIndex = 13;
-			this->button2->Text = L"Stock";
+			this->button2->Text = L"Stock\r\n";
+			this->button2->TextAlign = System::Drawing::ContentAlignment::TopLeft;
 			this->button2->UseVisualStyleBackColor = true;
 			this->button2->Click += gcnew System::EventHandler(this, &EmployeeForm::button2_Click_2);
 			// 
@@ -546,11 +557,14 @@ private: System::Windows::Forms::Button^ button5;
 			// 
 			this->btnGeneraPedido->Font = (gcnew System::Drawing::Font(L"Gadugi", 14, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnGeneraPedido->Location = System::Drawing::Point(362, 237);
+			this->btnGeneraPedido->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnGeneraPedido.Image")));
+			this->btnGeneraPedido->ImageAlign = System::Drawing::ContentAlignment::BottomLeft;
+			this->btnGeneraPedido->Location = System::Drawing::Point(806, 110);
 			this->btnGeneraPedido->Name = L"btnGeneraPedido";
-			this->btnGeneraPedido->Size = System::Drawing::Size(279, 75);
+			this->btnGeneraPedido->Size = System::Drawing::Size(279, 227);
 			this->btnGeneraPedido->TabIndex = 15;
 			this->btnGeneraPedido->Text = L"Generar pedido";
+			this->btnGeneraPedido->TextAlign = System::Drawing::ContentAlignment::TopRight;
 			this->btnGeneraPedido->UseVisualStyleBackColor = true;
 			this->btnGeneraPedido->Click += gcnew System::EventHandler(this, &EmployeeForm::btnGeneraPedido_Click);
 			// 
@@ -558,13 +572,28 @@ private: System::Windows::Forms::Button^ button5;
 			// 
 			this->button5->Font = (gcnew System::Drawing::Font(L"Gadugi", 14, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button5->Location = System::Drawing::Point(362, 365);
+			this->button5->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button5.Image")));
+			this->button5->ImageAlign = System::Drawing::ContentAlignment::TopCenter;
+			this->button5->Location = System::Drawing::Point(429, 378);
 			this->button5->Name = L"button5";
-			this->button5->Size = System::Drawing::Size(279, 75);
+			this->button5->Size = System::Drawing::Size(279, 227);
 			this->button5->TabIndex = 17;
 			this->button5->Text = L"Reporte";
+			this->button5->TextAlign = System::Drawing::ContentAlignment::TopCenter;
 			this->button5->UseVisualStyleBackColor = true;
 			this->button5->Click += gcnew System::EventHandler(this, &EmployeeForm::button5_Click);
+			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->BackColor = System::Drawing::Color::Transparent;
+			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
+			this->pictureBox1->InitialImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.InitialImage")));
+			this->pictureBox1->Location = System::Drawing::Point(1154, 0);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(49, 46);
+			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->pictureBox1->TabIndex = 19;
+			this->pictureBox1->TabStop = false;
 			// 
 			// EmployeeForm
 			// 
@@ -597,6 +626,7 @@ private: System::Windows::Forms::Button^ button5;
 			this->panel2->ResumeLayout(false);
 			this->panel4->ResumeLayout(false);
 			this->panel5->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
