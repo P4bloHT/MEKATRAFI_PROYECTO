@@ -27,12 +27,12 @@ namespace MecaTrafiSystemPersistance {
 		static List<User^>^ UserList = gcnew List<User^>();
 
 		//BASE DATOS COMPONENTES - STOCK
-		static List <MechanicComponent^>^ motorACDB = gcnew List <MechanicComponent^>();
-		static List <MechanicComponent^>^ motorDCDB = gcnew List <MechanicComponent^>();
-		static List <MechanicComponent^>^ tornillosDB = gcnew List <MechanicComponent^>();
-		static List <MechanicComponent^>^ fajasDB = gcnew List <MechanicComponent^>();
-		static List <MechanicComponent^>^ poleaDB = gcnew List <MechanicComponent^>();
-		static List <MechanicComponent^>^ rodamientoDB = gcnew List <MechanicComponent^>();
+		static List <MotoresACCliente^>^ motorACDB = gcnew List <MotoresACCliente^>();
+		static List <MotoresDCCliente^>^ motorDCDB = gcnew List <MotoresDCCliente^>();
+		static List <TornilloCliente^>^ tornillosDB = gcnew List <TornilloCliente^>();
+		static List <FajasCliente^>^ fajasDB = gcnew List <FajasCliente^>();
+		static List <PoleaCliente^>^ poleaDB = gcnew List <PoleaCliente^>();
+		static List <RodamientosCliente^>^ rodamientoDB = gcnew List <RodamientosCliente^>();
 		//BASE DATOS DE EMPLEADOS Y CLIENTES
 		static List<Employee^>^ employeeListDB = gcnew List<Employee^>();
 		static List <Client^>^ clientlistdatos = gcnew List <Client^>();
@@ -47,6 +47,8 @@ namespace MecaTrafiSystemPersistance {
 
 		//BASE DATOS LISTA DE VENTAS 
 		static List<SaleOrder^>^ orderListDB = gcnew List<SaleOrder^>();
+		//BASE DE DATOS PARA COMPONENTE DE VENTA
+		static List<MechanicComponent^>^ ComponentDB = gcnew List<MechanicComponent^>();
 		//BD lista de compras
 		static List <PurchaseOrder^>^ compraOrdenListDB = gcnew List <PurchaseOrder^>();
 
@@ -58,6 +60,11 @@ namespace MecaTrafiSystemPersistance {
 		static List<SaleOrder^>^ QueryAllOrders();
 
 		static String^ BIN_COMPRAORDERS_FILE_NAME = "CompraOrders.bin";
+		
+		
+		
+		
+		
 		//REGISTRO DE USUARIOS
 		static User^ QueryUserByName(String^ name);
 
@@ -84,61 +91,72 @@ namespace MecaTrafiSystemPersistance {
 		static int DeleteClient(int clienteId);
 		static Client^ QueryAllClienteId(int clienteId);
 
+		//METODO DE VENTA
+		static List<MechanicComponent^>^ QueryallComponent();
+
 
 		//METODOS DE CRUD TORNILLO - STOCK
 		static String^ TXT_TORNILLO_FILE_NAME = "tornilloStock.txt";
 		static String^ XML_TORNILLO_FILE_NAME = "tornilloStock.xml";
 		static String^ BIN_TORNILLO_FILE_NAME = "tornilloStock.bin";
-		static int Addtornillo(MechanicComponent^ tornillo);
-		static List<MechanicComponent^>^ Queryalltornillo();
-		static int Updatetornillo(MechanicComponent^ tornillo);
+		static int Addtornillo(TornilloCliente^ tornillo);
+		static List<TornilloCliente^>^ Queryalltornillo();
+		static int Updatetornillo(TornilloCliente^ tornillo);
 		static int Deletetornillo(int tornilloId);
-		static MechanicComponent^ Queryalltornilloid(int tornilloId);
+		static TornilloCliente^ Queryalltornilloid(int tornilloId);
 
 		//METODOS DE CRUD FAJAS - STOCK
 		static String^ BIN_FAJAS_FILE_NAME = "fajas.bin";
-		static int Addfaja(MechanicComponent^ faja);
-		static List<MechanicComponent^>^ Queryallfaja();
-		static int Updatefaja(MechanicComponent^ faja);
+		static int Addfaja(FajasCliente^ faja);
+		static List<FajasCliente^>^ Queryallfaja();
+		static int Updatefaja(FajasCliente^ faja);
 		static int Deletefaja(int fajaId);
-		static MechanicComponent^ Queryallfajaid(int fajaId);
+		static FajasCliente^ Queryallfajaid(int fajaId);
 		//METODOS DE CRUD POLEAS - STOCK
 		static String^ BIN_POLEAS_FILE_NAME = "polea.bin";
-		static int Addpolea(MechanicComponent^ polea);
-		static List<MechanicComponent^>^ Queryallpolea();
-		static int Updatepolea(MechanicComponent^ polea);
+		static int Addpolea(PoleaCliente^ polea);
+		static List<PoleaCliente^>^ Queryallpolea();
+		static int Updatepolea(PoleaCliente^ polea);
 		static int Deletepolea(int poleaId);
-		static MechanicComponent^ Queryallpoleaid(int poleaId);
+		static PoleaCliente^ Queryallpoleaid(int poleaId);
 
 
 		//METODOS DE CRUD RODAMIENTO - STOCK
 		static String^ BIN_RODAMIENTO_FILE_NAME = "rodamiento.bin";
-		static int Addrodamiento(MechanicComponent^ rodamiento);
-		static List<MechanicComponent^>^ Queryallrodamiento();
-		static int Updaterodamiento(MechanicComponent^ rodamiento);
+		static int Addrodamiento(RodamientosCliente^ rodamiento);
+		static List<RodamientosCliente^>^ Queryallrodamiento();
+		static int Updaterodamiento(RodamientosCliente^ rodamiento);
 		static int Deleterodamiento(int rodamientoId);
-		static MechanicComponent^ Queryallrodamientoid(int rodamientoId);
+		static RodamientosCliente^ Queryallrodamientoid(int rodamientoId);
+
+		//ELBYNAME
+		static List<MechanicComponent^>^ QueryAllComponentByName(String^ name);
+		// 
+		static MechanicComponent^ QueryallcomponentByCode(String^ code);
 
 
 		//METODOS DE CRUD MOTORAC - STOCK
 		static String^ TXT_MOTORAC_FILE_NAME = "motorACStock.txt";
 		static String^ XML_MOTORAC_FILE_NAME = "motorACStock.xml";
 		static String^ BIN_MOTORAC_FILE_NAME = "motorACStock.bin";
-		static int AddMotorACStock(MechanicComponent^ motorAC);
-		static List<MechanicComponent^>^ QueryallMotorACStock();
-		static int UpdateMotorACStock(MechanicComponent^ motorAC);
+		static int AddMotorACStock(MotoresACCliente^ motorAC);
+		static List<MotoresACCliente^>^ QueryallMotorACStock();
+		static int UpdateMotorACStock(MotoresACCliente^ motorAC);
 		static int DeleteMotorACStock(int motorACId);
-		static MechanicComponent^ QueryallMotorACStockById(int motorACId);
+		static MotoresACCliente^ QueryallMotorACStockById(int motorACId);
 
 		//METODOS DE CRUD MOTORDC - STOCK
 		static String^ TXT_MOTORDC_FILE_NAME = "motorDCStock.txt";
 		static String^ XML_MOTORDC_FILE_NAME = "motorDCStock.xml";
 		static String^ BIN_MOTORDC_FILE_NAME = "motorDCStock.bin";
-		static int AddMotorDCStock(MechanicComponent^ motorDC);
-		static List<MechanicComponent^>^ QueryallMotorDCStock();
-		static int UpdateMotorDCStock(MechanicComponent^ motorDC);
+		static int AddMotorDCStock(MotoresDCCliente^ motorDC);
+		static List<MotoresDCCliente^>^ QueryallMotorDCStock();
+		static int UpdateMotorDCStock(MotoresDCCliente^ motorDC);
 		static int DeleteMotorDCStock(int motorDCId);
-		static MechanicComponent^ QueryallMotorDCStockById(int motorDCId);
+		static MotoresDCCliente^ QueryallMotorDCStockById(int motorDCId);
+
+
+
 
 		//CRUD DE MECHANIC COMPONENTE PURCHASE
 

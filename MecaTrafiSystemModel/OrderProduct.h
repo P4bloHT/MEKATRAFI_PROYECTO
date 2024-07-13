@@ -12,14 +12,14 @@
 using namespace System;
 
 namespace MecaTrafiSystemModel {
-    [Serializable] 
-    public ref class OrderProduct {
-    public:
-        property int id;
-        property double Quantity;
-        property double Subtotal;
+    [Serializable]
+        public ref class OrderProduct {
+        public:
+            property int id;
+            property double Quantity;
+            property double Subtotal;
 
-        property MechanicComponent^ componente;
+            property MechanicComponent^ componente;
     };
 }
 

@@ -5,18 +5,18 @@
 
 #include "MechanicComponent.h"
 
-/**
- * MechanicComponent implementation
- */
+ /**
+  * MechanicComponent implementation
+  */
 
 MecaTrafiSystemModel::MechanicComponent::MechanicComponent()
 {
 }
 
-MecaTrafiSystemModel::MechanicComponent::MechanicComponent(int id, String^ name, String^ proveedor, String^ description, double unitaryPrice, int stock, array<Byte>^ photo, String^ brand, String^ model)
+MecaTrafiSystemModel::MechanicComponent::MechanicComponent(int id, String^ name, String^ proveedor, String^ description, double unitaryPrice, int stock, array<Byte>^ photo, String^ brand, String^ model, String^ component_code)
 {
 	this->Id = id;
-	this->Name=name;
+	this->Name = name;
 	this->Proveedor = proveedor;
 	this->Description = description;
 	this->UnitaryPrice = unitaryPrice;
@@ -25,6 +25,5 @@ MecaTrafiSystemModel::MechanicComponent::MechanicComponent(int id, String^ name,
 	this->Brand = brand;
 	this->Model = model;
 
+
 }
-
-

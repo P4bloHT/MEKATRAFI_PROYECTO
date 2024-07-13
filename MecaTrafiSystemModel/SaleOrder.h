@@ -17,16 +17,21 @@ using namespace System::Collections::Generic;
 
 namespace MecaTrafiSystemModel {
     [Serializable]
-    public ref class SaleOrder {
-    public:
-        property int id;
-        property String^ Date;
-        property double TotalPrice;
-        property int NumberCustomer;
-        property double Warranty;
-
-        property Client^ Client;
-        property List <OrderProduct^>^ OrderMeca;
+        public ref class SaleOrder {
+        public:
+            property int id;
+            property String^ Date;
+            property double TotalPrice;
+            property int NumberCustomer;
+            property double Warranty;
+            property int Codigopucp;
+            property int DNI;
+            property int Descuento;
+            property String^ Responsableventa;
+            property String^ CodVentas;
+            property int Noperacion;
+            property Client^ Client;
+            property List <OrderProduct^>^ OrderMeca;
     };
 }
 

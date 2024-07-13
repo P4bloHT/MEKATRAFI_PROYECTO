@@ -16,6 +16,8 @@ namespace MecaTrafiSystemGUIApp {
 	using namespace System::Threading;
 	using namespace System::Threading::Tasks;
 	using namespace System::Runtime::InteropServices;
+	using namespace MecaTrafiSystemModel;
+	using namespace MecaTrafiSystemService;
 	using namespace cv;
 	using namespace zbar;
 
@@ -152,7 +154,14 @@ namespace MecaTrafiSystemGUIApp {
 			{
 				std::cout << "Tipo: " << symbol->get_type_name() << std::endl;
 				std::cout << "Código: " << symbol->get_data() << std::endl;
-				System::Windows::Forms::MessageBox::Show(gcnew System::String(symbol->get_data().c_str()), "Código de barras detectado");
+
+				// Crear una nueva instancia de MechanicComponent
+				MechanicComponent^ codigo = gcnew MechanicComponent();
+
+				// Asignar el nombre (Name) utilizando el valor del código de barras
+				codigo->Name = gcnew System::String(symbol->get_data().c_str());
+				// Mostrar un mensaje de código de barras detectado
+				System::Windows::Forms::MessageBox::Show(codigo->Name, "Código de barras detectado");
 			}
 
 			Bitmap^ b = gcnew Bitmap(frame.cols, frame.rows, frame.step, Imaging::PixelFormat::Format24bppRgb, System::IntPtr(frame.data));
@@ -195,4 +204,3 @@ namespace MecaTrafiSystemGUIApp {
 	}
 	};
 }
-
