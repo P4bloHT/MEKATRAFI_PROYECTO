@@ -331,7 +331,7 @@ namespace MecaTrafiSystemGUIApp {
 #pragma endregion
 	private: System::Void StockDisponible_Load(System::Object^ sender, System::EventArgs^ e) {
 		//Stock Tornillos
-		List<MechanicComponent^>^ tornillo = Service::Queryalltornillos();
+		List<TornilloCliente^>^ tornillo = Service::Queryalltornillos();
 		for (int i = 0; i < tornillo->Count; i++) {
 			chartTornillo->Series["Tornillos"]->Points->Add(tornillo[i]->Stock);
 			chartTornillo->Series["Tornillos"]->Points[i]->LegendText = tornillo[i]->Name;
@@ -339,7 +339,7 @@ namespace MecaTrafiSystemGUIApp {
 		}
 
 		//Stock Poleas
-		List<MechanicComponent^>^ poleas = Service::Queryallfpoleas();
+		List<PoleaCliente^>^ poleas = Service::Queryallfpoleas();
 		for (int i = 0; i < poleas->Count; i++) {
 			chartPoleas->Series["Poleas"]->Points->Add(poleas[i]->Stock);
 			chartPoleas->Series["Poleas"]->Points[i]->LegendText = poleas[i]->Name;
@@ -347,7 +347,7 @@ namespace MecaTrafiSystemGUIApp {
 		}
 
 		//Stock Faja
-		List<MechanicComponent^>^ faja = Service::Queryallfajas();
+		List<FajasCliente^>^ faja = Service::Queryallfajas();
 		for (int i = 0; i < faja->Count; i++) {
 			chartFaja->Series["Faja"]->Points->Add(faja[i]->Stock);
 			chartFaja->Series["Faja"]->Points[i]->LegendText = faja[i]->Name;
@@ -355,7 +355,7 @@ namespace MecaTrafiSystemGUIApp {
 		}
 
 		//Stock Rodamiento
-		List<MechanicComponent^>^ rodamiento = Service::Queryallrodamientos();
+		List<RodamientosCliente^>^ rodamiento = Service::Queryallrodamientos();
 		for (int i = 0; i < rodamiento->Count; i++) {
 			chartRodamiento->Series["Rodamiento"]->Points->Add(rodamiento[i]->Stock);
 			chartRodamiento->Series["Rodamiento"]->Points[i]->LegendText = rodamiento[i]->Name;

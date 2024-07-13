@@ -104,8 +104,7 @@ namespace MecaTrafiSystemGUIApp {
 			this->chart1->ChartAreas->Add(chartArea1);
 			legend1->Name = L"Legend1";
 			this->chart1->Legends->Add(legend1);
-			this->chart1->Location = System::Drawing::Point(104, 124);
-			this->chart1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->chart1->Location = System::Drawing::Point(69, 81);
 			this->chart1->Name = L"chart1";
 			this->chart1->Palette = System::Windows::Forms::DataVisualization::Charting::ChartColorPalette::SeaGreen;
 			series1->ChartArea = L"ChartArea1";
@@ -113,7 +112,7 @@ namespace MecaTrafiSystemGUIApp {
 			series1->Legend = L"Legend1";
 			series1->Name = L"Componente";
 			this->chart1->Series->Add(series1);
-			this->chart1->Size = System::Drawing::Size(402, 285);
+			this->chart1->Size = System::Drawing::Size(268, 185);
 			this->chart1->TabIndex = 1;
 			this->chart1->Text = L"chart1";
 			// 
@@ -123,14 +122,15 @@ namespace MecaTrafiSystemGUIApp {
 			this->chartGanancias->ChartAreas->Add(chartArea2);
 			legend2->Name = L"Legend1";
 			this->chartGanancias->Legends->Add(legend2);
-			this->chartGanancias->Location = System::Drawing::Point(671, 124);
+			this->chartGanancias->Location = System::Drawing::Point(447, 81);
+			this->chartGanancias->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->chartGanancias->Name = L"chartGanancias";
 			this->chartGanancias->Palette = System::Windows::Forms::DataVisualization::Charting::ChartColorPalette::EarthTones;
 			series2->ChartArea = L"ChartArea1";
 			series2->Legend = L"Legend1";
 			series2->Name = L"Quantity";
 			this->chartGanancias->Series->Add(series2);
-			this->chartGanancias->Size = System::Drawing::Size(478, 285);
+			this->chartGanancias->Size = System::Drawing::Size(319, 185);
 			this->chartGanancias->TabIndex = 3;
 			this->chartGanancias->Text = L"Ganancia Total";
 			// 
@@ -140,7 +140,8 @@ namespace MecaTrafiSystemGUIApp {
 			this->chartVentas->ChartAreas->Add(chartArea3);
 			legend3->Name = L"Legend1";
 			this->chartVentas->Legends->Add(legend3);
-			this->chartVentas->Location = System::Drawing::Point(1172, 124);
+			this->chartVentas->Location = System::Drawing::Point(781, 81);
+			this->chartVentas->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->chartVentas->Name = L"chartVentas";
 			this->chartVentas->Palette = System::Windows::Forms::DataVisualization::Charting::ChartColorPalette::SeaGreen;
 			series3->ChartArea = L"ChartArea1";
@@ -148,7 +149,7 @@ namespace MecaTrafiSystemGUIApp {
 			series3->Legend = L"Legend1";
 			series3->Name = L"Ventas";
 			this->chartVentas->Series->Add(series3);
-			this->chartVentas->Size = System::Drawing::Size(411, 285);
+			this->chartVentas->Size = System::Drawing::Size(274, 185);
 			this->chartVentas->TabIndex = 5;
 			this->chartVentas->Text = L"Grafico de Ventas";
 			// 
@@ -157,9 +158,10 @@ namespace MecaTrafiSystemGUIApp {
 			this->label2->AutoSize = true;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Constantia", 26, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label2->Location = System::Drawing::Point(76, 36);
+			this->label2->Location = System::Drawing::Point(51, 23);
+			this->label2->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(496, 64);
+			this->label2->Size = System::Drawing::Size(331, 42);
 			this->label2->TabIndex = 22;
 			this->label2->Text = L"Gráfico de compras";
 			// 
@@ -168,18 +170,20 @@ namespace MecaTrafiSystemGUIApp {
 			this->label4->AutoSize = true;
 			this->label4->Font = (gcnew System::Drawing::Font(L"Constantia", 26, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label4->Location = System::Drawing::Point(891, 36);
+			this->label4->Location = System::Drawing::Point(594, 23);
+			this->label4->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(445, 64);
+			this->label4->Size = System::Drawing::Size(298, 42);
 			this->label4->TabIndex = 23;
 			this->label4->Text = L"Gráfico de ventas";
 			// 
 			// pictureBox2
 			// 
 			this->pictureBox2->BackColor = System::Drawing::Color::Black;
-			this->pictureBox2->Location = System::Drawing::Point(204, 594);
+			this->pictureBox2->Location = System::Drawing::Point(136, 386);
+			this->pictureBox2->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->pictureBox2->Name = L"pictureBox2";
-			this->pictureBox2->Size = System::Drawing::Size(256, 75);
+			this->pictureBox2->Size = System::Drawing::Size(171, 49);
 			this->pictureBox2->TabIndex = 25;
 			this->pictureBox2->TabStop = false;
 			// 
@@ -189,9 +193,10 @@ namespace MecaTrafiSystemGUIApp {
 			this->btnVerSTOCK->Font = (gcnew System::Drawing::Font(L"Gadugi", 14, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnVerSTOCK->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			this->btnVerSTOCK->Location = System::Drawing::Point(184, 571);
+			this->btnVerSTOCK->Location = System::Drawing::Point(123, 371);
+			this->btnVerSTOCK->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->btnVerSTOCK->Name = L"btnVerSTOCK";
-			this->btnVerSTOCK->Size = System::Drawing::Size(256, 75);
+			this->btnVerSTOCK->Size = System::Drawing::Size(171, 49);
 			this->btnVerSTOCK->TabIndex = 26;
 			this->btnVerSTOCK->Text = L"Stock Disponible";
 			this->btnVerSTOCK->UseVisualStyleBackColor = false;
@@ -202,9 +207,10 @@ namespace MecaTrafiSystemGUIApp {
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Constantia", 26, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(660, 520);
+			this->label1->Location = System::Drawing::Point(440, 338);
+			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(303, 192);
+			this->label1->Size = System::Drawing::Size(204, 126);
 			this->label1->TabIndex = 27;
 			this->label1->Text = L"Gráfico de \r\n  clientes \r\nregistrados";
 			// 
@@ -214,23 +220,24 @@ namespace MecaTrafiSystemGUIApp {
 			this->chartClientes->ChartAreas->Add(chartArea4);
 			legend4->Name = L"Legend1";
 			this->chartClientes->Legends->Add(legend4);
-			this->chartClientes->Location = System::Drawing::Point(999, 483);
+			this->chartClientes->Location = System::Drawing::Point(666, 314);
+			this->chartClientes->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->chartClientes->Name = L"chartClientes";
 			series4->ChartArea = L"ChartArea1";
 			series4->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Line;
 			series4->Legend = L"Legend1";
 			series4->Name = L"ClienteRegistrado";
 			this->chartClientes->Series->Add(series4);
-			this->chartClientes->Size = System::Drawing::Size(562, 300);
+			this->chartClientes->Size = System::Drawing::Size(375, 195);
 			this->chartClientes->TabIndex = 28;
 			this->chartClientes->Text = L"Clientes";
 			// 
 			// ReportePedidos
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::LightGray;
-			this->ClientSize = System::Drawing::Size(1595, 807);
+			this->ClientSize = System::Drawing::Size(1084, 531);
 			this->Controls->Add(this->chartClientes);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->btnVerSTOCK);
@@ -241,7 +248,6 @@ namespace MecaTrafiSystemGUIApp {
 			this->Controls->Add(this->chartGanancias);
 			this->Controls->Add(this->chart1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::SizableToolWindow;
-			this->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Name = L"ReportePedidos";
 			this->Load += gcnew System::EventHandler(this, &ReportePedidos::ReportePedidos_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->EndInit();
@@ -262,6 +268,7 @@ namespace MecaTrafiSystemGUIApp {
 		List<SaleOrder^>^ pedidoList = Service::QueryAllOrders();
 		for (int i = 0; i < pedidoList->Count; i++) {
 			for (int j = 0; j < pedidoList[i]->OrderMeca->Count; j++) {
+
 				chartGanancias->Series["Quantity"]->Points->Add(pedidoList[i]->OrderMeca[j]->Quantity);
 				chartGanancias->Series["Quantity"]->Points[j]->AxisLabel = "" + pedidoList[i]->OrderMeca[j]->componente->Name;
 				chartGanancias->Series["Quantity"]->Points[j]->Label = "" + pedidoList[i]->OrderMeca[j]->Quantity;
@@ -281,11 +288,11 @@ namespace MecaTrafiSystemGUIApp {
 		
 		}*/
 
-		List<MechanicComponent^>^ componente = Service::Queryalltornillos();
+		List<TornilloCliente^>^ componente = Service::Queryalltornillos();
 		for (int i = 0; i < componente->Count; i++) {
 			//Ver stock de Tornillos
 			chart1->Series["Componente"]->Points->Add(componente[i]->Stock);
-			chart1->Series["Componente"]->Points[i]->LegendText = componente[i]->Name;
+			chart1->Series["Componente"]->Points[i]->LegendText = componente[i]->Brand;
 			chart1->Series["Componente"]->Points[i]->Label = "" + componente[i]->Stock;
 
 		}

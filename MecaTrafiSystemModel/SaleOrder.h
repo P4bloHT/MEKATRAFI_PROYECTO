@@ -24,7 +24,12 @@ namespace MecaTrafiSystemModel {
         property double TotalPrice;
         property int NumberCustomer;
         property double Warranty;
-
+        property int Codigopucp;
+        property int DNI;
+        property int Descuento;
+        property String^ Responsableventa;
+        property String^ CodVentas;
+        property int Noperacion;
         property Client^ Client;
         property List <OrderProduct^>^ OrderMeca;
     };

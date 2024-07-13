@@ -13,25 +13,28 @@ using namespace System;
 
 namespace MecaTrafiSystemModel {
     [Serializable]
-    public ref class Client : public User {
-    public:
-        property bool IsCorp;
-        property bool IsFrequent;
-        property String^ Curso;
-        property int Ciclo;
-        property String^ Carrera;
-        property int Contact;
-        Client(){}
-        Client(int id, String^ username, String^ password, String^ name, String^ lastname, bool isCorp, bool isFrequent, 
-            String^ curso, int ciclo, String^ carrera, int contact) :
-            User(id, username, password, name, lastname) {
-            IsCorp = isCorp;
-            IsFrequent = isFrequent;
-            Curso = curso;
-            Ciclo = ciclo;
-            Carrera = carrera;
-            Contact = contact;
-        }
+        public ref class Client : public User {
+        public:
+            property bool IsCorp;
+            property bool IsFrequent;
+            property String^ Curso;
+            property int Ciclo;
+            property String^ Carrera;
+            property int Contact;
+            property array<Byte>^ Photo;
+
+            Client() {}
+            Client(int id, String^ username, String^ password, String^ name, String^ lastname, bool isCorp, bool isFrequent,
+                String^ curso, int ciclo, String^ carrera, int contact, array<Byte>^ Photo) :
+                User(id, username, password, name, lastname) {
+                IsCorp = isCorp;
+                IsFrequent = isFrequent;
+                Curso = curso;
+                Ciclo = ciclo;
+                Carrera = carrera;
+                Contact = contact;
+                Photo = Photo;
+            }
     };
 }
 

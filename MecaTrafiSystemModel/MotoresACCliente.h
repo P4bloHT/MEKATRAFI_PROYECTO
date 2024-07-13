@@ -24,9 +24,9 @@ namespace MecaTrafiSystemModel {
         property String^ FormaFijacion;
         property String^ Voltaje;
         MotoresACCliente() {}
-        MotoresACCliente(int id, String^ name, String^ description, double unitaryPrice, int stock, array<Byte>^ photo, String^ brand, String^ model,
+        MotoresACCliente(int id, String^ name, String^ description, double unitaryPrice, int stock, array<Byte>^ photo, String^ brand, String^ model, String^ component_code, 
             String^ frame, String^ potencia, String^ claseProteccion, bool compibilidadInversor, String^ fases, String^ formaFijacion, String^ voltaje) :
-            MechanicComponent(id, Proveedor, name, description, unitaryPrice, stock, photo, brand, model) {
+            MechanicComponent(id, Proveedor, name, description, unitaryPrice, stock, photo, brand, model, component_code) {
             Frame = frame;
             Potencia = potencia;
             ClaseProteccion = claseProteccion;

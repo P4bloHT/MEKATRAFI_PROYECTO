@@ -27,6 +27,7 @@ namespace MecaTrafiSystemService {
 		// BD de Empleados registrados
 		static List<Employee^>^ EmployeeDB = gcnew List<Employee^>();
 		static List<TornilloCliente^>^ TornilloDB = gcnew List<TornilloCliente^>();
+		static List<MechanicComponent^>^ ComponentDB = gcnew List<MechanicComponent^>();
 	public:
 		// CRUD de empleados
 		static int AddEmployee(Employee^);
@@ -40,59 +41,53 @@ namespace MecaTrafiSystemService {
 		static int Deletecliente(int clienteid);
 		static List<Client^>^ Queryallcliente();
 		static Client^ Queryallclienteid(int clienteid);
-
+		//REPPOT VENTA
+		//METODO DE VENTA
+		static List<MechanicComponent^>^ QueryallComponent();
+		//byname
+		static List<MechanicComponent^>^ QueryAllComponentByName(String^ name); 
+		static MechanicComponent^ QueryallcomponentByCode(String^ code);
 
 		//CRUD TORNILLOS - STOCK
-		static int Addtornillos(MechanicComponent^);
-		static int Updatetornillos(MechanicComponent^);
+		static int Addtornillos(TornilloCliente^);
+		static int Updatetornillos(TornilloCliente^);
 		static int Deletetornillos(int tornillosid);
-		static List<MechanicComponent^>^ Queryalltornillos();
-		static MechanicComponent^ Queryalltornillosid(int tornillosid);
+		static List<TornilloCliente^>^ Queryalltornillos();
+		static TornilloCliente^ Queryalltornillosid(int tornillosid);
 
 		//CRUD MOTORAC - STOCK
 		static String^ TXT_MOTORAC_FILE_NAME = "motorACStock.txt";
 		static String^ XML_MOTORAC_FILE_NAME = "motorACStock.xml";
 		static String^ BIN_MOTORAC_FILE_NAME = "motorACStock.bin";
-		static int AddMotorACStock(MechanicComponent^ motorAC);
-		static List<MechanicComponent^>^ QueryallMotorACStock();
-		static int UpdateMotorACStock(MechanicComponent^ motorAC);
+		static int AddMotorACStock(MotoresACCliente^ motorAC);
+		static List<MotoresACCliente^>^ QueryallMotorACStock();
+		static int UpdateMotorACStock(MotoresACCliente^ motorAC);
 		static int DeleteMotorACStock(int motorACId);
-		static MechanicComponent^ QueryallMotorACStockById(int motorACId);
+		static MotoresACCliente^ QueryallMotorACStockById(int motorACId);
 
 		//CRUD MOTORDC - STOCK
-		static int AddMotorDCStock(MechanicComponent^ motorDC);
-		static List<MechanicComponent^>^ QueryallMotorDCStock();
-		static int UpdateMotorDCStock(MechanicComponent^ motorDC);
+		static int AddMotorDCStock(MotoresDCCliente^ motorDC);
+		static List<MotoresDCCliente^>^ QueryallMotorDCStock();
+		static int UpdateMotorDCStock(MotoresDCCliente^ motorDC);
 		static int DeleteMotorDCStock(int motorDCId);
-		static MechanicComponent^ QueryallMotorDCStockById(int motorDCId);
+		static MotoresDCCliente^ QueryallMotorDCStockById(int motorDCId);
 
 		//CRUD DE FAJAS
-		static int Addfajas(MechanicComponent^);
-		static int Updatefajas(MechanicComponent^);
+		static int Addfajas(FajasCliente^);
+		static int Updatefajas(FajasCliente^);
 		static int Deletefajas(int fajasid);
-		static List<MechanicComponent^>^ Queryallfajas();
-		static MechanicComponent^ Queryallfajasid(int fajasid);
+		static List<FajasCliente^>^ Queryallfajas();
+		static FajasCliente^ Queryallfajasid(int fajasid);
 		//CRUD POLEAS
-		static int Addpoleas(MechanicComponent^);
-		static int Updatepoleas(MechanicComponent^);
+		static int Addpoleas(PoleaCliente^);
+		static int Updatepoleas(PoleaCliente^);
 		static int Deletepoleas(int poleasid);
-		static List<MechanicComponent^>^ Queryallfpoleas();
-		static MechanicComponent^ Queryallpoleasid(int poleasid);
+		static List<PoleaCliente^>^ Queryallfpoleas();
+		static PoleaCliente^ Queryallpoleasid(int poleasid);
 
 
 		//MANTENIMIENTO
-		static List<MechanicComponent^>^ QueryTornillosByName(String^ name);
-
-		static List<MechanicComponent^>^ QueryfajasByName(String^ name);
-
-		static List<MechanicComponent^>^ QueryRodamientosByName(String^ name);
-
-		static List<MechanicComponent^>^ QueryPoleasByName(String^ name);
-
-		static List<MechanicComponent^>^ QueryMotorACByName(String^ name);
-
-		static List<MechanicComponent^>^ QueryMotorDCByName(String^ name);
-
+		static List<TornilloCliente^>^ QueryTornillosByName(String^ name);
 
 		//Cliente An�nimo
 		static Client^ GetAnnonymusClient();
@@ -104,14 +99,12 @@ namespace MecaTrafiSystemService {
 		
 
 
-
-
 		//CRUD RODAMIENTO
-		static int Addrodamientos(MechanicComponent^);
-		static int Updaterodamientos(MechanicComponent^);
+		static int Addrodamientos(RodamientosCliente^);
+		static int Updaterodamientos(RodamientosCliente^);
 		static int Deleterodamientos(int rodamientosid);
-		static List<MechanicComponent^>^ Queryallrodamientos();
-		static MechanicComponent^ Queryallrodamientosid(int rodamientosid);
+		static List<RodamientosCliente^>^ Queryallrodamientos();
+		static RodamientosCliente^ Queryallrodamientosid(int rodamientosid);
 
 	};
 }

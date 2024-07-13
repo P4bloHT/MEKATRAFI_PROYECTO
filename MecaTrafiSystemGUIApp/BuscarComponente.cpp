@@ -1,52 +1,41 @@
 #include "BuscarComponente.h"
 #include "GenerateOrder.h"
 
+
+void MecaTrafiSystemGUIApp::BuscarComponente::ShowComponent() {
+    dgvComponentes->Rows->Clear();
+    for (int i = 0; i < componenteList->Count; i++) {
+        MechanicComponent^ dish = componenteList[i];
+        dgvComponentes->Rows->Add(gcnew array<String^> {"" + dish->Component_code, dish->Name, "" + dish->UnitaryPrice});
+    }
+
+}
+
+
+System::Void MecaTrafiSystemGUIApp::BuscarComponente::btnBuscar_Click(System::Object^ sender, System::EventArgs^ e)
+{
+    String^ name = "%" + txtNombre->Text + "%";
+    componenteList = Service::QueryAllComponentByName(name);
+    
+    ShowComponent();
+}
+
 System::Void MecaTrafiSystemGUIApp::BuscarComponente::dgvComponentes_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e)
 {   //fajas
-    int componenteId = Convert::ToInt32(dgvComponentes->Rows[dgvComponentes->SelectedCells[0]->RowIndex]->Cells[0]->Value);
-    MechanicComponent^ faja = Service::Queryallfajasid(componenteId);
-    MechanicComponent^ tornillo = Service::Queryalltornillosid(componenteId);
-    MechanicComponent^ rodamiento = Service::Queryallrodamientosid(componenteId);
-    MechanicComponent^ polea = Service::Queryallpoleasid(componenteId);
-    //MechanicComponent^ motorAC = Service::QueryallMotorACStockById(componenteId);
-    //MechanicComponent^ motorDC = Service::QueryallMotorDCStockById(componenteId);
+    if (dgvComponentes->Rows->Count <= 0) {
+        MessageBox::Show("Debe encontrar por lo menos un componente");
+        return;
+    }
 
+    String^ code = (dgvComponentes->Rows[dgvComponentes->SelectedCells[0]->RowIndex]->Cells[0]->Value->ToString());
 
+    MechanicComponent^ componen = Service::QueryallcomponentByCode(code);
 
-    if (refForm->GetType() == GenerateOrder::typeid) {
-
-        GenerateOrder^ generateOrderForm = (GenerateOrder^)refForm;
-
-        // Agregar cada componente al grid del formulario padre
-        if (faja != nullptr)
-        {
-            generateOrderForm->AddComponentToGrid(faja);
-        }
-
-        if (tornillo != nullptr)
-        {
-            generateOrderForm->AddComponentToGrid(tornillo);
-        }
-
-        if (rodamiento != nullptr)
-        {
-            generateOrderForm->AddComponentToGrid(rodamiento);
-        }
-
-        if (polea != nullptr)
-        {
-            generateOrderForm->AddComponentToGrid(polea);
-        }
-
-        //((GenerateOrder^)refForm)->AddComponentToGrid(faja);
-        //((GenerateOrder^)refForm)->AddComponentToGrid(tornillo);
-        //((GenerateOrder^)refForm)->AddComponentToGrid(rodamiento);
-        //((GenerateOrder^)refForm)->AddComponentToGrid(polea);
-        //((GenerateOrder^)refForm)->AddComponentToGrid(motorAC);
-        //((GenerateOrder^)refForm)->AddComponentToGrid(motorDC);
-
-        this->Close();
+    if (refForm->GetType() == GenerateOrder::typeid)
+        ((GenerateOrder^)refForm)->AddComponentToGrid(componen);
+    this->Close();
+   
     }
 
     //((GenerateOrder^)refForm)->Verifica_repetido(componente);
-}
+
