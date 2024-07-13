@@ -38,7 +38,6 @@ namespace MecaTrafiSystemGUIApp {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-	using namespace System::Collections::Generic;
 
 	/// <summary>
 	/// Resumen de EmployeeForm
@@ -69,6 +68,8 @@ namespace MecaTrafiSystemGUIApp {
 	private: User^ user;
 	private: Random^ rand = gcnew Random();
 	private: EmployeeForm^ employeeForm;
+
+
 	private: System::Windows::Forms::ToolStripMenuItem^ chatDeAyudaToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ contactoToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ ayudaToolStripMenuItem;
@@ -118,8 +119,7 @@ namespace MecaTrafiSystemGUIApp {
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Button^ btnGeneraPedido;
 	private: System::Windows::Forms::Button^ button5;
-	private: System::Windows::Forms::Label^ label2;
-	private: System::Windows::Forms::Label^ txtNombre;
+	private: System::Windows::Forms::PictureBox^ pictureBox1;
 
 
 
@@ -157,8 +157,7 @@ namespace MecaTrafiSystemGUIApp {
 			this->ayudaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
-			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->txtNombre = (gcnew System::Windows::Forms::Label());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->btnham = (gcnew System::Windows::Forms::PictureBox());
 			this->sidebar = (gcnew System::Windows::Forms::FlowLayoutPanel());
@@ -183,6 +182,7 @@ namespace MecaTrafiSystemGUIApp {
 			this->button5 = (gcnew System::Windows::Forms::Button());
 			this->menuStrip1->SuspendLayout();
 			this->panel1->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->btnham))->BeginInit();
 			this->sidebar->SuspendLayout();
 			this->flowLayoutPanel2->SuspendLayout();
@@ -217,44 +217,34 @@ namespace MecaTrafiSystemGUIApp {
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
 			this->menuStrip1->Padding = System::Windows::Forms::Padding(4, 1, 0, 1);
-			this->menuStrip1->Size = System::Drawing::Size(1055, 24);
+			this->menuStrip1->Size = System::Drawing::Size(804, 24);
 			this->menuStrip1->TabIndex = 6;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
 			// panel1
 			// 
 			this->panel1->BackColor = System::Drawing::Color::DarkGray;
-			this->panel1->Controls->Add(this->label2);
-			this->panel1->Controls->Add(this->txtNombre);
+			this->panel1->Controls->Add(this->pictureBox1);
 			this->panel1->Controls->Add(this->label1);
 			this->panel1->Controls->Add(this->btnham);
 			this->panel1->Dock = System::Windows::Forms::DockStyle::Top;
 			this->panel1->Location = System::Drawing::Point(0, 24);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(1055, 30);
+			this->panel1->Size = System::Drawing::Size(804, 30);
 			this->panel1->TabIndex = 8;
 			// 
-			// label2
+			// pictureBox1
 			// 
-			this->label2->AutoSize = true;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label2->Location = System::Drawing::Point(866, 11);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(58, 13);
-			this->label2->TabIndex = 12;
-			this->label2->Text = L"(Nombre)";
-			// 
-			// txtNombre
-			// 
-			this->txtNombre->AutoSize = true;
-			this->txtNombre->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->txtNombre->Location = System::Drawing::Point(782, 11);
-			this->txtNombre->Name = L"txtNombre";
-			this->txtNombre->Size = System::Drawing::Size(78, 13);
-			this->txtNombre->TabIndex = 11;
-			this->txtNombre->Text = L"Bienvenido: ";
+			this->pictureBox1->BackColor = System::Drawing::Color::Transparent;
+			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
+			this->pictureBox1->InitialImage = nullptr;
+			this->pictureBox1->Location = System::Drawing::Point(769, 0);
+			this->pictureBox1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(33, 30);
+			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
+			this->pictureBox1->TabIndex = 19;
+			this->pictureBox1->TabStop = false;
 			// 
 			// label1
 			// 
@@ -270,9 +260,10 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// btnham
 			// 
-			this->btnham->Location = System::Drawing::Point(12, 3);
+			this->btnham->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnham.Image")));
+			this->btnham->Location = System::Drawing::Point(9, 6);
 			this->btnham->Name = L"btnham";
-			this->btnham->Size = System::Drawing::Size(35, 21);
+			this->btnham->Size = System::Drawing::Size(38, 24);
 			this->btnham->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->btnham->TabIndex = 9;
 			this->btnham->TabStop = false;
@@ -288,7 +279,7 @@ namespace MecaTrafiSystemGUIApp {
 			this->sidebar->Dock = System::Windows::Forms::DockStyle::Left;
 			this->sidebar->Location = System::Drawing::Point(0, 54);
 			this->sidebar->Name = L"sidebar";
-			this->sidebar->Size = System::Drawing::Size(202, 543);
+			this->sidebar->Size = System::Drawing::Size(171, 373);
 			this->sidebar->TabIndex = 9;
 			this->sidebar->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &EmployeeForm::sidebar_Paint);
 			// 
@@ -305,24 +296,24 @@ namespace MecaTrafiSystemGUIApp {
 			this->flowLayoutPanel2->Location = System::Drawing::Point(0, 0);
 			this->flowLayoutPanel2->Margin = System::Windows::Forms::Padding(0);
 			this->flowLayoutPanel2->Name = L"flowLayoutPanel2";
-			this->flowLayoutPanel2->Size = System::Drawing::Size(141, 44);
+			this->flowLayoutPanel2->Size = System::Drawing::Size(136, 39);
 			this->flowLayoutPanel2->TabIndex = 15;
 			this->flowLayoutPanel2->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &EmployeeForm::flowLayoutPanel2_Paint);
 			// 
 			// btnproducto
 			// 
-			this->btnproducto->BackColor = System::Drawing::SystemColors::ActiveCaptionText;
+			this->btnproducto->BackColor = System::Drawing::Color::Teal;
 			this->btnproducto->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->btnproducto->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->btnproducto->Font = (gcnew System::Drawing::Font(L"Segoe UI", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->btnproducto->Font = (gcnew System::Drawing::Font(L"Gadugi", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnproducto->ForeColor = System::Drawing::Color::White;
 			this->btnproducto->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->btnproducto->ImageKey = L"(ninguno)";
-			this->btnproducto->Location = System::Drawing::Point(5, 0);
+			this->btnproducto->Location = System::Drawing::Point(3, 0);
 			this->btnproducto->Margin = System::Windows::Forms::Padding(0);
 			this->btnproducto->Name = L"btnproducto";
-			this->btnproducto->Size = System::Drawing::Size(136, 39);
+			this->btnproducto->Size = System::Drawing::Size(133, 39);
 			this->btnproducto->TabIndex = 21;
 			this->btnproducto->Text = L"Productos";
 			this->btnproducto->UseVisualStyleBackColor = false;
@@ -330,17 +321,17 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// button11
 			// 
-			this->button11->BackColor = System::Drawing::Color::DarkGray;
+			this->button11->BackColor = System::Drawing::Color::White;
 			this->button11->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button11->Font = (gcnew System::Drawing::Font(L"Segoe UI", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->button11->Font = (gcnew System::Drawing::Font(L"Gadugi", 10, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button11->ForeColor = System::Drawing::Color::Transparent;
+			this->button11->ForeColor = System::Drawing::Color::Black;
 			this->button11->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->button11->ImageKey = L"(ninguno)";
-			this->button11->Location = System::Drawing::Point(0, 39);
+			this->button11->Location = System::Drawing::Point(-3, 39);
 			this->button11->Margin = System::Windows::Forms::Padding(0);
 			this->button11->Name = L"button11";
-			this->button11->Size = System::Drawing::Size(141, 33);
+			this->button11->Size = System::Drawing::Size(139, 33);
 			this->button11->TabIndex = 21;
 			this->button11->Text = L"Poleas";
 			this->button11->UseVisualStyleBackColor = false;
@@ -348,17 +339,17 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// button9
 			// 
-			this->button9->BackColor = System::Drawing::Color::DarkGray;
+			this->button9->BackColor = System::Drawing::Color::White;
 			this->button9->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button9->Font = (gcnew System::Drawing::Font(L"Segoe UI", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->button9->Font = (gcnew System::Drawing::Font(L"Gadugi", 10, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button9->ForeColor = System::Drawing::Color::Transparent;
+			this->button9->ForeColor = System::Drawing::Color::Black;
 			this->button9->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->button9->ImageKey = L"(ninguno)";
-			this->button9->Location = System::Drawing::Point(0, 72);
+			this->button9->Location = System::Drawing::Point(-3, 72);
 			this->button9->Margin = System::Windows::Forms::Padding(0);
 			this->button9->Name = L"button9";
-			this->button9->Size = System::Drawing::Size(141, 33);
+			this->button9->Size = System::Drawing::Size(139, 33);
 			this->button9->TabIndex = 10;
 			this->button9->Text = L"Fajas";
 			this->button9->UseVisualStyleBackColor = false;
@@ -366,17 +357,17 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// button13
 			// 
-			this->button13->BackColor = System::Drawing::SystemColors::ControlDark;
+			this->button13->BackColor = System::Drawing::Color::White;
 			this->button13->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button13->Font = (gcnew System::Drawing::Font(L"Segoe UI", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->button13->Font = (gcnew System::Drawing::Font(L"Gadugi", 10, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button13->ForeColor = System::Drawing::Color::Transparent;
+			this->button13->ForeColor = System::Drawing::Color::Black;
 			this->button13->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->button13->ImageKey = L"(ninguno)";
-			this->button13->Location = System::Drawing::Point(0, 105);
+			this->button13->Location = System::Drawing::Point(-1, 105);
 			this->button13->Margin = System::Windows::Forms::Padding(0);
 			this->button13->Name = L"button13";
-			this->button13->Size = System::Drawing::Size(141, 33);
+			this->button13->Size = System::Drawing::Size(137, 33);
 			this->button13->TabIndex = 21;
 			this->button13->Text = L"Tornillos";
 			this->button13->UseVisualStyleBackColor = false;
@@ -384,17 +375,17 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// button10
 			// 
-			this->button10->BackColor = System::Drawing::Color::DarkGray;
+			this->button10->BackColor = System::Drawing::Color::White;
 			this->button10->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button10->Font = (gcnew System::Drawing::Font(L"Segoe UI", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->button10->Font = (gcnew System::Drawing::Font(L"Gadugi", 10, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button10->ForeColor = System::Drawing::Color::Transparent;
+			this->button10->ForeColor = System::Drawing::Color::Black;
 			this->button10->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->button10->ImageKey = L"(ninguno)";
-			this->button10->Location = System::Drawing::Point(0, 138);
+			this->button10->Location = System::Drawing::Point(-1, 138);
 			this->button10->Margin = System::Windows::Forms::Padding(0);
 			this->button10->Name = L"button10";
-			this->button10->Size = System::Drawing::Size(141, 33);
+			this->button10->Size = System::Drawing::Size(137, 33);
 			this->button10->TabIndex = 11;
 			this->button10->Text = L"Motores";
 			this->button10->UseVisualStyleBackColor = false;
@@ -402,17 +393,17 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// button12
 			// 
-			this->button12->BackColor = System::Drawing::Color::DarkGray;
+			this->button12->BackColor = System::Drawing::Color::White;
 			this->button12->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button12->Font = (gcnew System::Drawing::Font(L"Segoe UI", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->button12->Font = (gcnew System::Drawing::Font(L"Gadugi", 10, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button12->ForeColor = System::Drawing::Color::Transparent;
+			this->button12->ForeColor = System::Drawing::Color::Black;
 			this->button12->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->button12->ImageKey = L"(ninguno)";
-			this->button12->Location = System::Drawing::Point(0, 171);
+			this->button12->Location = System::Drawing::Point(-1, 171);
 			this->button12->Margin = System::Windows::Forms::Padding(0);
 			this->button12->Name = L"button12";
-			this->button12->Size = System::Drawing::Size(141, 33);
+			this->button12->Size = System::Drawing::Size(137, 33);
 			this->button12->TabIndex = 22;
 			this->button12->Text = L"Rodamientos";
 			this->button12->UseVisualStyleBackColor = false;
@@ -422,23 +413,23 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			this->panel2->BackColor = System::Drawing::SystemColors::Control;
 			this->panel2->Controls->Add(this->button1);
-			this->panel2->Location = System::Drawing::Point(3, 47);
+			this->panel2->Location = System::Drawing::Point(3, 42);
 			this->panel2->Name = L"panel2";
-			this->panel2->Size = System::Drawing::Size(133, 25);
+			this->panel2->Size = System::Drawing::Size(133, 39);
 			this->panel2->TabIndex = 17;
 			// 
 			// button1
 			// 
-			this->button1->BackColor = System::Drawing::Color::DarkGray;
+			this->button1->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->button1->BackColor = System::Drawing::Color::Teal;
 			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button1->Font = (gcnew System::Drawing::Font(L"Segoe UI", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->button1->Font = (gcnew System::Drawing::Font(L"Gadugi", 10, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button1->ForeColor = System::Drawing::Color::White;
-			this->button1->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->button1->ImageKey = L"(ninguno)";
-			this->button1->Location = System::Drawing::Point(-17, -31);
+			this->button1->Location = System::Drawing::Point(0, 0);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(169, 79);
+			this->button1->Size = System::Drawing::Size(133, 39);
 			this->button1->TabIndex = 18;
 			this->button1->Text = L"Agregar Cliente";
 			this->button1->UseVisualStyleBackColor = false;
@@ -448,23 +439,23 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			this->panel4->BackColor = System::Drawing::SystemColors::Control;
 			this->panel4->Controls->Add(this->button3);
-			this->panel4->Location = System::Drawing::Point(3, 78);
+			this->panel4->Location = System::Drawing::Point(3, 87);
 			this->panel4->Name = L"panel4";
-			this->panel4->Size = System::Drawing::Size(133, 30);
+			this->panel4->Size = System::Drawing::Size(133, 39);
 			this->panel4->TabIndex = 13;
 			// 
 			// button3
 			// 
-			this->button3->BackColor = System::Drawing::Color::DarkGray;
+			this->button3->BackColor = System::Drawing::Color::Teal;
 			this->button3->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button3->Font = (gcnew System::Drawing::Font(L"Segoe UI", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->button3->Font = (gcnew System::Drawing::Font(L"Gadugi", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button3->ForeColor = System::Drawing::Color::White;
 			this->button3->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->button3->ImageKey = L"(ninguno)";
-			this->button3->Location = System::Drawing::Point(-23, -25);
+			this->button3->Location = System::Drawing::Point(0, 0);
 			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(189, 79);
+			this->button3->Size = System::Drawing::Size(133, 39);
 			this->button3->TabIndex = 10;
 			this->button3->Text = L"Reportes";
 			this->button3->UseVisualStyleBackColor = false;
@@ -474,23 +465,23 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			this->panel5->Controls->Add(this->button4);
 			this->panel5->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->panel5->Location = System::Drawing::Point(3, 114);
+			this->panel5->Location = System::Drawing::Point(3, 132);
 			this->panel5->Name = L"panel5";
-			this->panel5->Size = System::Drawing::Size(133, 29);
+			this->panel5->Size = System::Drawing::Size(133, 40);
 			this->panel5->TabIndex = 14;
 			// 
 			// button4
 			// 
-			this->button4->BackColor = System::Drawing::Color::DarkGray;
+			this->button4->BackColor = System::Drawing::Color::SlateGray;
 			this->button4->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button4->Font = (gcnew System::Drawing::Font(L"Segoe UI", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->button4->Font = (gcnew System::Drawing::Font(L"Gadugi", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button4->ForeColor = System::Drawing::Color::White;
 			this->button4->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			this->button4->ImageKey = L"(ninguno)";
-			this->button4->Location = System::Drawing::Point(-17, -13);
+			this->button4->Location = System::Drawing::Point(0, 0);
 			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(152, 55);
+			this->button4->Size = System::Drawing::Size(133, 39);
 			this->button4->TabIndex = 10;
 			this->button4->Text = L"Log Out";
 			this->button4->UseVisualStyleBackColor = false;
@@ -509,52 +500,66 @@ namespace MecaTrafiSystemGUIApp {
 			// btnCliente
 			// 
 			this->btnCliente->BackColor = System::Drawing::Color::SandyBrown;
-			this->btnCliente->Font = (gcnew System::Drawing::Font(L"MV Boli", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->btnCliente->Font = (gcnew System::Drawing::Font(L"Gadugi", 14, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnCliente->Location = System::Drawing::Point(246, 192);
-			this->btnCliente->Margin = System::Windows::Forms::Padding(2);
+			this->btnCliente->ForeColor = System::Drawing::SystemColors::Control;
+			this->btnCliente->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnCliente.Image")));
+			this->btnCliente->ImageAlign = System::Drawing::ContentAlignment::BottomCenter;
+			this->btnCliente->Location = System::Drawing::Point(537, 246);
+			this->btnCliente->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->btnCliente->Name = L"btnCliente";
-			this->btnCliente->Size = System::Drawing::Size(219, 100);
+			this->btnCliente->Size = System::Drawing::Size(186, 148);
 			this->btnCliente->TabIndex = 11;
-			this->btnCliente->Text = L"Cliente";
+			this->btnCliente->Text = L"Mostrar cliente";
+			this->btnCliente->TextAlign = System::Drawing::ContentAlignment::TopCenter;
 			this->btnCliente->UseVisualStyleBackColor = false;
 			this->btnCliente->Click += gcnew System::EventHandler(this, &EmployeeForm::btnCliente_Click);
 			// 
 			// button2
 			// 
-			this->button2->Font = (gcnew System::Drawing::Font(L"MV Boli", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->button2->Font = (gcnew System::Drawing::Font(L"Gadugi", 14, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button2->Location = System::Drawing::Point(246, 84);
+			this->button2->ForeColor = System::Drawing::SystemColors::ControlText;
+			this->button2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button2.Image")));
+			this->button2->ImageAlign = System::Drawing::ContentAlignment::TopCenter;
+			this->button2->Location = System::Drawing::Point(286, 70);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(219, 95);
+			this->button2->Size = System::Drawing::Size(186, 148);
 			this->button2->TabIndex = 13;
-			this->button2->Text = L"Modificar Stock";
+			this->button2->Text = L"Stock\r\n";
+			this->button2->TextAlign = System::Drawing::ContentAlignment::TopLeft;
 			this->button2->UseVisualStyleBackColor = true;
 			this->button2->Click += gcnew System::EventHandler(this, &EmployeeForm::button2_Click_2);
 			// 
 			// btnGeneraPedido
 			// 
-			this->btnGeneraPedido->Font = (gcnew System::Drawing::Font(L"MV Boli", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->btnGeneraPedido->Font = (gcnew System::Drawing::Font(L"Gadugi", 14, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnGeneraPedido->Location = System::Drawing::Point(480, 84);
-			this->btnGeneraPedido->Margin = System::Windows::Forms::Padding(2);
+			this->btnGeneraPedido->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnGeneraPedido.Image")));
+			this->btnGeneraPedido->ImageAlign = System::Drawing::ContentAlignment::BottomLeft;
+			this->btnGeneraPedido->Location = System::Drawing::Point(537, 72);
+			this->btnGeneraPedido->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->btnGeneraPedido->Name = L"btnGeneraPedido";
-			this->btnGeneraPedido->Size = System::Drawing::Size(236, 95);
+			this->btnGeneraPedido->Size = System::Drawing::Size(186, 148);
 			this->btnGeneraPedido->TabIndex = 15;
 			this->btnGeneraPedido->Text = L"Generar pedido";
+			this->btnGeneraPedido->TextAlign = System::Drawing::ContentAlignment::TopRight;
 			this->btnGeneraPedido->UseVisualStyleBackColor = true;
 			this->btnGeneraPedido->Click += gcnew System::EventHandler(this, &EmployeeForm::btnGeneraPedido_Click);
 			// 
 			// button5
 			// 
-			this->button5->Font = (gcnew System::Drawing::Font(L"MV Boli", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->button5->Font = (gcnew System::Drawing::Font(L"Gadugi", 14, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button5->Location = System::Drawing::Point(480, 189);
-			this->button5->Margin = System::Windows::Forms::Padding(2);
+			this->button5->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button5.Image")));
+			this->button5->ImageAlign = System::Drawing::ContentAlignment::TopCenter;
+			this->button5->Location = System::Drawing::Point(286, 246);
+			this->button5->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->button5->Name = L"button5";
-			this->button5->Size = System::Drawing::Size(236, 103);
+			this->button5->Size = System::Drawing::Size(186, 148);
 			this->button5->TabIndex = 17;
-			this->button5->Text = L"Revisar Reportes";
+			this->button5->Text = L"Reporte";
+			this->button5->TextAlign = System::Drawing::ContentAlignment::TopCenter;
 			this->button5->UseVisualStyleBackColor = true;
 			this->button5->Click += gcnew System::EventHandler(this, &EmployeeForm::button5_Click);
 			// 
@@ -564,19 +569,19 @@ namespace MecaTrafiSystemGUIApp {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
 				static_cast<System::Int32>(static_cast<System::Byte>(224)));
-			this->ClientSize = System::Drawing::Size(1055, 597);
+			this->ClientSize = System::Drawing::Size(804, 427);
+			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button5);
 			this->Controls->Add(this->sidebar);
 			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->menuStrip1);
-			this->Controls->Add(this->button2);
 			this->Controls->Add(this->btnCliente);
 			this->Controls->Add(this->btnGeneraPedido);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->IsMdiContainer = true;
 			this->MainMenuStrip = this->menuStrip1;
-			this->Margin = System::Windows::Forms::Padding(2);
+			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->Name = L"EmployeeForm";
 			this->Text = L"Sistema de ventas";
 			this->Load += gcnew System::EventHandler(this, &EmployeeForm::EmployeeForm_Load);
@@ -584,6 +589,7 @@ namespace MecaTrafiSystemGUIApp {
 			this->menuStrip1->PerformLayout();
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->btnham))->EndInit();
 			this->sidebar->ResumeLayout(false);
 			this->flowLayoutPanel2->ResumeLayout(false);
@@ -617,92 +623,91 @@ namespace MecaTrafiSystemGUIApp {
 	private: System::Void cabezaHexagonalToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 		Tornillohexagonal^ hexagonal = gcnew Tornillohexagonal();
 		hexagonal->MdiParent = this;
-		hexagonal->Show();
+		hexagonal->ShowDialog();
 	}
 	private: System::Void cabezaPhillipsToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 		Tornillophillips^ phillips = gcnew Tornillophillips();
 		phillips->MdiParent = this;
-		phillips->Show();
+		phillips->ShowDialog();
 	}
 	private: System::Void cabezaAlleToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 		TornilloAllen^ allen = gcnew TornilloAllen();
 		allen->MdiParent = this;
-		allen->Show();
+		allen->ShowDialog();
 	}
 	private: System::Void conPiñónToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 		Poleaconpiñon^ conpiñon = gcnew Poleaconpiñon();
 		conpiñon->MdiParent = this;
-		conpiñon->Show();
+		conpiñon->ShowDialog();
 	}
 	private: System::Void sinPiñónToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 		Poleasinpiñon^ sinpiñon = gcnew Poleasinpiñon();
 		sinpiñon->MdiParent = this;
-		sinpiñon->Show();
+		sinpiñon->ShowDialog();
 	}
 	private: System::Void dCToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 		DC^ dc = gcnew DC();
 		dc->MdiParent = this;
-		dc->Show();
+		dc->ShowDialog();
 	}
 	private: System::Void trifásicoToolStripMenuItem1_Click(System::Object^ sender, System::EventArgs^ e) {
 		Trifásico^ motortrifasico = gcnew Trifásico();
 		motortrifasico->MdiParent = this;
-		motortrifasico->Show();
+		motortrifasico->ShowDialog();
 	}
 	private: System::Void monofásicoToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 		Monofásico^ motormono = gcnew Monofásico();
 		motormono->MdiParent = this;
-		motormono->Show();
+		motormono->ShowDialog();
 	}
 	private: System::Void delgadasToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 		Fajadelgada^ delgada = gcnew Fajadelgada();
 		delgada->MdiParent = this;
-		delgada->Show();
+		delgada->ShowDialog();
 	}
 	private: System::Void medianasToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 		fajamediana^ mediana = gcnew fajamediana();
 		mediana->MdiParent = this;
-		mediana->Show();
+		mediana->ShowDialog();
 	}
 	private: System::Void gruesasToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 		fajagrande^ grande = gcnew fajagrande();
 		grande->MdiParent = this;
-		grande->Show();
+		grande->ShowDialog();
 
 	}
 	private: System::Void rodamientoDeBolasToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 		rodbolas^ bolas = gcnew rodbolas();
 		bolas->MdiParent = this;
-		bolas->Show();
+		bolas->ShowDialog();
 	}
 	private: System::Void rodamientoDeRodillosToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 		rodrodillos^ rodi = gcnew rodrodillos();
 		rodi->MdiParent = this;
-		rodi->Show();
+		rodi->ShowDialog();
 	}
 	private: System::Void rodamientoDeAgujasToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 		rodaguja^ aguja = gcnew rodaguja();
 		aguja->MdiParent = this;
-		aguja->Show();
+		aguja->ShowDialog();
 	}
 	private: System::Void chatDeAyudaToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 		Chat^ ayuda = gcnew Chat();
 		ayuda->MdiParent = this;
-		ayuda->Show();
+		ayuda->ShowDialog();
 
 	}
 	private: System::Void ventasToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 		// cambio por reclamos 
 		Reclamar^ reclama = gcnew Reclamar();
 		reclama->MdiParent = this;
-		reclama->Show();
+		reclama->ShowDialog();
 
 	}
 	private: System::Void button1_Click_1(System::Object^ sender, System::EventArgs^ e) {
 	}
 
 	private: System::Void flowLayoutPanel2_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
-
 	}
 
 	private: System::Void EmployeeForm_Load(System::Object^ sender, System::EventArgs^ e);
@@ -772,7 +777,7 @@ namespace MecaTrafiSystemGUIApp {
 	private: System::Void button1_Click_2(System::Object^ sender, System::EventArgs^ e) {
 		usuario^ perfil = gcnew usuario();
 		//perfil->MdiParent = this;
-		perfil->Show();
+		perfil->ShowDialog();
 	}
 	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e);
 		   //click en motor
@@ -780,35 +785,35 @@ namespace MecaTrafiSystemGUIApp {
 
 		VentaMotores^ vendemotor = gcnew VentaMotores();
 		//vendemotor->MdiParent = this;
-		vendemotor->Show();
+		vendemotor->ShowDialog();
 	}
 	private: System::Void button13_Click(System::Object^ sender, System::EventArgs^ e) {
 		ventatornillos^ vendetor = gcnew ventatornillos();
 		//vendetor->MdiParent = this;
-		vendetor->Show();
+		vendetor->ShowDialog();
 
 	}
 	private: System::Void button12_Click(System::Object^ sender, System::EventArgs^ e) {
 		ventaroda^ rodamie = gcnew ventaroda();
 		//rodamie->MdiParent = this;
-		rodamie->Show();
+		rodamie->ShowDialog();
 	}
 	private: System::Void button11_Click(System::Object^ sender, System::EventArgs^ e) {
 		ventapolea^ vendepolea = gcnew ventapolea();
 		//rodamie->MdiParent = this;
-		vendepolea->Show();
+		vendepolea->ShowDialog();
 
 	}
 	private: System::Void button9_Click(System::Object^ sender, System::EventArgs^ e) {
 		ventafajas^ vendefaja = gcnew ventafajas();
 		//rodamie->MdiParent = this;
-		vendefaja->Show();
+		vendefaja->ShowDialog();
 
 	}
 	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
 		Reportes^ reporte = gcnew Reportes();
 
-		reporte->Show();
+		reporte->ShowDialog();
 
 	}
 	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -823,20 +828,20 @@ namespace MecaTrafiSystemGUIApp {
 
 	private: System::Void btnCliente_Click(System::Object^ sender, System::EventArgs^ e) {
 		InterfazCliente^ cliente = gcnew InterfazCliente();
-		cliente->Show();
+		cliente->ShowDialog();
 	}
 	private: System::Void button2_Click_2(System::Object^ sender, System::EventArgs^ e) {
 		StockForm^ tornillo = gcnew StockForm();
-		tornillo->Show();
+		tornillo->ShowDialog();
 	}
 	private: System::Void btnGeneraPedido_Click(System::Object^ sender, System::EventArgs^ e) {
 		GenerateOrder^ generateOrder = gcnew GenerateOrder();
-		generateOrder->Show();
+		generateOrder->ShowDialog();
 
 	}
 	private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
 		ReportePedidos^ reporte = gcnew ReportePedidos();
-		reporte->Show();
+		reporte->ShowDialog();
 	}
 	};
 }

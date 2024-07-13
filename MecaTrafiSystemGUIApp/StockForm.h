@@ -126,15 +126,15 @@ namespace MecaTrafiSystemGUIApp {
 	private: System::Windows::Forms::Label^ label32;
 	private: System::Windows::Forms::Label^ label33;
 	private: System::Windows::Forms::TextBox^ txtidfajastock;
-private: System::Windows::Forms::TextBox^ txtnamefajastock;
+	private: System::Windows::Forms::TextBox^ txtnamefajastock;
 
 
 	private: System::Windows::Forms::TextBox^ textBox25;
 	private: System::Windows::Forms::TabPage^ PoleasPage;
-private: System::Windows::Forms::TextBox^ txtpoleacantidad;
+	private: System::Windows::Forms::TextBox^ txtpoleacantidad;
 
 	private: System::Windows::Forms::Label^ label16;
-private: System::Windows::Forms::DataGridView^ dgvpolea;
+	private: System::Windows::Forms::DataGridView^ dgvpolea;
 
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn6;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn7;
@@ -147,7 +147,7 @@ private: System::Windows::Forms::DataGridView^ dgvpolea;
 	private: System::Windows::Forms::TextBox^ textBox34;
 	private: System::Windows::Forms::TextBox^ textBox23;
 	private: System::Windows::Forms::Label^ label26;
-private: System::Windows::Forms::TextBox^ txtproveedorpolea;
+	private: System::Windows::Forms::TextBox^ txtproveedorpolea;
 
 	private: System::Windows::Forms::Label^ label34;
 	private: System::Windows::Forms::Label^ label36;
@@ -160,7 +160,7 @@ private: System::Windows::Forms::TextBox^ txtproveedorpolea;
 	private: System::Windows::Forms::TextBox^ textBox31;
 	private: System::Windows::Forms::Label^ label40;
 	private: System::Windows::Forms::TextBox^ textBox32;
-private: System::Windows::Forms::TextBox^ txtpreciopolea;
+	private: System::Windows::Forms::TextBox^ txtpreciopolea;
 
 	private: System::Windows::Forms::Label^ label41;
 	private: System::Windows::Forms::Button^ button2;
@@ -168,16 +168,16 @@ private: System::Windows::Forms::TextBox^ txtpreciopolea;
 	private: System::Windows::Forms::Label^ label47;
 	private: System::Windows::Forms::Label^ label48;
 	private: System::Windows::Forms::Label^ label49;
-private: System::Windows::Forms::TextBox^ txtidpolea;
-private: System::Windows::Forms::TextBox^ txtpoleaname;
+	private: System::Windows::Forms::TextBox^ txtidpolea;
+	private: System::Windows::Forms::TextBox^ txtpoleaname;
 
 
 	private: System::Windows::Forms::TextBox^ textBox40;
 	private: System::Windows::Forms::TabPage^ RodamientosPage;
-private: System::Windows::Forms::TextBox^ txtcantidadrodamiento;
+	private: System::Windows::Forms::TextBox^ txtcantidadrodamiento;
 
 	private: System::Windows::Forms::Label^ label20;
-private: System::Windows::Forms::DataGridView^ dgvrodamiento;
+	private: System::Windows::Forms::DataGridView^ dgvrodamiento;
 
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn11;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn12;
@@ -186,11 +186,11 @@ private: System::Windows::Forms::DataGridView^ dgvrodamiento;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn15;
 	private: System::Windows::Forms::TextBox^ textBox42;
 	private: System::Windows::Forms::Label^ label52;
-private: System::Windows::Forms::TextBox^ txtrodamientoproveedor;
+	private: System::Windows::Forms::TextBox^ txtrodamientoproveedor;
 
 	private: System::Windows::Forms::Label^ label53;
 	private: System::Windows::Forms::Button^ button3;
-private: System::Windows::Forms::PictureBox^ pbRodamientosPhoto;
+	private: System::Windows::Forms::PictureBox^ pbRodamientosPhoto;
 
 	private: System::Windows::Forms::Label^ label56;
 
@@ -205,21 +205,21 @@ private: System::Windows::Forms::PictureBox^ pbRodamientosPhoto;
 	private: System::Windows::Forms::Label^ label63;
 	private: System::Windows::Forms::Label^ label64;
 	private: System::Windows::Forms::Label^ label65;
-private: System::Windows::Forms::TextBox^ txtpreciorodamiento;
+	private: System::Windows::Forms::TextBox^ txtpreciorodamiento;
 
 	private: System::Windows::Forms::Label^ label66;
 	private: System::Windows::Forms::Label^ label67;
-private: System::Windows::Forms::TextBox^ txtidrodamiento;
-private: System::Windows::Forms::TextBox^ txtrodamientoname;
+	private: System::Windows::Forms::TextBox^ txtidrodamiento;
+	private: System::Windows::Forms::TextBox^ txtrodamientoname;
 
 
 	private: System::Windows::Forms::TextBox^ textBox55;
-private: System::Windows::Forms::TabPage^ btnAgregarMotorAC;
+	private: System::Windows::Forms::TabPage^ btnAgregarMotorAC;
 
-private: System::Windows::Forms::TextBox^ txtMotorACCantidad;
+	private: System::Windows::Forms::TextBox^ txtMotorACCantidad;
 
 	private: System::Windows::Forms::Label^ label21;
-private: System::Windows::Forms::DataGridView^ dgvMotorAC;
+	private: System::Windows::Forms::DataGridView^ dgvMotorAC;
 
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn16;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn17;
@@ -227,151 +227,151 @@ private: System::Windows::Forms::DataGridView^ dgvMotorAC;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn19;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn20;
 	private: System::Windows::Forms::Label^ label44;
-private: System::Windows::Forms::TextBox^ txtMotorACVolatje;
+	private: System::Windows::Forms::TextBox^ txtMotorACVolatje;
 
-private: System::Windows::Forms::TextBox^ txtMotorACBrand;
+	private: System::Windows::Forms::TextBox^ txtMotorACBrand;
 
 	private: System::Windows::Forms::Label^ label69;
-private: System::Windows::Forms::Button^ btnPhotoMotorAC;
+	private: System::Windows::Forms::Button^ btnPhotoMotorAC;
 
 
 
 
-private: System::Windows::Forms::PictureBox^ pbMotorACPhoto;
-private: System::Windows::Forms::TextBox^ txtMotorACFormaFijacion;
+	private: System::Windows::Forms::PictureBox^ pbMotorACPhoto;
+	private: System::Windows::Forms::TextBox^ txtMotorACFormaFijacion;
 
 
 	private: System::Windows::Forms::Label^ label72;
 	private: System::Windows::Forms::Label^ label73;
 	private: System::Windows::Forms::Label^ label74;
 	private: System::Windows::Forms::Label^ label75;
-private: System::Windows::Forms::TextBox^ txtMotorACModel;
+	private: System::Windows::Forms::TextBox^ txtMotorACModel;
 
 
 	private: System::Windows::Forms::Label^ label76;
-private: System::Windows::Forms::TextBox^ txtMotorACInversorCompatilbidad;
+	private: System::Windows::Forms::TextBox^ txtMotorACInversorCompatilbidad;
 
 	private: System::Windows::Forms::Label^ label77;
-private: System::Windows::Forms::TextBox^ txtMotorACTipoProteccion;
+	private: System::Windows::Forms::TextBox^ txtMotorACTipoProteccion;
 
 	private: System::Windows::Forms::Label^ label78;
-private: System::Windows::Forms::TextBox^ txtMotorACPotencia;
+	private: System::Windows::Forms::TextBox^ txtMotorACPotencia;
 
 	private: System::Windows::Forms::Label^ label79;
-private: System::Windows::Forms::TextBox^ txtMotorACFrame;
+	private: System::Windows::Forms::TextBox^ txtMotorACFrame;
 
 	private: System::Windows::Forms::Label^ label80;
 	private: System::Windows::Forms::Label^ label81;
 	private: System::Windows::Forms::Label^ label82;
-private: System::Windows::Forms::TextBox^ txtMotorACPrecioUnitario;
+	private: System::Windows::Forms::TextBox^ txtMotorACPrecioUnitario;
 
 	private: System::Windows::Forms::Label^ label83;
 	private: System::Windows::Forms::Label^ label84;
-private: System::Windows::Forms::TextBox^ txtMotorACId;
-private: System::Windows::Forms::TextBox^ txtMotorACFases;
-private: System::Windows::Forms::TextBox^ txtMotorACName;
+	private: System::Windows::Forms::TextBox^ txtMotorACId;
+	private: System::Windows::Forms::TextBox^ txtMotorACFases;
+	private: System::Windows::Forms::TextBox^ txtMotorACName;
 
 
 
 
-private: System::Windows::Forms::TextBox^ txtMotorACDescription;
+	private: System::Windows::Forms::TextBox^ txtMotorACDescription;
 
 
 
 	private: System::Windows::Forms::TabPage^ MotoresDCPage;
-private: System::Windows::Forms::TextBox^ txtMotorDCStock;
+	private: System::Windows::Forms::TextBox^ txtMotorDCStock;
 
 	private: System::Windows::Forms::Label^ label35;
-private: System::Windows::Forms::DataGridView^ dgvMotorDC;
+	private: System::Windows::Forms::DataGridView^ dgvMotorDC;
 
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn21;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn22;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn23;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn24;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ dataGridViewTextBoxColumn25;
-private: System::Windows::Forms::TextBox^ txtMotorDCMarca;
+	private: System::Windows::Forms::TextBox^ txtMotorDCMarca;
 
 	private: System::Windows::Forms::Label^ label86;
-private: System::Windows::Forms::Button^ UpdatePhotoMotorDC;
+	private: System::Windows::Forms::Button^ UpdatePhotoMotorDC;
 
 
 
 
-private: System::Windows::Forms::PictureBox^ pbMotorDCPhto;
+	private: System::Windows::Forms::PictureBox^ pbMotorDCPhto;
 
 	private: System::Windows::Forms::Label^ label90;
 	private: System::Windows::Forms::Label^ label92;
-private: System::Windows::Forms::TextBox^ txtMotorDCModel;
+	private: System::Windows::Forms::TextBox^ txtMotorDCModel;
 
 	private: System::Windows::Forms::Label^ label93;
-private: System::Windows::Forms::TextBox^ txtMotorDCMontaje;
+	private: System::Windows::Forms::TextBox^ txtMotorDCMontaje;
 
-private: System::Windows::Forms::TextBox^ txtMotorDCVelocidad;
+	private: System::Windows::Forms::TextBox^ txtMotorDCVelocidad;
 
 	private: System::Windows::Forms::Label^ label95;
-private: System::Windows::Forms::TextBox^ txtMotorDCVoltaje;
+	private: System::Windows::Forms::TextBox^ txtMotorDCVoltaje;
 
 	private: System::Windows::Forms::Label^ label96;
-private: System::Windows::Forms::TextBox^ txtMotorDCPotencia;
+	private: System::Windows::Forms::TextBox^ txtMotorDCPotencia;
 
 	private: System::Windows::Forms::Label^ label97;
 	private: System::Windows::Forms::Label^ label98;
 	private: System::Windows::Forms::Label^ label99;
-private: System::Windows::Forms::TextBox^ txtMotorDCPrecioUniario;
+	private: System::Windows::Forms::TextBox^ txtMotorDCPrecioUniario;
 
 	private: System::Windows::Forms::Label^ label100;
 	private: System::Windows::Forms::Label^ label101;
-private: System::Windows::Forms::TextBox^ txtMotorDCId;
-private: System::Windows::Forms::TextBox^ txtMotorDCName;
-private: System::Windows::Forms::TextBox^ txtMotorDescripcion;
+	private: System::Windows::Forms::TextBox^ txtMotorDCId;
+	private: System::Windows::Forms::TextBox^ txtMotorDCName;
+	private: System::Windows::Forms::TextBox^ txtMotorDescripcion;
 
 
 
-private: System::Windows::Forms::Button^ btnedittornillo;
-private: System::Windows::Forms::Button^ btndeletetornillo;
+	private: System::Windows::Forms::Button^ btnedittornillo;
+	private: System::Windows::Forms::Button^ btndeletetornillo;
 
 
-private: System::Windows::Forms::Button^ btnaddtornillo;
-private: System::Windows::Forms::Button^ btneditfaja;
-private: System::Windows::Forms::Button^ btndeletefaja;
+	private: System::Windows::Forms::Button^ btnaddtornillo;
+	private: System::Windows::Forms::Button^ btneditfaja;
+	private: System::Windows::Forms::Button^ btndeletefaja;
 
-private: System::Windows::Forms::Button^ btnaddfaja;
-private: System::Windows::Forms::Button^ editpoleastock;
-private: System::Windows::Forms::Button^ btndeletepoleastock;
-
-
-private: System::Windows::Forms::Button^ button8;
-private: System::Windows::Forms::Button^ btneditrodamiento;
-private: System::Windows::Forms::Button^ btndeleterodamiento;
+	private: System::Windows::Forms::Button^ btnaddfaja;
+	private: System::Windows::Forms::Button^ editpoleastock;
+	private: System::Windows::Forms::Button^ btndeletepoleastock;
 
 
-private: System::Windows::Forms::Button^ btnaddrodamiento;
-private: System::Windows::Forms::TextBox^ txtroscatornillo;
-private: System::Windows::Forms::Button^ btnEditMotorAC;
-private: System::Windows::Forms::Button^ btnDeteleMotorAC;
-
-private: System::Windows::Forms::Label^ label9;
+	private: System::Windows::Forms::Button^ button8;
+	private: System::Windows::Forms::Button^ btneditrodamiento;
+	private: System::Windows::Forms::Button^ btndeleterodamiento;
 
 
-private: System::Windows::Forms::TextBox^ txtpuntatornillo;
-private: System::Windows::Forms::Label^ label4;
+	private: System::Windows::Forms::Button^ btnaddrodamiento;
+	private: System::Windows::Forms::TextBox^ txtroscatornillo;
+	private: System::Windows::Forms::Button^ btnEditMotorAC;
+	private: System::Windows::Forms::Button^ btnDeteleMotorAC;
 
-private: System::Windows::Forms::Label^ label3;
-private: System::Windows::Forms::TextBox^ txtdescriptornillo;
-private: System::Windows::Forms::Label^ label2;
-
-private: System::Windows::Forms::Button^ button9;
-private: System::Windows::Forms::Button^ btnEditarMotorDC;
-private: System::Windows::Forms::Button^ btnDeleteMotorDC;
+	private: System::Windows::Forms::Label^ label9;
 
 
-private: System::Windows::Forms::Button^ btnAgregarMotorDC;
-private: System::Windows::Forms::TextBox^ txtproveedorMotorAC;
+	private: System::Windows::Forms::TextBox^ txtpuntatornillo;
+	private: System::Windows::Forms::Label^ label4;
 
-//private: System::Windows::Forms::Label^ label2;
-private: System::Windows::Forms::TextBox^ txtProveedorMotorDC;
-private: System::Windows::Forms::Label^ label5;
-	   //private: System::Windows::Forms::Label^ label3;
+	private: System::Windows::Forms::Label^ label3;
+	private: System::Windows::Forms::TextBox^ txtdescriptornillo;
+	private: System::Windows::Forms::Label^ label2;
+
+	private: System::Windows::Forms::Button^ button9;
+	private: System::Windows::Forms::Button^ btnEditarMotorDC;
+	private: System::Windows::Forms::Button^ btnDeleteMotorDC;
+
+
+	private: System::Windows::Forms::Button^ btnAgregarMotorDC;
+	private: System::Windows::Forms::TextBox^ txtproveedorMotorAC;
+
+		   //private: System::Windows::Forms::Label^ label2;
+	private: System::Windows::Forms::TextBox^ txtProveedorMotorDC;
+	private: System::Windows::Forms::Label^ label5;
+		   //private: System::Windows::Forms::Label^ label3;
 
 
 
@@ -624,7 +624,7 @@ private: System::Windows::Forms::Label^ label5;
 		/// <summary>
 		/// Variable del diseñador necesaria.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -3131,11 +3131,11 @@ private: System::Windows::Forms::Label^ label5;
 		}
 #pragma endregion
 	private: System::Void btnagregar_Click(System::Object^ sender, System::EventArgs^ e) {
-		
-			//(TRANSAACCION)
 
-		
-		 
+		//(TRANSAACCION)
+
+
+
 	}
 		   void showtornillo() {
 			   List <MechanicComponent^>^ tornilloxdatos = Service::Queryalltornillos();
@@ -3143,7 +3143,7 @@ private: System::Windows::Forms::Label^ label5;
 				   dgvtornillos->Rows->Clear();
 
 				   for (int i = 0; i < tornilloxdatos->Count; i++) {
-					   dgvtornillos->Rows->Add(gcnew array<String^> {"" + tornilloxdatos[i]->Id, tornilloxdatos[i]->Name, "" + tornilloxdatos[i]->Stock,  tornilloxdatos[i]->Proveedor, "" + tornilloxdatos[i]->UnitaryPrice });
+					   dgvtornillos->Rows->Add(gcnew array<String^> {"" + tornilloxdatos[i]->Id, tornilloxdatos[i]->Name, "" + tornilloxdatos[i]->Stock, tornilloxdatos[i]->Proveedor, "" + tornilloxdatos[i]->UnitaryPrice });
 				   }
 			   }
 		   }
@@ -3189,373 +3189,373 @@ private: System::Windows::Forms::Label^ label5;
 				   }
 			   }
 		   }
-private: System::Void btnEditar_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void btnEditar_Click(System::Object^ sender, System::EventArgs^ e) {
 
 
-	
-//(TRANSACCION)
-}
-private: System::Void btnEliminar_Click(System::Object^ sender, System::EventArgs^ e) {
-	//NO ES ELIMINAR (TRANSACCION)
-}
-private: System::Void tornillo_load(System::Object^ sender, System::EventArgs^ e) {
-	showtornillo();
-	Showfaja();
-	Showpolea();
-	Showrodamiento();
-}
-private: System::Void dgvtornillos_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-	int tornilloid = Int32::Parse(dgvtornillos->Rows[dgvtornillos->SelectedCells[0]->RowIndex]->Cells[0]->Value->ToString());
-	//int fajaid = Int32::Parse(dgvfajastock->Rows[dgvfajastock->SelectedCells[0]->RowIndex]->Cells[0]->Value->ToString());
-	MechanicComponent^ tornillo = Service::Queryalltornillosid(tornilloid);
-	//MechanicComponent^ faja = Service::Queryallfajasid(fajaid);
-	if (tornillo != nullptr) {
-		txtidtornillo->Text = Convert::ToString(tornillo->Id); // "" + robot->Id;
-		txttornilloname->Text = tornillo->Name;
-		txtTornillocantidad->Text = Convert::ToString(tornillo->Stock);
-		txtTornilloPrecioUnitario->Text = Convert::ToString(tornillo->UnitaryPrice);
-		txtrodamientoproveedor->Text = tornillo->Proveedor;
-		if (tornillo->Photo != nullptr) {
-			System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream(tornillo->Photo);
-			pbTornilloPhoto->Image = Image::FromStream(ms);
+
+		//(TRANSACCION)
+	}
+	private: System::Void btnEliminar_Click(System::Object^ sender, System::EventArgs^ e) {
+		//NO ES ELIMINAR (TRANSACCION)
+	}
+	private: System::Void tornillo_load(System::Object^ sender, System::EventArgs^ e) {
+		showtornillo();
+		Showfaja();
+		Showpolea();
+		Showrodamiento();
+	}
+	private: System::Void dgvtornillos_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+		int tornilloid = Int32::Parse(dgvtornillos->Rows[dgvtornillos->SelectedCells[0]->RowIndex]->Cells[0]->Value->ToString());
+		//int fajaid = Int32::Parse(dgvfajastock->Rows[dgvfajastock->SelectedCells[0]->RowIndex]->Cells[0]->Value->ToString());
+		MechanicComponent^ tornillo = Service::Queryalltornillosid(tornilloid);
+		//MechanicComponent^ faja = Service::Queryallfajasid(fajaid);
+		if (tornillo != nullptr) {
+			txtidtornillo->Text = Convert::ToString(tornillo->Id); // "" + robot->Id;
+			txttornilloname->Text = tornillo->Name;
+			txtTornillocantidad->Text = Convert::ToString(tornillo->Stock);
+			txtTornilloPrecioUnitario->Text = Convert::ToString(tornillo->UnitaryPrice);
+			txtrodamientoproveedor->Text = tornillo->Proveedor;
+			if (tornillo->Photo != nullptr) {
+				System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream(tornillo->Photo);
+				pbTornilloPhoto->Image = Image::FromStream(ms);
+			}
+			else {
+				pbTornilloPhoto->Image = nullptr;
+				pbTornilloPhoto->Invalidate();
+			}
+
+
 		}
-		else {
-			pbTornilloPhoto->Image = nullptr;
-			pbTornilloPhoto->Invalidate();
+
+	}
+
+
+	private: System::Void btnaddtornillo_Click(System::Object^ sender, System::EventArgs^ e) {
+		//BOTON PARA AGREGAR TORNILLOS
+		int idtornillo = Convert::ToInt32(txtidtornillo->Text);
+
+		String^ nametornillo = txttornilloname->Text;
+		//String^ descripciotornillon = txtdescriptornillo->Text;
+		String^ proveedortornillo = txtTornilloprovee->Text;
+		//String^ marcatornillo = txttornillomarca->Text;
+		//int codigotornillo = Convert::ToInt32(txtmodeltornillo->Text);
+		//String^ tipotornillo  = txtTornilloTipo->Text;
+		//int longitudtornillo = Convert::ToInt32(txtTornilloLongitud->Text);
+		//String^ puntatornillo = txtpuntatornillo->Text;
+	//	String^ materialtornillo = txtTornilloMaterial->Text;
+		//String^ tiporoscatornillo = txtroscatornillo->Text;
+		//int diametrotornillo = Convert::ToInt32(txtTornilloDiametroRosca->Text);
+		double preciounittornillo = Convert::ToInt32(txtTornilloPrecioUnitario->Text);
+		int cantidadtornillo = Convert::ToInt32(txtTornillocantidad->Text);
+		TornilloCliente^ tornillo = gcnew TornilloCliente();
+		tornillo->Id = idtornillo;
+		tornillo->Name = nametornillo;
+		//tornillo->Description = descripcion;
+		tornillo->Proveedor = proveedortornillo;
+		//tornillo->Model = codigotornillo;
+		//tornillo->Tipo = tipo;
+		//tornillo->Longitud = longitud;
+		//tornillo->Punta = puntatornillo;
+		//tornillo->Material = material;
+		//tornillo->Rosca = tiporoscatornillo;
+		//tornillo->DiametroRosca = diametro;
+		tornillo->UnitaryPrice = preciounittornillo;
+		tornillo->Stock = cantidadtornillo;
+		if (pbTornilloPhoto != nullptr && pbTornilloPhoto->Image != nullptr) {
+			System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream();
+			pbTornilloPhoto->Image->Save(ms, System::Drawing::Imaging::ImageFormat::Jpeg);
+			tornillo->Photo = ms->ToArray();
+		}
+		//FAJAS DATOS PARA EL GUI Y CRUD
+		Service::Addtornillos(tornillo);
+		showtornillo();
+	}
+	private: System::Void btnedittornillo_Click(System::Object^ sender, System::EventArgs^ e) {
+		//EDITAR TORNILLO
+		int idtornillo = Convert::ToInt32(txtidtornillo->Text);
+
+		String^ nametornillo = txttornilloname->Text;
+		//String^ descripcion = txtTornilloDescription->Text;
+		String^ proveedortornillo = txtTornilloprovee->Text;
+		//String^ marca = txtTornilloMarca->Text;
+		//int codigo = Convert::ToInt32(txtTornilloModel->Text);
+		//String^ tipo  = txtTornilloTipo->Text;
+		//int longitud = Convert::ToInt32(txtTornilloLongitud->Text);
+		//String^ punta = txtTornilloPunta->Text;
+		//String^ material = txtTornilloMaterial->Text;
+		//String^ tiporosca = txtTornilloTipoRosca->Text;
+		//int diametro = Convert::ToInt32(txtTornilloDiametroRosca->Text);
+		double preciounittornillo = Convert::ToInt32(txtTornilloPrecioUnitario->Text);
+		int cantidadtornillo = Convert::ToInt32(txtTornillocantidad->Text);
+		MechanicComponent^ tornillo = gcnew MechanicComponent();
+		tornillo->Id = idtornillo;
+		tornillo->Name = nametornillo;
+		//tornillo->Description = descripcion;
+		tornillo->Proveedor = proveedortornillo;
+		//tornillo->Model = codigo;
+		//tornillo->Tipo = tipo;
+		//tornillo->Longitud = longitud;
+		//tornillo->Punta = punta;
+		//tornillo->Material = material;
+		//tornillo->Rosca = tiporosca;
+		//tornillo->DiametroRosca = diametro;
+		tornillo->UnitaryPrice = preciounittornillo;
+		tornillo->Stock = cantidadtornillo;
+
+		if (pbTornilloPhoto != nullptr && pbTornilloPhoto->Image != nullptr) {
+			System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream();
+			pbTornilloPhoto->Image->Save(ms, System::Drawing::Imaging::ImageFormat::Jpeg);
+			tornillo->Photo = ms->ToArray();
+		}
+		Service::Updatetornillos(tornillo);
+
+		showtornillo();
+
+	}
+	private: System::Void btndeletetornillo_Click(System::Object^ sender, System::EventArgs^ e) {
+		//ELIMINAR TORNILLOS
+		int idtornillo = Convert::ToInt32(txtidtornillo->Text);
+		//int idfaja = Convert::ToInt32(txtidfajastock->Text);
+		Service::Deletetornillos(idtornillo);
+		//Service::Deletefajas(idfaja);
+		showtornillo();
+		//Showfaja();
+	}
+	private: System::Void btnaddfaja_Click(System::Object^ sender, System::EventArgs^ e) {
+		int idfaja = Convert::ToInt32(txtidfajastock->Text);
+		String^ namefaja = txtnamefajastock->Text;
+		String^ proveedorfaja = txtproveedorfaja->Text;
+		double preciounitfaja = Convert::ToInt32(txtpreciofajastock->Text);
+		int cantidadfaja = Convert::ToInt32(txtcantidadfaja->Text);
+		MechanicComponent^ faja = gcnew MechanicComponent();
+		faja->Id = idfaja;
+		faja->Name = namefaja;
+		faja->Proveedor = proveedorfaja;
+		faja->UnitaryPrice = preciounitfaja;
+		faja->Stock = cantidadfaja;
+
+
+		//	Service::Addtornillos(tornillo);
+		Service::Addfajas(faja);
+		//	showtornillo();
+		Showfaja();
+	}
+	private: System::Void btneditfaja_Click(System::Object^ sender, System::EventArgs^ e) {
+		int idfaja = Convert::ToInt32(txtidfajastock->Text);
+		String^ namefaja = txtnamefajastock->Text;
+		String^ proveedorfaja = txtproveedorfaja->Text;
+		double preciounitfaja = Convert::ToInt32(txtpreciofajastock->Text);
+		int cantidadfaja = Convert::ToInt32(txtcantidadfaja->Text);
+		MechanicComponent^ faja = gcnew MechanicComponent();
+		faja->Id = idfaja;
+		faja->Name = namefaja;
+		faja->Proveedor = proveedorfaja;
+		faja->UnitaryPrice = preciounitfaja;
+		faja->Stock = cantidadfaja;
+		Service::Updatefajas(faja);
+		Showfaja();
+	}
+	private: System::Void btndeletefaja_Click(System::Object^ sender, System::EventArgs^ e) {
+		//ELIMINAR FAJA
+		//int idtornillo = Convert::ToInt32(txtidtornillo->Text);
+		int idfaja = Convert::ToInt32(txtidfajastock->Text);
+		//Service::Deletetornillos(idtornillo);
+		Service::Deletefajas(idfaja);
+		//showtornillo();
+		Showfaja();
+	}
+	private: System::Void dgvfajastock_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+		//dgvFAJAS
+		int FAJAID = Int32::Parse(dgvfajastock->Rows[dgvfajastock->SelectedCells[0]->RowIndex]->Cells[0]->Value->ToString());
+		//int fajaid = Int32::Parse(dgvfajastock->Rows[dgvfajastock->SelectedCells[0]->RowIndex]->Cells[0]->Value->ToString());
+		MechanicComponent^ faja = Service::Queryallfajasid(FAJAID);
+		//MechanicComponent^ faja = Service::Queryallfajasid(fajaid);
+		if (faja != nullptr) {
+			txtidfajastock->Text = Convert::ToString(faja->Id); // "" + robot->Id;
+			txtnamefajastock->Text = faja->Name;
+			txtcantidadfaja->Text = Convert::ToString(faja->Stock);
+			txtpreciofajastock->Text = Convert::ToString(faja->UnitaryPrice);
+			txtproveedorfaja->Text = faja->Proveedor;
+
+		}
+	}
+	private: System::Void button8_Click(System::Object^ sender, System::EventArgs^ e) {
+
+		//AGREGAR POLEA
+		int idpolea = Convert::ToInt32(txtidpolea->Text);
+		String^ namepolea = txtpoleaname->Text;
+		String^ proveedorpolea = txtproveedorpolea->Text;
+		double preciounitpolea = Convert::ToInt32(txtpreciopolea->Text);
+		int cantidadpolea = Convert::ToInt32(txtpoleacantidad->Text);
+		MechanicComponent^ polea = gcnew MechanicComponent();
+		polea->Id = idpolea;
+		polea->Name = namepolea;
+		polea->Proveedor = proveedorpolea;
+		polea->UnitaryPrice = preciounitpolea;
+		polea->Stock = cantidadpolea;
+
+
+		//	Service::Addtornillos(tornillo);
+		Service::Addpoleas(polea);
+		Showpolea();
+
+	}
+	private: System::Void editpoleastock_Click(System::Object^ sender, System::EventArgs^ e) {
+		int idpolea = Convert::ToInt32(txtidpolea->Text);
+		String^ namepolea = txtpoleaname->Text;
+		String^ proveedorpolea = txtproveedorpolea->Text;
+		double preciounitpolea = Convert::ToInt32(txtpreciopolea->Text);
+		int cantidadpolea = Convert::ToInt32(txtpoleacantidad->Text);
+		MechanicComponent^ polea = gcnew MechanicComponent();
+		polea->Id = idpolea;
+		polea->Name = namepolea;
+		polea->Proveedor = proveedorpolea;
+		polea->UnitaryPrice = preciounitpolea;
+		polea->Stock = cantidadpolea;
+
+
+		//	Service::Addtornillos(tornillo);
+		Service::Updatepoleas(polea);
+		Showpolea();
+	}
+	private: System::Void btndeletepoleastock_Click(System::Object^ sender, System::EventArgs^ e) {
+		int idpolea = Convert::ToInt32(txtidpolea->Text);
+		//Service::Deletetornillos(idtornillo);
+		Service::Deletepoleas(idpolea);
+		//showtornillo();
+		Showpolea();
+	}
+	private: System::Void dgvpolea_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+		int POLEAID = Int32::Parse(dgvpolea->Rows[dgvpolea->SelectedCells[0]->RowIndex]->Cells[0]->Value->ToString());
+		//int fajaid = Int32::Parse(dgvfajastock->Rows[dgvfajastock->SelectedCells[0]->RowIndex]->Cells[0]->Value->ToString());
+		MechanicComponent^ polea = Service::Queryallfajasid(POLEAID);
+		//MechanicComponent^ faja = Service::Queryallfajasid(fajaid);
+		if (polea != nullptr) {
+			txtidpolea->Text = Convert::ToString(polea->Id); // "" + robot->Id;
+			txtpoleaname->Text = polea->Name;
+			txtpoleacantidad->Text = Convert::ToString(polea->Stock);
+			txtpreciopolea->Text = Convert::ToString(polea->UnitaryPrice);
+			txtproveedorpolea->Text = polea->Proveedor;
+
+
 		}
 
+	}
+	private: System::Void btnaddrodamiento_Click(System::Object^ sender, System::EventArgs^ e) {
+		//AGREGAR RODAMIENTO 
+		int idrodamiento = Convert::ToInt32(txtidrodamiento->Text);
+		String^ namerodamiento = txtrodamientoname->Text;
+		String^ proveedorrodamiento = txtrodamientoproveedor->Text;
+		double preciounitrodamiento = Convert::ToInt32(txtpreciorodamiento->Text);
+		int cantidadrodamiento = Convert::ToInt32(txtcantidadrodamiento->Text);
+		MechanicComponent^ rodamiento = gcnew MechanicComponent();
+		rodamiento->Id = idrodamiento;
+		rodamiento->Name = namerodamiento;
+		rodamiento->Proveedor = proveedorrodamiento;
+		rodamiento->UnitaryPrice = preciounitrodamiento;
+		rodamiento->Stock = cantidadrodamiento;
+
+
+		//	Service::Addtornillos(tornillo);
+		Service::Addrodamientos(rodamiento);
+		Showrodamiento();
+	}
+	private: System::Void btneditrodamiento_Click(System::Object^ sender, System::EventArgs^ e) {
+		int idrodamiento = Convert::ToInt32(txtidrodamiento->Text);
+		String^ namerodamiento = txtrodamientoname->Text;
+		String^ proveedorrodamiento = txtrodamientoproveedor->Text;
+		double preciounitrodamiento = Convert::ToInt32(txtpreciorodamiento->Text);
+		int cantidadrodamiento = Convert::ToInt32(txtcantidadrodamiento->Text);
+		MechanicComponent^ rodamiento = gcnew MechanicComponent();
+		rodamiento->Id = idrodamiento;
+		rodamiento->Name = namerodamiento;
+		rodamiento->Proveedor = proveedorrodamiento;
+		rodamiento->UnitaryPrice = preciounitrodamiento;
+		rodamiento->Stock = cantidadrodamiento;
+
+
+		//	Service::Addtornillos(tornillo);
+		Service::Updaterodamientos(rodamiento);
+		Showrodamiento();
 
 	}
-	
-}
-
-
-private: System::Void btnaddtornillo_Click(System::Object^ sender, System::EventArgs^ e) {
-	//BOTON PARA AGREGAR TORNILLOS
-	int idtornillo = Convert::ToInt32(txtidtornillo->Text);
-	 
-	String^ nametornillo = txttornilloname->Text;
-	//String^ descripciotornillon = txtdescriptornillo->Text;
-	String^ proveedortornillo = txtTornilloprovee->Text; 
-	//String^ marcatornillo = txttornillomarca->Text;
-	//int codigotornillo = Convert::ToInt32(txtmodeltornillo->Text);
-	//String^ tipotornillo  = txtTornilloTipo->Text;
-	//int longitudtornillo = Convert::ToInt32(txtTornilloLongitud->Text);
-	//String^ puntatornillo = txtpuntatornillo->Text;
-//	String^ materialtornillo = txtTornilloMaterial->Text;
-	//String^ tiporoscatornillo = txtroscatornillo->Text;
-	//int diametrotornillo = Convert::ToInt32(txtTornilloDiametroRosca->Text);
-	double preciounittornillo = Convert::ToInt32(txtTornilloPrecioUnitario->Text);
-	int cantidadtornillo = Convert::ToInt32(txtTornillocantidad->Text);
-	TornilloCliente^ tornillo = gcnew TornilloCliente();
-	tornillo->Id = idtornillo;
-	tornillo->Name = nametornillo;
-	//tornillo->Description = descripcion;
-	tornillo->Proveedor = proveedortornillo;
-	//tornillo->Model = codigotornillo;
-	//tornillo->Tipo = tipo;
-	//tornillo->Longitud = longitud;
-	//tornillo->Punta = puntatornillo;
-	//tornillo->Material = material;
-	//tornillo->Rosca = tiporoscatornillo;
-	//tornillo->DiametroRosca = diametro;
-	tornillo->UnitaryPrice = preciounittornillo;
-	tornillo->Stock = cantidadtornillo;
-	if (pbTornilloPhoto != nullptr && pbTornilloPhoto->Image != nullptr) {
-		System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream();
-		pbTornilloPhoto->Image->Save(ms, System::Drawing::Imaging::ImageFormat::Jpeg);
-		tornillo->Photo = ms->ToArray();
-	}
-	//FAJAS DATOS PARA EL GUI Y CRUD
-	Service::Addtornillos(tornillo);
-	showtornillo();
-}
-private: System::Void btnedittornillo_Click(System::Object^ sender, System::EventArgs^ e) {
-	//EDITAR TORNILLO
-	int idtornillo = Convert::ToInt32(txtidtornillo->Text);
-
-	String^ nametornillo = txttornilloname->Text;
-	//String^ descripcion = txtTornilloDescription->Text;
-	String^ proveedortornillo = txtTornilloprovee->Text;
-	//String^ marca = txtTornilloMarca->Text;
-	//int codigo = Convert::ToInt32(txtTornilloModel->Text);
-	//String^ tipo  = txtTornilloTipo->Text;
-	//int longitud = Convert::ToInt32(txtTornilloLongitud->Text);
-	//String^ punta = txtTornilloPunta->Text;
-	//String^ material = txtTornilloMaterial->Text;
-	//String^ tiporosca = txtTornilloTipoRosca->Text;
-	//int diametro = Convert::ToInt32(txtTornilloDiametroRosca->Text);
-	double preciounittornillo = Convert::ToInt32(txtTornilloPrecioUnitario->Text);
-	int cantidadtornillo = Convert::ToInt32(txtTornillocantidad->Text);
-	MechanicComponent^ tornillo = gcnew MechanicComponent();
-	tornillo->Id = idtornillo;
-	tornillo->Name = nametornillo;
-	//tornillo->Description = descripcion;
-	tornillo->Proveedor = proveedortornillo;
-	//tornillo->Model = codigo;
-	//tornillo->Tipo = tipo;
-	//tornillo->Longitud = longitud;
-	//tornillo->Punta = punta;
-	//tornillo->Material = material;
-	//tornillo->Rosca = tiporosca;
-	//tornillo->DiametroRosca = diametro;
-	tornillo->UnitaryPrice = preciounittornillo; 
-	tornillo->Stock = cantidadtornillo; 
-	
-	if (pbTornilloPhoto != nullptr && pbTornilloPhoto->Image != nullptr) {
-		System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream();
-		pbTornilloPhoto->Image->Save(ms, System::Drawing::Imaging::ImageFormat::Jpeg);
-		tornillo->Photo = ms->ToArray();
-	}
-	Service::Updatetornillos(tornillo);
-
-	showtornillo();
-	
-}
-private: System::Void btndeletetornillo_Click(System::Object^ sender, System::EventArgs^ e) {
-	//ELIMINAR TORNILLOS
-	int idtornillo = Convert::ToInt32(txtidtornillo->Text); 
-	//int idfaja = Convert::ToInt32(txtidfajastock->Text);
-	Service::Deletetornillos(idtornillo); 
-	//Service::Deletefajas(idfaja);
-	showtornillo(); 
-	//Showfaja();
-}
-private: System::Void btnaddfaja_Click(System::Object^ sender, System::EventArgs^ e) {
-	int idfaja = Convert::ToInt32(txtidfajastock->Text);
-	String^ namefaja = txtnamefajastock->Text;
-	String^ proveedorfaja = txtproveedorfaja->Text;
-	double preciounitfaja = Convert::ToInt32(txtpreciofajastock->Text);
-	int cantidadfaja = Convert::ToInt32(txtcantidadfaja->Text);
-	MechanicComponent^ faja = gcnew MechanicComponent();
-	faja->Id = idfaja;
-	faja->Name = namefaja;
-	faja->Proveedor = proveedorfaja;
-	faja->UnitaryPrice = preciounitfaja;
-	faja->Stock = cantidadfaja;
-	 
-
-	//	Service::Addtornillos(tornillo);
-	Service::Addfajas(faja);
-	//	showtornillo();
-	Showfaja();
-}
-private: System::Void btneditfaja_Click(System::Object^ sender, System::EventArgs^ e) {
-	int idfaja = Convert::ToInt32(txtidfajastock->Text);
-	String^ namefaja = txtnamefajastock->Text;
-	String^ proveedorfaja = txtproveedorfaja->Text;
-	double preciounitfaja = Convert::ToInt32(txtpreciofajastock->Text);
-	int cantidadfaja = Convert::ToInt32(txtcantidadfaja->Text);
-	MechanicComponent^ faja = gcnew MechanicComponent();
-	faja->Id = idfaja;
-	faja->Name = namefaja;
-	faja->Proveedor = proveedorfaja;
-	faja->UnitaryPrice = preciounitfaja;
-	faja->Stock = cantidadfaja;
-	Service::Updatefajas(faja);
-	Showfaja();
-}
-private: System::Void btndeletefaja_Click(System::Object^ sender, System::EventArgs^ e) {
-	//ELIMINAR FAJA
-	//int idtornillo = Convert::ToInt32(txtidtornillo->Text);
-	int idfaja = Convert::ToInt32(txtidfajastock->Text);
-	//Service::Deletetornillos(idtornillo);
-	Service::Deletefajas(idfaja);
-	//showtornillo();
-	Showfaja();
-}
-private: System::Void dgvfajastock_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-	//dgvFAJAS
-	int FAJAID = Int32::Parse(dgvfajastock->Rows[dgvfajastock->SelectedCells[0]->RowIndex]->Cells[0]->Value->ToString());
-	//int fajaid = Int32::Parse(dgvfajastock->Rows[dgvfajastock->SelectedCells[0]->RowIndex]->Cells[0]->Value->ToString());
-	MechanicComponent^ faja = Service::Queryallfajasid(FAJAID);
-	//MechanicComponent^ faja = Service::Queryallfajasid(fajaid);
-	if (faja != nullptr) {
-		txtidfajastock->Text = Convert::ToString(faja->Id); // "" + robot->Id;
-		txtnamefajastock->Text = faja->Name;
-		txtcantidadfaja->Text = Convert::ToString(faja->Stock);
-		txtpreciofajastock->Text = Convert::ToString(faja->UnitaryPrice);
-		txtproveedorfaja->Text = faja->Proveedor;
+	private: System::Void btndeleterodamiento_Click(System::Object^ sender, System::EventArgs^ e) {
+		int idroda = Convert::ToInt32(txtidrodamiento->Text);
+		//Service::Deletetornillos(idtornillo);
+		Service::Deleterodamientos(idroda);
+		//showtornillo();
+		Showrodamiento();
 
 	}
-}
-private: System::Void button8_Click(System::Object^ sender, System::EventArgs^ e) {
-
-	//AGREGAR POLEA
-	int idpolea = Convert::ToInt32(txtidpolea->Text);
-	String^ namepolea = txtpoleaname->Text;
-	String^ proveedorpolea = txtproveedorpolea->Text;
-	double preciounitpolea = Convert::ToInt32(txtpreciopolea->Text);
-	int cantidadpolea = Convert::ToInt32(txtpoleacantidad->Text);
-	MechanicComponent^ polea = gcnew MechanicComponent();
-	polea->Id = idpolea;
-	polea->Name = namepolea;
-	polea->Proveedor = proveedorpolea;
-	polea->UnitaryPrice = preciounitpolea;
-	polea->Stock = cantidadpolea;
+	private: System::Void dgvrodamiento_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+		int idroda = Int32::Parse(dgvrodamiento->Rows[dgvrodamiento->SelectedCells[0]->RowIndex]->Cells[0]->Value->ToString());
+		//int fajaid = Int32::Parse(dgvfajastock->Rows[dgvfajastock->SelectedCells[0]->RowIndex]->Cells[0]->Value->ToString());
+		MechanicComponent^ rodamiento = Service::Queryallrodamientosid(idroda);
+		//MechanicComponent^ faja = Service::Queryallfajasid(fajaid);
+		if (rodamiento != nullptr) {
+			txtidrodamiento->Text = Convert::ToString(rodamiento->Id); // "" + robot->Id;
+			txtrodamientoname->Text = rodamiento->Name;
+			txtcantidadrodamiento->Text = Convert::ToString(rodamiento->Stock);
+			txtpreciorodamiento->Text = Convert::ToString(rodamiento->UnitaryPrice);
+			txtrodamientoproveedor->Text = rodamiento->Proveedor;
 
 
-	//	Service::Addtornillos(tornillo);
-	Service::Addpoleas(polea);
-	Showpolea();
+		}
 
-}
-private: System::Void editpoleastock_Click(System::Object^ sender, System::EventArgs^ e) {
-	int idpolea = Convert::ToInt32(txtidpolea->Text);
-	String^ namepolea = txtpoleaname->Text;
-	String^ proveedorpolea = txtproveedorpolea->Text;
-	double preciounitpolea = Convert::ToInt32(txtpreciopolea->Text);
-	int cantidadpolea = Convert::ToInt32(txtpoleacantidad->Text);
-	MechanicComponent^ polea = gcnew MechanicComponent();
-	polea->Id = idpolea;
-	polea->Name = namepolea;
-	polea->Proveedor = proveedorpolea;
-	polea->UnitaryPrice = preciounitpolea;
-	polea->Stock = cantidadpolea;
+	}
+	private: System::Void button9_Click(System::Object^ sender, System::EventArgs^ e) {
+		//AGREGAR MOTOR AC
+		int idMotorAC = Convert::ToInt32(txtMotorACId->Text);
+		String^ NameMotorAC = txtMotorACName->Text;
+		String^ ProveedorMotorAC = txtproveedorMotorAC->Text;
+		double PrecioUnitarioMotorAC = Convert::ToInt32(txtMotorACPrecioUnitario->Text);
+		int CantidadMotorAC = Convert::ToInt32(txtMotorACCantidad->Text);
+		MotoresACCliente^ MotorAC = gcnew MotoresACCliente();
+
+		MotorAC->Id = idMotorAC;
+		MotorAC->Name = NameMotorAC;
+		MotorAC->Proveedor = ProveedorMotorAC;
+		MotorAC->UnitaryPrice = PrecioUnitarioMotorAC;
+		MotorAC->Stock = CantidadMotorAC;
 
 
-	//	Service::Addtornillos(tornillo);
-	Service::Updatepoleas(polea);
-	Showpolea();
-}
-private: System::Void btndeletepoleastock_Click(System::Object^ sender, System::EventArgs^ e) {
-	int idpolea = Convert::ToInt32(txtidpolea->Text);
-	//Service::Deletetornillos(idtornillo);
-	Service::Deletepoleas(idpolea);
-	//showtornillo();
-	Showpolea();
-}
-private: System::Void dgvpolea_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-	int POLEAID = Int32::Parse(dgvpolea->Rows[dgvpolea->SelectedCells[0]->RowIndex]->Cells[0]->Value->ToString());
-	//int fajaid = Int32::Parse(dgvfajastock->Rows[dgvfajastock->SelectedCells[0]->RowIndex]->Cells[0]->Value->ToString());
-	MechanicComponent^ polea = Service::Queryallfajasid(POLEAID);
-	//MechanicComponent^ faja = Service::Queryallfajasid(fajaid);
-	if (polea != nullptr) {
-		txtidpolea->Text = Convert::ToString(polea->Id); // "" + robot->Id;
-		txtpoleaname->Text = polea->Name;
-		txtpoleacantidad->Text = Convert::ToString(polea->Stock);
-		txtpreciopolea->Text = Convert::ToString(polea->UnitaryPrice);
-		txtproveedorpolea->Text = polea->Proveedor;
+		//	Service::Addtornillos(tornillo);
+		Service::Addrodamientos(MotorAC);
+		Showrodamiento();
+	}
+	private: System::Void btnEditMotorAC_Click(System::Object^ sender, System::EventArgs^ e) {
 
 
 	}
-
-}
-private: System::Void btnaddrodamiento_Click(System::Object^ sender, System::EventArgs^ e) {
-	//AGREGAR RODAMIENTO 
-	int idrodamiento = Convert::ToInt32(txtidrodamiento->Text);
-	String^ namerodamiento = txtrodamientoname->Text;
-	String^ proveedorrodamiento = txtrodamientoproveedor->Text;
-	double preciounitrodamiento = Convert::ToInt32(txtpreciorodamiento->Text);
-	int cantidadrodamiento = Convert::ToInt32(txtcantidadrodamiento->Text);
-	MechanicComponent^ rodamiento = gcnew MechanicComponent();
-	rodamiento->Id = idrodamiento;
-	rodamiento->Name = namerodamiento;
-	rodamiento->Proveedor = proveedorrodamiento;
-	rodamiento->UnitaryPrice = preciounitrodamiento;
-	rodamiento->Stock = cantidadrodamiento;
-
-
-	//	Service::Addtornillos(tornillo);
-	Service::Addrodamientos(rodamiento);
-	Showrodamiento();
-}
-private: System::Void btneditrodamiento_Click(System::Object^ sender, System::EventArgs^ e) {
-	int idrodamiento = Convert::ToInt32(txtidrodamiento->Text);
-	String^ namerodamiento = txtrodamientoname->Text;
-	String^ proveedorrodamiento = txtrodamientoproveedor->Text;
-	double preciounitrodamiento = Convert::ToInt32(txtpreciorodamiento->Text);
-	int cantidadrodamiento = Convert::ToInt32(txtcantidadrodamiento->Text);
-	MechanicComponent^ rodamiento = gcnew MechanicComponent();
-	rodamiento->Id = idrodamiento;
-	rodamiento->Name = namerodamiento;
-	rodamiento->Proveedor = proveedorrodamiento;
-	rodamiento->UnitaryPrice = preciounitrodamiento;
-	rodamiento->Stock = cantidadrodamiento;
-
-
-	//	Service::Addtornillos(tornillo);
-	Service::Updaterodamientos(rodamiento);
-	Showrodamiento();
-
-}
-private: System::Void btndeleterodamiento_Click(System::Object^ sender, System::EventArgs^ e) {
-	int idroda = Convert::ToInt32(txtidrodamiento->Text);
-	//Service::Deletetornillos(idtornillo);
-	Service::Deleterodamientos(idroda);
-	//showtornillo();
-	Showrodamiento();
-
-}
-private: System::Void dgvrodamiento_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-	int idroda = Int32::Parse(dgvrodamiento->Rows[dgvrodamiento->SelectedCells[0]->RowIndex]->Cells[0]->Value->ToString());
-	//int fajaid = Int32::Parse(dgvfajastock->Rows[dgvfajastock->SelectedCells[0]->RowIndex]->Cells[0]->Value->ToString());
-	MechanicComponent^ rodamiento = Service::Queryallrodamientosid(idroda);
-	//MechanicComponent^ faja = Service::Queryallfajasid(fajaid);
-	if (rodamiento != nullptr) {
-		txtidrodamiento->Text = Convert::ToString(rodamiento->Id); // "" + robot->Id;
-		txtrodamientoname->Text = rodamiento->Name;
-		txtcantidadrodamiento->Text = Convert::ToString(rodamiento->Stock);
-		txtpreciorodamiento->Text = Convert::ToString(rodamiento->UnitaryPrice);
-		txtrodamientoproveedor->Text = rodamiento->Proveedor;
-
+	private: System::Void btnDeteleMotorAC_Click(System::Object^ sender, System::EventArgs^ e) {
+		int IdMotorAC = Convert::ToInt32(txtMotorACId->Text);
+		//Service::Deletetornillos(idtornillo);
+		Service::DeleteMotorACStock(IdMotorAC);
+		//showtornillo();
+		ShowMotorAC();
+	}
+	private: System::Void btnAgregarMotorDC_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void btnEditarMotorDC_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void btnDeleteMotorDC_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void dgvMotorAC_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+	}
+	private: System::Void dgvMotorDC_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 
 	}
-
-}
-private: System::Void button9_Click(System::Object^ sender, System::EventArgs^ e) {
-	//AGREGAR MOTOR AC
-	int idMotorAC = Convert::ToInt32(txtMotorACId->Text);
-	String^ NameMotorAC = txtMotorACName->Text;
-	String^ ProveedorMotorAC = txtproveedorMotorAC->Text;
-	double PrecioUnitarioMotorAC = Convert::ToInt32(txtMotorACPrecioUnitario->Text);
-	int CantidadMotorAC = Convert::ToInt32(txtMotorACCantidad->Text);
-	MotoresACCliente^ MotorAC = gcnew MotoresACCliente();
-
-	MotorAC->Id = idMotorAC;
-	MotorAC->Name = NameMotorAC;
-	MotorAC->Proveedor = ProveedorMotorAC;
-	MotorAC->UnitaryPrice = PrecioUnitarioMotorAC;
-	MotorAC->Stock = CantidadMotorAC;
-
-
-	//	Service::Addtornillos(tornillo);
-	Service::Addrodamientos(MotorAC);
-	Showrodamiento();
-}
-private: System::Void btnEditMotorAC_Click(System::Object^ sender, System::EventArgs^ e) {
-
-
-}
-private: System::Void btnDeteleMotorAC_Click(System::Object^ sender, System::EventArgs^ e) {
-	int IdMotorAC = Convert::ToInt32(txtMotorACId->Text);
-	//Service::Deletetornillos(idtornillo);
-	Service::DeleteMotorACStock(IdMotorAC);
-	//showtornillo();
-	ShowMotorAC();
-}
-private: System::Void btnAgregarMotorDC_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void btnEditarMotorDC_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void btnDeleteMotorDC_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void dgvMotorAC_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-}
-private: System::Void dgvMotorDC_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-
-}
-private: System::Void btncancelar_Click(System::Object^ sender, System::EventArgs^ e) {
-	this->Close();
-}
-private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void btnEmpUpdatePhoto_Click(System::Object^ sender, System::EventArgs^ e) {
-	OpenFileDialog^ ofd = gcnew OpenFileDialog();
-	ofd->Filter = "Image Files (*.jpg;*.jpeg;)|*.jpg;*.jpeg;";
-	if (ofd->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
-		pbTornilloPhoto->Image = gcnew Bitmap(ofd->FileName);
+	private: System::Void btncancelar_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->Close();
 	}
-}
-};
+	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void btnEmpUpdatePhoto_Click(System::Object^ sender, System::EventArgs^ e) {
+		OpenFileDialog^ ofd = gcnew OpenFileDialog();
+		ofd->Filter = "Image Files (*.jpg;*.jpeg;)|*.jpg;*.jpeg;";
+		if (ofd->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
+			pbTornilloPhoto->Image = gcnew Bitmap(ofd->FileName);
+		}
+	}
+	};
 }

@@ -259,7 +259,7 @@ namespace MecaTrafiSystemGUIApp {
 				   AdminForm^ obj = gcnew AdminForm();
 				   obj->ShowDialog();
 
-					//this->Show();
+					this->Show();
 
 			   }
 			   else if (usercheck != nullptr) {

@@ -5,6 +5,8 @@
 #include "GeneratePurchase.h"
 #include "ReportesCompraAdmin.h"
 #include "StockForm.h"
+#include "ReportePedidos.h"
+#include "Salario.h"
 namespace MecaTrafiSystemGUIApp {
 
 	using namespace System;
@@ -13,8 +15,6 @@ namespace MecaTrafiSystemGUIApp {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-	using namespace MecaTrafiSystemModel;
-	using namespace MecaTrafiSystemService;
 
 	/// <summary>
 	/// Resumen de AdminForm
@@ -45,9 +45,7 @@ namespace MecaTrafiSystemGUIApp {
 	private: System::Windows::Forms::FlowLayoutPanel^ SlideBarContainer;
 	protected:
 
-	private: User^ user;
 	private: Random^ rand = gcnew Random();
-	private: AdminForm^ adminform;
 	private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel3;
 	private: System::Windows::Forms::Panel^ SliderBar;
 	private: System::Windows::Forms::Button^ btnPrincipal;
@@ -96,8 +94,7 @@ namespace MecaTrafiSystemGUIApp {
 			System::Windows::Forms::Button^ btnAgregarClientes;
 			System::Windows::Forms::Button^ btnComprarProductos;
 			System::Windows::Forms::Button^ BtnAgregarTask;
-			System::Windows::Forms::Button^ btn_GenerarCompra;
-			System::Windows::Forms::Button^ btn_Salir;
+			System::Windows::Forms::Button^ button1;
 			this->SlideBarContainer = (gcnew System::Windows::Forms::FlowLayoutPanel());
 			this->SliderBar = (gcnew System::Windows::Forms::Panel());
 			this->label1 = (gcnew System::Windows::Forms::Label());
@@ -112,8 +109,7 @@ namespace MecaTrafiSystemGUIApp {
 			btnAgregarClientes = (gcnew System::Windows::Forms::Button());
 			btnComprarProductos = (gcnew System::Windows::Forms::Button());
 			BtnAgregarTask = (gcnew System::Windows::Forms::Button());
-			btn_GenerarCompra = (gcnew System::Windows::Forms::Button());
-			btn_Salir = (gcnew System::Windows::Forms::Button());
+			button1 = (gcnew System::Windows::Forms::Button());
 			this->SlideBarContainer->SuspendLayout();
 			this->SliderBar->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->MenuBtn))->BeginInit();
@@ -177,7 +173,7 @@ namespace MecaTrafiSystemGUIApp {
 			btnComprarProductos->Name = L"btnComprarProductos";
 			btnComprarProductos->Size = System::Drawing::Size(258, 65);
 			btnComprarProductos->TabIndex = 16;
-			btnComprarProductos->Text = L"AGREGAR COMPRAS";
+			btnComprarProductos->Text = L"COMPRAR PRODUCTOS";
 			btnComprarProductos->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			btnComprarProductos->UseVisualStyleBackColor = false;
 			btnComprarProductos->Click += gcnew System::EventHandler(this, &AdminForm::btnComprarProductos_Click);
@@ -201,48 +197,27 @@ namespace MecaTrafiSystemGUIApp {
 			BtnAgregarTask->Text = L"REPORTES";
 			BtnAgregarTask->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
 			BtnAgregarTask->UseVisualStyleBackColor = false;
-			BtnAgregarTask->Click += gcnew System::EventHandler(this, &AdminForm::BtnAgregarTask_Click);
+			BtnAgregarTask->Click += gcnew System::EventHandler(this, &AdminForm::BtnAgregarTask_Click_1);
 			// 
-			// btn_GenerarCompra
+			// button1
 			// 
-			btn_GenerarCompra->AccessibleRole = System::Windows::Forms::AccessibleRole::None;
-			btn_GenerarCompra->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(242)), static_cast<System::Int32>(static_cast<System::Byte>(161)),
+			button1->AccessibleRole = System::Windows::Forms::AccessibleRole::None;
+			button1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(242)), static_cast<System::Int32>(static_cast<System::Byte>(161)),
 				static_cast<System::Int32>(static_cast<System::Byte>(84)));
-			btn_GenerarCompra->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
-			btn_GenerarCompra->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
-			btn_GenerarCompra->Font = (gcnew System::Drawing::Font(L"Yu Gothic", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			button1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
+			button1->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+			button1->Font = (gcnew System::Drawing::Font(L"Yu Gothic", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			btn_GenerarCompra->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			btn_GenerarCompra->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btn_GenerarCompra.Image")));
-			btn_GenerarCompra->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			btn_GenerarCompra->Location = System::Drawing::Point(732, 202);
-			btn_GenerarCompra->Name = L"btn_GenerarCompra";
-			btn_GenerarCompra->Size = System::Drawing::Size(258, 65);
-			btn_GenerarCompra->TabIndex = 18;
-			btn_GenerarCompra->Text = L"GENERAR COMPRA";
-			btn_GenerarCompra->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
-			btn_GenerarCompra->UseVisualStyleBackColor = false;
-			btn_GenerarCompra->Click += gcnew System::EventHandler(this, &AdminForm::button1_Click_1);
-			// 
-			// btn_Salir
-			// 
-			btn_Salir->AccessibleRole = System::Windows::Forms::AccessibleRole::None;
-			btn_Salir->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(242)), static_cast<System::Int32>(static_cast<System::Byte>(161)),
-				static_cast<System::Int32>(static_cast<System::Byte>(84)));
-			btn_Salir->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
-			btn_Salir->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
-			btn_Salir->Font = (gcnew System::Drawing::Font(L"Yu Gothic", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			btn_Salir->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			btn_Salir->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			btn_Salir->Location = System::Drawing::Point(1180, 672);
-			btn_Salir->Name = L"btn_Salir";
-			btn_Salir->Size = System::Drawing::Size(69, 30);
-			btn_Salir->TabIndex = 19;
-			btn_Salir->Text = L"SALIR";
-			btn_Salir->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
-			btn_Salir->UseVisualStyleBackColor = false;
-			btn_Salir->Click += gcnew System::EventHandler(this, &AdminForm::btn_Salir_Click);
+			button1->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
+			button1->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			button1->Location = System::Drawing::Point(1163, 630);
+			button1->Name = L"button1";
+			button1->Size = System::Drawing::Size(71, 33);
+			button1->TabIndex = 18;
+			button1->Text = L"SALIR";
+			button1->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
+			button1->UseVisualStyleBackColor = false;
+			button1->Click += gcnew System::EventHandler(this, &AdminForm::button1_Click_2);
 			// 
 			// SlideBarContainer
 			// 
@@ -381,9 +356,8 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(7, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1261, 714);
-			this->Controls->Add(btn_Salir);
-			this->Controls->Add(btn_GenerarCompra);
+			this->ClientSize = System::Drawing::Size(1261, 675);
+			this->Controls->Add(button1);
 			this->Controls->Add(BtnAgregarTask);
 			this->Controls->Add(btnComprarProductos);
 			this->Controls->Add(btnAgregarClientes);
@@ -392,11 +366,9 @@ namespace MecaTrafiSystemGUIApp {
 			this->Controls->Add(this->SlideBarContainer);
 			this->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
-			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->MaximumSize = System::Drawing::Size(1279, 722);
 			this->Name = L"AdminForm";
-			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"AdminForm";
 			this->Load += gcnew System::EventHandler(this, &AdminForm::AdminForm_Load);
 			this->SlideBarContainer->ResumeLayout(false);
@@ -483,8 +455,12 @@ namespace MecaTrafiSystemGUIApp {
 		ReportesCompraAdmin^ ReportesDeCompra = gcnew ReportesCompraAdmin();
 		ReportesDeCompra->ShowDialog();
 	}
-	private: System::Void btn_Salir_Click(System::Object^ sender, System::EventArgs^ e){
+	private: System::Void button1_Click_2(System::Object^ sender, System::EventArgs^ e) {
 		this->Close();
 	}
+private: System::Void BtnAgregarTask_Click_1(System::Object^ sender, System::EventArgs^ e) {
+	RobotsReportForm^ reporte = gcnew RobotsReportForm();
+	reporte->Show();
+}
 };
 }

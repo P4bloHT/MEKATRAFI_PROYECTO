@@ -54,7 +54,7 @@ namespace MecaTrafiSystemGUIApp {
 		/// <summary>
 		/// Variable del diseñador necesaria.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -234,16 +234,15 @@ namespace MecaTrafiSystemGUIApp {
 #pragma endregion
 	private: System::Void textBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
-private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-	this->Close();
+	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->Close();
+	}
+	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	}
+
+
+
+
+	};
 }
-private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-
-}
-	  
-
-
-
-};
-}
-  
