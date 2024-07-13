@@ -5,7 +5,7 @@ using namespace MecaTrafiSystemGUIApp;
 using namespace System::Windows::Forms;
 
 [STAThreadAttribute]
-int Main(array<String^>^ args) {
+int Main() {
 
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);

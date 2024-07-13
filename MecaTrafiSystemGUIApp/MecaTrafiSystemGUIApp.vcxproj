@@ -78,38 +78,46 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\Descargas\ZBarWin64-master\ZBarWin64-master\include;D:\Descargas\opencv\build\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalDependencies />
+      <AdditionalDependencies>opencv_world470d.lib;libzbar64-0.lib</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
       <EntryPointSymbol>Main</EntryPointSymbol>
+      <AdditionalLibraryDirectories>D:\Descargas\ZBarWin64-master\ZBarWin64-master\lib;D:\Descargas\opencv\build\x64\vc16\lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\Descargas\ZBarWin64-master\ZBarWin64-master\include;D:\Descargas\opencv\build\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalDependencies />
+      <AdditionalDependencies>opencv_world470d.lib;libzbar64-0.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:\Descargas\ZBarWin64-master\ZBarWin64-master\lib;D:\Descargas\opencv\build\x64\vc16\lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\Descargas\ZBarWin64-master\ZBarWin64-master\include;D:\Descargas\opencv\build\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalDependencies />
+      <AdditionalDependencies>opencv_world470.lib;libzbar64-0.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:\Descargas\ZBarWin64-master\ZBarWin64-master\lib;D:\Descargas\opencv\build\x64\vc16\lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\Descargas\ZBarWin64-master\ZBarWin64-master\include;D:\Descargas\opencv\build\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalDependencies />
+      <AdditionalDependencies>opencv_world470.lib;libzbar64-0.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:\Descargas\ZBarWin64-master\ZBarWin64-master\lib;D:\Descargas\opencv\build\x64\vc16\lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -151,6 +159,7 @@
     <ClCompile Include="Poleaconpiñon.cpp" />
     <ClCompile Include="Poleasinpiñon.cpp" />
     <ClCompile Include="PurchaseSearchForm.cpp" />
+    <ClCompile Include="QR.cpp" />
     <ClCompile Include="Reclamar.cpp" />
     <ClCompile Include="ReportePedidos.cpp" />
     <ClCompile Include="Reportes.cpp" />
@@ -231,6 +240,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="PurchaseSearchForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="QR.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Reclamar.h">
@@ -358,6 +370,9 @@
     <EmbeddedResource Include="PurchaseSearchForm.resx">
       <DependentUpon>PurchaseSearchForm.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="QR.resx">
+      <DependentUpon>QR.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reclamar.resx">
       <DependentUpon>Reclamar.h</DependentUpon>
     </EmbeddedResource>
@@ -427,6 +442,9 @@
     <EmbeddedResource Include="VerMotores.resx">
       <DependentUpon>VerMotores.h</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

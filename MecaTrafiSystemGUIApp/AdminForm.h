@@ -7,6 +7,7 @@
 #include "StockForm.h"
 #include "ReportePedidos.h"
 #include "Salario.h"
+#include "QR.h"
 namespace MecaTrafiSystemGUIApp {
 
 	using namespace System;
@@ -62,6 +63,7 @@ namespace MecaTrafiSystemGUIApp {
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Timer^ SliderbarTimer;
 	private: System::Windows::Forms::Button^ btnAgregarPersonal;
+	private: System::Windows::Forms::Button^ button1;
 
 
 
@@ -94,7 +96,7 @@ namespace MecaTrafiSystemGUIApp {
 			System::Windows::Forms::Button^ btnAgregarClientes;
 			System::Windows::Forms::Button^ btnComprarProductos;
 			System::Windows::Forms::Button^ BtnAgregarTask;
-			System::Windows::Forms::Button^ button1;
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->SlideBarContainer = (gcnew System::Windows::Forms::FlowLayoutPanel());
 			this->SliderBar = (gcnew System::Windows::Forms::Panel());
 			this->label1 = (gcnew System::Windows::Forms::Label());
@@ -109,7 +111,6 @@ namespace MecaTrafiSystemGUIApp {
 			btnAgregarClientes = (gcnew System::Windows::Forms::Button());
 			btnComprarProductos = (gcnew System::Windows::Forms::Button());
 			BtnAgregarTask = (gcnew System::Windows::Forms::Button());
-			button1 = (gcnew System::Windows::Forms::Button());
 			this->SlideBarContainer->SuspendLayout();
 			this->SliderBar->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->MenuBtn))->BeginInit();
@@ -201,23 +202,23 @@ namespace MecaTrafiSystemGUIApp {
 			// 
 			// button1
 			// 
-			button1->AccessibleRole = System::Windows::Forms::AccessibleRole::None;
-			button1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(242)), static_cast<System::Int32>(static_cast<System::Byte>(161)),
+			this->button1->AccessibleRole = System::Windows::Forms::AccessibleRole::None;
+			this->button1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(242)), static_cast<System::Int32>(static_cast<System::Byte>(161)),
 				static_cast<System::Int32>(static_cast<System::Byte>(84)));
-			button1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
-			button1->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
-			button1->Font = (gcnew System::Drawing::Font(L"Yu Gothic", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->button1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
+			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+			this->button1->Font = (gcnew System::Drawing::Font(L"Yu Gothic", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			button1->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
-			button1->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
-			button1->Location = System::Drawing::Point(1163, 630);
-			button1->Name = L"button1";
-			button1->Size = System::Drawing::Size(71, 33);
-			button1->TabIndex = 18;
-			button1->Text = L"SALIR";
-			button1->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
-			button1->UseVisualStyleBackColor = false;
-			button1->Click += gcnew System::EventHandler(this, &AdminForm::button1_Click_2);
+			this->button1->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
+			this->button1->ImageAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			this->button1->Location = System::Drawing::Point(1163, 630);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(71, 33);
+			this->button1->TabIndex = 18;
+			this->button1->Text = L"SALIR";
+			this->button1->TextAlign = System::Drawing::ContentAlignment::MiddleRight;
+			this->button1->UseVisualStyleBackColor = false;
+			this->button1->Click += gcnew System::EventHandler(this, &AdminForm::button1_Click_2);
 			// 
 			// SlideBarContainer
 			// 
@@ -357,7 +358,7 @@ namespace MecaTrafiSystemGUIApp {
 			this->AutoScaleDimensions = System::Drawing::SizeF(7, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1261, 675);
-			this->Controls->Add(button1);
+			this->Controls->Add(this->button1);
 			this->Controls->Add(BtnAgregarTask);
 			this->Controls->Add(btnComprarProductos);
 			this->Controls->Add(btnAgregarClientes);
@@ -459,7 +460,7 @@ namespace MecaTrafiSystemGUIApp {
 		this->Close();
 	}
 private: System::Void BtnAgregarTask_Click_1(System::Object^ sender, System::EventArgs^ e) {
-	RobotsReportForm^ reporte = gcnew RobotsReportForm();
+	Form1^ reporte = gcnew Form1();
 	reporte->Show();
 }
 };

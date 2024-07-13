@@ -147,6 +147,9 @@
     <ClCompile Include="MainFormManager.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="QR.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AdminForm.h">
@@ -278,6 +281,9 @@
     <ClInclude Include="MainFormManager.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="QR.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AdminForm.resx">
@@ -391,5 +397,8 @@
     <EmbeddedResource Include="VerMotores.resx">
       <Filter>Archivos de recursos</Filter>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>
